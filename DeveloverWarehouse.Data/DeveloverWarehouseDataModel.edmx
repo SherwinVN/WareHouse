@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DeveloverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Develover.dbo.grid' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="grid">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="ten" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GridColumns">
+          <Key>
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Model" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Caption" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="Width" Type="tinyint" Nullable="false" />
+          <Property Name="ChildModel" Type="varchar" MaxLength="64" />
+          <Property Name="KeyMember" Type="varchar" MaxLength="64" />
+          <Property Name="ValueMember" Type="varchar" MaxLength="64" />
+          <Property Name="DisplayMember" Type="varchar" MaxLength="64" />
+          <Property Name="NullText" Type="nvarchar" MaxLength="256" />
+          <Property Name="DataSource" Type="nvarchar(max)" />
+          <Property Name="OrderNo" Type="tinyint" Nullable="false" />
+          <Property Name="AllowFocus" Type="bit" Nullable="false" />
+          <Property Name="AllowEdit" Type="bit" Nullable="false" />
+          <Property Name="Visible" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menus">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="GroupId" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Caption" Type="nvarchar" MaxLength="256" />
+          <Property Name="Icon" Type="varchar" MaxLength="128" />
+          <Property Name="Tag" Type="varchar" MaxLength="128" />
+          <Property Name="Default" Type="bit" />
+          <Property Name="Password" Type="varchar" MaxLength="256" />
+          <Property Name="Level" Type="tinyint" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="GroupId" Type="varchar" MaxLength="8" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Master" Type="varchar" MaxLength="16" />
+          <Property Name="Detail" Type="varchar" MaxLength="16" />
+          <Property Name="Tag" Type="varchar" MaxLength="128" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Options">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Default" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="System" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="128" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="UOMId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="Origin" Type="nvarchar" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="512" />
+          <Property Name="Link" Type="varchar" MaxLength="256" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="SKU" Type="varchar" MaxLength="128" />
+          <Property Name="AlterNote" Type="nvarchar" MaxLength="256" />
+          <Property Name="DefaultLocationId" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DeveloverModelStoreContainer">
+          <EntitySet Name="GridColumns" EntityType="Self.GridColumns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menus" EntityType="Self.Menus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Options" EntityType="Self.Options" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="grid" EntityType="Self.grid" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [grid].[id] AS [id], 
+    [grid].[ten] AS [ten]
+    FROM [dbo].[grid] AS [grid]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DeveloverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DeveloverEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Menus" EntityType="DeveloverModel.Menu" />
+          <EntitySet Name="Modules" EntityType="DeveloverModel.Module" />
+          <EntitySet Name="Options" EntityType="DeveloverModel.Option" />
+          <EntitySet Name="Products" EntityType="DeveloverModel.Product" />
+          <EntitySet Name="grids" EntityType="DeveloverModel.grid" />
+          <EntitySet Name="GridColumns" EntityType="DeveloverModel.GridColumn" />
+        </EntityContainer>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="GroupId" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Caption" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Tag" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Default" Type="Boolean" />
+          <Property Name="Password" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Level" Type="Byte" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="GroupId" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Master" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Detail" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <Property Name="Tag" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Option">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Default" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="System" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UOMId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="Origin" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SKU" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="AlterNote" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultLocationId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="grid">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="ten" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GridColumn">
+          <Key>
+            <PropertyRef Name="Model" />
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Model" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="Caption" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="Width" Type="Byte" Nullable="false" />
+          <Property Name="ChildModel" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="KeyMember" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="ValueMember" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="DisplayMember" Type="String" MaxLength="64" FixedLength="false" Unicode="false" />
+          <Property Name="NullText" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="DataSource" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNo" Type="Byte" Nullable="false" />
+          <Property Name="AllowFocus" Type="Boolean" Nullable="false" />
+          <Property Name="AllowEdit" Type="Boolean" Nullable="false" />
+          <Property Name="Visible" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DeveloverModelStoreContainer" CdmEntityContainer="DeveloverEntities">
+          <EntitySetMapping Name="Menus">
+            <EntityTypeMapping TypeName="DeveloverModel.Menu">
+              <MappingFragment StoreEntitySet="Menus">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Default" ColumnName="Default" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="DeveloverModel.Module">
+              <MappingFragment StoreEntitySet="Modules">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Tag" ColumnName="Tag" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Master" ColumnName="Master" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Options">
+            <EntityTypeMapping TypeName="DeveloverModel.Option">
+              <MappingFragment StoreEntitySet="Options">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="System" ColumnName="System" />
+                <ScalarProperty Name="Default" ColumnName="Default" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DeveloverModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="DefaultLocationId" ColumnName="DefaultLocationId" />
+                <ScalarProperty Name="AlterNote" ColumnName="AlterNote" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Origin" ColumnName="Origin" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="UOMId" ColumnName="UOMId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grids">
+            <EntityTypeMapping TypeName="DeveloverModel.grid">
+              <MappingFragment StoreEntitySet="grid">
+                <ScalarProperty Name="ten" ColumnName="ten" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GridColumns">
+            <EntityTypeMapping TypeName="DeveloverModel.GridColumn">
+              <MappingFragment StoreEntitySet="GridColumns">
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
+                <ScalarProperty Name="AllowEdit" ColumnName="AllowEdit" />
+                <ScalarProperty Name="AllowFocus" ColumnName="AllowFocus" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="DataSource" ColumnName="DataSource" />
+                <ScalarProperty Name="NullText" ColumnName="NullText" />
+                <ScalarProperty Name="DisplayMember" ColumnName="DisplayMember" />
+                <ScalarProperty Name="ValueMember" ColumnName="ValueMember" />
+                <ScalarProperty Name="KeyMember" ColumnName="KeyMember" />
+                <ScalarProperty Name="ChildModel" ColumnName="ChildModel" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6CC233F-2578-4170-99D9-CCA8CCC50CC7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Develover.GUI</RootNamespace>
+    <AssemblyName>Develover.GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\DeveloverGridControlHandler.cs" />
+    <Compile Include="Controls\DeveloverGridViewInfo.cs" />
+    <Compile Include="Controls\DeveloverGridViewInfoRegistrator.cs" />
+    <Compile Include="Controls\DeveloverSplitterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditAutoComplete.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditCode.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditNumber.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditReadOnly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditPassword.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ISupportRefresh.cs" />
+    <Compile Include="Forms\DeveloverCatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeveloverCatalogForm.Designer.cs">
+      <DependentUpon>DeveloverCatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeveloverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IDeveloverComponent.cs" />
+    <Compile Include="Controls\DeveloverSeparatorControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverBarCodeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverBreadCrumbEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverButtonEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverCalcEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverCalendarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverCameraControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverCheckButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverCheckedComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverCheckEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverCheckedListBoxControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverComboBoxEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverDateEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverDropDownButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverGridControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverGridLookUpEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverHyperLinkEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverHyperlinkLabelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverImageEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverImageSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverLabelControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverListBoxControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverLookUpEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverMarqueeProgressBarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverMemoEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverPictureEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverPopupGalleryEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverProgressBarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverProgressPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverRadioGroup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverRangeTrackBarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverSearchControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverSimpleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTimeEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverToggleSwitch.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTrackBarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverGroupControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverXtraTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverZoomTrackBarControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IDeveloverControl.cs" />
+    <Compile Include="IDeveloverFormChild.cs" />
+    <Compile Include="IDeveloverFormParent.cs" />
+    <Compile Include="IDeveloverForm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryItems\DeveloverRepositoryItemCalcEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RepositoryItems\DeveloverRepositoryItemCheckEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RepositoryItems\DeveloverRepositoryItemComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RepositoryItems\DeveloverRepositoryItemDateEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RepositoryItems\DeveloverRepositoryItemGridLookUpEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RepositoryItems\DeveloverRepositoryItemTextEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RepositoryItems\DeveloverRepositoryItemTimeEdit.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Develover\Develover.csproj">
+      <Project>{d37491eb-9a4a-4873-90ad-feb893256d97}</Project>
+      <Name>Develover</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\DeveloverCatalogForm.resx">
+      <DependentUpon>DeveloverCatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
