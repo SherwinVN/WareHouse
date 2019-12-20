@@ -335,8 +335,9 @@ namespace Develover.Core
                             value = command.ExecuteScalar();
                             transaction.Commit();
                         }
-                        catch
+                        catch(Exception ex)
                         {
+
                             value = null;
                             transaction.Rollback();
                         }

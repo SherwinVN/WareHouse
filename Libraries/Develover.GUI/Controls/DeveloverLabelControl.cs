@@ -4,5 +4,8 @@ namespace Develover.GUI.Controls
 {
     public class DeveloverLabelControl : LabelControl, IDeveloverControl
     {
+        public DeveloverLabelControl()
+        {
+        }
     }
 }

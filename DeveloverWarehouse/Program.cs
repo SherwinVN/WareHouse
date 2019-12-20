@@ -17,6 +17,7 @@ namespace DeveloverWarehouse
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
+
         }
     }
 }

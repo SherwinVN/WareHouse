@@ -52,17 +52,17 @@
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.labelCopyright.Location = new System.Drawing.Point(23, 286);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(47, 13);
+            this.labelCopyright.Size = new System.Drawing.Size(112, 13);
             this.labelCopyright.TabIndex = 6;
-            this.labelCopyright.Text = "Copyright";
+            this.labelCopyright.Text = "Copyright © Develover";
             // 
             // labelStatus
             // 
             this.labelStatus.Location = new System.Drawing.Point(23, 206);
             this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(50, 13);
+            this.labelStatus.Size = new System.Drawing.Size(99, 13);
             this.labelStatus.TabIndex = 7;
-            this.labelStatus.Text = "Starting...";
+            this.labelStatus.Text = "Đang tải hệ thống...";
             // 
             // peImage
             // 
@@ -80,14 +80,16 @@
             // 
             // peLogo
             // 
-            this.peLogo.Location = new System.Drawing.Point(278, 266);
+            this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
+            this.peLogo.Location = new System.Drawing.Point(337, 249);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
             this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.peLogo.Properties.Appearance.Options.UseBackColor = true;
             this.peLogo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peLogo.Properties.ShowMenu = false;
-            this.peLogo.Size = new System.Drawing.Size(160, 48);
+            this.peLogo.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.peLogo.Size = new System.Drawing.Size(101, 65);
             this.peLogo.TabIndex = 8;
             // 
             // StartingForm
@@ -115,7 +117,7 @@
         private DevExpress.XtraEditors.MarqueeProgressBarControl progressBarControl;
         private DevExpress.XtraEditors.LabelControl labelCopyright;
         private DevExpress.XtraEditors.LabelControl labelStatus;
-        private DevExpress.XtraEditors.PictureEdit peLogo;
         private DevExpress.XtraEditors.PictureEdit peImage;
+        private DevExpress.XtraEditors.PictureEdit peLogo;
     }
 }

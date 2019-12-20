@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DeveloverWarehouse.StartingForm), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             this.repositoryItemToggleSwitch1 = new DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch();
             this.toolbarControl = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
             this.toolbarManager = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
@@ -419,6 +419,7 @@
             this._010100.Id = 1;
             this._010100.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010100.ImageOptions.SvgImage")));
             this._010100.Name = "_010100";
+            this._010100.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010100_ItemClick);
             // 
             // _010200
             // 
@@ -426,6 +427,7 @@
             this._010200.Id = 2;
             this._010200.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010200.ImageOptions.SvgImage")));
             this._010200.Name = "_010200";
+            this._010200.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010200_ItemClick);
             // 
             // _010300
             // 
@@ -829,13 +831,13 @@
             this.bbt_statusconnect.Id = 76;
             this.bbt_statusconnect.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbt_statusconnect.ImageOptions.SvgImage")));
             this.bbt_statusconnect.Name = "bbt_statusconnect";
-            toolTipTitleItem1.Text = "Status Connetion";
-            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Click to reconnection";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.bbt_statusconnect.SuperTip = superToolTip1;
+            toolTipTitleItem5.Text = "Status Connetion";
+            toolTipItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem5.LeftIndent = 6;
+            toolTipItem5.Text = "Click to reconnection";
+            superToolTip5.Items.Add(toolTipTitleItem5);
+            superToolTip5.Items.Add(toolTipItem5);
+            this.bbt_statusconnect.SuperTip = superToolTip5;
             // 
             // barStaticItem1
             // 
@@ -884,6 +886,7 @@
             this.Controls.Add(this.barDockBottom);
             this.Controls.Add(this.barDockTop);
             this.Controls.Add(this.toolbarControl);
+            this.IconOptions.Image = global::DeveloverWarehouse.Properties.Resources.icon;
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "Main";

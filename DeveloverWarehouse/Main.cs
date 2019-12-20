@@ -1,6 +1,9 @@
 ﻿using Develover.GUI;
+using Develover.GUI.OverideClass;
+using Develover.Utilities;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.ToolbarForm;
+using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
 using System;
 using System.Threading.Tasks;
@@ -10,12 +13,16 @@ namespace DeveloverWarehouse
 {
     public partial class Main : ToolbarForm, IDeveloverFormParent
     {
+
+        Login login;
         public Main()
         {
+
             InitializeComponent();
             this.Text += " - Develover Software Co., Ltd.";
             toolbarManager.ItemClick += ToolbarManager_ItemClick;
-            
+
+
         }
 
         Task<IDeveloverFormChild> LoadForm(object sender)
@@ -27,6 +34,10 @@ namespace DeveloverWarehouse
 
             if (!btn.Name.StartsWith("_"))
                 return Task.FromResult<IDeveloverFormChild>(null);
+
+            if (btn.Name.StartsWith("_1"))
+                return Task.FromResult<IDeveloverFormChild>(null);
+
 
             if (btn.Tag == null)
                 return Task.FromResult<IDeveloverFormChild>(null);
@@ -51,7 +62,7 @@ namespace DeveloverWarehouse
 
         private async void ToolbarManager_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-                SplashScreenManager.CloseForm(false);
+            SplashScreenManager.CloseForm(false);
 
             SplashScreenManager.ShowForm(typeof(LoadingForm));
             IDeveloverFormChild form = await LoadForm(e.Item);
@@ -61,7 +72,10 @@ namespace DeveloverWarehouse
                 SplashScreenManager.CloseForm(false);
                 return;
             }
-                for (int i = 0; i < MdiChildren.Length; i++)
+
+            if (!DeveloverOptions.sysdel.StatusLogin) return;
+
+            for (int i = 0; i < MdiChildren.Length; i++)
             {
                 IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
                 if (f.GetType().FullName == form.GetType().FullName)
@@ -79,6 +93,8 @@ namespace DeveloverWarehouse
 
         private void Main_Load(object sender, System.EventArgs e)
         {
+            login = new Login();
+            login.ShowDialog();
         }
 
         public Task SetStatusAsync(string message)
@@ -121,6 +137,36 @@ namespace DeveloverWarehouse
             var form = new Form1();
             form.MdiParent = this;
             form.Show();
+        }
+
+        private void _010100_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (!DeveloverOptions.sysdel.StatusLogin)
+                login.ShowDialog();
+        }
+
+        private void _010200_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (DeveloverOptions.sysdel.StatusLogin)
+            {
+                if (MdiChildren.Length > 0)
+                {
+                    DialogResult dialogResult = DelMessageBox.DelMessageBoxYNO("Hiện có phiếu đang mở bạn có muốn đóng tất cả phiếu?", MessageBoxDefaultButton.Button1);
+                    if (dialogResult == DialogResult.Cancel) return;
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        MessageBox.Show(MdiChildren.Length.ToString());
+                        for (int i = 0; i < MdiChildren.Length; i++)
+                        {
+                            IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[0];
+                            f.Close();
+                            i--;
+                        }
+                    }
+                }
+                DeveloverOptions.sysdel.StatusLogin = false;
+                login.ShowDialog();
+            }
         }
     }
 }
