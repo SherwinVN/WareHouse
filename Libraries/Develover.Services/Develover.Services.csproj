@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -67,6 +68,10 @@
     <ProjectReference Include="..\Develover.GUI\Develover.GUI.csproj">
       <Project>{c6cc233f-2578-4170-99d9-cca8ccc50cc7}</Project>
       <Name>Develover.GUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Develover.Utilities\Develover.Utilities.csproj">
+      <Project>{6DC6DE96-E1B3-433D-8358-88EE3835DEF8}</Project>
+      <Name>Develover.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Develover\Develover.csproj">
       <Project>{d37491eb-9a4a-4873-90ad-feb893256d97}</Project>

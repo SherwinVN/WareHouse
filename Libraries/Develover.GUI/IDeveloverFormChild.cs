@@ -10,6 +10,8 @@ namespace Develover.GUI
 
         void Show();
 
+        void Hide();
+
         void Activate();
 
         void Close();

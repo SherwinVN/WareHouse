@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Develover.Services;
 using Develover.Utilities;
+using Develover.Core;
 
 namespace DeveloverWarehouse
 {
@@ -23,18 +24,28 @@ namespace DeveloverWarehouse
 
         private void butLogin_Click(object sender, EventArgs e)
         {
-            flogin.UserName = txtUserName.Text;
+
+            DeveloverOptions.StatusLogins.Username = txtUserName.Text;
+            DeveloverOptions.StatusLogins.Password = txtPassWord.Text;
+            DeveloverOptions.StatusLogins.RememberPassword = chkGhiNhoDangNhap.Checked;
+
+            flogin.CheckLicense();
+            flogin.GetInfoServer();
+
+            SqlDataProvider sqlDataProvider = new SqlDataProvider();
+            if (!sqlDataProvider.CheckLogin() || !sqlDataProvider.ChangeDataBase())
+            {
+                Setting setting = new Setting();
+                setting.ShowDialog();
+            }
+
+            flogin.UserName = txtUserName.Text.ToLower();
             flogin.PassWord = txtPassWord.Text;
             flogin.RememberStatus = chkGhiNhoDangNhap.Checked;
 
             if (flogin.Login())
             {
                 this.Hide();
-                DeveloverOptions.sysdel.StatusLogin = true;
-                DeveloverOptions.InforUser.Username = txtUserName.Text;
-                DeveloverOptions.InforUser.Name = "DEV";
-                DeveloverOptions.InforUser.Permission =  "Administator";
-
             }
             else
             {
@@ -52,8 +63,15 @@ namespace DeveloverWarehouse
 
         private void Login_Load(object sender, EventArgs e)
         {
-            txtPassWord.Text = "";
-            txtUserName.Text = DeveloverOptions.InforUser.Username;
+            if (!flogin.checkRegistryKey())
+            {
+                Setting setting = new Setting();
+                setting.ShowDialog();
+            }
+            flogin.GetInfoUser();
+            chkGhiNhoDangNhap.Checked = DeveloverOptions.StatusLogins.RememberPassword;
+            txtUserName.Text = DeveloverOptions.StatusLogins.Username;
+            txtPassWord.Text = DeveloverOptions.StatusLogins.Password;
             txtUserName.Focus();
         }
     }

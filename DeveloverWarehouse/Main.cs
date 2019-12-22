@@ -13,16 +13,16 @@ namespace DeveloverWarehouse
 {
     public partial class Main : ToolbarForm, IDeveloverFormParent
     {
-
         Login login;
+        Timer timer;
+
         public Main()
         {
 
             InitializeComponent();
             this.Text += " - Develover Software Co., Ltd.";
             toolbarManager.ItemClick += ToolbarManager_ItemClick;
-
-
+            _010100.Enabled = false;
         }
 
         Task<IDeveloverFormChild> LoadForm(object sender)
@@ -73,7 +73,7 @@ namespace DeveloverWarehouse
                 return;
             }
 
-            if (!DeveloverOptions.sysdel.StatusLogin) return;
+            if (!DeveloverOptions.StatusLogins.StatusLogin) return;
 
             for (int i = 0; i < MdiChildren.Length; i++)
             {
@@ -93,15 +93,38 @@ namespace DeveloverWarehouse
 
         private void Main_Load(object sender, System.EventArgs e)
         {
+            RunTime();
             login = new Login();
             login.ShowDialog();
+
+            LoadInfoApplication();
+        }
+
+        private void LoadInfoApplication()
+        {
+            barButtonServerName.Caption = "Máy chủ: " + DeveloverOptions.InfoDatabase.ServerName;
+            barButtonDatabaseName.Caption = "CSDL: " + DeveloverOptions.InfoDatabase.DatabaseName;
+            barUserLogin.Caption = DeveloverOptions.InfoUser.Name;
+        }
+
+        private void RunTime()
+        {
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            barButtonDateTime.Caption = DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy");
         }
 
         public Task SetStatusAsync(string message)
         {
             return Task.Run(() =>
             {
-                barButtonUserInfo.Caption = message;
+                barButtonStatus.Caption = message;
             });
         }
 
@@ -141,21 +164,24 @@ namespace DeveloverWarehouse
 
         private void _010100_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (!DeveloverOptions.sysdel.StatusLogin)
+            _010100.Enabled = false;
+            _010200.Enabled = true;
+
+            if (!DeveloverOptions.StatusLogins.StatusLogin)
                 login.ShowDialog();
+
         }
 
         private void _010200_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if (DeveloverOptions.sysdel.StatusLogin)
+
+            if (DeveloverOptions.StatusLogins.StatusLogin)
             {
                 if (MdiChildren.Length > 0)
                 {
-                    DialogResult dialogResult = DelMessageBox.DelMessageBoxYNO("Hiện có phiếu đang mở bạn có muốn đóng tất cả phiếu?", MessageBoxDefaultButton.Button1);
-                    if (dialogResult == DialogResult.Cancel) return;
+                    DialogResult dialogResult = DelMessageBox.DelMessageBoxYNC("Hiện có phiếu đang mở bạn có muốn thoát?", MessageBoxDefaultButton.Button1);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        MessageBox.Show(MdiChildren.Length.ToString());
                         for (int i = 0; i < MdiChildren.Length; i++)
                         {
                             IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[0];
@@ -164,9 +190,30 @@ namespace DeveloverWarehouse
                         }
                     }
                 }
-                DeveloverOptions.sysdel.StatusLogin = false;
+                DeveloverOptions.StatusLogins.StatusLogin = false;
                 login.ShowDialog();
             }
+        }
+
+        private void _010600_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void _010700_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void _010502_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Setting setting = new Setting();
+            setting.ShowDialog();
+        }
+
+        private void barButtonTasks_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }

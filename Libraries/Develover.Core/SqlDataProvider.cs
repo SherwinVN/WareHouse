@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Develover.Utilities;
+using System;
 using System.Configuration;
 using System.Data;
+using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
@@ -8,13 +10,89 @@ namespace Develover.Core
 {
     public sealed class SqlDataProvider
     {
-        public string ConnectionString { get; }
+        private static string ConnectionString { get; set; }
+        SqlConnection sqlConnection = new SqlConnection();
 
         public SqlDataProvider()
         {
-            ConnectionString = ConfigurationManager.ConnectionStrings["DeveloverConnection"].ToString();
+            //ConnectionString = ConfigurationManager.ConnectionStrings["DeveloverConnection"].ToString();
+            // "Server=192.168.1.116,2828;Database=Develover;User Id=dev;Password=123;"
         }
 
+        public string GetSQLConnectionString()
+        {
+            return sqlConnection.ConnectionString = "Server=" + DeveloverOptions.InfoDatabase.ServerName + ";User Id=" + DeveloverOptions.InfoDatabase.UsernameSQL + ";Password=" + DeveloverOptions.InfoDatabase.PasswordSQL + ";";
+        }
+
+        public bool CheckLogin()
+        {
+            GetSQLConnectionString();
+
+            if (sqlConnection.State != ConnectionState.Open)
+            {
+                try { sqlConnection.Open(); }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                };
+                sqlConnection.Close();
+            }
+            return true;
+        }
+
+        public bool OpenConection()
+        {
+            GetSQLConnectionString();
+            if (sqlConnection.State != ConnectionState.Open)
+                try { sqlConnection.Open(); }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                };
+            return true;
+
+        }
+
+        public bool CloseConection()
+        {
+            if (sqlConnection.State == ConnectionState.Open)
+                try { sqlConnection.Close(); }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                };
+            return true;
+
+        }
+
+        public bool ChangeDataBase()
+        {
+            GetSQLConnectionString();
+            if (sqlConnection.State != ConnectionState.Open)
+            {
+                try { sqlConnection.Open(); }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                };
+            }
+            try
+            {
+                sqlConnection.ChangeDatabase(DeveloverOptions.InfoDatabase.DatabaseName);
+                ConnectionString = "Server=" + DeveloverOptions.InfoDatabase.ServerName + ";Database=" + DeveloverOptions.InfoDatabase.DatabaseName + ";User Id=" + DeveloverOptions.InfoDatabase.UsernameSQL + ";Password=" + DeveloverOptions.InfoDatabase.PasswordSQL + ";";
+            }
+            catch (Exception ex)
+            {
+                DeveloverOptions.SysDel.MessageError = ex.Message;
+                return false;
+            };
+            return true;
+
+        }
         public SqlDataProvider(string connectionString)
         {
             ConnectionString = connectionString;
@@ -22,6 +100,7 @@ namespace Develover.Core
 
         public DataTable GetDataTable(string query)
         {
+
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -30,6 +109,8 @@ namespace Develover.Core
 
                 using (SqlDataReader reader = ExecuteReader(query, connection))
                 {
+                    if (reader is null) return resultTable;
+
                     using (DataTable schemaTable = reader.GetSchemaTable())
                     {
                         foreach (DataRow dataRow in schemaTable.Rows)
@@ -244,23 +325,21 @@ namespace Develover.Core
         public SqlDataReader ExecuteReader(string query, SqlConnection connection)
         {
             SqlDataReader dataReader;
+
             if (connection.State != ConnectionState.Open)
                 connection.Open();
 
-            using (SqlTransaction transaction = connection.BeginTransaction())
+
+            using (SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
             {
-                using (SqlCommand command = new SqlCommand(query, connection, transaction) { CommandType = CommandType.Text })
+                try
                 {
-                    try
-                    {
-                        dataReader = command.ExecuteReader();
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        dataReader = null;
-                        transaction.Rollback();
-                    }
+                    dataReader = command.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    dataReader = null;
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
                 }
             }
 
@@ -335,9 +414,10 @@ namespace Develover.Core
                             value = command.ExecuteScalar();
                             transaction.Commit();
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
 
+                            DeveloverOptions.SysDel.MessageError = ex.Message;
                             value = null;
                             transaction.Rollback();
                         }

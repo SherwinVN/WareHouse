@@ -1,29 +1,41 @@
 ﻿using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Develover.GUI.Forms
 {
-    public class DeveloverForm: XtraForm, IDeveloverForm
+    public class DeveloverForm : XtraForm, IDeveloverForm
     {
+        bool permissionNew = false;
+        bool permissionEdit = false;
+        bool permissionDelete = false;
+        bool permissionPrint = false;
+        string stringNameForm = "";
+
         bool whenCloseForm_ = true;
 
-        public bool iwhenCloseForm {
-            get { return whenCloseForm_; }
-            set { whenCloseForm_ = value; }
+        public bool PermissionNew { get => permissionNew; set => permissionNew = value; }
+        public bool PermissionEdit { get => permissionEdit; set => permissionEdit = value; }
+        public bool PermissionDelete { get => permissionDelete; set => permissionDelete = value; }
+        public string StringNameForm { get => stringNameForm; set => stringNameForm = value; }
+        public bool PermissionPrint { get => permissionPrint; set => permissionPrint = value; }
+
+        public bool WhenCloseForm_ { get => whenCloseForm_; set => whenCloseForm_ = value; }
+        public bool iwhenCloseForm
+        {
+            get { return WhenCloseForm_; }
+            set { WhenCloseForm_ = value; }
         }
-        public DeveloverForm() {
+
+
+        public DeveloverForm()
+        {
             KeyPreview = true;
         }
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (Form.ModifierKeys == Keys.None)
             {
-                switch ( keyData)
+                switch (keyData)
                 {
                     case Keys.Escape:
                         if (iwhenCloseForm) this.Close();
@@ -37,6 +49,6 @@ namespace Develover.GUI.Forms
             }
             return base.ProcessDialogKey(keyData);
         }
-      
+
     }
 }
