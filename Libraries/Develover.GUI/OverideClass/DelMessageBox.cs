@@ -1,18 +1,12 @@
 ﻿using Develover.Utilities;
 using DevExpress.XtraEditors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Develover.GUI.OverideClass.Enum;
+using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.OverideClass
 {
     public class DelMessageBox
     {
-        static string messageSystem = "Thông báo từ hệ thống";
         public DelMessageBox()
         {
         }
@@ -24,12 +18,12 @@ namespace Develover.GUI.OverideClass
 
         public static DialogResult DelMessageBoxYNC(string text, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
         {
-            return XtraMessageBox.Show(text, messageSystem, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, defaultButton);
+            return XtraMessageBox.Show(text, StringMessage.MessageSystem, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, defaultButton);
         }
 
         public static DialogResult DelMessageBoxYN(string text, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
         {
-            return XtraMessageBox.Show(text, messageSystem, MessageBoxButtons.YesNo, MessageBoxIcon.Question, defaultButton);
+            return XtraMessageBox.Show(text, StringMessage.MessageSystem, MessageBoxButtons.YesNo, MessageBoxIcon.Question, defaultButton);
         }
 
         public static DialogResult DelMessageBoxError(string text, string caption = "Có lỗi xảy ra", MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxIcon icon = MessageBoxIcon.Error, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
@@ -38,45 +32,45 @@ namespace Develover.GUI.OverideClass
         }
         public static DialogResult DelMessageBoxPermission(EnumPermission enumPermission)
         {
-            string text = "Không xác định";
+            string text = StringMessage.Unknown;
             switch (enumPermission)
             {
                 case EnumPermission.View:
                     {
 
-                        text = "Bạn không có quyền xem!";
+                        text = StringMessage.PermissionDenialView;
                     }
                     break;
                 case EnumPermission.New:
                     {
-                        text = "Bạn không có quyền thêm mới!";
+                        text = StringMessage.PermissionDenialNew;
                     }
                     break;
                 case EnumPermission.Edit:
                     {
-                        text = "Bạn không có quyền sửa!";
+                        text = StringMessage.PermissionDenialEdit;
                     }
                     break;
                 case EnumPermission.Delete:
                     {
-                        text = "Bạn không có quyền xóa!";
+                        text = StringMessage.PermissionDenialDelete;
                     }
                     break;
                 case EnumPermission.Print:
                     {
 
-                        text = "Bạn không có quyền in!";
+                        text = StringMessage.PermissionDenialPrint;
                     }
                     break;
 
-                case EnumPermission.Every:
+                case EnumPermission.Denial:
                     {
-                        text = "Bạn không được phép ở đây.";
+                        text = StringMessage.PermissionDenial;
 
                     }
                     break;
             }
-            return XtraMessageBox.Show(text, messageSystem, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            return XtraMessageBox.Show(text, StringMessage.MessageSystem, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
         }
 

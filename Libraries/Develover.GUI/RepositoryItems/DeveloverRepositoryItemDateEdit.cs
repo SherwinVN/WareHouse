@@ -1,9 +1,11 @@
-﻿using DevExpress.XtraEditors.Repository;
+﻿using DevExpress.Utils;
+using DevExpress.XtraEditors.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Develover.GUI.RepositoryItems
 {
@@ -11,7 +13,7 @@ namespace Develover.GUI.RepositoryItems
     {
         public DeveloverRepositoryItemDateEdit() : base()
         {
-
+            CloseUpKey = new KeyShortcut(Keys.Space);
         }
     }
 }

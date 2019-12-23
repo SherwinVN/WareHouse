@@ -10,11 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Develover.GUI.OverideClass.Enum;
 using static Develover.GUI.OverideClass.DelMessageBox;
+using static Develover.Utilities.Enum;
 
-
-namespace DeveloverWarehouse.Modules.Sales
+namespace DeveloverWarehouse.Modules.File
 {
     public partial class Unit : DeveloverForm, IDeveloverFormChild
     {
@@ -23,7 +22,9 @@ namespace DeveloverWarehouse.Modules.Sales
             InitializeComponent();
 
             StringNameForm = "UNIT";
+
             LoadPermission();
+            grc_search.BuildGridControls("SELECT * FROM UOM", "UNIT");
         }
 
         private void LoadPermission()
@@ -102,5 +103,7 @@ namespace DeveloverWarehouse.Modules.Sales
                 return;
             }
         }
+
+ 
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace DeveloverWarehouse.Modules.Sales
+﻿namespace DeveloverWarehouse.Modules.File
 {
     partial class Unit
     {
@@ -42,6 +42,7 @@
             this.but_item_edit = new DevExpress.XtraBars.BarButtonItem();
             this.but_item_cancel = new DevExpress.XtraBars.BarButtonItem();
             this.but_item_delete = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -60,9 +61,8 @@
             this.gro_search = new Develover.GUI.Controls.DeveloverGroupControl();
             this.gro_search_middle_1 = new Develover.GUI.Controls.DeveloverGroupControl();
             this.grc_search = new Develover.GUI.Controls.DeveloverGridControl();
-            this.grv_search = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grv_search = new Develover.GUI.Controls.DeveloverGridView();
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.gro_content)).BeginInit();
             this.gro_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gro_information)).BeginInit();
@@ -186,7 +186,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.but_item_edit),
             new DevExpress.XtraBars.LinkPersistInfo(this.but_item_cancel),
             new DevExpress.XtraBars.LinkPersistInfo(this.but_item_delete),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar_tools.OptionsBar.AllowQuickCustomization = false;
             this.bar_tools.OptionsBar.DisableCustomization = true;
             this.bar_tools.OptionsBar.DrawDragBorder = false;
@@ -229,6 +229,13 @@
             this.but_item_delete.Name = "but_item_delete";
             this.but_item_delete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.but_item_delete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.but_item_delete_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "IN";
+            this.barButtonItem4.Id = 9;
+            this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
+            this.barButtonItem4.Name = "barButtonItem4";
             // 
             // barDockControlTop
             // 
@@ -395,12 +402,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.but_item_edit)});
             this.bar1.Text = "Custom 4";
             // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "IN";
-            this.barButtonItem4.Id = 9;
-            this.barButtonItem4.Name = "barButtonItem4";
-            // 
             // Unit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,8 +462,6 @@
         private Develover.GUI.Controls.DeveloverGroupControl gro_search_middle_1;
         private Develover.GUI.Controls.DeveloverTextEdit txtName;
         private Develover.GUI.Controls.DeveloverCheckEdit chk_active;
-        private Develover.GUI.Controls.DeveloverGridControl grc_search;
-        private DevExpress.XtraGrid.Views.Grid.GridView grv_search;
         private Develover.GUI.Controls.DeveloverLabelControl labName;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarButtonItem but_item_cancel;
@@ -473,5 +472,7 @@
         private Develover.GUI.Controls.DeveloverTextEdit txtGroup;
         private Develover.GUI.Controls.DeveloverMemoEdit develoverMemoEdit1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private Develover.GUI.Controls.DeveloverGridControl grc_search;
+        private Develover.GUI.Controls.DeveloverGridView grv_search;
     }
 }

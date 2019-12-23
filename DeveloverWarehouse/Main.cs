@@ -1,6 +1,8 @@
 ﻿using Develover.GUI;
 using Develover.GUI.OverideClass;
 using Develover.Utilities;
+using DeveloverWarehouse.Modules.File;
+using DeveloverWarehouse.Modules.Sales;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
@@ -66,29 +68,7 @@ namespace DeveloverWarehouse
 
             SplashScreenManager.ShowForm(typeof(LoadingForm));
             IDeveloverFormChild form = await LoadForm(e.Item);
-
-            if (form == null)
-            {
-                SplashScreenManager.CloseForm(false);
-                return;
-            }
-
-            if (!DeveloverOptions.StatusLogins.StatusLogin) return;
-
-            for (int i = 0; i < MdiChildren.Length; i++)
-            {
-                IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
-                if (f.GetType().FullName == form.GetType().FullName)
-                {
-                    SplashScreenManager.CloseForm(false);
-                    f.Activate();
-                    return;
-                }
-            }
-
-            form.MdiParent = this;
-            form.Show();
-            SplashScreenManager.CloseForm(false);
+            LoadForm(form);
         }
 
         private void Main_Load(object sender, System.EventArgs e)
@@ -214,6 +194,39 @@ namespace DeveloverWarehouse
         private void barButtonTasks_ItemClick(object sender, ItemClickEventArgs e)
         {
 
+        }
+
+        private void _010507_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            IDeveloverFormChild form = new Unit();
+            LoadForm(form);
+        }
+
+        private void LoadForm(IDeveloverFormChild develoverFormChild)
+        { 
+
+            if (develoverFormChild == null)
+            {
+                SplashScreenManager.CloseForm(false);
+                return;
+            }
+
+            if (!DeveloverOptions.StatusLogins.StatusLogin) return;
+
+            for (int i = 0; i < MdiChildren.Length; i++)
+            {
+                IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
+                if (f.GetType().FullName == develoverFormChild.GetType().FullName)
+                {
+                    SplashScreenManager.CloseForm(false);
+                    f.Activate();
+                    return;
+                }
+            }
+
+            develoverFormChild.MdiParent = this;
+            develoverFormChild.Show();
+            SplashScreenManager.CloseForm(false);
         }
     }
 }

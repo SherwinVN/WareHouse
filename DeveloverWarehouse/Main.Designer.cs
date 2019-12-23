@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DeveloverWarehouse.StartingForm), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.repositoryItemToggleSwitch1 = new DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch();
             this.toolbarControl = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
             this.toolbarManager = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
@@ -511,6 +511,7 @@
             this._010507.Caption = "&Đơn vị tính";
             this._010507.Id = 13;
             this._010507.Name = "_010507";
+            this._010507.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010507_ItemClick);
             // 
             // _010600
             // 
@@ -845,13 +846,13 @@
             this.bbt_statusconnect.Id = 76;
             this.bbt_statusconnect.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbt_statusconnect.ImageOptions.SvgImage")));
             this.bbt_statusconnect.Name = "bbt_statusconnect";
-            toolTipTitleItem1.Text = "Status Connetion";
-            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Click to reconnection";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.bbt_statusconnect.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Status Connetion";
+            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Click to reconnection";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.bbt_statusconnect.SuperTip = superToolTip2;
             // 
             // barUserLogin
             // 

@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors.Repository;
+﻿using DevExpress.XtraEditors.Mask;
+using DevExpress.XtraEditors.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace Develover.GUI.RepositoryItems
     {
         public DeveloverRepositoryItemTimeEdit() : base()
         {
-
+            Mask.EditMask = "hh:mm tt";
+            Mask.MaskType = MaskType.DateTime;
         }
     }
 }
