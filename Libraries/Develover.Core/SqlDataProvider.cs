@@ -130,7 +130,7 @@ namespace Develover.Core
                     while (reader.Read())
                     {
                         DataRow dataRow = resultTable.NewRow();
-                        for (int i = 0; i < resultTable.Columns.Count - 1; i++)
+                        for (int i = 0; i < resultTable.Columns.Count ; i++)
                         {
                             dataRow[i] = reader[i];
                         }
