@@ -12,7 +12,9 @@ namespace Develover.GUI.RepositoryItems
 {
     public class DeveloverRepositoryItemGridLookUpEdit : RepositoryItemGridLookUpEdit
     {
-        SqlDataProvider sqlDataProvider = new SqlDataProvider();
+        SqlDataProvider sqlDataProvider = new SqlDataProvider(); 
+
+        string sqlData_;  List<TypeColumns> typeColumns_;  string keyMember_;  string displayMember_;  string valueMember_;  string nullText_;
         public DeveloverRepositoryItemGridLookUpEdit() : base()
         {
             PopupView = new DeveloverGridView();
@@ -25,14 +27,25 @@ namespace Develover.GUI.RepositoryItems
         }
         public void LoadData(string sqlData, List<TypeColumns> typeColumns, string keyMember = "", string displayMember = "", string valueMember = "", string nullText = "")
         {
-            DisplayMember = displayMember;
-            ValueMember = valueMember;
-            KeyMember = keyMember;
-            NullText = nullText;
+            sqlData_ = sqlData;
+            typeColumns_ = typeColumns;
+            keyMember_ = keyMember;
+            displayMember_ = displayMember;
+            valueMember_ = valueMember;
+            nullText_ = nullText;
 
-            DataSource = sqlDataProvider.GetDataTable(sqlData) ;
-            ((DeveloverGridView)PopupView).BuidColumnsView(typeColumns);
+            LoadData();
         }
 
+        private void LoadData()
+        {
+            DisplayMember = displayMember_;
+            ValueMember = valueMember_;
+            KeyMember = keyMember_;
+            NullText = nullText_;
+
+            DataSource = sqlDataProvider.GetDataTable(sqlData_);
+            ((DeveloverGridView)PopupView).BuidColumnsView(typeColumns_);
+        }
     }
 }

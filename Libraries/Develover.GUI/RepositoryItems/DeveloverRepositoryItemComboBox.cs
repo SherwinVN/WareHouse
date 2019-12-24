@@ -16,6 +16,9 @@ namespace Develover.GUI.RepositoryItems
     public class DeveloverRepositoryItemComboBox : RepositoryItemComboBox
     {
         SqlDataProvider SDP = new SqlDataProvider();
+        private string sql_ = "";
+        private bool getInRow_ = false;
+        private int indexGetValue_ = 0;
         public DeveloverRepositoryItemComboBox() : base()
         {
             AutoHeight = false;
@@ -37,20 +40,29 @@ namespace Develover.GUI.RepositoryItems
                Items.AddRange(arrItems);          
         }
 
-        public void LoadData(string sql,bool getInRow,int sttGetValue)
+        public void LoadData(string sql, bool getInRow, int indexGetValue)
         {
-            using (DataTable data = SDP.GetDataTable(sql)) {
-                if (getInRow)
+            sql_ = sql;
+            indexGetValue_ = indexGetValue;
+            getInRow_ = getInRow;
+            LoadData();
+
+        }
+        private void LoadData()
+        {
+            using (DataTable data = SDP.GetDataTable(sql_))
+            {
+                if (getInRow_)
                 {
-                    foreach(DataColumn dc in data.Columns)
-                    Items.Add(data.Rows[sttGetValue][dc.ColumnName]);
+                    foreach (DataColumn dc in data.Columns)
+                        Items.Add(data.Rows[indexGetValue_][dc.ColumnName]);
                 }
-                else{
+                else
+                {
                     foreach (DataRow dr in data.Rows)
-                        Items.Add(dr[sttGetValue]);
+                        Items.Add(dr[indexGetValue_]);
                 }
             }
-
         }
     }
 }

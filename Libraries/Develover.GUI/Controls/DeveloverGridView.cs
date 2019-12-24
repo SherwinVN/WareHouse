@@ -1,7 +1,9 @@
 ﻿using Develover.GUI.RepositoryItems;
+using Develover.Utilities;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -16,15 +18,58 @@ namespace Develover.GUI.Controls
 {
     public partial class DeveloverGridView : GridView, IDeveloverControl
     {
+        string fieldBinding;
+        EnumTypeColumns typeFieldColumns;
+        public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
+        public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
         public DeveloverGridView() : this(null) { }
+        public bool TypeGridEdit;
+
         public DeveloverGridView(GridControl grid) : base(grid)
         {
             this.OptionsView.ShowGroupPanel = false;
+            this.OptionsView.ColumnAutoWidth = false;
+            this.OptionsSelection.MultiSelect = true;
+            this.IndicatorWidth = 40;
+            this.CustomDrawRowIndicator += DeveloverGridView_CustomDrawRowIndicator;
+
         }
+
+        private void DeveloverGridView_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+        }
+
+        public void GridEdit()
+        {
+            if (TypeGridEdit)
+            {
+                this.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+                this.OptionsView.ShowGroupPanel = false;
+                this.OptionsNavigation.AutoFocusNewRow = true;
+                this.OptionsNavigation.EnterMoveNextColumn = true;
+            }
+            else
+            {
+                this.OptionsFind.AlwaysVisible = true;
+                this.OptionsFind.ClearFindOnClose = true;
+                this.OptionsFind.ShowClearButton = true;
+                this.OptionsFind.ShowCloseButton = true;
+                this.OptionsFind.SearchInPreview = true;
+                this.OptionsFind.FindNullPrompt = StringMessage.TextFindFilter;
+                this.OptionsView.ShowAutoFilterRow = true;
+                this.OptionsView.ShowGroupPanel = false;
+          
+            }
+        }
+       
         protected override string ViewName { get { return "DeveloverGridView"; } }
 
         public void BuidColumns(List<TypeColumns> typeColumns)
         {
+            GridEdit();
+
             GridColumn gridColumn;
             foreach (TypeColumns typeColumns_ in typeColumns)
             {
@@ -37,7 +82,7 @@ namespace Develover.GUI.Controls
                 gridColumn.OptionsColumn.AllowFocus = typeColumns_.AllowFocus;
                 gridColumn.OptionsColumn.AllowEdit = typeColumns_.AllowEdit;
                 gridColumn.Visible = typeColumns_.Visible;
-                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup);
+                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }
         }
@@ -54,14 +99,14 @@ namespace Develover.GUI.Controls
                 gridColumn.Width = typeColumns_.Width;
                 gridColumn.VisibleIndex = typeColumns_.Index;
                 gridColumn.OptionsColumn.AllowFocus = typeColumns_.AllowFocus;
-                gridColumn.OptionsColumn.AllowEdit =false;
+                gridColumn.OptionsColumn.AllowEdit = false;
                 gridColumn.Visible = typeColumns_.Visible;
-                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text: typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup);
+                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }
         }
 
-        private void GetTypeColumn(ref GridColumn gridColumn, EnumTypeColumns enumTypeColumns, string SQLData, List<TypeColumns> typeColumnGridLookup)
+        private void GetTypeColumn(ref GridColumn gridColumn, EnumTypeColumns enumTypeColumns, string SQLData, List<TypeColumns> typeColumnGridLookup, string KeyMember, string ValueMember, string DisplayMember, string NullText)
         {
             switch (enumTypeColumns)
             {
@@ -82,7 +127,7 @@ namespace Develover.GUI.Controls
                     break;
                 case EnumTypeColumns.Gridlookup:
                     DeveloverRepositoryItemGridLookUpEdit develoverRepositoryItemGridLookUpEdit = new DeveloverRepositoryItemGridLookUpEdit();
-                    develoverRepositoryItemGridLookUpEdit.LoadData(SQLData, typeColumnGridLookup);
+                    develoverRepositoryItemGridLookUpEdit.LoadData(SQLData, typeColumnGridLookup, KeyMember, ValueMember, DisplayMember, NullText);
                     gridColumn.ColumnEdit = develoverRepositoryItemGridLookUpEdit;
                     break;
                 case EnumTypeColumns.Text:

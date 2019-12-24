@@ -1,5 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using Develover.GUI.OverideClass;
+using DevExpress.XtraEditors;
 using System.Windows.Forms;
+using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Forms
 {
@@ -26,6 +28,13 @@ namespace Develover.GUI.Forms
             set { WhenCloseForm_ = value; }
         }
 
+        public void LoadPermission()
+        {
+            PermissionNew = true;
+            PermissionEdit = true;
+            PermissionDelete = true;
+            PermissionPrint = true;
+        }
 
         public DeveloverForm()
         {
@@ -49,6 +58,58 @@ namespace Develover.GUI.Forms
             }
             return base.ProcessDialogKey(keyData);
         }
+
+        #region CheckPermission
+        public bool CheckView() {
+            bool boo = true;
+
+            if (!boo) {
+                DelMessageBox.DelMessageBoxPermission(EnumPermission.View);
+            }
+            return boo;
+        }
+        public bool CheckNew()
+        {
+            bool boo = true;
+
+            if (!boo)
+            {
+                DelMessageBox.DelMessageBoxPermission(EnumPermission.New);
+            }
+            return boo;
+        }
+        public bool CheckEdit()
+        {
+            bool boo = true;
+
+            if (!boo)
+            {
+                DelMessageBox.DelMessageBoxPermission(EnumPermission.Edit);
+            }
+            return boo;
+        }
+
+        public bool CheckDelete()
+        {
+            bool boo = true;
+
+            if (!boo)
+            {
+                DelMessageBox.DelMessageBoxPermission(EnumPermission.Delete);
+            }
+            return boo;
+        }
+        public bool CheckPrint()
+        {
+            bool boo = true;
+
+            if (!boo)
+            {
+                DelMessageBox.DelMessageBoxPermission(EnumPermission.Print);
+            }
+            return boo;
+        }
+        #endregion
 
     }
 }

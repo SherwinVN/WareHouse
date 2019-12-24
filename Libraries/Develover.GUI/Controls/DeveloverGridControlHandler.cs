@@ -10,6 +10,7 @@ namespace Develover.GUI.Controls
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
+            
             base.OnKeyDown(e);
             if (e.KeyData == Keys.Delete && View.State == GridState.Normal)
                 View.DeleteRow(View.FocusedRowHandle);

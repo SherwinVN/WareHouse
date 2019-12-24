@@ -224,7 +224,16 @@
     <Compile Include="IDeveloverFormParent.cs" />
     <Compile Include="IDeveloverForm.cs" />
     <Compile Include="OverideClass\DelMessageBox.cs" />
+    <Compile Include="OverideClass\Localization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyControlsMore.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="RepositoryItems\DeveloverRepositoryItemCalcEdit.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -272,6 +281,10 @@
       <DependentUpon>DeveloverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

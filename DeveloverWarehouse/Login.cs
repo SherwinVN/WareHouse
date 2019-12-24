@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using Develover.Services;
 using Develover.Utilities;
 using Develover.Core;
+using DevExpress.XtraSplashScreen;
 
 namespace DeveloverWarehouse
 {
@@ -24,6 +25,9 @@ namespace DeveloverWarehouse
 
         private void butLogin_Click(object sender, EventArgs e)
         {
+
+            SplashScreenManager.CloseForm(false);
+            SplashScreenManager.ShowForm(typeof(LoadingForm));
 
             DeveloverOptions.StatusLogins.Username = txtUserName.Text;
             DeveloverOptions.StatusLogins.Password = txtPassWord.Text;
@@ -54,6 +58,7 @@ namespace DeveloverWarehouse
                     laberrorLogin.Text = "Bạn đăng nhập sai quá nhiều lần?";
                 return;
             }
+            SplashScreenManager.CloseForm(false);
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)

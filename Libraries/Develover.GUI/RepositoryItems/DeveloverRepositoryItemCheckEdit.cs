@@ -11,7 +11,6 @@ namespace Develover.GUI.RepositoryItems
     {
         public DeveloverRepositoryItemCheckEdit() : base()
         {
-            AutoHeight = false;
         }
     }
 }

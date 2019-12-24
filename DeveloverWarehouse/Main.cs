@@ -6,10 +6,12 @@ using DeveloverWarehouse.Modules.Sales;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.ToolbarForm;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraSplashScreen;
 using System;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Develover.GUI.OverideClass.Localization;
 
 namespace DeveloverWarehouse
 {
@@ -27,7 +29,7 @@ namespace DeveloverWarehouse
             _010100.Enabled = false;
         }
 
-        Task<IDeveloverFormChild> LoadForm(object sender)
+        Task<IDeveloverFormChild> GetForm(object sender)
         {
             if (!(sender is BarButtonItem))
                 return Task.FromResult<IDeveloverFormChild>(null);
@@ -62,13 +64,9 @@ namespace DeveloverWarehouse
             });
         }
 
-        private async void ToolbarManager_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void ToolbarManager_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SplashScreenManager.CloseForm(false);
-
-            SplashScreenManager.ShowForm(typeof(LoadingForm));
-            IDeveloverFormChild form = await LoadForm(e.Item);
-            LoadForm(form);
+            LoadForm(e.Item);
         }
 
         private void Main_Load(object sender, System.EventArgs e)
@@ -76,8 +74,13 @@ namespace DeveloverWarehouse
             RunTime();
             login = new Login();
             login.ShowDialog();
-
             LoadInfoApplication();
+            LoadFirst();
+        }
+
+        private static void LoadFirst()
+        {
+            GridLocalizer.Active = new DeveloverGridLocalizer();
         }
 
         private void LoadInfoApplication()
@@ -198,14 +201,17 @@ namespace DeveloverWarehouse
 
         private void _010507_ItemClick(object sender, ItemClickEventArgs e)
         {
-            IDeveloverFormChild form = new Unit();
-            LoadForm(form);
+           LoadForm(sender);
         }
 
-        private void LoadForm(IDeveloverFormChild develoverFormChild)
-        { 
+        private async void LoadForm(object sender)
+        {
 
-            if (develoverFormChild == null)
+            SplashScreenManager.CloseForm(false);
+            SplashScreenManager.ShowForm(typeof(LoadingForm));
+
+            IDeveloverFormChild form = await GetForm(sender);
+            if (form == null)
             {
                 SplashScreenManager.CloseForm(false);
                 return;
@@ -216,7 +222,7 @@ namespace DeveloverWarehouse
             for (int i = 0; i < MdiChildren.Length; i++)
             {
                 IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
-                if (f.GetType().FullName == develoverFormChild.GetType().FullName)
+                if (f.GetType().FullName == form.GetType().FullName)
                 {
                     SplashScreenManager.CloseForm(false);
                     f.Activate();
@@ -224,8 +230,8 @@ namespace DeveloverWarehouse
                 }
             }
 
-            develoverFormChild.MdiParent = this;
-            develoverFormChild.Show();
+            form.MdiParent = this;
+            form.Show();
             SplashScreenManager.CloseForm(false);
         }
     }
