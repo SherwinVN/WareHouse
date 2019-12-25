@@ -9,6 +9,7 @@ using System.Linq;
 using System.Management;
 using System.Text;
 using System.Threading.Tasks;
+using static Develover.Utilities.Enum;
 
 namespace Develover.Services
 {
@@ -98,16 +99,23 @@ namespace Develover.Services
             }
         }
 
-        public bool CheckLicense()
+        public bool CheckLicense(string CodePersonal)
         {
             GetInfoMachine();
-            return CheckLicenseServer() ? true : false;
+            return CheckLicenseServer(CodePersonal);
         }
 
-        private bool CheckLicenseServer()
+        private bool CheckLicenseServer(string codePersonal)
         {
 
-            return true;
+
+
+
+            DeveloverOptions.SysDel.CodePersonal = codePersonal;
+            DeveloverOptions.SysDel.TypeLicense = TypeLicenses.Company ;
+            DeveloverOptions.SysDel.ExpirationDate = DateTime.Now.AddYears(5);
+            DeveloverOptions.SysDel.StatusLicense = true;
+            return DeveloverOptions.SysDel.StatusLicense;
         }
 
         public void GetInfoServer()
@@ -131,7 +139,26 @@ namespace Develover.Services
                 DeveloverOptions.StatusLogins.Username = key.GetValue("Username")?.ToString();
                 DeveloverOptions.StatusLogins.Password = key.GetValue("Password")?.ToString();
                 DeveloverOptions.StatusLogins.RememberPassword = false;
-                bool.TryParse( key.GetValue("RememberPassword")?.ToString(),out DeveloverOptions.StatusLogins.RememberPassword);
+                bool.TryParse(key.GetValue("RememberPassword")?.ToString(), out DeveloverOptions.StatusLogins.RememberPassword);
+                key.Close();
+            }
+        }
+
+        public void GetLicense()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Develover");
+            if (key != null)
+            {
+                DeveloverOptions.SysDel.CodePersonal = key.GetValue("CodePersonal")?.ToString();
+
+                DeveloverOptions.SysDel.StatusLicense = false;
+                bool.TryParse(key.GetValue("StatusLicense")?.ToString(), out DeveloverOptions.SysDel.StatusLicense);
+
+                DeveloverOptions.SysDel.ExpirationDate = DateTime.Now.AddDays(-5 * 3650);
+                DateTime.TryParse(key.GetValue("ExpirationDate")?.ToString(), out DeveloverOptions.SysDel.ExpirationDate);
+
+                DeveloverOptions.SysDel.TypeLicense = DeveloverOptions.SysDel.GetTextTypeLicenseByString(key.GetValue("TypeLicense")?.ToString());
+
                 key.Close();
             }
         }
@@ -171,6 +198,27 @@ namespace Develover.Services
             key.SetValue("Password", rememberStatus ? DeveloverOptions.InfoDatabase.PasswordSQL : "");
             key.SetValue("RememberPassword", rememberStatus);
             key.Close();
-        }     
+        }
+        public void setLicense()
+        {
+            RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Develover");
+
+            if (DeveloverOptions.SysDel.TypeLicense != TypeLicenses.None)
+            {
+                key.SetValue("CodePersonal", DeveloverOptions.SysDel.CodePersonal);
+                key.SetValue("TypeLicense", DeveloverOptions.SysDel.TypeLicense);
+                key.SetValue("StatusLicense", DeveloverOptions.SysDel.StatusLicense);
+                key.SetValue("ExpirationDate", DeveloverOptions.SysDel.ExpirationDate.ToShortDateString());
+            }
+            else
+            {
+                key.SetValue("CodePersonal", "");
+                key.SetValue("TypeLicense", "");
+                key.SetValue("StatusLicense", false);
+                key.SetValue("ExpirationDate", DateTime.Now.AddYears(-5));
+            }
+
+            key.Close();
+        }
     }
 }

@@ -113,35 +113,6 @@ namespace Develover.GUI.Controls
             return typeColumns;
         }
 
-        private static EnumTypeColumns GetTypeColumn(string model)
-        {
-            EnumTypeColumns enumTypeColumns = new EnumTypeColumns();
-            switch (model)
-            {
-                case "Number":
-                    enumTypeColumns = EnumTypeColumns.Number;
-                    break;
-
-                case "Check":
-                    enumTypeColumns = EnumTypeColumns.Check;
-                    break;
-                case "Combobox":
-                    enumTypeColumns = EnumTypeColumns.Combobox;
-                    break;
-                case "Date":
-                    enumTypeColumns = EnumTypeColumns.Date;
-                    break;
-                case "Gridlookup":
-                    enumTypeColumns = EnumTypeColumns.Gridlookup;
-                    break;
-                case "Text":
-                    enumTypeColumns = EnumTypeColumns.Text;
-                    break;
-                case "Time":
-                    enumTypeColumns = EnumTypeColumns.Time;
-                    break;
-            }
-            return enumTypeColumns;
-        }
+      
     }
 }

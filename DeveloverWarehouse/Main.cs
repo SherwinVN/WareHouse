@@ -1,5 +1,6 @@
 ﻿using Develover.GUI;
 using Develover.GUI.OverideClass;
+using Develover.Services;
 using Develover.Utilities;
 using DeveloverWarehouse.Modules.File;
 using DeveloverWarehouse.Modules.Sales;
@@ -17,6 +18,7 @@ namespace DeveloverWarehouse
 {
     public partial class Main : ToolbarForm, IDeveloverFormParent
     {
+        IDeveloverLoginFunction flogin = new IDeveloverLoginFunction();
         Login login;
         Timer timer;
 
@@ -201,7 +203,7 @@ namespace DeveloverWarehouse
 
         private void _010507_ItemClick(object sender, ItemClickEventArgs e)
         {
-           LoadForm(sender);
+            LoadForm(sender);
         }
 
         private async void LoadForm(object sender)

@@ -13,15 +13,35 @@ using Develover.Utilities;
 using Develover.Core;
 using Develover.GUI.Forms;
 using Develover.GUI;
+using static Develover.Utilities.Enum;
 
 namespace DeveloverWarehouse
 {
     public partial class Setting : DeveloverForm, IDeveloverFormChild
     {
+        IDeveloverLoginFunction flogin = new IDeveloverLoginFunction();
         SqlDataProvider sqlDataProvider = new SqlDataProvider();
+        private static bool status = false;
+        public bool Status { get => status; }
+
         public Setting()
         {
             InitializeComponent();
+
+            SetEnableControl();
+        }
+
+        private void SetEnableControl()
+        {
+            if (!DeveloverOptions.SysDel.StatusLicense || DeveloverOptions.StatusLogins.StatusLogin)
+            {
+                grSettingSQL.Enabled = false;
+            }
+            else
+            {
+
+                grSettingSQL.Enabled = true;
+            }
         }
 
         private void butLogin_Click(object sender, EventArgs e)
@@ -41,21 +61,44 @@ namespace DeveloverWarehouse
                 laberror.Text = "Không thể truy cập Database [" + DeveloverOptions.InfoDatabase.DatabaseName + "] ?\n" + DeveloverOptions.SysDel.MessageError + ".";
             }
             else laberror.Text = "Kết nối SERVER [" + DeveloverOptions.InfoDatabase.ServerName + "] - DATABASE [" + DeveloverOptions.InfoDatabase.DatabaseName + "] Thành công!";
+            SetEnableControl();
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)
         {
-           
+
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
-            new IDeveloverLoginFunction().GetInfoServer();
-            txtServerName.Text = DeveloverOptions.InfoDatabase.ServerName;
-            txtUserName.Text = DeveloverOptions.InfoDatabase.UsernameSQL;
-            txtPassWord.Text = DeveloverOptions.InfoDatabase.PasswordSQL;
-            txtDatabaseName.Text = DeveloverOptions.InfoDatabase.DatabaseName;
-            txtServerName.Focus();
+            tnpSetting.SelectedPageIndex = 0;
+            {
+                new IDeveloverLoginFunction().GetInfoServer();
+                txtServerName.Text = DeveloverOptions.InfoDatabase.ServerName;
+                txtUserName.Text = DeveloverOptions.InfoDatabase.UsernameSQL;
+                txtPassWord.Text = DeveloverOptions.InfoDatabase.PasswordSQL;
+                txtDatabaseName.Text = DeveloverOptions.InfoDatabase.DatabaseName;
+                txtServerName.Focus();
+            }
+            if (DeveloverOptions.StatusLogins.StatusLogin)
+            {
+                grSettingSQL.Enabled = false;            
+            }
+
+            txtCodePersonal.Text = DeveloverOptions.SysDel.CodePersonal;
+            labTextLicense.Text = String.Format(StringMessage.TextLicense, new object[] { DeveloverOptions.SysDel.GetTextTypeLicense(), DeveloverOptions.SysDel.TypeLicense == TypeLicenses.None || DeveloverOptions.SysDel.TypeLicense == TypeLicenses.Free? "_ //_ //_" :  DeveloverOptions.SysDel.ExpirationDate.ToShortDateString() });
+        }
+
+        private void butActive_Click(object sender, EventArgs e)
+        {
+            if (flogin.CheckLicense(txtCodePersonal.Text))
+            {
+                flogin.setLicense();
+                status = DeveloverOptions.SysDel.StatusLicense;
+                SetEnableControl();
+                flogin.GetLicense();
+            }
+            labTextLicense.Text = String.Format(StringMessage.TextLicense, new object[] { DeveloverOptions.SysDel.GetTextTypeLicense(), DeveloverOptions.SysDel.TypeLicense == TypeLicenses.None || DeveloverOptions.SysDel.TypeLicense == TypeLicenses.Free ? "_ //_ //_" : DeveloverOptions.SysDel.ExpirationDate.ToShortDateString() });
         }
     }
 }

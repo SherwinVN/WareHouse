@@ -35,5 +35,7 @@ namespace Develover.Utilities
         public static string TextButtonCancel = "Hủy";
         public static string TextButtonPrint = "In";
 
+
+        public static string TextLicense = "{0} Ngày hết hạn {1}.";
     }
 }

@@ -18,18 +18,8 @@ namespace DeveloverWarehouse.Modules.File
         public UOM()
         {
             InitializeComponent();
-
-            TitleForm = "Danh mục dơn vị tính";
             SQLDataSourceSearch = "SELECT * FROM UOM order by UOMID";
-            Model = "UOM";
-            txtName.FieldBinding = "UOMName";
-            txtName.TypeFieldColumns = EnumTypeColumns.Text;
-            memDescription.FieldBinding = "Description";
-            memDescription.TypeFieldColumns = EnumTypeColumns.Text;
-            chkActive.FieldBinding = "Active";
-            chkActive.TypeFieldColumns = EnumTypeColumns.Check;
-            DeveloverControls = new IDeveloverControl[] { txtName,memDescription,chkActive};
-
+            Model = "UOM";           
             DeveloverControlsFocus = txtName;
         }
 

@@ -29,5 +29,6 @@ namespace Develover.Utilities
             public string NullText;
             public List<TypeColumns> TypeColumnGridLookup;
         }
+        
     }
 }

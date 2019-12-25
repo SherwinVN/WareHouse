@@ -12,6 +12,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using Develover.Utilities;
 using static Develover.Utilities.Enum;
+using Develover.Core;
 
 namespace Develover.GUI.Forms
 {
@@ -19,20 +20,23 @@ namespace Develover.GUI.Forms
     {
         public string SQLDataSourceSearch;
         public string Model;
-        public IDeveloverControl[] DeveloverControls;
+        public List<IDeveloverControl> DeveloverControls;
         public IDeveloverControl DeveloverControlsFocus;
-        public string TitleForm;
 
         public string CodePrimary;
         public string NameFileCodePrimary;
-
+        public SqlDataProvider sqlDataProvider = new SqlDataProvider();
         public EnumPermission StatusUse;
+
+
         public DeveloverCatalogForm()
         {
             InitializeComponent();
+
             grc_search.TypeGridEdit = false;
             StatusUse = EnumPermission.View;
             SetEnableBarButton();
+            DeveloverControls = new List<IDeveloverControl>();
 
         }
         private void DeveloverCatalogForm_Load(object sender, EventArgs e)
@@ -43,9 +47,15 @@ namespace Develover.GUI.Forms
 
         public void InitForm()
         {
+            using (DataTable data = sqlDataProvider.GetDataTable("SELECT   ID, Code, Name, TableHeader, TableDetail FROM SysDELListVoucher WHERE code = '" + Model + "'"))
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Text = dr["Name"].ToString();
+                }
+            }
             LoadData();
             DataBindingsControl();
-            Text = TitleForm;
         }
 
         public virtual void LoadData()
@@ -56,6 +66,7 @@ namespace Develover.GUI.Forms
 
         public virtual void DataBindingsControl()
         {
+            LoadListControlBinding();
             foreach (IDeveloverControl develoverControl in DeveloverControls)
             {
                 switch (((IDeveloverControl)develoverControl).TypeFieldColumns)
@@ -87,8 +98,83 @@ namespace Develover.GUI.Forms
 
         }
 
+        private void LoadListControlBinding()
+        {
+            using (DataTable data = sqlDataProvider.GetDataTable("SELECT NameControl, NameColumn, TypeControl FROM SysDELBinDingData WHERE Model = '" + Model + "' "))
+            {
+
+                foreach (DataRow dr in data.Rows)
+                {
+                    ((IDeveloverControl)gro_general.Controls[dr["NameControl"]?.ToString()]).FieldBinding = dr["NameColumn"]?.ToString();
+                    ((IDeveloverControl)gro_general.Controls[dr["NameControl"]?.ToString()]).TypeFieldColumns = GetTypeColumn(dr["TypeControl"]?.ToString());
+
+                    DeveloverControls.Add(((IDeveloverControl)gro_general.Controls[dr["NameControl"]?.ToString()]));
+                }
+            }
+        }
+
         protected virtual void BarButtonNew_Click()
         {
+            if (EnumPermission.New == StatusUse)
+            {
+                Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                List<Dictionary<string, string>> lists = new List<Dictionary<string, string>>();
+
+                foreach (IDeveloverControl iDC in DeveloverControls)
+                {
+                    switch (iDC.TypeFieldColumns)
+                    {
+                        case EnumTypeColumns.Number:
+                            dictionary.Add(iDC.FieldBinding, ((Control)iDC).Text);
+                            break;
+                        case EnumTypeColumns.Check:
+                            dictionary.Add(iDC.FieldBinding, ((CheckEdit)iDC).Checked.ToString());
+                            break;
+
+                        case EnumTypeColumns.Combobox:
+                            dictionary.Add(iDC.FieldBinding, ((Control)iDC).Text);
+                            break;
+
+                        case EnumTypeColumns.Date:
+                            dictionary.Add(iDC.FieldBinding, DateTime.Parse(((Control)iDC).Text).ToString("MM/dd/yyyy"));
+                            break;
+
+                        case EnumTypeColumns.Gridlookup:
+                            dictionary.Add(iDC.FieldBinding, ((Control)iDC).Text);
+                            break;
+
+                        case EnumTypeColumns.Text:
+                            dictionary.Add(iDC.FieldBinding, ((Control)iDC).Text);
+                            break;
+
+                        case EnumTypeColumns.Time:
+                            dictionary.Add(iDC.FieldBinding, ((Control)iDC).Text);
+                            break;
+
+
+
+                    }
+                    lists.Add(dictionary);
+                }
+
+                InsertIntoTable(lists, Model);
+            }
+
+
+        }
+        public bool InsertIntoTable(List<Dictionary<string, string>> ListFilesValues, string Table)
+        {
+            StringBuilder stringBuilderField = new StringBuilder();
+            StringBuilder stringBuilderValue = new StringBuilder();
+            stringBuilderField.Append("INSERT INTO " + Table + "( ");
+            stringBuilderValue.Append("Values(");
+            foreach (Dictionary<string, string> item in ListFilesValues)
+            {
+                stringBuilderField.Append(item.Keys + ", ");
+                stringBuilderValue.Append(item.Values + ", ");
+            }
+            string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")";
+            return sqlDataProvider.ExecuteNonQuery(result) != -1;
 
         }
 
@@ -114,34 +200,40 @@ namespace Develover.GUI.Forms
 
         private void BarButtonNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (PermissionNew) return;
+            if (!PermissionNew) return;
+            StatusUse = StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit ? EnumPermission.View : StatusUse = EnumPermission.New;
             SetEnableBarButton();
             BarButtonNew_Click();
         }
 
         private void BarButtonEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (PermissionEdit) return;
+            if (!PermissionEdit) return;
+            StatusUse = EnumPermission.Edit;
             SetEnableBarButton();
             BarButtonEdit_Click();
         }
 
         private void BarButtonCancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            StatusUse = EnumPermission.View;
             SetEnableBarButton();
             BarButtonCancel_Click();
         }
 
+
         private void BarButtonDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (PermissionDelete) return;
+            if (!PermissionDelete) return;
+            StatusUse = EnumPermission.Delete;
             SetEnableBarButton();
             BarButtonDelete_Click();
         }
 
         private void barButtonPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (PermissionPrint) return;
+            if (!PermissionPrint) return;
+            StatusUse = EnumPermission.Print;
             SetEnableBarButton();
             BarButtonPrint_Click();
 
@@ -162,35 +254,36 @@ namespace Develover.GUI.Forms
             {
                 case EnumPermission.New:
                     {
-                        barButtonEdit.Enable = false;
-                        barButtonDelete.Enable = false;
-                        barButtonCancel.Enable = true;
-                        barButtonPrint.Enable = false;
+
+                        barButtonEdit.Enabled = false;
+                        barButtonDelete.Enabled = false;
+                        barButtonCancel.Enabled = true;
+                        barButtonPrint.Enabled = false;
                     }
                     break;
                 case EnumPermission.Edit:
                     {
-                        barButtonEdit.Enable = false;
-                        barButtonDelete.Enable = false;
-                        barButtonCancel.Enable = true;
-                        barButtonPrint.Enable = false;
+                        barButtonEdit.Enabled = false;
+                        barButtonDelete.Enabled = false;
+                        barButtonCancel.Enabled = true;
+                        barButtonPrint.Enabled = false;
                     }
                     break;
                 case EnumPermission.View:
                     {
-                        barButtonEdit.Enable = true;
-                        barButtonDelete.Enable = true;
-                        barButtonCancel.Enable = false;
-                        barButtonPrint.Enable = true;
+                        barButtonEdit.Enabled = true;
+                        barButtonDelete.Enabled = true;
+                        barButtonCancel.Enabled = false;
+                        barButtonPrint.Enabled = true;
                     }
                     break;
                 case EnumPermission.Denial:
                     {
-                        BarButtonNew.Enable = false;
-                        barButtonEdit.Enable = false;
-                        barButtonDelete.Enable = false;
-                        barButtonCancel.Enable = false;
-                        barButtonPrint.Enable = false;
+                        BarButtonNew.Enabled = false;
+                        barButtonEdit.Enabled = false;
+                        barButtonDelete.Enabled = false;
+                        barButtonCancel.Enabled = false;
+                        barButtonPrint.Enabled = false;
                     }
                     break;
             }
@@ -199,14 +292,14 @@ namespace Develover.GUI.Forms
         private void LoadTextBarButton()
         {
             if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit)
-                BarButtonNew.Text = StringMessage.TextButtonSave;
+                BarButtonNew.Caption = StringMessage.TextButtonSave;
             else
-                BarButtonNew.Text = StringMessage.TextButtonNew;
+                BarButtonNew.Caption = StringMessage.TextButtonNew;
 
-            barButtonEdit.Enable = StringMessage.TextButtonEdit;
-            barButtonDelete.Enable = StringMessage.TextButtonDelete;
-            barButtonCancel.Enable = StringMessage.TextButtonCancel;
-            barButtonPrint.Enable = StringMessage.TextButtonPrint;
+            barButtonEdit.Caption = StringMessage.TextButtonEdit;
+            barButtonDelete.Caption = StringMessage.TextButtonDelete;
+            barButtonCancel.Caption = StringMessage.TextButtonCancel;
+            barButtonPrint.Caption = StringMessage.TextButtonPrint;
         }
 
         public void LoadPermissionForm()

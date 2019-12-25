@@ -179,7 +179,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.toolbarManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(838, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(838, 28);
             // 
             // barDockControlBottom
             // 
@@ -193,17 +193,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
             this.barDockControlLeft.Manager = this.toolbarManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 413);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 409);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(838, 24);
+            this.barDockControlRight.Location = new System.Drawing.Point(838, 28);
             this.barDockControlRight.Manager = this.toolbarManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 413);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
             // 
             // gro_content
             // 
@@ -212,10 +212,10 @@
             this.gro_content.Controls.Add(this.gro_search);
             this.gro_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gro_content.FieldBinding = null;
-            this.gro_content.Location = new System.Drawing.Point(0, 24);
+            this.gro_content.Location = new System.Drawing.Point(0, 28);
             this.gro_content.Name = "gro_content";
             this.gro_content.ShowCaption = false;
-            this.gro_content.Size = new System.Drawing.Size(838, 413);
+            this.gro_content.Size = new System.Drawing.Size(838, 409);
             this.gro_content.TabIndex = 4;
             this.gro_content.Text = "develoverGroupControl2";
             this.gro_content.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -228,7 +228,7 @@
             this.gro_information.Location = new System.Drawing.Point(254, 2);
             this.gro_information.Name = "gro_information";
             this.gro_information.ShowCaption = false;
-            this.gro_information.Size = new System.Drawing.Size(582, 409);
+            this.gro_information.Size = new System.Drawing.Size(582, 405);
             this.gro_information.TabIndex = 0;
             this.gro_information.Text = "develoverGroupControl3";
             this.gro_information.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -240,7 +240,7 @@
             this.tab_information.Location = new System.Drawing.Point(2, 2);
             this.tab_information.Name = "tab_information";
             this.tab_information.SelectedTabPage = this.tbp_general;
-            this.tab_information.Size = new System.Drawing.Size(578, 405);
+            this.tab_information.Size = new System.Drawing.Size(578, 401);
             this.tab_information.TabIndex = 0;
             this.tab_information.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tbp_general,
@@ -251,7 +251,7 @@
             // 
             this.tbp_general.Controls.Add(this.gro_general);
             this.tbp_general.Name = "tbp_general";
-            this.tbp_general.Size = new System.Drawing.Size(576, 380);
+            this.tbp_general.Size = new System.Drawing.Size(576, 372);
             this.tbp_general.Text = "Thông tin";
             // 
             // gro_general
@@ -261,7 +261,7 @@
             this.gro_general.Location = new System.Drawing.Point(0, 0);
             this.gro_general.Name = "gro_general";
             this.gro_general.ShowCaption = false;
-            this.gro_general.Size = new System.Drawing.Size(576, 380);
+            this.gro_general.Size = new System.Drawing.Size(576, 372);
             this.gro_general.TabIndex = 0;
             this.gro_general.Text = "General";
             this.gro_general.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -272,7 +272,7 @@
             this.tbp_note.Controls.Add(this.gro_note);
             this.tbp_note.Name = "tbp_note";
             this.tbp_note.PageVisible = false;
-            this.tbp_note.Size = new System.Drawing.Size(576, 380);
+            this.tbp_note.Size = new System.Drawing.Size(576, 376);
             this.tbp_note.Text = "Note";
             // 
             // gro_note
@@ -286,7 +286,7 @@
             this.gro_note.Location = new System.Drawing.Point(0, 0);
             this.gro_note.Name = "gro_note";
             this.gro_note.ShowCaption = false;
-            this.gro_note.Size = new System.Drawing.Size(576, 380);
+            this.gro_note.Size = new System.Drawing.Size(576, 376);
             this.gro_note.TabIndex = 2;
             this.gro_note.Text = "develoverGroupControl12";
             this.gro_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -348,7 +348,7 @@
             this.gro_detail_note.FieldBinding = null;
             this.gro_detail_note.Location = new System.Drawing.Point(5, 214);
             this.gro_detail_note.Name = "gro_detail_note";
-            this.gro_detail_note.Size = new System.Drawing.Size(564, 159);
+            this.gro_detail_note.Size = new System.Drawing.Size(564, 155);
             this.gro_detail_note.TabIndex = 0;
             this.gro_detail_note.Text = "Note";
             this.gro_detail_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -357,9 +357,9 @@
             // 
             this.mmo_note.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mmo_note.FieldBinding = null;
-            this.mmo_note.Location = new System.Drawing.Point(2, 23);
+            this.mmo_note.Location = new System.Drawing.Point(2, 27);
             this.mmo_note.Name = "mmo_note";
-            this.mmo_note.Size = new System.Drawing.Size(560, 134);
+            this.mmo_note.Size = new System.Drawing.Size(560, 126);
             this.mmo_note.TabIndex = 0;
             this.mmo_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -371,7 +371,7 @@
             this.develoverSplitterControl1.MinSize = 0;
             this.develoverSplitterControl1.Name = "develoverSplitterControl1";
             this.develoverSplitterControl1.ShowSplitGlyph = DevExpress.Utils.DefaultBoolean.True;
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 409);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 405);
             this.develoverSplitterControl1.TabIndex = 1;
             this.develoverSplitterControl1.TabStop = false;
             this.develoverSplitterControl1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -383,7 +383,7 @@
             this.gro_search.FieldBinding = null;
             this.gro_search.Location = new System.Drawing.Point(2, 2);
             this.gro_search.Name = "gro_search";
-            this.gro_search.Size = new System.Drawing.Size(242, 409);
+            this.gro_search.Size = new System.Drawing.Size(242, 405);
             this.gro_search.TabIndex = 0;
             this.gro_search.Text = "Tìm kiếm";
             this.gro_search.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -393,10 +393,10 @@
             this.gro_search_middle_1.Controls.Add(this.grc_search);
             this.gro_search_middle_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gro_search_middle_1.FieldBinding = null;
-            this.gro_search_middle_1.Location = new System.Drawing.Point(2, 23);
+            this.gro_search_middle_1.Location = new System.Drawing.Point(2, 27);
             this.gro_search_middle_1.Name = "gro_search_middle_1";
             this.gro_search_middle_1.ShowCaption = false;
-            this.gro_search_middle_1.Size = new System.Drawing.Size(238, 384);
+            this.gro_search_middle_1.Size = new System.Drawing.Size(238, 376);
             this.gro_search_middle_1.TabIndex = 0;
             this.gro_search_middle_1.Text = "Search Middle 1";
             this.gro_search_middle_1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -415,7 +415,7 @@
             this.grc_search.MainView = this.grv_search;
             this.grc_search.MenuManager = this.toolbarManager;
             this.grc_search.Name = "grc_search";
-            this.grc_search.Size = new System.Drawing.Size(234, 380);
+            this.grc_search.Size = new System.Drawing.Size(234, 372);
             this.grc_search.TabIndex = 0;
             this.grc_search.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             this.grc_search.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -492,17 +492,17 @@
         private Controls.DeveloverSimpleButton but_add_note;
         private Controls.DeveloverGroupControl gro_detail_note;
         private Controls.DeveloverMemoEdit mmo_note;
-        private Controls.DeveloverSplitterControl develoverSplitterControl1;
-        private Controls.DeveloverGroupControl gro_search;
         private Controls.DeveloverGroupControl gro_search_middle_1;
         private Controls.DeveloverGridControl develoverGridControl2;
         private Controls.DeveloverGridView develoverGridView2;
-        private Controls.DeveloverGridControl grc_search;
         private Controls.DeveloverGridView grv_search;
         private System.Windows.Forms.BindingSource bindingSource1;
         private DevExpress.XtraBars.BarButtonItem BarButtonNew;
         private DevExpress.XtraBars.BarButtonItem barButtonPrint;
         public Controls.DeveloverXtraTabControl tab_information;
         public Controls.DeveloverGroupControl gro_general;
+        public Controls.DeveloverSplitterControl develoverSplitterControl1;
+        public Controls.DeveloverGroupControl gro_search;
+        public Controls.DeveloverGridControl grc_search;
     }
 }

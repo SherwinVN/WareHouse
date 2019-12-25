@@ -39,6 +39,7 @@ namespace Develover.GUI.Forms
         public DeveloverForm()
         {
             KeyPreview = true;
+            LoadPermission();
         }
         protected override bool ProcessDialogKey(Keys keyData)
         {
@@ -111,5 +112,22 @@ namespace Develover.GUI.Forms
         }
         #endregion
 
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // DeveloverForm
+            // 
+            this.ClientSize = new System.Drawing.Size(300, 270);
+            this.Name = "DeveloverForm";
+            this.Load += new System.EventHandler(this.DeveloverForm_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void DeveloverForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

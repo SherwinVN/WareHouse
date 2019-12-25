@@ -12,10 +12,12 @@ using Develover.Services;
 using Develover.Utilities;
 using Develover.Core;
 using DevExpress.XtraSplashScreen;
+using Develover.GUI.Forms;
+using Develover.GUI;
 
 namespace DeveloverWarehouse
 {
-    public partial class Login : DevExpress.XtraEditors.XtraForm
+    public partial class Login : DeveloverForm, IDeveloverFormChild
     {
         IDeveloverLoginFunction flogin = new IDeveloverLoginFunction();
         public Login()
@@ -33,7 +35,6 @@ namespace DeveloverWarehouse
             DeveloverOptions.StatusLogins.Password = txtPassWord.Text;
             DeveloverOptions.StatusLogins.RememberPassword = chkGhiNhoDangNhap.Checked;
 
-            flogin.CheckLicense();
             flogin.GetInfoServer();
 
             SqlDataProvider sqlDataProvider = new SqlDataProvider();
@@ -68,11 +69,20 @@ namespace DeveloverWarehouse
 
         private void Login_Load(object sender, EventArgs e)
         {
+            flogin.GetLicense();
+            if (!DeveloverOptions.SysDel.StatusLicense || DeveloverOptions.SysDel.ExpirationDate < DateTime.Now)
+            {
+                Setting setting = new Setting();
+                setting.ShowDialog();
+                if (!setting.Status) Application.Exit();
+            }
+
             if (!flogin.checkRegistryKey())
             {
                 Setting setting = new Setting();
                 setting.ShowDialog();
             }
+
             flogin.GetInfoUser();
             chkGhiNhoDangNhap.Checked = DeveloverOptions.StatusLogins.RememberPassword;
             txtUserName.Text = DeveloverOptions.StatusLogins.Username;

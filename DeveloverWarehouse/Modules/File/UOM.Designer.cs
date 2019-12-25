@@ -32,10 +32,11 @@
             this.memDescription = new Develover.GUI.Controls.DeveloverMemoEdit();
             this.chkActive = new Develover.GUI.Controls.DeveloverCheckEdit();
             this.labOUMName = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.develoverLabelControl2 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.labDescription = new Develover.GUI.Controls.DeveloverLabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_general)).BeginInit();
             this.gro_general.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gro_search)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
@@ -43,17 +44,25 @@
             // 
             // tab_information
             // 
-            this.tab_information.SelectedTabPage = this.tbp_general;
-            this.tab_information.Size = new System.Drawing.Size(540, 418);
+            this.tab_information.Size = new System.Drawing.Size(461, 414);
             // 
             // gro_general
             // 
-            this.gro_general.Controls.Add(this.develoverLabelControl2);
+            this.gro_general.Controls.Add(this.labDescription);
             this.gro_general.Controls.Add(this.labOUMName);
             this.gro_general.Controls.Add(this.chkActive);
             this.gro_general.Controls.Add(this.memDescription);
             this.gro_general.Controls.Add(this.txtName);
-            this.gro_general.Size = new System.Drawing.Size(538, 393);
+            this.gro_general.Size = new System.Drawing.Size(459, 385);
+            // 
+            // develoverSplitterControl1
+            // 
+            this.develoverSplitterControl1.Location = new System.Drawing.Point(323, 2);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 418);
+            // 
+            // gro_search
+            // 
+            this.gro_search.Size = new System.Drawing.Size(321, 418);
             // 
             // txtName
             // 
@@ -93,15 +102,15 @@
             this.labOUMName.Text = "Tên đơn vị tính";
             this.labOUMName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // develoverLabelControl2
+            // labDescription
             // 
-            this.develoverLabelControl2.FieldBinding = null;
-            this.develoverLabelControl2.Location = new System.Drawing.Point(9, 50);
-            this.develoverLabelControl2.Name = "develoverLabelControl2";
-            this.develoverLabelControl2.Size = new System.Drawing.Size(45, 13);
-            this.develoverLabelControl2.TabIndex = 4;
-            this.develoverLabelControl2.Text = "Chú thích";
-            this.develoverLabelControl2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.labDescription.FieldBinding = null;
+            this.labDescription.Location = new System.Drawing.Point(9, 50);
+            this.labDescription.Name = "labDescription";
+            this.labDescription.Size = new System.Drawing.Size(45, 13);
+            this.labDescription.TabIndex = 4;
+            this.labDescription.Text = "Chú thích";
+            this.labDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // UOM
             // 
@@ -109,16 +118,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "UOM";
-            this.PermissionDelete = true;
-            this.PermissionEdit = true;
-            this.PermissionNew = true;
-            this.PermissionPrint = true;
             this.Text = "UOM";
             this.Load += new System.EventHandler(this.UOM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_general)).EndInit();
             this.gro_general.ResumeLayout(false);
             this.gro_general.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gro_search)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
@@ -133,6 +139,6 @@
         private Develover.GUI.Controls.DeveloverCheckEdit chkActive;
         private Develover.GUI.Controls.DeveloverMemoEdit memDescription;
         private Develover.GUI.Controls.DeveloverTextEdit txtName;
-        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl2;
+        private Develover.GUI.Controls.DeveloverLabelControl labDescription;
     }
 }
