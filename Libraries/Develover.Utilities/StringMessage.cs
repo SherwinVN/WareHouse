@@ -28,5 +28,12 @@ namespace Develover.Utilities
         public static string Delete = "Xóa";
         public static string Edit = "Chỉnh sửa";
 
+        public static string TextButtonNew = "Mới";
+        public static string TextButtonSave = "Lưu";
+        public static string TextButtonEdit = "Sửa";
+        public static string TextButtonDelete = "Xóa";
+        public static string TextButtonCancel = "Hủy";
+        public static string TextButtonPrint = "In";
+
     }
 }
