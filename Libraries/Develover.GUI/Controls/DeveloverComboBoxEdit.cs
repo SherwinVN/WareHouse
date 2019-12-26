@@ -1,8 +1,8 @@
-﻿using Develover.Core;
-using DevExpress.Utils;
+﻿using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using System.Data;
 using System.Windows.Forms;
+using Develover.Services;
 using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Controls
@@ -13,7 +13,8 @@ namespace Develover.GUI.Controls
         EnumTypeColumns typeFieldColumns;
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
-        SqlDataProvider SDP = new SqlDataProvider();
+        Functions functions = new Functions(); 
+
         private string sql_ = "";
         private bool getInRow_ = false;
         private int indexGetValue_ = 0;
@@ -49,7 +50,7 @@ namespace Develover.GUI.Controls
 
         private void LoadData()
         {
-            using (DataTable data = SDP.GetDataTable(sql_))
+            using (DataTable data = functions.dataBase.GetDataTable(sql_))
             {
                 if (getInRow_)
                 {

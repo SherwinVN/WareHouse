@@ -1,4 +1,4 @@
-﻿using Develover.Core;
+﻿using Develover.Services;
 using Develover.Utilities;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
@@ -15,7 +15,7 @@ namespace Develover.GUI.RepositoryItems
 {
     public class DeveloverRepositoryItemComboBox : RepositoryItemComboBox
     {
-        SqlDataProvider SDP = new SqlDataProvider();
+        Functions functions = new Functions();
         private string sql_ = "";
         private bool getInRow_ = false;
         private int indexGetValue_ = 0;
@@ -50,7 +50,7 @@ namespace Develover.GUI.RepositoryItems
         }
         private void LoadData()
         {
-            using (DataTable data = SDP.GetDataTable(sql_))
+            using (DataTable data = functions.dataBase.GetDataTable(sql_))
             {
                 if (getInRow_)
                 {

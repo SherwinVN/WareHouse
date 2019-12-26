@@ -1,5 +1,5 @@
-﻿using Develover.Core;
-using Develover.GUI.Controls;
+﻿using Develover.GUI.Controls;
+using Develover.Services;
 using DevExpress.Data.Linq;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
@@ -12,7 +12,7 @@ namespace Develover.GUI.RepositoryItems
 {
     public class DeveloverRepositoryItemGridLookUpEdit : RepositoryItemGridLookUpEdit
     {
-        SqlDataProvider sqlDataProvider = new SqlDataProvider(); 
+        Functions functions = new Functions();
 
         string sqlData_;  List<TypeColumns> typeColumns_;  string keyMember_;  string displayMember_;  string valueMember_;  string nullText_;
         public DeveloverRepositoryItemGridLookUpEdit() : base()
@@ -44,7 +44,7 @@ namespace Develover.GUI.RepositoryItems
             KeyMember = keyMember_;
             NullText = nullText_;
 
-            DataSource = sqlDataProvider.GetDataTable(sqlData_);
+            DataSource = functions.dataBase.GetDataTable(sqlData_);
             ((DeveloverGridView)PopupView).BuidColumnsView(typeColumns_);
         }
     }

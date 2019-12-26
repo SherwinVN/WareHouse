@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Develover.Services;
 using Develover.Utilities;
-using Develover.Core;
 using Develover.GUI.Forms;
 using Develover.GUI;
 using static Develover.Utilities.Enum;
@@ -20,7 +19,7 @@ namespace DeveloverWarehouse
     public partial class Setting : DeveloverForm, IDeveloverFormChild
     {
         IDeveloverLoginFunction flogin = new IDeveloverLoginFunction();
-        SqlDataProvider sqlDataProvider = new SqlDataProvider();
+        readonly Functions functions = new Functions();
         private static bool status = false;
         public bool Status { get => status; }
 
@@ -51,12 +50,12 @@ namespace DeveloverWarehouse
             DeveloverOptions.InfoDatabase.PasswordSQL = txtPassWord.Text.Trim();
             DeveloverOptions.InfoDatabase.DatabaseName = txtDatabaseName.Text.Trim();
 
-            if (!sqlDataProvider.CheckLogin())
+            if (!functions.dataBase.CheckLogin())
             {
                 laberror.Text = "Kết nối tới SERVER [" + DeveloverOptions.InfoDatabase.ServerName + "] thất bại ?\n" + DeveloverOptions.SysDel.MessageError + ".";
             }
             else
-            if (!sqlDataProvider.ChangeDataBase())
+            if (!functions.dataBase.ChangeDataBase())
             {
                 laberror.Text = "Không thể truy cập Database [" + DeveloverOptions.InfoDatabase.DatabaseName + "] ?\n" + DeveloverOptions.SysDel.MessageError + ".";
             }

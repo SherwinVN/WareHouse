@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Develover.Services;
 using Develover.Utilities;
-using Develover.Core;
 using DevExpress.XtraSplashScreen;
 using Develover.GUI.Forms;
 using Develover.GUI;
@@ -37,8 +36,8 @@ namespace DeveloverWarehouse
 
             flogin.GetInfoServer();
 
-            SqlDataProvider sqlDataProvider = new SqlDataProvider();
-            if (!sqlDataProvider.CheckLogin() || !sqlDataProvider.ChangeDataBase())
+            Functions functions = new Functions();
+            if (!functions.dataBase.CheckLogin() || !functions.dataBase.ChangeDataBase())
             {
                 Setting setting = new Setting();
                 setting.ShowDialog();

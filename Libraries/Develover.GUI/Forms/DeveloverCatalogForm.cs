@@ -12,21 +12,19 @@ using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using Develover.Utilities;
 using static Develover.Utilities.Enum;
-using Develover.Core;
 using Develover.Services;
 
 namespace Develover.GUI.Forms
 {
     public partial class DeveloverCatalogForm : DeveloverForm
     {
+        Functions functions = new Functions();
         public string SQLDataSourceSearch;
         public string Model;
         public List<IDeveloverControl> DeveloverControls;
         public IDeveloverControl DeveloverControlsFocus;
-
         public string CodePrimary;
         public string NameFileCodePrimary;
-        Functions functions = new Functions();
         public EnumPermission StatusUse;
 
 
@@ -48,7 +46,7 @@ namespace Develover.GUI.Forms
 
         public void InitForm()
         {
-            using (DataTable data = sqlDataProvider.GetDataTable("SELECT   ID, Code, Name, TableHeader, TableDetail FROM SysDELListVoucher WHERE code = '" + Model + "'"))
+            using (DataTable data = functions.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader, TableDetail FROM SysDELListVoucher WHERE code = '" + Model + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
@@ -101,7 +99,7 @@ namespace Develover.GUI.Forms
 
         private void LoadListControlBinding()
         {
-            using (DataTable data = sqlDataProvider.GetDataTable("SELECT NameControl, NameColumn, TypeControl FROM SysDELBinDingData WHERE Model = '" + Model + "' "))
+            using (DataTable data = functions.dataBase.GetDataTable("SELECT NameControl, NameColumn, TypeControl FROM SysDELBinDingData WHERE Model = '" + Model + "' "))
             {
 
                 foreach (DataRow dr in data.Rows)

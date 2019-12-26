@@ -10,11 +10,18 @@ namespace Develover.Services
     public class Functions : IDeveloverFunctions
     {
 
-        DataBase dataBase;
+        public DataBase dataBase;
         public Functions()
         {
             dataBase = new DataBase();
         }
+        //public List<Dictionary<string, string>> LoadListControlAndFile(iDeveloverControl, string Table)
+        //{
+        //    List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();
+        //    Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+        //    return list;
+        //}
 
 
         public bool InsertIntoTable(List<Dictionary<string, string>> ListFilesValues, string Table)
@@ -39,7 +46,7 @@ namespace Develover.Services
 
             public DataBase()
             {
-                sqlDataProvider = new SqlDataProvider()
+                sqlDataProvider = new SqlDataProvider();
             }
 
             public string GetSQLConnectionString()

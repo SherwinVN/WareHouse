@@ -1,4 +1,4 @@
-﻿using Develover.Core;
+﻿using Develover.Services;
 using DevExpress.Data.Linq;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
@@ -20,7 +20,7 @@ namespace Develover.GUI.Controls
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
 
-        SqlDataProvider sqlDataProvider = new SqlDataProvider();
+        Functions functions = new Functions();
         string sqlData;
         string model;
         public bool TypeGridEdit;
@@ -41,7 +41,7 @@ namespace Develover.GUI.Controls
             DeveloverGridView develoverGridView = ((DeveloverGridView)this.DefaultView);
             develoverGridView.TypeGridEdit = TypeGridEdit;
             develoverGridView.BuidColumns(typeColumns);
-            DataSource = sqlDataProvider.GetDataTable(SQLData);
+            DataSource = functions.dataBase.GetDataTable(SQLData);
         }
         public void BuildGridControls(string SQLData, string Model)
         {
@@ -63,14 +63,14 @@ namespace Develover.GUI.Controls
         {
             List<TypeColumns> typeColumns = GetSysDelGridcolumns(model, true);
             ((DeveloverGridView)this.DefaultView).BuidColumns(typeColumns);
-            DataSource = sqlDataProvider.GetDataTable(sqlData);
+            DataSource = functions.dataBase.GetDataTable(sqlData);
         }
 
         private List<TypeColumns> GetSysDelGridcolumns(string Model, bool RunOne)
         {
             List<TypeColumns> typeColumns = new List<TypeColumns>();
             TypeColumns typeColumns_;
-            using (DataTable data = sqlDataProvider.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
+            using (DataTable data = functions.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
