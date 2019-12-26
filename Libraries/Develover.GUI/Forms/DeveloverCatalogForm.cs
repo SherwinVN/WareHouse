@@ -13,6 +13,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using Develover.Utilities;
 using static Develover.Utilities.Enum;
 using Develover.Core;
+using Develover.Services;
 
 namespace Develover.GUI.Forms
 {
@@ -25,7 +26,7 @@ namespace Develover.GUI.Forms
 
         public string CodePrimary;
         public string NameFileCodePrimary;
-        public SqlDataProvider sqlDataProvider = new SqlDataProvider();
+        Functions functions = new Functions();
         public EnumPermission StatusUse;
 
 
@@ -157,24 +158,9 @@ namespace Develover.GUI.Forms
                     lists.Add(dictionary);
                 }
 
-                InsertIntoTable(lists, Model);
+                functions.InsertIntoTable(lists, Model);
             }
 
-
-        }
-        public bool InsertIntoTable(List<Dictionary<string, string>> ListFilesValues, string Table)
-        {
-            StringBuilder stringBuilderField = new StringBuilder();
-            StringBuilder stringBuilderValue = new StringBuilder();
-            stringBuilderField.Append("INSERT INTO " + Table + "( ");
-            stringBuilderValue.Append("Values(");
-            foreach (Dictionary<string, string> item in ListFilesValues)
-            {
-                stringBuilderField.Append(item.Keys + ", ");
-                stringBuilderValue.Append(item.Values + ", ");
-            }
-            string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")";
-            return sqlDataProvider.ExecuteNonQuery(result) != -1;
 
         }
 
