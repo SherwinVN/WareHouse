@@ -62,6 +62,7 @@ namespace DeveloverWarehouse
             }
             else laberror.Text = "Kết nối SERVER [" + DeveloverOptions.InfoDatabase.ServerName + "] - DATABASE [" + DeveloverOptions.InfoDatabase.DatabaseName + "] Thành công!";
             SetEnableControl();
+            Close();
         }
 
         private void Login_FormClosed(object sender, FormClosedEventArgs e)

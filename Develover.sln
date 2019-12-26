@@ -6,10 +6,12 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{5B5FDB34-8E0E-41D3-BF3F-66AF5E963F29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Develover.GUI", "Libraries\Develover.GUI\Develover.GUI.csproj", "{C6CC233F-2578-4170-99D9-CCA8CCC50CC7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{86649880-A3C1-4019-8533-0DD5A9CC8B1B} = {86649880-A3C1-4019-8533-0DD5A9CC8B1B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Develover.Services", "Libraries\Develover.Services\Develover.Services.csproj", "{86649880-A3C1-4019-8533-0DD5A9CC8B1B}"
 	ProjectSection(ProjectDependencies) = postProject
-		{C6CC233F-2578-4170-99D9-CCA8CCC50CC7} = {C6CC233F-2578-4170-99D9-CCA8CCC50CC7}
 		{D37491EB-9A4A-4873-90AD-FEB893256D97} = {D37491EB-9A4A-4873-90AD-FEB893256D97}
 	EndProjectSection
 EndProject

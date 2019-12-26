@@ -374,10 +374,6 @@
       <Project>{1fc4126a-1582-4279-a409-af711f5f1d37}</Project>
       <Name>DeveloverWarehouse.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Libraries\Develover.Core\Develover.Core.csproj">
-      <Project>{5379910A-8A42-4254-A1B1-952542C43DDA}</Project>
-      <Name>Develover.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Libraries\Develover.GUI\Develover.GUI.csproj">
       <Project>{c6cc233f-2578-4170-99d9-cca8ccc50cc7}</Project>
       <Name>Develover.GUI</Name>

@@ -1,0 +1,1 @@
+DevExpressUniversalTrialSetup-20191120.exe /FORCEMANUA

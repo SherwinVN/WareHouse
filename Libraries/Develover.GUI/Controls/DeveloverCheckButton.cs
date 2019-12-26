@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using System.ComponentModel;
 using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Controls

@@ -8,6 +8,7 @@ using Develover.Utilities;
 
 namespace Develover.Core {
     public sealed class SqlDataProvider {
+
         private static string ConnectionString { get; set; }
         SqlConnection sqlConnection = new SqlConnection ();
 

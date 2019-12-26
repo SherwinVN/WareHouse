@@ -6,7 +6,7 @@ namespace Develover.Services
 {
     public class Functions : IDeveloverFunctions
     {
-        public SqlDataProvider sqlDataProvider = new SqlDataProvider();
+        public SqlDataProvider sqlDataProvider;
 
         public Functions()
         {
