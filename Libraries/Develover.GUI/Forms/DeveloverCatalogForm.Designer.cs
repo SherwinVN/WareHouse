@@ -59,7 +59,7 @@
             this.gro_search_middle_1 = new Develover.GUI.Controls.DeveloverGroupControl();
             this.grc_search = new Develover.GUI.Controls.DeveloverGridControl();
             this.grv_search = new Develover.GUI.Controls.DeveloverGridView();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_content)).BeginInit();
             this.gro_content.SuspendLayout();
@@ -83,12 +83,13 @@
             this.gro_search_middle_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grc_search)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolbarManager
             // 
             this.toolbarManager.AllowCustomization = false;
+            this.toolbarManager.AllowMdiChildButtons = false;
             this.toolbarManager.AllowMoveBarOnToolbar = false;
             this.toolbarManager.AllowQuickCustomization = false;
             this.toolbarManager.AllowShowToolbarsPopup = false;
@@ -250,8 +251,10 @@
             // tbp_general
             // 
             this.tbp_general.Controls.Add(this.gro_general);
+            this.tbp_general.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("tbp_general.ImageOptions.SvgImage")));
+            this.tbp_general.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
             this.tbp_general.Name = "tbp_general";
-            this.tbp_general.Size = new System.Drawing.Size(576, 372);
+            this.tbp_general.Size = new System.Drawing.Size(576, 369);
             this.tbp_general.Text = "Thông tin";
             // 
             // gro_general
@@ -261,7 +264,7 @@
             this.gro_general.Location = new System.Drawing.Point(0, 0);
             this.gro_general.Name = "gro_general";
             this.gro_general.ShowCaption = false;
-            this.gro_general.Size = new System.Drawing.Size(576, 372);
+            this.gro_general.Size = new System.Drawing.Size(576, 369);
             this.gro_general.TabIndex = 0;
             this.gro_general.Text = "General";
             this.gro_general.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -272,7 +275,7 @@
             this.tbp_note.Controls.Add(this.gro_note);
             this.tbp_note.Name = "tbp_note";
             this.tbp_note.PageVisible = false;
-            this.tbp_note.Size = new System.Drawing.Size(576, 376);
+            this.tbp_note.Size = new System.Drawing.Size(576, 369);
             this.tbp_note.Text = "Note";
             // 
             // gro_note
@@ -286,7 +289,7 @@
             this.gro_note.Location = new System.Drawing.Point(0, 0);
             this.gro_note.Name = "gro_note";
             this.gro_note.ShowCaption = false;
-            this.gro_note.Size = new System.Drawing.Size(576, 376);
+            this.gro_note.Size = new System.Drawing.Size(576, 369);
             this.gro_note.TabIndex = 2;
             this.gro_note.Text = "develoverGroupControl12";
             this.gro_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -348,7 +351,7 @@
             this.gro_detail_note.FieldBinding = null;
             this.gro_detail_note.Location = new System.Drawing.Point(5, 214);
             this.gro_detail_note.Name = "gro_detail_note";
-            this.gro_detail_note.Size = new System.Drawing.Size(564, 155);
+            this.gro_detail_note.Size = new System.Drawing.Size(564, 148);
             this.gro_detail_note.TabIndex = 0;
             this.gro_detail_note.Text = "Note";
             this.gro_detail_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -359,7 +362,7 @@
             this.mmo_note.FieldBinding = null;
             this.mmo_note.Location = new System.Drawing.Point(2, 27);
             this.mmo_note.Name = "mmo_note";
-            this.mmo_note.Size = new System.Drawing.Size(560, 126);
+            this.mmo_note.Size = new System.Drawing.Size(560, 119);
             this.mmo_note.TabIndex = 0;
             this.mmo_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -409,12 +412,13 @@
             this.grc_search.EmbeddedNavigator.Buttons.Edit.Visible = false;
             this.grc_search.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.grc_search.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.grc_search.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.grc_search.FieldBinding = null;
             this.grc_search.Location = new System.Drawing.Point(2, 2);
             this.grc_search.MainView = this.grv_search;
             this.grc_search.MenuManager = this.toolbarManager;
             this.grc_search.Name = "grc_search";
+            this.grc_search.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCalcEdit1});
             this.grc_search.Size = new System.Drawing.Size(234, 372);
             this.grc_search.TabIndex = 0;
             this.grc_search.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -427,8 +431,18 @@
             this.grv_search.GridControl = this.grc_search;
             this.grv_search.IndicatorWidth = 40;
             this.grv_search.Name = "grv_search";
+            this.grv_search.OptionsBehavior.AllowIncrementalSearch = true;
+            this.grv_search.OptionsBehavior.SmartVertScrollBar = false;
+            this.grv_search.OptionsView.ShowFooter = true;
             this.grv_search.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             this.grv_search.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grv_search_FocusedRowChanged);
+            // 
+            // repositoryItemCalcEdit1
+            // 
+            this.repositoryItemCalcEdit1.AutoHeight = false;
+            this.repositoryItemCalcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
             // 
             // DeveloverCatalogForm
             // 
@@ -440,6 +454,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("DeveloverCatalogForm.IconOptions.Image")));
             this.Name = "DeveloverCatalogForm";
             this.Text = "DeveloverCatalogForm";
             this.Load += new System.EventHandler(this.DeveloverCatalogForm_Load);
@@ -466,7 +481,7 @@
             this.gro_search_middle_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grc_search)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grv_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -496,7 +511,6 @@
         private Controls.DeveloverGridControl develoverGridControl2;
         private Controls.DeveloverGridView develoverGridView2;
         private Controls.DeveloverGridView grv_search;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private DevExpress.XtraBars.BarButtonItem BarButtonNew;
         private DevExpress.XtraBars.BarButtonItem barButtonPrint;
         public Controls.DeveloverXtraTabControl tab_information;
@@ -504,5 +518,6 @@
         public Controls.DeveloverSplitterControl develoverSplitterControl1;
         public Controls.DeveloverGroupControl gro_search;
         public Controls.DeveloverGridControl grc_search;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
     }
 }

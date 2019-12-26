@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DeveloverWarehouse.StartingForm), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.repositoryItemToggleSwitch1 = new DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch();
             this.toolbarControl = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
             this.toolbarManager = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
@@ -134,7 +134,7 @@
             this.toolbarControl.Location = new System.Drawing.Point(0, 0);
             this.toolbarControl.Manager = this.toolbarManager;
             this.toolbarControl.Name = "toolbarControl";
-            this.toolbarControl.Size = new System.Drawing.Size(872, 31);
+            this.toolbarControl.Size = new System.Drawing.Size(872, 30);
             this.toolbarControl.TabIndex = 4;
             this.toolbarControl.TabStop = false;
             this.toolbarControl.TitleItemLinks.Add(this._010000);
@@ -375,33 +375,33 @@
             // 
             this.barDockTop.CausesValidation = false;
             this.barDockTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockTop.Location = new System.Drawing.Point(0, 31);
+            this.barDockTop.Location = new System.Drawing.Point(0, 30);
             this.barDockTop.Manager = this.toolbarManager;
-            this.barDockTop.Size = new System.Drawing.Size(872, 25);
+            this.barDockTop.Size = new System.Drawing.Size(872, 28);
             // 
             // barDockBottom
             // 
             this.barDockBottom.CausesValidation = false;
             this.barDockBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockBottom.Location = new System.Drawing.Point(0, 443);
+            this.barDockBottom.Location = new System.Drawing.Point(0, 444);
             this.barDockBottom.Manager = this.toolbarManager;
-            this.barDockBottom.Size = new System.Drawing.Size(872, 27);
+            this.barDockBottom.Size = new System.Drawing.Size(872, 26);
             // 
             // barDockLeft
             // 
             this.barDockLeft.CausesValidation = false;
             this.barDockLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockLeft.Location = new System.Drawing.Point(0, 56);
+            this.barDockLeft.Location = new System.Drawing.Point(0, 58);
             this.barDockLeft.Manager = this.toolbarManager;
-            this.barDockLeft.Size = new System.Drawing.Size(0, 387);
+            this.barDockLeft.Size = new System.Drawing.Size(0, 386);
             // 
             // barDockRight
             // 
             this.barDockRight.CausesValidation = false;
             this.barDockRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockRight.Location = new System.Drawing.Point(872, 56);
+            this.barDockRight.Location = new System.Drawing.Point(872, 58);
             this.barDockRight.Manager = this.toolbarManager;
-            this.barDockRight.Size = new System.Drawing.Size(0, 387);
+            this.barDockRight.Size = new System.Drawing.Size(0, 386);
             // 
             // _010000
             // 
@@ -499,12 +499,15 @@
             this._010505.Caption = "&Danh sách kho";
             this._010505.Id = 11;
             this._010505.Name = "_010505";
+            this._010505.Tag = "File.Location";
+            this._010505.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010505_ItemClick);
             // 
             // _010506
             // 
             this._010506.Caption = "Nhóm kho";
             this._010506.Id = 12;
             this._010506.Name = "_010506";
+            this._010506.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010506_ItemClick);
             // 
             // _010507
             // 
@@ -847,13 +850,13 @@
             this.bbt_statusconnect.Id = 76;
             this.bbt_statusconnect.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbt_statusconnect.ImageOptions.SvgImage")));
             this.bbt_statusconnect.Name = "bbt_statusconnect";
-            toolTipTitleItem1.Text = "Status Connetion";
-            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Click to reconnection";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.bbt_statusconnect.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Status Connetion";
+            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Click to reconnection";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.bbt_statusconnect.SuperTip = superToolTip2;
             // 
             // barUserLogin
             // 
@@ -864,9 +867,10 @@
             // 
             // tabbedMdiManager
             // 
+            this.tabbedMdiManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
             this.tabbedMdiManager.MdiParent = this;
+            this.tabbedMdiManager.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
             this.tabbedMdiManager.SetNextMdiChildMode = DevExpress.XtraTabbedMdi.SetNextMdiChildMode.Windows;
-            this.tabbedMdiManager.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.True;
             // 
             // bar2
             // 

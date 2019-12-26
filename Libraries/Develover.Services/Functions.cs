@@ -1,4 +1,5 @@
 ﻿using Develover.Core;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -22,20 +23,84 @@ namespace Develover.Services
 
         //    return list;
         //}
+        public string GetGUID()
+        {
+            Guid guid = Guid.NewGuid();
+            return guid.ToString();
+        }
+        public bool DeleteRowTable(string Table, string NameFieldKey, string value)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("DELETE FROM [" + Table + "] WHERE [" + NameFieldKey + "] = '" + value + "'");
 
+            string result = stringBuilder.ToString();
+            return dataBase.ExecuteNonQuery(result) != -1;
 
-        public bool InsertIntoTable(List<Dictionary<string, string>> ListFilesValues, string Table)
+        }
+
+        public bool DeleteRowTable(string Table)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("DELETE FROM [" + Table + "]");
+
+            string result = stringBuilder.ToString();
+            return dataBase.ExecuteNonQuery(result) != -1;
+
+        }
+        public bool UpdateTable(Dictionary<string, string> ListFilesValues, string Table, string NameFieldKey, string value)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("UPDATE a SET ");
+            foreach (string key in ListFilesValues.Keys)
+            {
+                stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
+            }
+
+            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + " FROM  [" + Table + "] a  WHERE  [" + NameFieldKey + "] = N'" + value + "' ";
+            return dataBase.ExecuteNonQuery(result) != -1;
+
+        }
+        public bool UpdateTable(Dictionary<string, string> ListFilesValues, string Table)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("UPDATE a SET ");
+            foreach (string key in ListFilesValues.Keys)
+            {
+                stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
+            }
+
+            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + ")" + " FROM  [" + Table + "] a ";
+            return dataBase.ExecuteNonQuery(result) != -1;
+
+        }
+
+        public bool InsertIntoTable(Dictionary<string, string> ListFilesValues, string Table, string NameFieldKey, string value)
         {
             StringBuilder stringBuilderField = new StringBuilder();
             StringBuilder stringBuilderValue = new StringBuilder();
-            stringBuilderField.Append("INSERT INTO " + Table + "( ");
-            stringBuilderValue.Append("Values(");
-            foreach (Dictionary<string, string> item in ListFilesValues)
+            stringBuilderField.Append("INSERT INTO [" + Table + "] ([" + NameFieldKey + "],");
+            stringBuilderValue.Append(" Values(N'" + value + "',");
+            foreach (string key in ListFilesValues.Keys)
             {
-                stringBuilderField.Append(item.Keys + ", ");
-                stringBuilderValue.Append(item.Values + ", ");
+                stringBuilderField.Append("[" + key + "],");
+                stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
             }
-            string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")";
+            string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderValue.ToString(0, stringBuilderValue.Length - 1) + ")";
+            return dataBase.ExecuteNonQuery(result) != -1;
+
+        }
+        public bool InsertIntoTable(Dictionary<string, string> ListFilesValues, string Table)
+        {
+            StringBuilder stringBuilderField = new StringBuilder();
+            StringBuilder stringBuilderValue = new StringBuilder();
+            stringBuilderField.Append("INSERT INTO [" + Table + "] (");
+            stringBuilderValue.Append("Values(");
+            foreach (string key in ListFilesValues.Keys)
+            {
+                stringBuilderField.Append("[" + key + "],");
+                stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
+            }
+            string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderValue.ToString(0, stringBuilderValue.Length - 1) + ")";
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }

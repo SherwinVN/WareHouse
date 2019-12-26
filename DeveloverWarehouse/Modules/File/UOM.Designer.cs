@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UOM));
             this.txtName = new Develover.GUI.Controls.DeveloverTextEdit();
             this.memDescription = new Develover.GUI.Controls.DeveloverMemoEdit();
             this.chkActive = new Develover.GUI.Controls.DeveloverCheckEdit();
@@ -53,7 +54,7 @@
             this.gro_general.Controls.Add(this.chkActive);
             this.gro_general.Controls.Add(this.memDescription);
             this.gro_general.Controls.Add(this.txtName);
-            this.gro_general.Size = new System.Drawing.Size(459, 385);
+            this.gro_general.Size = new System.Drawing.Size(459, 382);
             // 
             // develoverSplitterControl1
             // 
@@ -66,31 +67,31 @@
             // 
             // txtName
             // 
-            this.txtName.FieldBinding = null;
+            this.txtName.FieldBinding = "UoMName";
             this.txtName.Location = new System.Drawing.Point(129, 27);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(284, 20);
             this.txtName.TabIndex = 0;
-            this.txtName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.txtName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
             // memDescription
             // 
-            this.memDescription.FieldBinding = null;
+            this.memDescription.FieldBinding = "Description";
             this.memDescription.Location = new System.Drawing.Point(129, 50);
             this.memDescription.Name = "memDescription";
             this.memDescription.Size = new System.Drawing.Size(284, 66);
             this.memDescription.TabIndex = 1;
-            this.memDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.memDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
             // chkActive
             // 
-            this.chkActive.FieldBinding = null;
+            this.chkActive.FieldBinding = "Active";
             this.chkActive.Location = new System.Drawing.Point(129, 119);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Caption = "Trạng thái sử dụng";
             this.chkActive.Size = new System.Drawing.Size(284, 20);
             this.chkActive.TabIndex = 2;
-            this.chkActive.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.chkActive.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Check;
             // 
             // labOUMName
             // 
@@ -117,6 +118,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("UOM.IconOptions.Image")));
             this.Name = "UOM";
             this.Text = "UOM";
             this.Load += new System.EventHandler(this.UOM_Load);

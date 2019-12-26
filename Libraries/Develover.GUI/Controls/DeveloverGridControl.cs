@@ -23,7 +23,6 @@ namespace Develover.GUI.Controls
         Functions functions = new Functions();
         string sqlData;
         string model;
-        public bool TypeGridEdit;
 
         protected override BaseView CreateDefaultView()
         {
@@ -39,17 +38,30 @@ namespace Develover.GUI.Controls
         public void BuildGridControls(string SQLData, List<TypeColumns> typeColumns, bool GridEdit = true)
         {
             DeveloverGridView develoverGridView = ((DeveloverGridView)this.DefaultView);
-            develoverGridView.TypeGridEdit = TypeGridEdit;
             develoverGridView.BuidColumns(typeColumns);
             DataSource = functions.dataBase.GetDataTable(SQLData);
         }
         public void BuildGridControls(string SQLData, string Model)
         {
             DeveloverGridView develoverGridView = ((DeveloverGridView)this.DefaultView);
-            develoverGridView.TypeGridEdit = TypeGridEdit;
             sqlData = SQLData;
             model = Model;
-            LoadData();
+            UseEmbeddedNavigator = true;
+
+            EmbeddedNavigator.Buttons.Append.Visible = false;
+            EmbeddedNavigator.Buttons.Edit.Visible = false;
+            EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            EmbeddedNavigator.TextStringFormat = " {0} / {1}";
+            List<TypeColumns> typeColumns = GetSysDelGridcolumns(model, true);
+            ((DeveloverGridView)this.DefaultView).BuidColumns(typeColumns);
+            
+
+        }
+        public void BuildGridControlsView(string SQLData, string Model)
+        {
+            DeveloverGridView develoverGridView = ((DeveloverGridView)this.DefaultView);
+            sqlData = SQLData;
+            model = Model;
             UseEmbeddedNavigator = true;
 
             EmbeddedNavigator.Buttons.Append.Visible = false;
@@ -57,12 +69,13 @@ namespace Develover.GUI.Controls
             EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             EmbeddedNavigator.TextStringFormat = " {0} / {1}";
 
+            List<TypeColumns> typeColumns = GetSysDelGridcolumnsView(model, true);
+            ((DeveloverGridView)this.DefaultView).BuidColumnsView(typeColumns);
+           
         }
 
-        private void LoadData()
+        public void LoadData()
         {
-            List<TypeColumns> typeColumns = GetSysDelGridcolumns(model, true);
-            ((DeveloverGridView)this.DefaultView).BuidColumns(typeColumns);
             DataSource = functions.dataBase.GetDataTable(sqlData);
         }
 
@@ -88,15 +101,54 @@ namespace Develover.GUI.Controls
                     typeColumns_.Index = 10;
                     int.TryParse(dr["OrderNo"].ToString(), out typeColumns_.Index);
 
-                    if (TypeGridEdit)
-                    {
-                        typeColumns_.TypeColumn = GetTypeColumn(dr["Type"]?.ToString());
-                        bool.TryParse(dr["AllowEdit"]?.ToString(), out typeColumns_.AllowEdit);
-                    }
-                    else
-                    {
-                        typeColumns_.TypeColumn = GetTypeColumn("Text");
-                    }
+                    typeColumns_.SumaryType = GetSumaryType(dr["SumaryType"]?.ToString());
+                    typeColumns_.StringFormat = dr["StringFormat"]?.ToString();
+
+                    typeColumns_.TypeColumn = GetTypeColumn(dr["Type"]?.ToString());
+                    bool.TryParse(dr["AllowEdit"]?.ToString(), out typeColumns_.AllowEdit);
+
+
+                    typeColumns_.ChildModel = RunOne ? dr["ChildModel"]?.ToString() : "";
+                    typeColumns_.SQLData = dr["DataSource"]?.ToString();
+                    typeColumns_.KeyMember = dr["KeyMember"]?.ToString();
+                    typeColumns_.DisplayMember = dr["DisplayMember"]?.ToString();
+                    typeColumns_.ValueMember = dr["ValueMember"]?.ToString();
+                    typeColumns_.NullText = dr["NullText"]?.ToString();
+
+                    if (RunOne && dr["ChildModel"]?.ToString() != string.Empty)
+                        typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumns(typeColumns_.ChildModel, false);
+                    typeColumns.Add(typeColumns_);
+                }
+            }
+            return typeColumns;
+        }
+        private List<TypeColumns> GetSysDelGridcolumnsView(string Model, bool RunOne)
+        {
+            List<TypeColumns> typeColumns = new List<TypeColumns>();
+            TypeColumns typeColumns_;
+            using (DataTable data = functions.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    typeColumns_ = new TypeColumns();
+                    typeColumns_.Caption = dr["Caption"]?.ToString();
+                    typeColumns_.Name = dr["Name"]?.ToString();
+                    typeColumns_.FieldName = dr["Name"]?.ToString();
+                    typeColumns_.Visible = false;
+                    bool.TryParse(dr["Visible"]?.ToString(), out typeColumns_.Visible);
+                    typeColumns_.AllowFocus = false;
+                    bool.TryParse(dr["AllowFocus"]?.ToString(), out typeColumns_.AllowFocus);
+                    typeColumns_.AllowEdit = false;
+                    typeColumns_.Width = 10;
+                    int.TryParse(dr["Width"].ToString(), out typeColumns_.Width);
+                    typeColumns_.Index = 10;
+                    int.TryParse(dr["OrderNo"].ToString(), out typeColumns_.Index);
+
+                    typeColumns_.SumaryType = GetSumaryType(dr["SumaryType"]?.ToString());
+                    typeColumns_.StringFormat = dr["StringFormat"]?.ToString();
+
+                    typeColumns_.TypeColumn = GetTypeColumn("Text");
+
 
                     typeColumns_.ChildModel = RunOne ? dr["ChildModel"]?.ToString() : "";
                     typeColumns_.SQLData = dr["DataSource"]?.ToString();
@@ -113,6 +165,5 @@ namespace Develover.GUI.Controls
             return typeColumns;
         }
 
-      
     }
 }

@@ -37,5 +37,8 @@ namespace Develover.Utilities
 
 
         public static string TextLicense = "{0} Ngày hết hạn {1}.";
+
+        public static string GroupPanelText = "Kéo thả cột vào đây để nhóm.";
+        public static string NewItemRowText = "Nhập liệu tại đây.";
     }
 }

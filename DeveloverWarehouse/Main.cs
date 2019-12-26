@@ -77,10 +77,10 @@ namespace DeveloverWarehouse
             login = new Login();
             login.ShowDialog();
             LoadInfoApplication();
-            LoadFirst();
+            LoadGridLocalizer();
         }
 
-        private static void LoadFirst()
+        private static void LoadGridLocalizer()
         {
             GridLocalizer.Active = new DeveloverGridLocalizer();
         }
@@ -235,6 +235,16 @@ namespace DeveloverWarehouse
             form.MdiParent = this;
             form.Show();
             SplashScreenManager.CloseForm(false);
+        }
+
+        private void _010506_ItemClick(object sender, ItemClickEventArgs e)
+        {
+        }
+
+        private void _010505_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
+
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Develover.GUI.Controls
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
         public DeveloverGridView() : this(null) { }
-        public bool TypeGridEdit;
 
         public DeveloverGridView(GridControl grid) : base(grid)
         {
@@ -41,34 +40,20 @@ namespace Develover.GUI.Controls
                 e.Info.DisplayText = (e.RowHandle + 1).ToString();
         }
 
-        public void GridEdit()
-        {
-            if (TypeGridEdit)
-            {
-                this.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
-                this.OptionsView.ShowGroupPanel = false;
-                this.OptionsNavigation.AutoFocusNewRow = true;
-                this.OptionsNavigation.EnterMoveNextColumn = true;
-            }
-            else
-            {
-                this.OptionsFind.AlwaysVisible = true;
-                this.OptionsFind.ClearFindOnClose = true;
-                this.OptionsFind.ShowClearButton = true;
-                this.OptionsFind.ShowCloseButton = true;
-                this.OptionsFind.SearchInPreview = true;
-                this.OptionsFind.FindNullPrompt = StringMessage.TextFindFilter;
-                this.OptionsView.ShowAutoFilterRow = true;
-                this.OptionsView.ShowGroupPanel = false;
-          
-            }
-        }
-       
         protected override string ViewName { get { return "DeveloverGridView"; } }
 
         public void BuidColumns(List<TypeColumns> typeColumns)
         {
-            GridEdit();
+            this.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
+            this.OptionsView.ShowGroupPanel = false;
+            this.OptionsNavigation.AutoFocusNewRow = true;
+            this.OptionsNavigation.EnterMoveNextColumn = true;
+            this.OptionsView.ShowFooter = true;
+            this.OptionsBehavior.AutoUpdateTotalSummary = true;
+            this.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.NewItemRowText = StringMessage.NewItemRowText;
+
 
             GridColumn gridColumn;
             foreach (TypeColumns typeColumns_ in typeColumns)
@@ -82,6 +67,11 @@ namespace Develover.GUI.Controls
                 gridColumn.OptionsColumn.AllowFocus = typeColumns_.AllowFocus;
                 gridColumn.OptionsColumn.AllowEdit = typeColumns_.AllowEdit;
                 gridColumn.Visible = typeColumns_.Visible;
+                        
+                gridColumn.SummaryItem.SummaryType = GetSummaryItemType(typeColumns_.SumaryType);
+                gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
+                gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
+
                 GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }
@@ -89,6 +79,20 @@ namespace Develover.GUI.Controls
 
         public void BuidColumnsView(List<TypeColumns> typeColumns)
         {
+            this.OptionsFind.AlwaysVisible = true;
+            this.OptionsFind.ClearFindOnClose = true;
+            this.OptionsFind.ShowClearButton = true;
+            this.OptionsFind.ShowCloseButton = true;
+            this.OptionsFind.SearchInPreview = true;
+            this.OptionsFind.FindNullPrompt = StringMessage.TextFindFilter;
+            this.OptionsView.ShowAutoFilterRow = true;
+            this.OptionsView.ShowGroupPanel = false;
+            this.GroupPanelText = StringMessage.GroupPanelText;
+
+            this.OptionsView.ShowFooter = true;
+            this.OptionsBehavior.AutoUpdateTotalSummary = true;
+            this.OptionsBehavior.AutoSelectAllInEditor = false;
+
             GridColumn gridColumn;
             foreach (TypeColumns typeColumns_ in typeColumns)
             {
@@ -98,9 +102,14 @@ namespace Develover.GUI.Controls
                 gridColumn.Caption = typeColumns_.Caption;
                 gridColumn.Width = typeColumns_.Width;
                 gridColumn.VisibleIndex = typeColumns_.Index;
-                gridColumn.OptionsColumn.AllowFocus = typeColumns_.AllowFocus;
+                gridColumn.OptionsColumn.AllowFocus = false;
                 gridColumn.OptionsColumn.AllowEdit = false;
                 gridColumn.Visible = typeColumns_.Visible;
+
+                gridColumn.SummaryItem.SummaryType = GetSummaryItemType(typeColumns_.SumaryType);
+                gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
+                gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
+
                 GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }

@@ -30,6 +30,7 @@ namespace Develover.GUI.OverideClass
         {
             return XtraMessageBox.Show(text, caption, buttons, icon, defaultButton);
         }
+       
         public static DialogResult DelMessageBoxPermission(EnumPermission enumPermission)
         {
             string text = StringMessage.Unknown;

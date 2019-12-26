@@ -20,6 +20,8 @@ namespace Develover.Utilities
             public int Width;
             public int Index;
             public EnumTypeColumns TypeColumn;
+            public SumaryType SumaryType;
+            public string StringFormat;
 
             public string ChildModel;
             public string SQLData;
@@ -29,6 +31,5 @@ namespace Develover.Utilities
             public string NullText;
             public List<TypeColumns> TypeColumnGridLookup;
         }
-        
     }
 }

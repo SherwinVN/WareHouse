@@ -13,21 +13,23 @@ using static Develover.Utilities.Enum;
 
 namespace DeveloverWarehouse.Modules.File
 {
-    public partial class UOM : DeveloverCatalogForm, IDeveloverFormChild
+    public partial class Location : DeveloverCatalogForm, IDeveloverFormChild
     {
-        public UOM()
+        public Location()
         {
             InitializeComponent();
-            SQLDataSourceSearch = "SELECT * FROM UOM order by UOMID";
-            Model = "UOM";           
-            Table = "UOM";
-            NameFieldCodePrimary = "UOMID";
-            DeveloverControlsFocus = txtName;
+            SQLDataSourceSearch = "SELECT * FROM Location order by LocationID";
+            Model = "Location";           
+            Table = "Location";
+            NameFieldCodePrimary = "LocationID";
+            DeveloverControlsFocus = txtBranchID;
         }
 
-        private void UOM_Load(object sender, EventArgs e)
+        private void Location_Load(object sender, EventArgs e)
         {
             InitForm();
         }
+
+
     }
 }
