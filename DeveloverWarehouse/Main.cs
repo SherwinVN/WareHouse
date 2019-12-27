@@ -246,5 +246,15 @@ namespace DeveloverWarehouse
             LoadForm(sender);
 
         }
+
+        private void _010503_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
+        }
+
+        private void _010504_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
+        }
     }
 }

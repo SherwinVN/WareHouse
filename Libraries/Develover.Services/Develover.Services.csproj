@@ -65,10 +65,6 @@
       <Project>{5379910A-8A42-4254-A1B1-952542C43DDA}</Project>
       <Name>Develover.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Develover.GUI\Develover.GUI.csproj">
-      <Project>{c6cc233f-2578-4170-99d9-cca8ccc50cc7}</Project>
-      <Name>Develover.GUI</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Develover.Utilities\Develover.Utilities.csproj">
       <Project>{6DC6DE96-E1B3-433D-8358-88EE3835DEF8}</Project>
       <Name>Develover.Utilities</Name>

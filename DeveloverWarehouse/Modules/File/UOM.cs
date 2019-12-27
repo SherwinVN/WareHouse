@@ -22,6 +22,8 @@ namespace DeveloverWarehouse.Modules.File
             Model = "UOM";           
             Table = "UOM";
             NameFieldCodePrimary = "UOMID";
+            NameFieldNamePrimary = "UOMName";
+            DeveloverControlsNamePrimary = txtName;
             DeveloverControlsFocus = txtName;
         }
 

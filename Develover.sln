@@ -9,7 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Develover.GUI", "Libraries\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Develover.Services", "Libraries\Develover.Services\Develover.Services.csproj", "{86649880-A3C1-4019-8533-0DD5A9CC8B1B}"
 	ProjectSection(ProjectDependencies) = postProject
-		{C6CC233F-2578-4170-99D9-CCA8CCC50CC7} = {C6CC233F-2578-4170-99D9-CCA8CCC50CC7}
 		{D37491EB-9A4A-4873-90AD-FEB893256D97} = {D37491EB-9A4A-4873-90AD-FEB893256D97}
 	EndProjectSection
 EndProject

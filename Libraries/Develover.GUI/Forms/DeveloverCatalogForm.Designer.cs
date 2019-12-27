@@ -268,7 +268,6 @@
             this.gro_general.TabIndex = 0;
             this.gro_general.Text = "General";
             this.gro_general.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
-            this.gro_general.Paint += new System.Windows.Forms.PaintEventHandler(this.gro_general_Paint);
             // 
             // tbp_note
             // 

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Location));
-            this.txtBranchID = new Develover.GUI.Controls.DeveloverTextEdit();
             this.memDescription = new Develover.GUI.Controls.DeveloverMemoEdit();
             this.chkActive = new Develover.GUI.Controls.DeveloverCheckEdit();
             this.labBranchID = new Develover.GUI.Controls.DeveloverLabelControl();
@@ -38,23 +37,27 @@
             this.txtLocationCode = new Develover.GUI.Controls.DeveloverTextEdit();
             this.labLocationCode = new Develover.GUI.Controls.DeveloverLabelControl();
             this.labDescription = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.lokBranchID = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
+            this.develoverGridLookUpEdit1View = new Develover.GUI.Controls.DeveloverGridView();
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_general)).BeginInit();
             this.gro_general.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gro_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBranchID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocationName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocationCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBranchID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // tab_information
             // 
-            this.tab_information.Size = new System.Drawing.Size(461, 414);
+            this.tab_information.Size = new System.Drawing.Size(461, 418);
             // 
             // gro_general
             // 
+            this.gro_general.Controls.Add(this.lokBranchID);
             this.gro_general.Controls.Add(this.labLocationCode);
             this.gro_general.Controls.Add(this.labDescription);
             this.gro_general.Controls.Add(this.labLocationName);
@@ -63,26 +66,16 @@
             this.gro_general.Controls.Add(this.memDescription);
             this.gro_general.Controls.Add(this.txtLocationCode);
             this.gro_general.Controls.Add(this.txtLocationName);
-            this.gro_general.Controls.Add(this.txtBranchID);
-            this.gro_general.Size = new System.Drawing.Size(459, 382);
+            this.gro_general.Size = new System.Drawing.Size(459, 390);
             // 
             // develoverSplitterControl1
             // 
             this.develoverSplitterControl1.Location = new System.Drawing.Point(323, 2);
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 418);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 422);
             // 
             // gro_search
             // 
-            this.gro_search.Size = new System.Drawing.Size(321, 418);
-            // 
-            // txtBranchID
-            // 
-            this.txtBranchID.FieldBinding = "BranchID";
-            this.txtBranchID.Location = new System.Drawing.Point(131, 14);
-            this.txtBranchID.Name = "txtBranchID";
-            this.txtBranchID.Size = new System.Drawing.Size(284, 20);
-            this.txtBranchID.TabIndex = 0;
-            this.txtBranchID.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            this.gro_search.Size = new System.Drawing.Size(321, 422);
             // 
             // memDescription
             // 
@@ -161,6 +154,32 @@
             this.labDescription.Text = "Diễn giải";
             this.labDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
+            // lokBranchID
+            // 
+            this.lokBranchID.FieldBinding = "BranchID";
+            this.lokBranchID.Location = new System.Drawing.Point(131, 14);
+            this.lokBranchID.Name = "lokBranchID";
+            this.lokBranchID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokBranchID.Properties.NullText = "";
+            this.lokBranchID.Properties.PopupView = this.develoverGridLookUpEdit1View;
+            this.lokBranchID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lokBranchID.Size = new System.Drawing.Size(284, 20);
+            this.lokBranchID.TabIndex = 9;
+            this.lokBranchID.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverGridLookUpEdit1View
+            // 
+            this.develoverGridLookUpEdit1View.FieldBinding = null;
+            this.develoverGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.develoverGridLookUpEdit1View.IndicatorWidth = 40;
+            this.develoverGridLookUpEdit1View.Name = "develoverGridLookUpEdit1View";
+            this.develoverGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.develoverGridLookUpEdit1View.OptionsSelection.MultiSelect = true;
+            this.develoverGridLookUpEdit1View.OptionsView.ColumnAutoWidth = false;
+            this.develoverGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.develoverGridLookUpEdit1View.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
             // Location
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,11 +194,12 @@
             this.gro_general.ResumeLayout(false);
             this.gro_general.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gro_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBranchID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocationName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLocationCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBranchID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,11 +210,12 @@
         private Develover.GUI.Controls.DeveloverLabelControl labBranchID;
         private Develover.GUI.Controls.DeveloverCheckEdit chkActive;
         private Develover.GUI.Controls.DeveloverMemoEdit memDescription;
-        private Develover.GUI.Controls.DeveloverTextEdit txtBranchID;
         private Develover.GUI.Controls.DeveloverLabelControl labLocationName;
         private Develover.GUI.Controls.DeveloverLabelControl labLocationCode;
         private Develover.GUI.Controls.DeveloverTextEdit txtLocationCode;
         private Develover.GUI.Controls.DeveloverTextEdit txtLocationName;
         private Develover.GUI.Controls.DeveloverLabelControl labDescription;
+        private Develover.GUI.Controls.DeveloverGridLookUpEdit lokBranchID;
+        private Develover.GUI.Controls.DeveloverGridView develoverGridLookUpEdit1View;
     }
 }

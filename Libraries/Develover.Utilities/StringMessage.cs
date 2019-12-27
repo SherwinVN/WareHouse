@@ -36,6 +36,9 @@ namespace Develover.Utilities
         public static string TextButtonPrint = "In";
 
 
+        public static string QuestionDelete = "Bạn có muốn xóa?";
+        public static string InfomationExistsObject = "Đối đã tồn tại, xin kiểm tra lại.";
+
         public static string TextLicense = "{0} Ngày hết hạn {1}.";
 
         public static string GroupPanelText = "Kéo thả cột vào đây để nhóm.";

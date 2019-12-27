@@ -1,4 +1,4 @@
-﻿using Develover.Core;
+﻿using Develover.Services;
 using DevExpress.Data.Linq;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
@@ -20,7 +20,7 @@ namespace Develover.GUI.Controls
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
 
-        SqlDataProvider sqlDataProvider = new SqlDataProvider();
+        Functions functions = new Functions();
         string sqlData;
         string model;
 
@@ -39,7 +39,7 @@ namespace Develover.GUI.Controls
         {
             DeveloverGridView develoverGridView = ((DeveloverGridView)this.DefaultView);
             develoverGridView.BuidColumns(typeColumns);
-            DataSource = sqlDataProvider.GetDataTable(SQLData);
+            DataSource = functions.dataBase.GetDataTable(SQLData);
         }
         public void BuildGridControls(string SQLData, string Model)
         {
@@ -52,14 +52,13 @@ namespace Develover.GUI.Controls
             EmbeddedNavigator.Buttons.Edit.Visible = false;
             EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             EmbeddedNavigator.TextStringFormat = " {0} / {1}";
-            List<TypeColumns> typeColumns = GetSysDelGridcolumns(model, true);
+            List<TypeColumns> typeColumns = GetSysDelGridcolumns(model);
             ((DeveloverGridView)this.DefaultView).BuidColumns(typeColumns);
-            
+
 
         }
         public void BuildGridControlsView(string SQLData, string Model)
         {
-            DeveloverGridView develoverGridView = ((DeveloverGridView)this.DefaultView);
             sqlData = SQLData;
             model = Model;
             UseEmbeddedNavigator = true;
@@ -69,21 +68,21 @@ namespace Develover.GUI.Controls
             EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             EmbeddedNavigator.TextStringFormat = " {0} / {1}";
 
-            List<TypeColumns> typeColumns = GetSysDelGridcolumnsView(model, true);
+            List<TypeColumns> typeColumns = GetSysDelGridcolumnsView(model);
             ((DeveloverGridView)this.DefaultView).BuidColumnsView(typeColumns);
-           
+
         }
 
         public void LoadData()
         {
-            DataSource = sqlDataProvider.GetDataTable(sqlData);
+            DataSource = functions.dataBase.GetDataTable(sqlData);
         }
 
-        private List<TypeColumns> GetSysDelGridcolumns(string Model, bool RunOne)
+        private List<TypeColumns> GetSysDelGridcolumns(string Model)
         {
             List<TypeColumns> typeColumns = new List<TypeColumns>();
             TypeColumns typeColumns_;
-            using (DataTable data = sqlDataProvider.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
+            using (DataTable data = functions.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
@@ -108,25 +107,24 @@ namespace Develover.GUI.Controls
                     bool.TryParse(dr["AllowEdit"]?.ToString(), out typeColumns_.AllowEdit);
 
 
-                    typeColumns_.ChildModel = RunOne ? dr["ChildModel"]?.ToString() : "";
+                    typeColumns_.ChildModel = dr["ChildModel"]?.ToString();
                     typeColumns_.SQLData = dr["DataSource"]?.ToString();
                     typeColumns_.KeyMember = dr["KeyMember"]?.ToString();
                     typeColumns_.DisplayMember = dr["DisplayMember"]?.ToString();
                     typeColumns_.ValueMember = dr["ValueMember"]?.ToString();
                     typeColumns_.NullText = dr["NullText"]?.ToString();
 
-                    if (RunOne && dr["ChildModel"]?.ToString() != string.Empty)
-                        typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumns(typeColumns_.ChildModel, false);
+                    typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumnsView(typeColumns_.ChildModel);
                     typeColumns.Add(typeColumns_);
                 }
             }
             return typeColumns;
         }
-        private List<TypeColumns> GetSysDelGridcolumnsView(string Model, bool RunOne)
+        private List<TypeColumns> GetSysDelGridcolumnsView(string Model)
         {
             List<TypeColumns> typeColumns = new List<TypeColumns>();
             TypeColumns typeColumns_;
-            using (DataTable data = sqlDataProvider.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
+            using (DataTable data = functions.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
@@ -150,15 +148,14 @@ namespace Develover.GUI.Controls
                     typeColumns_.TypeColumn = GetTypeColumn("Text");
 
 
-                    typeColumns_.ChildModel = RunOne ? dr["ChildModel"]?.ToString() : "";
+                    typeColumns_.ChildModel = dr["ChildModel"]?.ToString();
                     typeColumns_.SQLData = dr["DataSource"]?.ToString();
                     typeColumns_.KeyMember = dr["KeyMember"]?.ToString();
                     typeColumns_.DisplayMember = dr["DisplayMember"]?.ToString();
                     typeColumns_.ValueMember = dr["ValueMember"]?.ToString();
                     typeColumns_.NullText = dr["NullText"]?.ToString();
 
-                    if (RunOne && dr["ChildModel"]?.ToString() != string.Empty)
-                        typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumns(typeColumns_.ChildModel, false);
+                    //typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumnsView(typeColumns_.ChildModel);
                     typeColumns.Add(typeColumns_);
                 }
             }

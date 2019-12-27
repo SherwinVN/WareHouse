@@ -73,7 +73,6 @@ namespace Develover.Services
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
-
         public bool InsertIntoTable(Dictionary<string, string> ListFilesValues, string Table, string NameFieldKey, string value)
         {
             StringBuilder stringBuilderField = new StringBuilder();
@@ -104,6 +103,18 @@ namespace Develover.Services
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
+        public bool CheckExistsValueInTable(string TableName,string ColumnName,string value,string NameFieldCodePrimary, string CodePrimary) {
+           return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' AND ["+ NameFieldCodePrimary + "] <> N'"+ CodePrimary + "'").Rows.Count >0;
+        }
+        public bool CheckExistsColumnInTableOrView(string TypeObject,string ObjectName,string ColumnName)
+        {
+            return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '"+ TypeObject+"'  and  [name] = N'"+ ObjectName+"' and [id] IN (SELECT [id] FROM syscolumns WHERE [name] =  N'"+ ColumnName+"' )").Rows.Count > 0;
+        }
+        public bool CheckExistsObject(string TypeObject, string ObjectName)
+        {
+            return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '" + TypeObject + "'  and  [name] = N'" + ObjectName + "' ").Rows.Count > 0;
+        }
+
 
         public class DataBase
         {

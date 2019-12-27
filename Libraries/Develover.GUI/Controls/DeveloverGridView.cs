@@ -84,6 +84,8 @@ namespace Develover.GUI.Controls
             this.OptionsFind.ShowClearButton = true;
             this.OptionsFind.ShowCloseButton = true;
             this.OptionsFind.SearchInPreview = true;
+            this.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.OptionsFind.FindNullPrompt = StringMessage.TextFindFilter;
             this.OptionsView.ShowAutoFilterRow = true;
             this.OptionsView.ShowGroupPanel = false;

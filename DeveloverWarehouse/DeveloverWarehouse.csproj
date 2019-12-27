@@ -87,6 +87,12 @@
     <Compile Include="Modules\File\Location.Designer.cs">
       <DependentUpon>Location.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\File\User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\File\User.Designer.cs">
+      <DependentUpon>User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\File\UOM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </Compile>
     <EmbeddedResource Include="Modules\File\Location.resx">
       <DependentUpon>Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\File\User.resx">
+      <DependentUpon>User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\File\UOM.resx">
       <DependentUpon>UOM.cs</DependentUpon>

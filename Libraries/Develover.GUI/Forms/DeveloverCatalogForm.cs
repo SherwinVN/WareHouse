@@ -26,8 +26,10 @@ namespace Develover.GUI.Forms
         public string Table;
         public string CodePrimary;
         public string NameFieldCodePrimary;
+        public string NameFieldNamePrimary;
         public EnumPermission StatusUse;
         public IDeveloverControl DeveloverControlsFocus;
+        public IDeveloverControl DeveloverControlsNamePrimary;
 
         public DeveloverCatalogForm()
         {
@@ -209,18 +211,27 @@ namespace Develover.GUI.Forms
 
         protected virtual void BarButtonNew_Click()
         {
-            if (string.IsNullOrEmpty(CodePrimary)) return;
             if (EnumPermission.New == StatusUse)
             {
                 CodePrimary = functions.GetGUID();
+                if (functions.CheckExistsValueInTable(Table, NameFieldNamePrimary, ((Control)DeveloverControlsNamePrimary).Text, NameFieldCodePrimary, CodePrimary))
+                {
+                    DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                    return;
+                }
                 functions.InsertIntoTable(LoadListControlAndFile(gro_general), Table, NameFieldCodePrimary, CodePrimary);
                 LoadData();
             }
             else
             if (EnumPermission.Edit == StatusUse)
             {
-                functions.UpdateTable(LoadListControlAndFile(gro_general), Table, NameFieldCodePrimary, CodePrimary);
+                if (functions.CheckExistsValueInTable(Table, NameFieldNamePrimary, ((Control)DeveloverControlsNamePrimary).Text, NameFieldCodePrimary, CodePrimary))
+                {
+                    DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                    return;
 
+                }
+                functions.UpdateTable(LoadListControlAndFile(gro_general), Table, NameFieldCodePrimary, CodePrimary);
                 LoadData();
             }
             else
@@ -232,7 +243,6 @@ namespace Develover.GUI.Forms
 
         protected virtual void BarButtonEdit_Click()
         {
-            if (string.IsNullOrEmpty(CodePrimary)) return;
         }
 
         protected virtual void BarButtonCancel_Click()
@@ -242,10 +252,10 @@ namespace Develover.GUI.Forms
 
         protected virtual void BarButtonDelete_Click()
         {
-            if (DelMessageBox.DelMessageBoxYN("Bạn có muốn xóa?", MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionDelete, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 functions.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
-               
+                SetNullControl(gro_general);
                 LoadData();
             }
         }
@@ -290,9 +300,17 @@ namespace Develover.GUI.Forms
                 case EnumPermission.View:
                     {
                         barButtonEdit.Enabled = true;
-                        barButtonDelete.Enabled = true;
+                        if (String.IsNullOrEmpty(CodePrimary))
+                        {
+                            barButtonDelete.Enabled = false;
+                            barButtonPrint.Enabled = false;
+                        }
+                        else
+                        {
+                            barButtonDelete.Enabled = true;
+                            barButtonPrint.Enabled = true;
+                        }
                         barButtonCancel.Enabled = false;
-                        barButtonPrint.Enabled = true;
                         SetStatusEdit(gro_general, true);
                     }
                     break;
@@ -345,10 +363,18 @@ namespace Develover.GUI.Forms
 
         protected virtual void LoadData()
         {
-            int i = grv_search.FocusedRowHandle;
+            string code = CodePrimary;
             grc_search.LoadData();
             DataBindingsControl(gro_general, grc_search.DataSource);
-            grv_search.FocusedRowHandle = i;
+            if (grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code) >= 0)
+            {
+                grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code);
+                grv_search.ClearSelection();
+                grv_search.SelectRow(grv_search.FocusedRowHandle);
+            }
+            else
+                grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], CodePrimary);
+
         }
 
 
@@ -364,6 +390,7 @@ namespace Develover.GUI.Forms
         private void BarButtonEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!PermissionEdit) return;
+            if (string.IsNullOrEmpty(CodePrimary)) return;
             BarButtonEdit_Click();
             StatusUse = EnumPermission.Edit;
             SetEnableBarButton();
@@ -379,6 +406,8 @@ namespace Develover.GUI.Forms
         private void BarButtonDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!PermissionDelete) return;
+            if (string.IsNullOrEmpty(CodePrimary)) return;
+            if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit) return;
             BarButtonDelete_Click();
             StatusUse = EnumPermission.Delete;
             SetEnableBarButton();
@@ -387,16 +416,13 @@ namespace Develover.GUI.Forms
         private void barButtonPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!PermissionPrint) return;
+            if (string.IsNullOrEmpty(CodePrimary)) return;
+            if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit) return;
             BarButtonPrint_Click();
             StatusUse = EnumPermission.Print;
             SetEnableBarButton();
-
         }
 
-        private void gro_general_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void grv_search_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {

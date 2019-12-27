@@ -22,12 +22,13 @@ namespace DeveloverWarehouse.Modules.File
             Model = "Location";           
             Table = "Location";
             NameFieldCodePrimary = "LocationID";
-            DeveloverControlsFocus = txtBranchID;
+            DeveloverControlsFocus = lokBranchID;
         }
 
         private void Location_Load(object sender, EventArgs e)
         {
             InitForm();
+            lokBranchID.LoadData("SELECT * FROM UOM ", "UOM", "UOMID", "UOMName", "UOMID");
         }
 
 
