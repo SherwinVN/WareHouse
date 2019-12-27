@@ -1,4 +1,4 @@
-﻿using Develover.Services;
+﻿using Develover.Core;
 using DevExpress.Data.Linq;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
@@ -20,7 +20,7 @@ namespace Develover.GUI.Controls
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
 
-        Functions functions = new Functions();
+        SqlDataProvider sqlDataProvider = new SqlDataProvider();
         string sqlData;
         string model;
 
@@ -39,7 +39,7 @@ namespace Develover.GUI.Controls
         {
             DeveloverGridView develoverGridView = ((DeveloverGridView)this.DefaultView);
             develoverGridView.BuidColumns(typeColumns);
-            DataSource = functions.dataBase.GetDataTable(SQLData);
+            DataSource = sqlDataProvider.GetDataTable(SQLData);
         }
         public void BuildGridControls(string SQLData, string Model)
         {
@@ -76,14 +76,14 @@ namespace Develover.GUI.Controls
 
         public void LoadData()
         {
-            DataSource = functions.dataBase.GetDataTable(sqlData);
+            DataSource = sqlDataProvider.GetDataTable(sqlData);
         }
 
         private List<TypeColumns> GetSysDelGridcolumns(string Model, bool RunOne)
         {
             List<TypeColumns> typeColumns = new List<TypeColumns>();
             TypeColumns typeColumns_;
-            using (DataTable data = functions.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
+            using (DataTable data = sqlDataProvider.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
@@ -126,7 +126,7 @@ namespace Develover.GUI.Controls
         {
             List<TypeColumns> typeColumns = new List<TypeColumns>();
             TypeColumns typeColumns_;
-            using (DataTable data = functions.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
+            using (DataTable data = sqlDataProvider.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {

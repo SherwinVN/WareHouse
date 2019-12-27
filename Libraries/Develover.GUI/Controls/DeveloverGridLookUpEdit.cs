@@ -1,4 +1,4 @@
-﻿using Develover.Services;
+﻿using Develover.Core;
 using DevExpress.Data.Linq;
 using DevExpress.XtraEditors;
 using System;
@@ -16,7 +16,7 @@ namespace Develover.GUI.Controls
         EnumTypeColumns typeFieldColumns;
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
-        Functions functions = new Functions();
+        SqlDataProvider sqlDataProvider = new SqlDataProvider();
         string sqlData_; List<TypeColumns> typeColumns_; string keyMember_; string displayMember_; string valueMember_; string nullText_;
         public DeveloverGridLookUpEdit()
         {
@@ -49,7 +49,7 @@ namespace Develover.GUI.Controls
            Properties.KeyMember = keyMember_;
             Properties.NullText = nullText_;
 
-            Properties.DataSource = functions.dataBase.GetDataTable(sqlData_);
+            Properties.DataSource = sqlDataProvider.GetDataTable(sqlData_);
             ((DeveloverGridView)Properties.PopupView).BuidColumnsView(typeColumns_);
         }
     }
