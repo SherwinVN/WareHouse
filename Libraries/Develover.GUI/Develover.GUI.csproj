@@ -263,9 +263,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Develover.Services\Develover.Services.csproj">
-      <Project>{86649880-a3c1-4019-8533-0dd5a9cc8b1b}</Project>
-      <Name>Develover.Services</Name>
+    <ProjectReference Include="..\..\Develover.GUI.Services\Develover.GUI.Services.csproj">
+      <Project>{995a0b4d-8cf9-4614-9ccd-943072b18cee}</Project>
+      <Name>Develover.GUI.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Develover.Core\Develover.Core.csproj">
+      <Project>{5379910a-8a42-4254-a1b1-952542c43dda}</Project>
+      <Name>Develover.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Develover.Utilities\Develover.Utilities.csproj">
       <Project>{6DC6DE96-E1B3-433D-8358-88EE3835DEF8}</Project>

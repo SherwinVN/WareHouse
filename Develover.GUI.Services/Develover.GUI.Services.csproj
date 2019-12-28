@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{86649880-A3C1-4019-8533-0DD5A9CC8B1B}</ProjectGuid>
+    <ProjectGuid>{995A0B4D-8CF9-4614-9CCD-943072B18CEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Develover.Services</RootNamespace>
-    <AssemblyName>Develover.Services</AssemblyName>
+    <RootNamespace>Develover.GUI.Services</RootNamespace>
+    <AssemblyName>Develover.GUI.Services</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,20 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Management" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,33 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Functions.cs" />
-    <Compile Include="IDeveloverFunctions.cs" />
-    <Compile Include="IDeveloverLogger.cs" />
-    <Compile Include="IDeveloverLoginFunction.cs" />
-    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Develover.GUI.Services\Develover.GUI.Services.csproj">
-      <Project>{995a0b4d-8cf9-4614-9ccd-943072b18cee}</Project>
-      <Name>Develover.GUI.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Develover.Core\Develover.Core.csproj">
-      <Project>{5379910A-8A42-4254-A1B1-952542C43DDA}</Project>
+    <ProjectReference Include="..\Libraries\Develover.Core\Develover.Core.csproj">
+      <Project>{5379910a-8a42-4254-a1b1-952542c43dda}</Project>
       <Name>Develover.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Develover.GUI\Develover.GUI.csproj">
-      <Project>{c6cc233f-2578-4170-99d9-cca8ccc50cc7}</Project>
-      <Name>Develover.GUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Develover.Utilities\Develover.Utilities.csproj">
-      <Project>{6DC6DE96-E1B3-433D-8358-88EE3835DEF8}</Project>
-      <Name>Develover.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Develover\Develover.csproj">
-      <Project>{d37491eb-9a4a-4873-90ad-feb893256d97}</Project>
-      <Name>Develover</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

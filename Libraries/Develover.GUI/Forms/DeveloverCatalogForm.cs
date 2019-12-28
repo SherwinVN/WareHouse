@@ -12,9 +12,10 @@ using DevExpress.XtraBars;
 using DevExpress.XtraGrid.Views.Grid;
 using Develover.Utilities;
 using static Develover.Utilities.Enum;
-using Develover.Services;
+using Develover.Core;
 using Develover.GUI.Controls;
 using Develover.GUI.OverideClass;
+using Develover.GUI.Services;
 
 namespace Develover.GUI.Forms
 {
@@ -228,8 +229,8 @@ namespace Develover.GUI.Forms
         {
             if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
             {
-                if (CheckEmty(ControlCheckDuplicate) is null) {
-                    DelMessageBoxOk();
+                if (CheckEmty(ControlCheckEmty) is null) {
+                    DelMessageBox.DelMessageBoxOk(StringMessage.CompelInput);
                     return;
                 }
                 if (EnumPermission.New == StatusUse)
