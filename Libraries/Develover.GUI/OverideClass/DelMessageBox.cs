@@ -30,6 +30,7 @@ namespace Develover.GUI.OverideClass
             return XtraMessageBox.Show(text, StringMessage.MessageSystem, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+
         public static DialogResult DelMessageBoxError(string text, string caption = "Có lỗi xảy ra", MessageBoxButtons buttons = MessageBoxButtons.OK, MessageBoxIcon icon = MessageBoxIcon.Error, MessageBoxDefaultButton defaultButton = MessageBoxDefaultButton.Button1)
         {
             return XtraMessageBox.Show(text, caption, buttons, icon, defaultButton);

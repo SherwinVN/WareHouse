@@ -26,10 +26,10 @@ namespace Develover.GUI.Forms
         public string Table;
         public string CodePrimary;
         public string NameFieldCodePrimary;
-        public string NameFieldNamePrimary;
         public EnumPermission StatusUse;
         public IDeveloverControl DeveloverControlsFocus;
-        public IDeveloverControl DeveloverControlsNamePrimary;
+        public IDeveloverControl[] ControlCheckDuplicate;
+        public IDeveloverControl[] ControlCheckEmty;
 
         public DeveloverCatalogForm()
         {
@@ -167,7 +167,7 @@ namespace Develover.GUI.Forms
 
         }
 
-        public Dictionary<string, string> LoadListControlAndFile(IDeveloverControl GroupControl)
+        public Dictionary<string, string> LoadListControlAndField(IDeveloverControl GroupControl)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
@@ -209,30 +209,52 @@ namespace Develover.GUI.Forms
             return dictionary;
         }
 
+        protected virtual void CheckDuplicate(IDeveloverControl[] develoverControls)
+        {
+
+        }
+        protected virtual IDeveloverControl CheckEmty(IDeveloverControl[] develoverControls)
+        {
+            foreach (IDeveloverControl develoverControl in develoverControls)
+            {
+                if (String.IsNullOrEmpty(((Control)develoverControl).Text))
+                {
+                    return develoverControl;
+                }
+            }
+            return null;
+        }
         protected virtual void BarButtonNew_Click()
         {
-            if (EnumPermission.New == StatusUse)
+            if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
             {
-                CodePrimary = functions.GetGUID();
-                if (functions.CheckExistsValueInTable(Table, NameFieldNamePrimary, ((Control)DeveloverControlsNamePrimary).Text, NameFieldCodePrimary, CodePrimary))
-                {
-                    DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                if (CheckEmty(ControlCheckDuplicate) is null) {
+                    DelMessageBoxOk();
                     return;
                 }
-                functions.InsertIntoTable(LoadListControlAndFile(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-                LoadData();
-            }
-            else
-            if (EnumPermission.Edit == StatusUse)
-            {
-                if (functions.CheckExistsValueInTable(Table, NameFieldNamePrimary, ((Control)DeveloverControlsNamePrimary).Text, NameFieldCodePrimary, CodePrimary))
+                if (EnumPermission.New == StatusUse)
                 {
-                    DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
-                    return;
+                    CodePrimary = functions.GetGUID();
+                    if (functions.CheckExistsValueInTable(Table, NameFieldNamePrimary, ((Control)DeveloverControlsNamePrimary).Text, NameFieldCodePrimary, CodePrimary))
+                    {
+                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                        return;
+                    }
+                    functions.InsertIntoTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
+                    LoadData();
+                }
+                else
+                if (EnumPermission.Edit == StatusUse)
+                {
+                    if (functions.CheckExistsValueInTable(Table, NameFieldNamePrimary, ((Control)DeveloverControlsNamePrimary).Text, NameFieldCodePrimary, CodePrimary))
+                    {
+                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                        return;
 
+                    }
+                    functions.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
+                    LoadData();
                 }
-                functions.UpdateTable(LoadListControlAndFile(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-                LoadData();
             }
             else
             {

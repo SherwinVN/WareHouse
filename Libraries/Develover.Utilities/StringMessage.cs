@@ -43,5 +43,6 @@ namespace Develover.Utilities
 
         public static string GroupPanelText = "Kéo thả cột vào đây để nhóm.";
         public static string NewItemRowText = "Nhập liệu tại đây.";
+        public static string CompelInput = "Bạn phải điền đủ t.";
     }
 }
