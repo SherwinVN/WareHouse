@@ -44,6 +44,7 @@ namespace Develover.GUI.Controls
 
         public void BuidColumns(List<TypeColumns> typeColumns)
         {
+            Columns.Clear();
             this.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
             this.OptionsView.ShowGroupPanel = false;
             this.OptionsNavigation.AutoFocusNewRow = true;
@@ -72,13 +73,14 @@ namespace Develover.GUI.Controls
                 gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
                 gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
 
-                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
+                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }
         }
 
         public void BuidColumnsView(List<TypeColumns> typeColumns)
         {
+            Columns.Clear();
             this.OptionsFind.AlwaysVisible = true;
             this.OptionsFind.ClearFindOnClose = true;
             this.OptionsFind.ShowClearButton = true;
@@ -112,12 +114,12 @@ namespace Develover.GUI.Controls
                 gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
                 gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
 
-                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.TypeColumnGridLookup, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
+                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }
         }
 
-        private void GetTypeColumn(ref GridColumn gridColumn, EnumTypeColumns enumTypeColumns, string SQLData, List<TypeColumns> typeColumnGridLookup, string KeyMember, string ValueMember, string DisplayMember, string NullText)
+        private void GetTypeColumn(ref GridColumn gridColumn, EnumTypeColumns enumTypeColumns, string SQLData, string model, string KeyMember, string ValueMember, string DisplayMember, string NullText)
         {
             switch (enumTypeColumns)
             {
@@ -138,7 +140,7 @@ namespace Develover.GUI.Controls
                     break;
                 case EnumTypeColumns.Gridlookup:
                     DeveloverRepositoryItemGridLookUpEdit develoverRepositoryItemGridLookUpEdit = new DeveloverRepositoryItemGridLookUpEdit();
-                    develoverRepositoryItemGridLookUpEdit.LoadData(SQLData, typeColumnGridLookup, KeyMember, ValueMember, DisplayMember, NullText);
+                    develoverRepositoryItemGridLookUpEdit.LoadData(SQLData, model, KeyMember, ValueMember, DisplayMember, NullText);
                     gridColumn.ColumnEdit = develoverRepositoryItemGridLookUpEdit;
                     break;
                 case EnumTypeColumns.Text:

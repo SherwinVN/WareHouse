@@ -45,6 +45,7 @@ namespace Develover.Utilities
             }
             return enumTypeColumns;
         }
+
         public string GetValueControlFormatByTypeColumns(EnumTypeColumns enumTypeColumns, Control control)
         {
 
@@ -74,12 +75,12 @@ namespace Develover.Utilities
         public static SumaryType GetSumaryType(string StrSumaryType)
         {
             SumaryType SumaryType = new SumaryType();
+            SumaryType = SumaryType.None;
             switch (StrSumaryType)
             {
                 case "Sum":
                     SumaryType = SumaryType.Sum;
                     break;
-
                 case "Min":
                     SumaryType = SumaryType.Min;
                     break;

@@ -29,7 +29,7 @@ namespace Develover.Utilities
             public string DisplayMember;
             public string ValueMember;
             public string NullText;
-            public List<TypeColumns> TypeColumnGridLookup;
+            public string Model;
         }
     }
 }

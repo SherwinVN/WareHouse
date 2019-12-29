@@ -5,13 +5,14 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using static Develover.Utilities.DelTypeData;
+using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Services
 {
     public class Functions 
     {
-
-        public DataBase dataBase;
+       public DataBase dataBase;
         public Functions()
         {
             dataBase = new DataBase();
@@ -117,6 +118,102 @@ namespace Develover.GUI.Services
         public bool CheckExistsObject(string TypeObject, string ObjectName)
         {
             return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '" + TypeObject + "'  and  [name] = N'" + ObjectName + "' ").Rows.Count > 0;
+        }
+
+        public class GetObjects {
+
+            public DataBase dataBase;
+
+            public GetObjects()
+            {
+                dataBase = new DataBase();
+            }
+
+            public List<TypeColumns> GetSysDelGridcolumns(string Model)
+            {
+                List<TypeColumns> typeColumns = new List<TypeColumns>();
+                TypeColumns typeColumns_;
+                using (DataTable data = dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "' ORDER BY OrderNo"))
+                {
+                    foreach (DataRow dr in data.Rows)
+                    {
+                        typeColumns_ = new TypeColumns();
+                        typeColumns_.Caption = dr["Caption"]?.ToString();
+                        typeColumns_.Name = dr["Name"]?.ToString();
+                        typeColumns_.FieldName = dr["Name"]?.ToString();
+                        typeColumns_.Visible = false;
+                        bool.TryParse(dr["Visible"]?.ToString(), out typeColumns_.Visible);
+                        typeColumns_.AllowFocus = false;
+                        bool.TryParse(dr["AllowFocus"]?.ToString(), out typeColumns_.AllowFocus);
+                        typeColumns_.AllowEdit = false;
+                        typeColumns_.Width = 10;
+                        int.TryParse(dr["Width"].ToString(), out typeColumns_.Width);
+                        typeColumns_.Index = 10;
+                        int.TryParse(dr["OrderNo"].ToString(), out typeColumns_.Index);
+
+                        typeColumns_.SumaryType = GetSumaryType(dr["SumaryType"]?.ToString());
+                        typeColumns_.StringFormat = dr["StringFormat"]?.ToString();
+
+                        typeColumns_.TypeColumn = GetTypeColumn(dr["Type"]?.ToString());
+                        bool.TryParse(dr["AllowEdit"]?.ToString(), out typeColumns_.AllowEdit);
+
+
+                        typeColumns_.ChildModel = dr["ChildModel"]?.ToString();
+                        typeColumns_.SQLData = dr["DataSource"]?.ToString();
+                        typeColumns_.KeyMember = dr["KeyMember"]?.ToString();
+                        typeColumns_.DisplayMember = dr["DisplayMember"]?.ToString();
+                        typeColumns_.ValueMember = dr["ValueMember"]?.ToString();
+                        typeColumns_.NullText = dr["NullText"]?.ToString();
+
+                        typeColumns_.Model = typeColumns_.ChildModel;
+                        typeColumns.Add(typeColumns_);
+                    }
+                }
+                return typeColumns;
+            }
+
+            public List<TypeColumns> GetSysDelGridcolumnsView(string Model)
+            {
+                List<TypeColumns> typeColumns = new List<TypeColumns>();
+                TypeColumns typeColumns_;
+                using (DataTable data = dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "' ORDER BY OrderNo"))
+                {
+                    foreach (DataRow dr in data.Rows)
+                    {
+                        typeColumns_ = new TypeColumns();
+                        typeColumns_.Caption = dr["Caption"]?.ToString();
+                        typeColumns_.Name = dr["Name"]?.ToString();
+                        typeColumns_.FieldName = dr["Name"]?.ToString();
+                        typeColumns_.Visible = false;
+                        bool.TryParse(dr["Visible"]?.ToString(), out typeColumns_.Visible);
+                        typeColumns_.AllowFocus = false;
+                        bool.TryParse(dr["AllowFocus"]?.ToString(), out typeColumns_.AllowFocus);
+                        typeColumns_.AllowEdit = false;
+                        typeColumns_.Width = 10;
+                        int.TryParse(dr["Width"].ToString(), out typeColumns_.Width);
+                        typeColumns_.Index = 10;
+                        int.TryParse(dr["OrderNo"].ToString(), out typeColumns_.Index);
+
+                        typeColumns_.SumaryType = GetSumaryType(dr["SumaryType"]?.ToString());
+                        typeColumns_.StringFormat = dr["StringFormat"]?.ToString();
+
+                        typeColumns_.TypeColumn = GetTypeColumn("Text");
+
+
+                        typeColumns_.ChildModel = dr["ChildModel"]?.ToString();
+                        typeColumns_.SQLData = dr["DataSource"]?.ToString();
+                        typeColumns_.KeyMember = dr["KeyMember"]?.ToString();
+                        typeColumns_.DisplayMember = dr["DisplayMember"]?.ToString();
+                        typeColumns_.ValueMember = dr["ValueMember"]?.ToString();
+                        typeColumns_.NullText = dr["NullText"]?.ToString();
+
+                        //typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumnsView(typeColumns_.ChildModel);
+                        typeColumns.Add(typeColumns_);
+                    }
+                }
+                return typeColumns;
+            }
+
         }
 
 

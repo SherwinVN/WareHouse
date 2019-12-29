@@ -1,10 +1,15 @@
 ﻿using Develover.Core;
+using Develover.GUI;
+using Develover.Utilities;
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static Develover.Utilities.Enum;
 
 namespace Develover.Services
 {
@@ -12,6 +17,7 @@ namespace Develover.Services
     {
 
         public DataBase dataBase;
+        public GUI.Services.Functions FunctionsGUIService = new GUI.Services.Functions();
         public Functions()
         {
             dataBase = new DataBase();
@@ -28,93 +34,279 @@ namespace Develover.Services
             Guid guid = Guid.NewGuid();
             return guid.ToString();
         }
-        public bool DeleteRowTable(string Table, string NameFieldKey, string value)
+        public bool DeleteRowTable(string tableName, string nameFieldKey, string value)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("DELETE FROM [" + Table + "] WHERE [" + NameFieldKey + "] = '" + value + "'");
+           return FunctionsGUIService.DeleteRowTable(tableName, nameFieldKey, value);
+        }
+        public bool DeleteRowTable(string tableName)
+        {
+            return FunctionsGUIService.DeleteRowTable(tableName);
+        }
+        public bool UpdateTable(Dictionary<string, string> listFilesValues, string tableName, string nameFieldKey, string value)
+        {
 
-            string result = stringBuilder.ToString();
-            return dataBase.ExecuteNonQuery(result) != -1;
+            return FunctionsGUIService.UpdateTable(listFilesValues,tableName,nameFieldKey,value);
+        }
+        public bool UpdateTable(Dictionary<string, string> listFilesValues, string tableName)
+        {
+            return FunctionsGUIService.UpdateTable(listFilesValues, tableName);
 
         }
-
-        public bool DeleteRowTable(string Table)
+        public bool InsertIntoTable(Dictionary<string, string> listFilesValues, string tableName, string nameFieldKey, string value)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("DELETE FROM [" + Table + "]");
-
-            string result = stringBuilder.ToString();
-            return dataBase.ExecuteNonQuery(result) != -1;
-
+            return FunctionsGUIService.UpdateTable(listFilesValues, tableName,nameFieldKey,value);
         }
-        public bool UpdateTable(Dictionary<string, string> ListFilesValues, string Table, string NameFieldKey, string value)
+        public bool InsertIntoTable(Dictionary<string, string> listFilesValues, string tableName)
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("UPDATE a SET ");
-            foreach (string key in ListFilesValues.Keys)
+            return FunctionsGUIService.UpdateTable(listFilesValues, tableName);
+        }
+        public bool CheckExistsValueInTable(string tableName,string columnName,string value,string nameFieldCodePrimary, string codePrimary) {
+
+            return FunctionsGUIService.CheckExistsValueInTable(tableName,columnName,value,nameFieldCodePrimary, codePrimary);
+        }
+        public bool CheckExistsValueInTable(string tableName, string where, string nameFieldCodePrimary, string codePrimary)
+        {
+            return FunctionsGUIService.CheckExistsValueInTable(tableName, where, nameFieldCodePrimary, codePrimary);
+        }
+        public bool CheckExistsColumnInTableOrView(string typeObject,string objectName,string columnName)
+        {
+            return FunctionsGUIService.CheckExistsColumnInTableOrView(typeObject, objectName, columnName);
+        }
+        public bool CheckExistsObject(string typeObject, string bbjectName)
+        {
+            return FunctionsGUIService.CheckExistsObject(typeObject, bbjectName);
+        }
+        public bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary, string codePrimary)
+        {
+            string Where = "1=1 ";
+            foreach (IDeveloverControl develoverControl in develoverControls)
             {
-                stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
+                Where += " AND [" + develoverControl.FieldBinding + "] = N'" + new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl) + "'";
+            }
+            return CheckExistsValueInTable(tableName, Where, nameFieldCodePrimary, codePrimary);
+
+        }
+
+
+
+        public class Controls {
+
+            public void SetNullControl(IDeveloverControl GroupControl)
+            {
+                foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
+                {
+                    if (iDcontrol is IDeveloverControl)
+                    {
+                        if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                        {
+                            switch (iDcontrol.TypeFieldColumns)
+                            {
+                                case EnumTypeColumns.Check:
+                                    ((CheckEdit)iDcontrol).Checked = false;
+                                    break;
+                                case EnumTypeColumns.Gridlookup:
+                                    ((Control)iDcontrol).Text = "";
+                                    break;
+                                case EnumTypeColumns.Text:
+                                    ((Control)iDcontrol).Text = "";
+                                    break;
+                                case EnumTypeColumns.Combobox:
+                                    ((Control)iDcontrol).Text = "";
+                                    break;
+                                case EnumTypeColumns.Date:
+                                    ((DateEdit)iDcontrol).DateTime = DateTime.Now;
+                                    break;
+                                case EnumTypeColumns.Number:
+                                    ((Control)iDcontrol).Text = "0";
+                                    break;
+                                case EnumTypeColumns.Time:
+                                    ((TimeEdit)iDcontrol).Time = DateTime.Now;
+                                    break;
+                            }
+
+
+                        }
+                    }
+
+                }
             }
 
-            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + " FROM  [" + Table + "] a  WHERE  [" + NameFieldKey + "] = N'" + value + "' ";
-            return dataBase.ExecuteNonQuery(result) != -1;
-
-        }
-        public bool UpdateTable(Dictionary<string, string> ListFilesValues, string Table)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("UPDATE a SET ");
-            foreach (string key in ListFilesValues.Keys)
+            public bool SetStatusEdit(IDeveloverControl GroupControl, bool Enable)
             {
-                stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
+                foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
+                {
+                    if (iDcontrol is IDeveloverControl)
+                    {
+                        if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                        {
+                            switch (iDcontrol.TypeFieldColumns)
+                            {
+                                case EnumTypeColumns.Check:
+                                    ((CheckEdit)iDcontrol).ReadOnly = Enable;
+                                    break;
+                                case EnumTypeColumns.Gridlookup:
+                                //    ((DevExpress.XtraEditors.GridLookUpEdit)iDcontrol).ReadOnly = Enable;
+                                    break;
+                                case EnumTypeColumns.Text:
+                                    ((TextEdit)iDcontrol).ReadOnly = Enable;
+                                    break;
+                                case EnumTypeColumns.Combobox:
+                                    ((ComboBoxEdit)iDcontrol).ReadOnly = Enable;
+                                    break;
+                                case EnumTypeColumns.Date:
+                                    ((DateEdit)iDcontrol).ReadOnly = Enable;
+                                    break;
+                                case EnumTypeColumns.Number:
+                                    ((CalcEdit)iDcontrol).ReadOnly = Enable;
+                                    break;
+                                case EnumTypeColumns.Time:
+                                    ((TimeEdit)iDcontrol).ReadOnly = Enable;
+                                    break;
+                            }
+
+
+                        }
+                    }
+
+                }
+
+                return Enable;
+            }
+            
+            public void DataBindingsControl(IDeveloverControl GroupControl, Object Datasource)
+            {
+                foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
+                {
+                    if (iDcontrol is IDeveloverControl)
+                    {
+                        if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                        {
+                            switch (iDcontrol.TypeFieldColumns)
+                            {
+                                case EnumTypeColumns.Check:
+                                    ((Control)iDcontrol).DataBindings.Add(nameof(BaseCheckEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    break;
+                                case EnumTypeColumns.Gridlookup:
+                                   // ((Control)iDcontrol).DataBindings.Add(nameof(GridLookUpEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    break;
+                                case EnumTypeColumns.Text:
+                                    ((Control)iDcontrol).DataBindings.Add(nameof(TextEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    break;
+                                case EnumTypeColumns.Combobox:
+                                    ((Control)iDcontrol).DataBindings.Add(nameof(ComboBoxEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    break;
+                                case EnumTypeColumns.Date:
+                                    ((Control)iDcontrol).DataBindings.Add(nameof(DateEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    break;
+                                case EnumTypeColumns.Number:
+                                    ((Control)iDcontrol).DataBindings.Add(nameof(CalcEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    break;
+                                case EnumTypeColumns.Time:
+                                    ((Control)iDcontrol).DataBindings.Add(nameof(TimeEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    break;
+                            }
+
+
+                        }
+                    }
+
+                }
+
             }
 
-            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + ")" + " FROM  [" + Table + "] a ";
-            return dataBase.ExecuteNonQuery(result) != -1;
-
-        }
-        public bool InsertIntoTable(Dictionary<string, string> ListFilesValues, string Table, string NameFieldKey, string value)
-        {
-            StringBuilder stringBuilderField = new StringBuilder();
-            StringBuilder stringBuilderValue = new StringBuilder();
-            stringBuilderField.Append("INSERT INTO [" + Table + "] ([" + NameFieldKey + "],");
-            stringBuilderValue.Append(" Values(N'" + value + "',");
-            foreach (string key in ListFilesValues.Keys)
+            public void ClearDataBindingsControl(IDeveloverControl GroupControl)
             {
-                stringBuilderField.Append("[" + key + "],");
-                stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
-            }
-            string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderValue.ToString(0, stringBuilderValue.Length - 1) + ")";
-            return dataBase.ExecuteNonQuery(result) != -1;
+                foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
+                {
+                    if (iDcontrol is IDeveloverControl)
+                    {
+                        if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                        {
+                            ((Control)iDcontrol).DataBindings.Clear();
+                        }
+                    }
 
-        }
-        public bool InsertIntoTable(Dictionary<string, string> ListFilesValues, string Table)
-        {
-            StringBuilder stringBuilderField = new StringBuilder();
-            StringBuilder stringBuilderValue = new StringBuilder();
-            stringBuilderField.Append("INSERT INTO [" + Table + "] (");
-            stringBuilderValue.Append("Values(");
-            foreach (string key in ListFilesValues.Keys)
+                }
+
+            }
+
+            public Dictionary<string, string> LoadListControlAndField(IDeveloverControl GroupControl)
             {
-                stringBuilderField.Append("[" + key + "],");
-                stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
+                Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
+                {
+                    if (iDcontrol is IDeveloverControl)
+                    {
+                        if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                        {
+                            switch (iDcontrol.TypeFieldColumns)
+                            {
+                                case EnumTypeColumns.Number:
+                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    break;
+                                case EnumTypeColumns.Check:
+                                    dictionary.Add(iDcontrol.FieldBinding, ((CheckEdit)iDcontrol).Checked ? "1" : "0");
+                                    break;
+                                case EnumTypeColumns.Combobox:
+                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    break;
+                                case EnumTypeColumns.Date:
+                                    dictionary.Add(iDcontrol.FieldBinding, DateTime.Parse(((Control)iDcontrol).Text).ToString("MM/dd/yyyy"));
+                                    break;
+                                case EnumTypeColumns.Gridlookup:
+                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    break;
+                                case EnumTypeColumns.Text:
+                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    break;
+                                case EnumTypeColumns.Time:
+                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    break;
+                            }
+                        }
+
+                    }
+
+                }
+
+                return dictionary;
             }
-            string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderValue.ToString(0, stringBuilderValue.Length - 1) + ")";
-            return dataBase.ExecuteNonQuery(result) != -1;
 
-        }
-        public bool CheckExistsValueInTable(string TableName,string ColumnName,string value,string NameFieldCodePrimary, string CodePrimary) {
-           return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' AND ["+ NameFieldCodePrimary + "] <> N'"+ CodePrimary + "'").Rows.Count >0;
-        }
-        public bool CheckExistsColumnInTableOrView(string TypeObject,string ObjectName,string ColumnName)
-        {
-            return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '"+ TypeObject+"'  and  [name] = N'"+ ObjectName+"' and [id] IN (SELECT [id] FROM syscolumns WHERE [name] =  N'"+ ColumnName+"' )").Rows.Count > 0;
-        }
-        public bool CheckExistsObject(string TypeObject, string ObjectName)
-        {
-            return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '" + TypeObject + "'  and  [name] = N'" + ObjectName + "' ").Rows.Count > 0;
-        }
+            public string GetValueByTypeFieldColumns(EnumTypeColumns TypeFieldColumns, IDeveloverControl develoverControl)
+            {
+                switch (TypeFieldColumns)
+                {
+                    case EnumTypeColumns.Number:
+                        return ((Control)develoverControl).Text;
+                    case EnumTypeColumns.Check:
+                        return ((CheckEdit)develoverControl).Checked ? "1" : "0";
+                    case EnumTypeColumns.Combobox:
+                        return ((Control)develoverControl).Text;
+                    case EnumTypeColumns.Date:
+                        return DateTime.Parse(((Control)develoverControl).Text).ToString("MM/dd/yyyy");
+                    case EnumTypeColumns.Gridlookup:
+                        return ((Control)develoverControl).Text;
+                    case EnumTypeColumns.Text:
+                        return ((Control)develoverControl).Text;
+                    case EnumTypeColumns.Time:
+                        return ((Control)develoverControl).Text;
+                    default:
+                        return "";
+                }
+            }
 
+            public bool CheckEmty(IDeveloverControl[] develoverControls)
+            {
+                foreach (IDeveloverControl develoverControl in develoverControls)
+                {
+                    if (string.IsNullOrEmpty(((Control)develoverControl).Text))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
 
         public class DataBase
         {

@@ -20,7 +20,7 @@ namespace Develover.GUI.Forms
 {
     public partial class DeveloverCatalogForm : DeveloverForm
     {
-        Functions functions = new Functions();
+        Functions functionsGUIService = new Functions();
         public string SQLDataSourceSearch;
         public string CodeVoucher;
         private string Table;
@@ -126,7 +126,7 @@ namespace Develover.GUI.Forms
             return Enable;
         }
 
-        private void DataBindingsControl(IDeveloverControl GroupControl, Object Datasource)
+        protected virtual void DataBindingsControl(IDeveloverControl GroupControl, Object Datasource)
         {
             foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
             {
@@ -167,7 +167,7 @@ namespace Develover.GUI.Forms
 
         }
 
-        private void ClearDataBindingsControl(IDeveloverControl GroupControl)
+        protected virtual void ClearDataBindingsControl(IDeveloverControl GroupControl)
         {
             foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
             {
@@ -183,7 +183,7 @@ namespace Develover.GUI.Forms
 
         }
 
-        public Dictionary<string, string> LoadListControlAndField(IDeveloverControl GroupControl)
+        protected virtual Dictionary<string, string> LoadListControlAndField(IDeveloverControl GroupControl)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
             foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
@@ -207,7 +207,7 @@ namespace Develover.GUI.Forms
                                 dictionary.Add(iDcontrol.FieldBinding, DateTime.Parse(((Control)iDcontrol).Text).ToString("MM/dd/yyyy"));
                                 break;
                             case EnumTypeColumns.Gridlookup:
-                                dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                dictionary.Add(iDcontrol.FieldBinding, ((GridLookUpEdit)iDcontrol).EditValue.ToString());
                                 break;
                             case EnumTypeColumns.Text:
                                 dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
@@ -224,7 +224,8 @@ namespace Develover.GUI.Forms
 
             return dictionary;
         }
-        public string GetValueByTypeFieldColumns(EnumTypeColumns TypeFieldColumns, IDeveloverControl develoverControl)
+
+        protected virtual string GetValueByTypeFieldColumns(EnumTypeColumns TypeFieldColumns, IDeveloverControl develoverControl)
         {
 
             switch (TypeFieldColumns)
@@ -238,7 +239,7 @@ namespace Develover.GUI.Forms
                 case EnumTypeColumns.Date:
                     return DateTime.Parse(((Control)develoverControl).Text).ToString("MM/dd/yyyy");
                 case EnumTypeColumns.Gridlookup:
-                    return ((Control)develoverControl).Text;
+                    return ((GridLookUpEdit)develoverControl).EditValue.ToString();
                 case EnumTypeColumns.Text:
                     return ((Control)develoverControl).Text;
                 case EnumTypeColumns.Time:
@@ -247,16 +248,18 @@ namespace Develover.GUI.Forms
                     return "";
             }
         }
-        protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls)
+
+        protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls,string tableName,string nameFieldCodePrimary,string codePrimary)
         {
             string Where = "1=1 ";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
                 Where += " AND [" + develoverControl.FieldBinding + "] = N'" + GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl) + "'";
             }
-            return functions.CheckExistsValueInTable(Table, Where, NameFieldCodePrimary, CodePrimary);
+            return functionsGUIService.CheckExistsValueInTable(tableName, Where, nameFieldCodePrimary, codePrimary);
 
         }
+
         protected virtual bool CheckEmty(IDeveloverControl[] develoverControls)
         {
             foreach (IDeveloverControl develoverControl in develoverControls)
@@ -268,11 +271,12 @@ namespace Develover.GUI.Forms
             }
             return false;
         }
+
         protected virtual bool BarButtonNew_Click()
         {
             if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
             {
-                if (CheckDuplicate(ControlCheckDuplicate))
+                if (CheckDuplicate(ControlCheckDuplicate,Table,NameFieldCodePrimary,CodePrimary))
                 {
                     DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
                     return false;
@@ -284,15 +288,15 @@ namespace Develover.GUI.Forms
                 }
                 if (EnumPermission.New == StatusUse)
                 {
-                    CodePrimary = functions.GetGUID();
+                    CodePrimary = functionsGUIService.GetGUID();
 
-                    functions.InsertIntoTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
+                    functionsGUIService.InsertIntoTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
                     LoadData();
                 }
                 else
                 if (EnumPermission.Edit == StatusUse)
                 {
-                    functions.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
+                    functionsGUIService.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
                     LoadData();
                 }
             }
@@ -319,7 +323,7 @@ namespace Develover.GUI.Forms
         {
             if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionDelete, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                functions.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
+                functionsGUIService.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
                 SetNullControl(gro_general);
                 LoadData();
             }
@@ -332,7 +336,7 @@ namespace Develover.GUI.Forms
             return true;
         }
 
-        private void SetVisibleItemToolBar()
+        protected virtual void SetVisibleItemToolBar()
         {
             BarButtonNew.Visibility = PermissionNew ? BarItemVisibility.Always : BarItemVisibility.Never;
             barButtonEdit.Visibility = PermissionEdit ? BarItemVisibility.Always : BarItemVisibility.Never;
@@ -394,7 +398,7 @@ namespace Develover.GUI.Forms
             }
         }
 
-        private void LoadTextBarButton()
+        protected virtual void LoadTextBarButton()
         {
             if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit)
                 BarButtonNew.Caption = StringMessage.TextButtonSave;
@@ -407,7 +411,7 @@ namespace Develover.GUI.Forms
             barButtonPrint.Caption = StringMessage.TextButtonPrint;
         }
 
-        public void LoadPermissionForm()
+        protected virtual void LoadPermissionForm()
         {
             LoadPermission();
             SetVisibleItemToolBar();
@@ -415,7 +419,7 @@ namespace Develover.GUI.Forms
 
         protected virtual void InitForm()
         {
-            using (DataTable data = functions.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
+            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
@@ -458,7 +462,15 @@ namespace Develover.GUI.Forms
             if (!PermissionNew) return;
             ClearDataBindingsControl(gro_general);
             if (!BarButtonNew_Click()) return;
-            StatusUse = StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit ? EnumPermission.View : StatusUse = EnumPermission.New;
+            if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit)
+            {
+                StatusUse = EnumPermission.View;
+                WhenCloseForm_ = true;
+            }
+            else {
+                StatusUse = EnumPermission.New;
+                WhenCloseForm_ = false;
+            }
             SetEnableBarButton();
         }
 
@@ -469,6 +481,7 @@ namespace Develover.GUI.Forms
             ClearDataBindingsControl(gro_general);
             if (!BarButtonEdit_Click()) return;
             StatusUse = EnumPermission.Edit;
+            WhenCloseForm_ = false;
             SetEnableBarButton();
         }
 
