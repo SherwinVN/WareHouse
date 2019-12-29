@@ -184,12 +184,42 @@ namespace DeveloverWarehouse
 
         private void _010600_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Application.Exit();
+            if (MdiChildren.Length > 0)
+            {
+                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
+                    Application.Exit();
+            }
+            else { Application.Exit(); }
         }
 
         private void _010700_ItemClick(object sender, ItemClickEventArgs e)
         {
+            if (DeveloverOptions.StatusLogins.StatusLogin)
+            {
+                if (MdiChildren.Length > 0)
+                {
+                    for (int i = 0; i < MdiChildren.Length; i++)
+                    {
+                        IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
+                        f.Hide();
+                    }
 
+                }
+                DeveloverOptions.StatusLogins.StatusLogin = false;
+                login.ShowDialog();
+
+                DeveloverOptions.StatusLogins.StatusLogin = true;
+                if (MdiChildren.Length > 0)
+                {
+                    for (int i = 0; i < MdiChildren.Length; i++)
+                    {
+                        IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
+
+                        f.Show();
+                    }
+
+                }
+            }
         }
 
         private void _010502_ItemClick(object sender, ItemClickEventArgs e)
@@ -257,6 +287,16 @@ namespace DeveloverWarehouse
         private void _010504_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadForm(sender);
+        }
+
+        private void _010800_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (MdiChildren.Length > 0)
+            {
+                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
+                    Application.Restart();
+            }
+            else { Application.Restart(); }
         }
     }
 }

@@ -1,12 +1,14 @@
 ﻿using Develover.GUI.Controls;
 using Develover.GUI.Services;
 using DevExpress.Data.Linq;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.XtraEditors.Registrator;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraEditors.ViewInfo;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,11 +22,41 @@ namespace Develover.GUI.RepositoryItems
     {
         static DeveloverRepositoryItemGridLookUpEdit() { RegisterCustomGridLookUpEdit(); }
 
+        private GridLookUpEdit edt;
         public DeveloverRepositoryItemGridLookUpEdit() : base()
         {
             PopupView = new DeveloverGridView();
             ShowPopupShadow = true;
+            AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            ValidateOnEnterKey = true;
+            Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
+            Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
         }
+
+        private void DeveloverRepositoryItemGridLookUpEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            edt = ((GridLookUpEdit)sender);
+            edt.Properties.View.DoubleClick -= View_DoubleClick; 
+            edt.Properties.View.Click -= View_DoubleClick;
+            edt = null;
+        }
+
+        private void View_DoubleClick(object sender, EventArgs e)
+        {
+            if (edt != null)
+            {
+                edt.EditValue = ((GridView)sender).GetFocusedDataRow()[this.ValueMember];
+                edt.ClosePopup();
+            }
+        }
+
+        private void DeveloverRepositoryItemGridLookUpEdit_Popup(object sender, EventArgs e)
+        {
+            edt = ((GridLookUpEdit)sender);
+            edt.Properties.View.DoubleClick += View_DoubleClick;
+            edt.Properties.View.Click += View_DoubleClick;
+        }
+
         public static void RegisterCustomGridLookUpEdit()
         {
             EditorRegistrationInfo.Default.Editors.Add(new EditorClassInfo(DeveloverGridLookUpEditName,

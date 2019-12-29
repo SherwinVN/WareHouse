@@ -21,9 +21,9 @@ namespace DeveloverWarehouse.Modules.File
             SQLDataSourceSearch = "SELECT * FROM Location ORDER BY LocationID";
             CodeVoucher = "Location";        
             NameFieldCodePrimary = "LocationID";
-            ControlCheckDuplicate = new IDeveloverControl[] { lokBranchID,txtLocationName };
-            ControlCheckEmty = new IDeveloverControl[] { lokBranchID,txtLocationName };
-            DeveloverControlsFocus = lokBranchID;
+            ControlCheckDuplicate = new IDeveloverControl[] { txtLocationName };
+            ControlCheckEmty = new IDeveloverControl[] { txtLocationName };
+            DeveloverControlsFocus = txtLocationName;
         }
 
         private void Location_Load(object sender, EventArgs e)
@@ -34,7 +34,6 @@ namespace DeveloverWarehouse.Modules.File
         protected override void LoadDataControls()
         {
             base.LoadDataControls();
-            lokBranchID.LoadData("SELECT * FROM UOM ", "UOM", "UOMID", "UOMID", "UOMName");
         }
     }
 }

@@ -36,6 +36,9 @@ namespace Develover.Utilities
         public static string TextButtonPrint = "In";
 
 
+        public static string QuestionCloseForm = "Bạn đang chỉnh sửa, bạn có muốn thoát?";
+        public static string QuestionResetApplication = "Có phiếu đang mở bạn có muốn khởi động lại chương trình?";
+        public static string QuestionExitApplication = "Có phiếu đang mở bạn có muốn đóng chương trình?";
         public static string QuestionDelete = "Bạn có muốn xóa?";
         public static string InfomationExistsObject = "Đối đã tồn tại, xin kiểm tra lại.";
 
