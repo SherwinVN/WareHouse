@@ -166,7 +166,7 @@
             this.lokBranchID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lokBranchID.Size = new System.Drawing.Size(284, 20);
             this.lokBranchID.TabIndex = 9;
-            this.lokBranchID.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            this.lokBranchID.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
             // 
             // develoverGridLookUpEdit1View
             // 
@@ -185,6 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Location.IconOptions.Image")));
             this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Location.IconOptions.SvgImage")));
             this.Name = "Location";
             this.Text = "Location";
