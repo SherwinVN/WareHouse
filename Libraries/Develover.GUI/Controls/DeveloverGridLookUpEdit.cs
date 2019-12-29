@@ -33,8 +33,8 @@ namespace Develover.GUI.Controls
         {
             Properties.NullText = "";
             Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            Properties.PopupView = new DeveloverGridView(); 
-            Properties.ShowPopupShadow = true;
+            Properties.PopupView = new DeveloverGridView();
+            EnterMoveNextControl = true;
         }
 
         public void LoadData(DataTable data, string Model, string KeyMember = "", string DisplayMember = "", string ValueMember = "", string NullText = "")

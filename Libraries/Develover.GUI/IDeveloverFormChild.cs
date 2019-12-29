@@ -16,6 +16,8 @@ namespace Develover.GUI
 
         void Close();
 
+        bool Visible { get; set; }
+
         Icon Icon { get; set; }
 
         //void RefreshControlDataSource();

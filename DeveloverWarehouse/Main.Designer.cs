@@ -68,6 +68,7 @@
             this._010504 = new DevExpress.XtraBars.BarButtonItem();
             this._010505 = new DevExpress.XtraBars.BarButtonItem();
             this._010507 = new DevExpress.XtraBars.BarButtonItem();
+            this._010800 = new DevExpress.XtraBars.BarButtonItem();
             this._010600 = new DevExpress.XtraBars.BarButtonItem();
             this._020000 = new DevExpress.XtraBars.BarSubItem();
             this._020100 = new DevExpress.XtraBars.BarButtonItem();
@@ -114,7 +115,6 @@
             this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemToggleSwitch1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarManager)).BeginInit();
@@ -231,7 +231,7 @@
             this.barButtonHome,
             this.barUserLogin,
             this._010700,
-            this.barButtonItem1});
+            this._010800});
             this.toolbarManager.MainMenu = this.toolBar;
             this.toolbarManager.MaxItemId = 86;
             this.toolbarManager.StatusBar = this.statusBar;
@@ -414,7 +414,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this._010300, true),
             new DevExpress.XtraBars.LinkPersistInfo(this._010400),
             new DevExpress.XtraBars.LinkPersistInfo(this._010500, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this._010800),
             new DevExpress.XtraBars.LinkPersistInfo(this._010600)});
             this._010000.Name = "_010000";
             // 
@@ -519,6 +519,14 @@
             this._010507.Name = "_010507";
             this._010507.Tag = "File.UOM";
             this._010507.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010507_ItemClick);
+            // 
+            // _010800
+            // 
+            this._010800.Caption = "Đăng nhập lại";
+            this._010800.Id = 85;
+            this._010800.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this._010800.Name = "_010800";
+            this._010800.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010800_ItemClick);
             // 
             // _010600
             // 
@@ -900,13 +908,6 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.Text = "Custom 4";
             // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "Đăng nhập lại";
-            this.barButtonItem1.Id = 85;
-            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1019,7 +1020,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch repositoryItemToggleSwitch1;
         private DevExpress.XtraBars.ToolbarForm.ToolbarFormManager toolbarManager;
         private DevExpress.XtraBars.BarButtonItem _010700;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem _010800;
     }
 }
 

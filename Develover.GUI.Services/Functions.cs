@@ -38,8 +38,7 @@ namespace Develover.GUI.Services
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
-
-        public bool DeleteRowTable(string Table)
+        public bool DeleteTable(string Table)
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append("DELETE FROM [" + Table + "]");
@@ -54,7 +53,11 @@ namespace Develover.GUI.Services
             stringBuilder.Append("UPDATE a SET ");
             foreach (string key in ListFilesValues.Keys)
             {
-                stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
+                if (ListFilesValues[key].Equals("null"))
+                    stringBuilder.Append("[" + key + "] = null,");
+                else
+                    stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
+
             }
 
             string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + " FROM  [" + Table + "] a  WHERE  [" + NameFieldKey + "] = N'" + value + "' ";
@@ -67,7 +70,10 @@ namespace Develover.GUI.Services
             stringBuilder.Append("UPDATE a SET ");
             foreach (string key in ListFilesValues.Keys)
             {
-                stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
+                if (ListFilesValues[key].Equals("null"))
+                    stringBuilder.Append("[" + key + "] = null,");
+                else
+                    stringBuilder.Append("[" + key + "] = N'" + ListFilesValues[key].Replace("'", "''") + "',");
             }
 
             string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + ")" + " FROM  [" + Table + "] a ";
@@ -83,7 +89,11 @@ namespace Develover.GUI.Services
             foreach (string key in ListFilesValues.Keys)
             {
                 stringBuilderField.Append("[" + key + "],");
-                stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
+
+                if (ListFilesValues[key].Equals("null"))
+                    stringBuilderValue.Append("null,");
+                else
+                    stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
             }
             string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderValue.ToString(0, stringBuilderValue.Length - 1) + ")";
             return dataBase.ExecuteNonQuery(result) != -1;
@@ -97,24 +107,35 @@ namespace Develover.GUI.Services
             stringBuilderValue.Append("Values(");
             foreach (string key in ListFilesValues.Keys)
             {
-                stringBuilderField.Append("[" + key + "],");
-                stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
+                if (ListFilesValues[key].Equals("null"))
+                    stringBuilderValue.Append("null,");
+                else
+                    stringBuilderValue.Append("N'" + ListFilesValues[key].Replace("'", "''") + "',");
             }
             string result = stringBuilderField.ToString(0, stringBuilderField.Length - 1) + ")    " + stringBuilderValue.ToString(0, stringBuilderValue.Length - 1) + ")";
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
-        public bool CheckExistsValueInTable(string TableName,string ColumnName,string value,string NameFieldCodePrimary, string CodePrimary) {
-           return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' AND ["+ NameFieldCodePrimary + "] <> N'"+ CodePrimary + "'").Rows.Count >0;
+        public bool CheckExistsValueInTable(string TableName,string ColumnName,string value,string nameFieldCodePrimary, string CodePrimary) {
+           return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' AND ["+ nameFieldCodePrimary + "] <> N'"+ CodePrimary + "'").Rows.Count >0;
         }
-        public bool CheckExistsValueInTable(string TableName, string Where, string NameFieldCodePrimary, string CodePrimary)
+        public bool CheckExistsValueInTable(string TableName, string ColumnName, string value)
         {
-            return dataBase.GetDataTable("SELECT top 1 [" + NameFieldCodePrimary + "] FROM [" + TableName + "] WHERE " + Where + " AND [" + NameFieldCodePrimary + "] <> N'" + CodePrimary + "'").Rows.Count > 0;
+            return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' 1").Rows.Count > 0;
+        }
+        public bool CheckExistsValueInTableByWhere(string TableName, string Where, string nameFieldCodePrimary, string CodePrimary)
+        {
+            return dataBase.GetDataTable("SELECT top 1 [" + nameFieldCodePrimary + "] FROM [" + TableName + "] WHERE " + Where + " AND [" + nameFieldCodePrimary + "] <> N'" + CodePrimary + "'").Rows.Count > 0;
+        }
+        public bool CheckExistsValueInTableByWhere(string TableName, string Where, string nameFieldCodePrimary)
+        {
+            return dataBase.GetDataTable("SELECT top 1 [" + nameFieldCodePrimary + "] FROM [" + TableName + "] WHERE " + Where).Rows.Count > 0;
         }
         public bool CheckExistsColumnInTableOrView(string TypeObject,string ObjectName,string ColumnName)
         {
             return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '"+ TypeObject+"'  and  [name] = N'"+ ObjectName+"' and [id] IN (SELECT [id] FROM syscolumns WHERE [name] =  N'"+ ColumnName+"' )").Rows.Count > 0;
         }
+
         public bool CheckExistsObject(string TypeObject, string ObjectName)
         {
             return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '" + TypeObject + "'  and  [name] = N'" + ObjectName + "' ").Rows.Count > 0;

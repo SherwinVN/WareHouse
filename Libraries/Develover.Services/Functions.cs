@@ -38,9 +38,9 @@ namespace Develover.Services
         {
            return FunctionsGUIService.DeleteRowTable(tableName, nameFieldKey, value);
         }
-        public bool DeleteRowTable(string tableName)
+        public bool DeleteTable(string tableName)
         {
-            return FunctionsGUIService.DeleteRowTable(tableName);
+            return FunctionsGUIService.DeleteTable(tableName);
         }
         public bool UpdateTable(Dictionary<string, string> listFilesValues, string tableName, string nameFieldKey, string value)
         {
@@ -64,9 +64,17 @@ namespace Develover.Services
 
             return FunctionsGUIService.CheckExistsValueInTable(tableName,columnName,value,nameFieldCodePrimary, codePrimary);
         }
-        public bool CheckExistsValueInTable(string tableName, string where, string nameFieldCodePrimary, string codePrimary)
+        public bool CheckExistsValueInTable(string tableName, string columnName, string value)
         {
-            return FunctionsGUIService.CheckExistsValueInTable(tableName, where, nameFieldCodePrimary, codePrimary);
+            return FunctionsGUIService.CheckExistsValueInTable(tableName, columnName, value);
+        }
+        public bool CheckExistsValueInTableByWJere(string tableName, string where, string nameFieldCodePrimary, string codePrimary)
+        {
+            return FunctionsGUIService.CheckExistsValueInTableByWhere(tableName, where, nameFieldCodePrimary, codePrimary);
+        }
+        public bool CheckExistsValueInTableByWJere(string tableName, string where, string nameFieldCodePrimary)
+        {
+            return FunctionsGUIService.CheckExistsValueInTableByWhere(tableName, where, nameFieldCodePrimary);
         }
         public bool CheckExistsColumnInTableOrView(string typeObject,string objectName,string columnName)
         {
@@ -79,11 +87,31 @@ namespace Develover.Services
         public bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary, string codePrimary)
         {
             string Where = "1=1 ";
+            string value = "";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
-                Where += " AND [" + develoverControl.FieldBinding + "] = N'" + new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl) + "'";
+                value = new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
+                if (value.Equals("null"))
+                    Where += " AND [" + develoverControl.FieldBinding + "] is " + value;
+                else
+                    Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
             }
-            return CheckExistsValueInTable(tableName, Where, nameFieldCodePrimary, codePrimary);
+            return CheckExistsValueInTableByWJere(tableName, Where, nameFieldCodePrimary, codePrimary);
+
+        }
+        public bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary)
+        {
+            string Where = "1=1 ";
+            string value = "";
+            foreach (IDeveloverControl develoverControl in develoverControls)
+            {
+                value = new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
+                if (value.Equals("null"))
+                    Where += " AND [" + develoverControl.FieldBinding + "] is " + value;
+                else
+                    Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
+            }
+            return CheckExistsValueInTableByWJere(tableName, Where, nameFieldCodePrimary);
 
         }
 

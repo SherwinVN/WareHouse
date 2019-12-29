@@ -369,8 +369,9 @@ namespace Develover.Core {
                             value = command.ExecuteNonQuery();
                             transaction.Commit();
                         }
-                        catch
+                        catch(Exception ex)
                         {
+                            DeveloverOptions.SysDel.MessageError = ex.Message;
                             value = -1;
                             transaction.Rollback();
                         }

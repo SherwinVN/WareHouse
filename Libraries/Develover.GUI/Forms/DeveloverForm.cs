@@ -1,4 +1,5 @@
 ﻿using Develover.GUI.OverideClass;
+using Develover.Utilities;
 using DevExpress.XtraEditors;
 using System.Windows.Forms;
 using static Develover.Utilities.Enum;
@@ -41,6 +42,10 @@ namespace Develover.GUI.Forms
             KeyPreview = true;
             LoadPermission();
         }
+        protected override void OnKeyDown(KeyEventArgs e)
+        {
+            base.OnKeyDown(e);
+        }
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (Form.ModifierKeys == Keys.None)
@@ -48,7 +53,11 @@ namespace Develover.GUI.Forms
                 switch (keyData)
                 {
                     case Keys.Escape:
-                        if (iwhenCloseForm) this.Close();
+                        if (iwhenCloseForm)
+                            this.Close();
+                        else
+                           if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionCloseForm) == DialogResult.Yes)
+                            this.Close();
                         break;
                     case Keys.F11:
                         WindowState = WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
@@ -61,10 +70,12 @@ namespace Develover.GUI.Forms
         }
 
         #region CheckPermission
-        public bool CheckView() {
+        public bool CheckView()
+        {
             bool boo = true;
 
-            if (!boo) {
+            if (!boo)
+            {
                 DelMessageBox.DelMessageBoxPermission(EnumPermission.View);
             }
             return boo;

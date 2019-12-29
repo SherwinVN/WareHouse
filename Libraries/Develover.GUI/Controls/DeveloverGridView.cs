@@ -4,6 +4,7 @@ using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Localization;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -31,7 +32,6 @@ namespace Develover.GUI.Controls
             this.OptionsSelection.MultiSelect = true;
             this.IndicatorWidth = 40;
             this.CustomDrawRowIndicator += DeveloverGridView_CustomDrawRowIndicator;
-
         }
 
         private void DeveloverGridView_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
@@ -49,7 +49,6 @@ namespace Develover.GUI.Controls
             this.OptionsView.ShowGroupPanel = false;
             this.OptionsNavigation.AutoFocusNewRow = true;
             this.OptionsNavigation.EnterMoveNextColumn = true;
-            this.OptionsView.ShowFooter = true;
             this.OptionsBehavior.AutoUpdateTotalSummary = true;
             this.OptionsBehavior.AutoSelectAllInEditor = false;
             this.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
@@ -70,6 +69,10 @@ namespace Develover.GUI.Controls
                 gridColumn.Visible = typeColumns_.Visible;
                         
                 gridColumn.SummaryItem.SummaryType = GetSummaryItemType(typeColumns_.SumaryType);
+                if (typeColumns_.SumaryType != SumaryType.None)
+                {
+                    this.OptionsView.ShowFooter = true;
+                }
                 gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
                 gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
 
@@ -87,13 +90,11 @@ namespace Develover.GUI.Controls
             this.OptionsFind.ShowCloseButton = true;
             this.OptionsFind.SearchInPreview = true;
             this.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-            this.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.OptionsFind.FindNullPrompt = StringMessage.TextFindFilter;
             this.OptionsView.ShowAutoFilterRow = true;
             this.OptionsView.ShowGroupPanel = false;
             this.GroupPanelText = StringMessage.GroupPanelText;
 
-            this.OptionsView.ShowFooter = true;
             this.OptionsBehavior.AutoUpdateTotalSummary = true;
             this.OptionsBehavior.AutoSelectAllInEditor = false;
 
@@ -111,6 +112,9 @@ namespace Develover.GUI.Controls
                 gridColumn.Visible = typeColumns_.Visible;
 
                 gridColumn.SummaryItem.SummaryType = GetSummaryItemType(typeColumns_.SumaryType);
+                if (typeColumns_.SumaryType != SumaryType.None) {
+                    this.OptionsView.ShowFooter = true;
+                }
                 gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
                 gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
 
