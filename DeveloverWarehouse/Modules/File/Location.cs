@@ -29,9 +29,13 @@ namespace DeveloverWarehouse.Modules.File
         private void Location_Load(object sender, EventArgs e)
         {
             InitForm();
+            
+        }
+        protected override void LoadDataControls()
+        {
+            base.LoadDataControls();
             lokBranchID.LoadData("SELECT * FROM UOM ", "UOM", "UOMID", "UOMName", "UOMID");
         }
-
 
     }
 }

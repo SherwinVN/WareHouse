@@ -23,7 +23,7 @@ namespace Develover.GUI.Controls
         {
             Properties.NullText = "";
             Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            Properties.PopupView = new DeveloverGridView();
+            Properties.PopupView = new DeveloverGridView(); 
             Properties.ShowPopupShadow = true;
         }
 
@@ -40,9 +40,9 @@ namespace Develover.GUI.Controls
         {
             sqlData_ = SQLData;
 
+            Properties.KeyMember = KeyMember;
             Properties.DisplayMember = DisplayMember;
             Properties.ValueMember = ValueMember;
-            Properties.KeyMember = KeyMember;
             Properties.NullText = NullText;
 
             BuildGridView(Model);
@@ -58,7 +58,7 @@ namespace Develover.GUI.Controls
         {
 
             List<TypeColumns> typeColumns = GetSysDelGridcolumnsView(Model);
-            ((DeveloverGridView)Properties.PopupView).BuidColumnsView(typeColumns);
+           ((DeveloverGridView)Properties.PopupView).BuidColumnsView(typeColumns);
 
         }
 

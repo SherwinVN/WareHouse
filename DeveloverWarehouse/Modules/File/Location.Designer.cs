@@ -53,7 +53,7 @@
             // 
             // tab_information
             // 
-            this.tab_information.Size = new System.Drawing.Size(461, 418);
+            this.tab_information.Size = new System.Drawing.Size(461, 414);
             // 
             // gro_general
             // 
@@ -66,16 +66,16 @@
             this.gro_general.Controls.Add(this.memDescription);
             this.gro_general.Controls.Add(this.txtLocationCode);
             this.gro_general.Controls.Add(this.txtLocationName);
-            this.gro_general.Size = new System.Drawing.Size(459, 390);
+            this.gro_general.Size = new System.Drawing.Size(459, 382);
             // 
             // develoverSplitterControl1
             // 
             this.develoverSplitterControl1.Location = new System.Drawing.Point(323, 2);
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 422);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 418);
             // 
             // gro_search
             // 
-            this.gro_search.Size = new System.Drawing.Size(321, 422);
+            this.gro_search.Size = new System.Drawing.Size(321, 418);
             // 
             // memDescription
             // 
@@ -185,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Location.IconOptions.Image")));
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Location.IconOptions.SvgImage")));
             this.Name = "Location";
             this.Text = "Location";
             this.Load += new System.EventHandler(this.Location_Load);

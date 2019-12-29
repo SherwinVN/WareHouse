@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User));
             this.txtLastNameAndName = new Develover.GUI.Controls.DeveloverTextEdit();
             this.txtAdress = new Develover.GUI.Controls.DeveloverMemoEdit();
             this.chkActive = new Develover.GUI.Controls.DeveloverCheckEdit();
@@ -50,7 +51,7 @@
             // 
             // tab_information
             // 
-            this.tab_information.Size = new System.Drawing.Size(461, 418);
+            this.tab_information.Size = new System.Drawing.Size(461, 414);
             // 
             // gro_general
             // 
@@ -63,16 +64,16 @@
             this.gro_general.Controls.Add(this.txtPassword);
             this.gro_general.Controls.Add(this.txtAccount);
             this.gro_general.Controls.Add(this.txtLastNameAndName);
-            this.gro_general.Size = new System.Drawing.Size(459, 390);
+            this.gro_general.Size = new System.Drawing.Size(459, 382);
             // 
             // develoverSplitterControl1
             // 
             this.develoverSplitterControl1.Location = new System.Drawing.Point(323, 2);
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 422);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 418);
             // 
             // gro_search
             // 
-            this.gro_search.Size = new System.Drawing.Size(321, 422);
+            this.gro_search.Size = new System.Drawing.Size(321, 418);
             // 
             // txtLastNameAndName
             // 
@@ -165,6 +166,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("User.IconOptions.SvgImage")));
             this.Name = "User";
             this.Text = "User";
             this.Load += new System.EventHandler(this.UOM_Load);

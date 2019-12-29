@@ -427,7 +427,7 @@ namespace Develover.GUI.Forms
             grc_search.BuildGridControlsView(SQLDataSourceSearch, ModelName);
             LoadData();
             SetEnableBarButton();
-
+            LoadDataControls();
         }
 
         protected virtual void LoadData()
@@ -444,6 +444,12 @@ namespace Develover.GUI.Forms
             }
             else
                 grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], CodePrimary);
+
+        }
+
+        protected virtual void LoadDataControls()
+        {
+           
 
         }
 
