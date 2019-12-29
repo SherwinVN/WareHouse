@@ -18,12 +18,12 @@ namespace DeveloverWarehouse.Modules.File
         public UOM()
         {
             InitializeComponent();
-            SQLDataSourceSearch = "SELECT * FROM UOM order by UOMID";
+            SQLDataSourceSearch = "SELECT * FROM UOM ORDER BY UOMID";
             Model = "UOM";           
             Table = "UOM";
             NameFieldCodePrimary = "UOMID";
-            NameFieldNamePrimary = "UOMName";
-            DeveloverControlsNamePrimary = txtName;
+            ControlCheckDuplicate = new IDeveloverControl[] { txtName };
+            ControlCheckEmty = new IDeveloverControl[] { txtName };
             DeveloverControlsFocus = txtName;
         }
 

@@ -106,6 +106,10 @@ namespace Develover.GUI.Services
         public bool CheckExistsValueInTable(string TableName,string ColumnName,string value,string NameFieldCodePrimary, string CodePrimary) {
            return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' AND ["+ NameFieldCodePrimary + "] <> N'"+ CodePrimary + "'").Rows.Count >0;
         }
+        public bool CheckExistsValueInTable(string TableName, string Where, string NameFieldCodePrimary, string CodePrimary)
+        {
+            return dataBase.GetDataTable("SELECT top 1 [" + NameFieldCodePrimary + "] FROM [" + TableName + "] WHERE " + Where + " AND [" + NameFieldCodePrimary + "] <> N'" + CodePrimary + "'").Rows.Count > 0;
+        }
         public bool CheckExistsColumnInTableOrView(string TypeObject,string ObjectName,string ColumnName)
         {
             return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '"+ TypeObject+"'  and  [name] = N'"+ ObjectName+"' and [id] IN (SELECT [id] FROM syscolumns WHERE [name] =  N'"+ ColumnName+"' )").Rows.Count > 0;

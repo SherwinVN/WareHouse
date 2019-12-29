@@ -1,5 +1,5 @@
 ﻿using Develover.GUI.Controls;
-using Develover.Services;
+using Develover.GUI.Services;
 using DevExpress.Data.Linq;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;

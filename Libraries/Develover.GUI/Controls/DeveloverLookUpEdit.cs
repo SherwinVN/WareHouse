@@ -1,4 +1,4 @@
-﻿using Develover.Services;
+﻿using Develover.GUI.Services;
 using DevExpress.XtraEditors;
 using System.Collections.Generic;
 using System.Data;

@@ -3,7 +3,7 @@ using DevExpress.XtraEditors;
 using System.Data;
 using System.Windows.Forms;
 using static Develover.Utilities.Enum;
-using Develover.Services;
+using Develover.GUI.Services;
 
 namespace Develover.GUI.Controls
 {

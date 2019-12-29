@@ -9,13 +9,13 @@ namespace DeveloverWarehouse.Modules.File
         public User()
         {
             InitializeComponent();
-            SQLDataSourceSearch = "SELECT * FROM sysDELUser order by UserName";
+            SQLDataSourceSearch = "SELECT * FROM sysDELUser ORDER BY UserName";
             Model = "USER";           
             Table = "sysDELUser";
             NameFieldCodePrimary = "ID";
-            NameFieldNamePrimary = "UserName";
-            DeveloverControlsNamePrimary = txtLastNameAndName;
-            DeveloverControlsFocus = txtLastNameAndName;
+            ControlCheckDuplicate = new IDeveloverControl[] { txtAccount };
+            ControlCheckEmty = new IDeveloverControl[] { txtAccount,txtLastNameAndName };
+            DeveloverControlsFocus = txtAccount;
         }
 
         private void UOM_Load(object sender, EventArgs e)

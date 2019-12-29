@@ -1,4 +1,4 @@
-﻿using Develover.Services;
+﻿using Develover.GUI.Services;
 using Develover.Utilities;
 using DevExpress.Utils;
 using DevExpress.XtraEditors.Controls;
