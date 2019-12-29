@@ -75,7 +75,7 @@
             this.tnpSetting.RegularSize = new System.Drawing.Size(776, 353);
             this.tnpSetting.SelectedPage = this.tnpCustomer;
             this.tnpSetting.Size = new System.Drawing.Size(776, 353);
-            this.tnpSetting.TabIndex = 7;
+            this.tnpSetting.TabIndex = 0;
             this.tnpSetting.Text = "Cài đặt";
             // 
             // tnpCustomer
@@ -105,7 +105,7 @@
             this.grActive.Location = new System.Drawing.Point(374, 13);
             this.grActive.Name = "grActive";
             this.grActive.Size = new System.Drawing.Size(356, 100);
-            this.grActive.TabIndex = 7;
+            this.grActive.TabIndex = 1;
             this.grActive.Text = "Kích hoạt";
             this.grActive.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -116,7 +116,7 @@
             this.labTextLicense.Location = new System.Drawing.Point(7, 59);
             this.labTextLicense.Name = "labTextLicense";
             this.labTextLicense.Size = new System.Drawing.Size(335, 33);
-            this.labTextLicense.TabIndex = 5;
+            this.labTextLicense.TabIndex = 3;
             this.labTextLicense.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // labCodePersonal
@@ -125,7 +125,7 @@
             this.labCodePersonal.Location = new System.Drawing.Point(7, 37);
             this.labCodePersonal.Name = "labCodePersonal";
             this.labCodePersonal.Size = new System.Drawing.Size(69, 13);
-            this.labCodePersonal.TabIndex = 3;
+            this.labCodePersonal.TabIndex = 2;
             this.labCodePersonal.Text = "Mã số cá nhân";
             this.labCodePersonal.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -136,7 +136,7 @@
             this.txtCodePersonal.Name = "txtCodePersonal";
             this.txtCodePersonal.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodePersonal.Size = new System.Drawing.Size(158, 20);
-            this.txtCodePersonal.TabIndex = 5;
+            this.txtCodePersonal.TabIndex = 0;
             this.txtCodePersonal.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // butActive
@@ -145,7 +145,7 @@
             this.butActive.Location = new System.Drawing.Point(272, 32);
             this.butActive.Name = "butActive";
             this.butActive.Size = new System.Drawing.Size(70, 22);
-            this.butActive.TabIndex = 2;
+            this.butActive.TabIndex = 1;
             this.butActive.Text = "Kích hoạt";
             this.butActive.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             this.butActive.Click += new System.EventHandler(this.butActive_Click);
@@ -166,7 +166,7 @@
             this.grSettingSQL.Location = new System.Drawing.Point(12, 13);
             this.grSettingSQL.Name = "grSettingSQL";
             this.grSettingSQL.Size = new System.Drawing.Size(356, 161);
-            this.grSettingSQL.TabIndex = 7;
+            this.grSettingSQL.TabIndex = 0;
             this.grSettingSQL.Text = "Cấu hình SQL";
             this.grSettingSQL.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -177,7 +177,7 @@
             this.laberror.Location = new System.Drawing.Point(7, 128);
             this.laberror.Name = "laberror";
             this.laberror.Size = new System.Drawing.Size(259, 29);
-            this.laberror.TabIndex = 5;
+            this.laberror.TabIndex = 9;
             this.laberror.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // labServerName
@@ -186,7 +186,7 @@
             this.labServerName.Location = new System.Drawing.Point(7, 37);
             this.labServerName.Name = "labServerName";
             this.labServerName.Size = new System.Drawing.Size(40, 13);
-            this.labServerName.TabIndex = 3;
+            this.labServerName.TabIndex = 5;
             this.labServerName.Text = "Máy chủ";
             this.labServerName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -196,7 +196,7 @@
             this.txtDatabaseName.Location = new System.Drawing.Point(108, 103);
             this.txtDatabaseName.Name = "txtDatabaseName";
             this.txtDatabaseName.Size = new System.Drawing.Size(158, 20);
-            this.txtDatabaseName.TabIndex = 6;
+            this.txtDatabaseName.TabIndex = 3;
             this.txtDatabaseName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // labUserSQL
@@ -205,7 +205,7 @@
             this.labUserSQL.Location = new System.Drawing.Point(7, 59);
             this.labUserSQL.Name = "labUserSQL";
             this.labUserSQL.Size = new System.Drawing.Size(46, 13);
-            this.labUserSQL.TabIndex = 4;
+            this.labUserSQL.TabIndex = 6;
             this.labUserSQL.Text = "Tài khoản";
             this.labUserSQL.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -216,7 +216,7 @@
             this.txtServerName.Name = "txtServerName";
             this.txtServerName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtServerName.Size = new System.Drawing.Size(158, 20);
-            this.txtServerName.TabIndex = 5;
+            this.txtServerName.TabIndex = 0;
             this.txtServerName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // labPasswordSQL
@@ -225,7 +225,7 @@
             this.labPasswordSQL.Location = new System.Drawing.Point(7, 81);
             this.labPasswordSQL.Name = "labPasswordSQL";
             this.labPasswordSQL.Size = new System.Drawing.Size(44, 13);
-            this.labPasswordSQL.TabIndex = 4;
+            this.labPasswordSQL.TabIndex = 7;
             this.labPasswordSQL.Text = "Mật khẩu";
             this.labPasswordSQL.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -235,7 +235,7 @@
             this.labDatabaseName.Location = new System.Drawing.Point(7, 103);
             this.labDatabaseName.Name = "labDatabaseName";
             this.labDatabaseName.Size = new System.Drawing.Size(62, 13);
-            this.labDatabaseName.TabIndex = 4;
+            this.labDatabaseName.TabIndex = 8;
             this.labDatabaseName.Text = "Cơ sở dữ liệu";
             this.labDatabaseName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -246,7 +246,7 @@
             this.txtPassWord.Name = "txtPassWord";
             this.txtPassWord.Properties.PasswordChar = '*';
             this.txtPassWord.Size = new System.Drawing.Size(158, 20);
-            this.txtPassWord.TabIndex = 1;
+            this.txtPassWord.TabIndex = 2;
             this.txtPassWord.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // txtUserName
@@ -255,7 +255,7 @@
             this.txtUserName.Location = new System.Drawing.Point(108, 57);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(158, 20);
-            this.txtUserName.TabIndex = 0;
+            this.txtUserName.TabIndex = 1;
             this.txtUserName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // butLogin
@@ -264,7 +264,7 @@
             this.butLogin.Location = new System.Drawing.Point(272, 32);
             this.butLogin.Name = "butLogin";
             this.butLogin.Size = new System.Drawing.Size(70, 46);
-            this.butLogin.TabIndex = 2;
+            this.butLogin.TabIndex = 4;
             this.butLogin.Text = "Đăng nhâp";
             this.butLogin.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             this.butLogin.Click += new System.EventHandler(this.butLogin_Click);

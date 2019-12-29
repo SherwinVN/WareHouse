@@ -60,6 +60,8 @@ namespace DeveloverWarehouse
                 laberror.Text = "Không thể truy cập Database [" + DeveloverOptions.InfoDatabase.DatabaseName + "] ?\n" + DeveloverOptions.SysDel.MessageError + ".";
             }
             else laberror.Text = "Kết nối SERVER [" + DeveloverOptions.InfoDatabase.ServerName + "] - DATABASE [" + DeveloverOptions.InfoDatabase.DatabaseName + "] Thành công!";
+            
+            flogin.setInfoServer();
             SetEnableControl();
             this.Close();
         }

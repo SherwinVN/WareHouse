@@ -19,8 +19,7 @@ namespace DeveloverWarehouse.Modules.File
         {
             InitializeComponent();
             SQLDataSourceSearch = "SELECT * FROM Location ORDER BY LocationID";
-            Model = "Location";           
-            Table = "Location";
+            CodeVoucher = "Location";        
             NameFieldCodePrimary = "LocationID";
             ControlCheckDuplicate = new IDeveloverControl[] { lokBranchID,txtLocationName };
             ControlCheckEmty = new IDeveloverControl[] { lokBranchID,txtLocationName };

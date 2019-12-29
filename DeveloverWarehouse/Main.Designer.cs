@@ -114,6 +114,7 @@
             this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar1 = new DevExpress.XtraBars.Bar();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemToggleSwitch1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarManager)).BeginInit();
@@ -133,7 +134,7 @@
             this.toolbarControl.Location = new System.Drawing.Point(0, 0);
             this.toolbarControl.Manager = this.toolbarManager;
             this.toolbarControl.Name = "toolbarControl";
-            this.toolbarControl.Size = new System.Drawing.Size(872, 31);
+            this.toolbarControl.Size = new System.Drawing.Size(872, 30);
             this.toolbarControl.TabIndex = 4;
             this.toolbarControl.TabStop = false;
             this.toolbarControl.TitleItemLinks.Add(this._010000);
@@ -229,9 +230,10 @@
             this.barButtonHowTo,
             this.barButtonHome,
             this.barUserLogin,
-            this._010700});
+            this._010700,
+            this.barButtonItem1});
             this.toolbarManager.MainMenu = this.toolBar;
-            this.toolbarManager.MaxItemId = 85;
+            this.toolbarManager.MaxItemId = 86;
             this.toolbarManager.StatusBar = this.statusBar;
             // 
             // statusBar
@@ -373,33 +375,33 @@
             // 
             this.barDockTop.CausesValidation = false;
             this.barDockTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockTop.Location = new System.Drawing.Point(0, 31);
+            this.barDockTop.Location = new System.Drawing.Point(0, 30);
             this.barDockTop.Manager = this.toolbarManager;
-            this.barDockTop.Size = new System.Drawing.Size(872, 25);
+            this.barDockTop.Size = new System.Drawing.Size(872, 28);
             // 
             // barDockBottom
             // 
             this.barDockBottom.CausesValidation = false;
             this.barDockBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockBottom.Location = new System.Drawing.Point(0, 443);
+            this.barDockBottom.Location = new System.Drawing.Point(0, 444);
             this.barDockBottom.Manager = this.toolbarManager;
-            this.barDockBottom.Size = new System.Drawing.Size(872, 27);
+            this.barDockBottom.Size = new System.Drawing.Size(872, 26);
             // 
             // barDockLeft
             // 
             this.barDockLeft.CausesValidation = false;
             this.barDockLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockLeft.Location = new System.Drawing.Point(0, 56);
+            this.barDockLeft.Location = new System.Drawing.Point(0, 58);
             this.barDockLeft.Manager = this.toolbarManager;
-            this.barDockLeft.Size = new System.Drawing.Size(0, 387);
+            this.barDockLeft.Size = new System.Drawing.Size(0, 386);
             // 
             // barDockRight
             // 
             this.barDockRight.CausesValidation = false;
             this.barDockRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockRight.Location = new System.Drawing.Point(872, 56);
+            this.barDockRight.Location = new System.Drawing.Point(872, 58);
             this.barDockRight.Manager = this.toolbarManager;
-            this.barDockRight.Size = new System.Drawing.Size(0, 387);
+            this.barDockRight.Size = new System.Drawing.Size(0, 386);
             // 
             // _010000
             // 
@@ -412,6 +414,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this._010300, true),
             new DevExpress.XtraBars.LinkPersistInfo(this._010400),
             new DevExpress.XtraBars.LinkPersistInfo(this._010500, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this._010600)});
             this._010000.Name = "_010000";
             // 
@@ -443,12 +446,14 @@
             // 
             this._010300.Caption = "&Import...";
             this._010300.Id = 3;
+            this._010300.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010300.ImageOptions.SvgImage")));
             this._010300.Name = "_010300";
             // 
             // _010400
             // 
             this._010400.Caption = "&Export...";
             this._010400.Id = 4;
+            this._010400.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010400.ImageOptions.SvgImage")));
             this._010400.Name = "_010400";
             // 
             // _010500
@@ -476,6 +481,7 @@
             // 
             this._010502.Caption = "&Cài đặt";
             this._010502.Id = 8;
+            this._010502.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010502.ImageOptions.SvgImage")));
             this._010502.Name = "_010502";
             this._010502.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010502_ItemClick);
             // 
@@ -483,6 +489,7 @@
             // 
             this._010503.Caption = "&Tài khoản";
             this._010503.Id = 9;
+            this._010503.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010503.ImageOptions.SvgImage")));
             this._010503.Name = "_010503";
             this._010503.Tag = "File.User";
             this._010503.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010503_ItemClick);
@@ -491,6 +498,7 @@
             // 
             this._010504.Caption = "&Nhóm tài khoản";
             this._010504.Id = 10;
+            this._010504.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010504.ImageOptions.SvgImage")));
             this._010504.Name = "_010504";
             this._010504.Tag = "File.GroupUser";
             this._010504.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010504_ItemClick);
@@ -499,6 +507,7 @@
             // 
             this._010505.Caption = "&Danh sách kho";
             this._010505.Id = 11;
+            this._010505.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010505.ImageOptions.SvgImage")));
             this._010505.Name = "_010505";
             this._010505.Tag = "File.Location";
             this._010505.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010505_ItemClick);
@@ -891,6 +900,13 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.Text = "Custom 4";
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "Đăng nhập lại";
+            this.barButtonItem1.Id = 85;
+            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1003,6 +1019,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch repositoryItemToggleSwitch1;
         private DevExpress.XtraBars.ToolbarForm.ToolbarFormManager toolbarManager;
         private DevExpress.XtraBars.BarButtonItem _010700;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
 

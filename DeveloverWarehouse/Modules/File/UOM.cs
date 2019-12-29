@@ -19,8 +19,7 @@ namespace DeveloverWarehouse.Modules.File
         {
             InitializeComponent();
             SQLDataSourceSearch = "SELECT * FROM UOM ORDER BY UOMID";
-            Model = "UOM";           
-            Table = "UOM";
+            CodeVoucher = "UOM";        
             NameFieldCodePrimary = "UOMID";
             ControlCheckDuplicate = new IDeveloverControl[] { txtName };
             ControlCheckEmty = new IDeveloverControl[] { txtName };

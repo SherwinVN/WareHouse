@@ -10,8 +10,7 @@ namespace DeveloverWarehouse.Modules.File
         {
             InitializeComponent();
             SQLDataSourceSearch = "SELECT * FROM sysDELUser ORDER BY UserName";
-            Model = "USER";           
-            Table = "sysDELUser";
+            CodeVoucher = "USER";           
             NameFieldCodePrimary = "ID";
             ControlCheckDuplicate = new IDeveloverControl[] { txtAccount };
             ControlCheckEmty = new IDeveloverControl[] { txtAccount,txtLastNameAndName };

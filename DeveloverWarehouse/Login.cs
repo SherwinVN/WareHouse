@@ -82,6 +82,7 @@ namespace DeveloverWarehouse
                 setting.ShowDialog();
             }
 
+            flogin.GetInfoServer();
             flogin.GetInfoUser();
             chkGhiNhoDangNhap.Checked = DeveloverOptions.StatusLogins.RememberPassword;
             txtUserName.Text = DeveloverOptions.StatusLogins.Username;

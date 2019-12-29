@@ -22,8 +22,9 @@ namespace Develover.GUI.Forms
     {
         Functions functions = new Functions();
         public string SQLDataSourceSearch;
-        public string Model;
-        public string Table;
+        public string CodeVoucher;
+        private string Table;
+        private string ModelName;
         public string CodePrimary;
         public string NameFieldCodePrimary;
         public EnumPermission StatusUse;
@@ -414,15 +415,16 @@ namespace Develover.GUI.Forms
 
         protected virtual void InitForm()
         {
-            using (DataTable data = functions.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader, TableDetail FROM SysDELListVoucher WHERE code = '" + Model + "'"))
+            using (DataTable data = functions.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
                     Text = dr["Name"].ToString();
                     Table = dr["TableHeader"].ToString();
+                    ModelName = dr["ModelName"].ToString();
                 }
             }
-            grc_search.BuildGridControlsView(SQLDataSourceSearch, Table);
+            grc_search.BuildGridControlsView(SQLDataSourceSearch, ModelName);
             LoadData();
             SetEnableBarButton();
 

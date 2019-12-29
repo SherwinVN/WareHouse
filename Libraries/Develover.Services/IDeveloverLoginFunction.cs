@@ -36,6 +36,7 @@ namespace Develover.Services
             if (passWord == SQLPassWord)
             {
                 setInfoServer();
+                setInfoUser();
                 getInfo();
                 getInfoCompany();
                 countLoginFailed = 0; return true;
@@ -107,10 +108,6 @@ namespace Develover.Services
 
         private bool CheckLicenseServer(string codePersonal)
         {
-
-
-
-
             DeveloverOptions.SysDel.CodePersonal = codePersonal;
             DeveloverOptions.SysDel.TypeLicense = TypeLicenses.Company ;
             DeveloverOptions.SysDel.ExpirationDate = DateTime.Now.AddYears(5);
@@ -184,7 +181,7 @@ namespace Develover.Services
             }
         }
 
-        private void setInfoServer()
+        public void setInfoServer()
         {
             RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Develover");
 
@@ -193,7 +190,13 @@ namespace Develover.Services
             key.SetValue("DatabaseName", DeveloverOptions.InfoDatabase.DatabaseName);
             key.SetValue("UsernameSQL", DeveloverOptions.InfoDatabase.UsernameSQL);
             key.SetValue("PasswordSQL", DeveloverOptions.InfoDatabase.PasswordSQL);
+            key.Close();
+        }
+        public void setInfoUser()
+        {
+            RegistryKey key = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Develover");
 
+            key.SetValue("NameApplication", "Develover");
             key.SetValue("Username", DeveloverOptions.StatusLogins.Username);
             key.SetValue("Password", rememberStatus ? DeveloverOptions.InfoDatabase.PasswordSQL : "");
             key.SetValue("RememberPassword", rememberStatus);
