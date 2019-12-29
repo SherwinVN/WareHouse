@@ -34,8 +34,7 @@ namespace DeveloverWarehouse.Modules.File
         protected override void LoadDataControls()
         {
             base.LoadDataControls();
-            lokBranchID.LoadData("SELECT * FROM UOM ", "UOM", "UOMID", "UOMName", "UOMID");
+            lokBranchID.LoadData("SELECT * FROM UOM ", "UOM", "UOMID", "UOMID", "UOMName");
         }
-
     }
 }
