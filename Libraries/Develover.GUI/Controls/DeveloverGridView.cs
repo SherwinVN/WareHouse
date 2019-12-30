@@ -20,9 +20,12 @@ namespace Develover.GUI.Controls
     public partial class DeveloverGridView : GridView, IDeveloverControl
     {
         string fieldBinding;
+        bool isGUID;
         EnumTypeColumns typeFieldColumns;
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
+        public bool IsGUID { get => isGUID; set => isGUID = value; }
+
         public DeveloverGridView() : this(null) { }
 
         public DeveloverGridView(GridControl grid) : base(grid)

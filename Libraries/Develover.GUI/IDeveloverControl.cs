@@ -9,6 +9,8 @@ namespace Develover.GUI
         string FieldBinding { get; set; }
         [Browsable(true)]
         EnumTypeColumns TypeFieldColumns { get; set; }
+        [Browsable(true)]
+        bool IsGUID { get; set; }
 
     }
 }

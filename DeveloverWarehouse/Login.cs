@@ -56,7 +56,6 @@ namespace DeveloverWarehouse
                 laberrorLogin.Text = "Tài khoản đăng nhập hoặc mật khẩu không đúng?";
                 if (flogin.CountLoginFailed > 5)
                     laberrorLogin.Text = "Bạn đăng nhập sai quá nhiều lần?";
-                return;
             }
             SplashScreenManager.CloseForm(false);
         }

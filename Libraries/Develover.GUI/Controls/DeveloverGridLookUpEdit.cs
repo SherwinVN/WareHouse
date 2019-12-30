@@ -22,9 +22,11 @@ namespace Develover.GUI.Controls
         public new DeveloverRepositoryItemGridLookUpEdit Properties { get { return base.Properties as DeveloverRepositoryItemGridLookUpEdit; } }
 
         string fieldBinding;
+        bool isGUID;
         EnumTypeColumns typeFieldColumns;
         public string FieldBinding { get => fieldBinding; set => fieldBinding = value; }
         public EnumTypeColumns TypeFieldColumns { get => typeFieldColumns; set => typeFieldColumns = value; }
+        public bool IsGUID { get => isGUID; set => isGUID = value; }
 
         string sqldata_;
         string model_;
@@ -44,13 +46,14 @@ namespace Develover.GUI.Controls
         public void LoadData(string sqlData, string model, string KeyMember = "", string ValueMember = "", string DisplayMember = "", string NullText = "")
         {
             sqldata_ = sqlData;
+            LoadData();
             model_ = model;
-            Properties.LoadData(sqldata_, model_, KeyMember,  ValueMember, DisplayMember,NullText);
+            //Properties.LoadData(sqldata_, model_, KeyMember,  ValueMember, DisplayMember,NullText);
         }
 
         public void LoadData() {
 
-            Properties.LoadData(sqldata_, model_);
+            Properties.LoadData();
         }
 
     }

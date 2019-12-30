@@ -15,7 +15,6 @@ namespace Develover.Services
 {
     public class Functions : IDeveloverFunctions
     {
-
         public DataBase dataBase;
         public GUI.Services.Functions FunctionsGUIService = new GUI.Services.Functions();
         public Functions()
@@ -34,9 +33,22 @@ namespace Develover.Services
             Guid guid = Guid.NewGuid();
             return guid.ToString();
         }
+        public bool CheckGuid(string guidString, out Guid guid)
+        {
+            try
+            {
+                guid = new Guid(guidString);
+                return true;
+            }
+            catch (FormatException)
+            {
+                guid = default(Guid);
+                return false;
+            }
+        }
         public bool DeleteRowTable(string tableName, string nameFieldKey, string value)
         {
-           return FunctionsGUIService.DeleteRowTable(tableName, nameFieldKey, value);
+            return FunctionsGUIService.DeleteRowTable(tableName, nameFieldKey, value);
         }
         public bool DeleteTable(string tableName)
         {
@@ -45,7 +57,7 @@ namespace Develover.Services
         public bool UpdateTable(Dictionary<string, string> listFilesValues, string tableName, string nameFieldKey, string value)
         {
 
-            return FunctionsGUIService.UpdateTable(listFilesValues,tableName,nameFieldKey,value);
+            return FunctionsGUIService.UpdateTable(listFilesValues, tableName, nameFieldKey, value);
         }
         public bool UpdateTable(Dictionary<string, string> listFilesValues, string tableName)
         {
@@ -54,15 +66,16 @@ namespace Develover.Services
         }
         public bool InsertIntoTable(Dictionary<string, string> listFilesValues, string tableName, string nameFieldKey, string value)
         {
-            return FunctionsGUIService.UpdateTable(listFilesValues, tableName,nameFieldKey,value);
+            return FunctionsGUIService.UpdateTable(listFilesValues, tableName, nameFieldKey, value);
         }
         public bool InsertIntoTable(Dictionary<string, string> listFilesValues, string tableName)
         {
             return FunctionsGUIService.UpdateTable(listFilesValues, tableName);
         }
-        public bool CheckExistsValueInTable(string tableName,string columnName,string value,string nameFieldCodePrimary, string codePrimary) {
+        public bool CheckExistsValueInTable(string tableName, string columnName, string value, string nameFieldCodePrimary, string codePrimary)
+        {
 
-            return FunctionsGUIService.CheckExistsValueInTable(tableName,columnName,value,nameFieldCodePrimary, codePrimary);
+            return FunctionsGUIService.CheckExistsValueInTable(tableName, columnName, value, nameFieldCodePrimary, codePrimary);
         }
         public bool CheckExistsValueInTable(string tableName, string columnName, string value)
         {
@@ -76,7 +89,7 @@ namespace Develover.Services
         {
             return FunctionsGUIService.CheckExistsValueInTableByWhere(tableName, where, nameFieldCodePrimary);
         }
-        public bool CheckExistsColumnInTableOrView(string typeObject,string objectName,string columnName)
+        public bool CheckExistsColumnInTableOrView(string typeObject, string objectName, string columnName)
         {
             return FunctionsGUIService.CheckExistsColumnInTableOrView(typeObject, objectName, columnName);
         }
@@ -91,10 +104,11 @@ namespace Develover.Services
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
                 value = new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
-                if (value.Equals("null"))
-                    Where += " AND [" + develoverControl.FieldBinding + "] is " + value;
-                else
+                if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
+                {
+                    value = new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
+                }
             }
             return CheckExistsValueInTableByWJere(tableName, Where, nameFieldCodePrimary, codePrimary);
 
@@ -105,11 +119,11 @@ namespace Develover.Services
             string value = "";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
-                value = new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
-                if (value.Equals("null"))
-                    Where += " AND [" + develoverControl.FieldBinding + "] is " + value;
-                else
+                if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
+                {
+                    value = new Controls().GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
+                }
             }
             return CheckExistsValueInTableByWJere(tableName, Where, nameFieldCodePrimary);
 
@@ -117,7 +131,8 @@ namespace Develover.Services
 
 
 
-        public class Controls {
+        public class Controls
+        {
 
             public void SetNullControl(IDeveloverControl GroupControl)
             {
@@ -173,7 +188,7 @@ namespace Develover.Services
                                     ((CheckEdit)iDcontrol).ReadOnly = Enable;
                                     break;
                                 case EnumTypeColumns.Gridlookup:
-                                //    ((DevExpress.XtraEditors.GridLookUpEdit)iDcontrol).ReadOnly = Enable;
+                                    //    ((DevExpress.XtraEditors.GridLookUpEdit)iDcontrol).ReadOnly = Enable;
                                     break;
                                 case EnumTypeColumns.Text:
                                     ((TextEdit)iDcontrol).ReadOnly = Enable;
@@ -200,7 +215,7 @@ namespace Develover.Services
 
                 return Enable;
             }
-            
+
             public void DataBindingsControl(IDeveloverControl GroupControl, Object Datasource)
             {
                 foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
@@ -215,7 +230,7 @@ namespace Develover.Services
                                     ((Control)iDcontrol).DataBindings.Add(nameof(BaseCheckEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
                                     break;
                                 case EnumTypeColumns.Gridlookup:
-                                   // ((Control)iDcontrol).DataBindings.Add(nameof(GridLookUpEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
+                                    // ((Control)iDcontrol).DataBindings.Add(nameof(GridLookUpEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
                                     break;
                                 case EnumTypeColumns.Text:
                                     ((Control)iDcontrol).DataBindings.Add(nameof(TextEdit.EditValue), Datasource, ((IDeveloverControl)iDcontrol).FieldBinding, true, DataSourceUpdateMode.Never, StringMessage.DataNullOrEmty);
@@ -261,6 +276,8 @@ namespace Develover.Services
             public Dictionary<string, string> LoadListControlAndField(IDeveloverControl GroupControl)
             {
                 Dictionary<string, string> dictionary = new Dictionary<string, string>();
+                string text = "";
+                Guid guid;
                 foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
                 {
                     if (iDcontrol is IDeveloverControl)
@@ -270,27 +287,36 @@ namespace Develover.Services
                             switch (iDcontrol.TypeFieldColumns)
                             {
                                 case EnumTypeColumns.Number:
-                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    text = ((Control)iDcontrol).Text;
                                     break;
                                 case EnumTypeColumns.Check:
-                                    dictionary.Add(iDcontrol.FieldBinding, ((CheckEdit)iDcontrol).Checked ? "1" : "0");
+                                    text = ((CheckEdit)iDcontrol).Checked ? "1" : "0";
                                     break;
                                 case EnumTypeColumns.Combobox:
-                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    text = ((Control)iDcontrol).Text;
                                     break;
                                 case EnumTypeColumns.Date:
-                                    dictionary.Add(iDcontrol.FieldBinding, DateTime.Parse(((Control)iDcontrol).Text).ToString("MM/dd/yyyy"));
+                                    text = DateTime.Parse(((Control)iDcontrol).Text).ToString("MM/dd/yyyy");
                                     break;
                                 case EnumTypeColumns.Gridlookup:
-                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    text = ((Control)iDcontrol).Text;
                                     break;
                                 case EnumTypeColumns.Text:
-                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    text = ((Control)iDcontrol).Text;
                                     break;
                                 case EnumTypeColumns.Time:
-                                    dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                    text = ((Control)iDcontrol).Text;
                                     break;
                             }
+
+                            if (iDcontrol.IsGUID)
+                            {
+                                new Functions().CheckGuid(text, out guid);
+                                text = guid.ToString();
+                            }
+
+                            dictionary.Add(iDcontrol.FieldBinding, text);
+
                         }
 
                     }
@@ -302,25 +328,39 @@ namespace Develover.Services
 
             public string GetValueByTypeFieldColumns(EnumTypeColumns TypeFieldColumns, IDeveloverControl develoverControl)
             {
+                string text = "";
+                Guid guid;
                 switch (TypeFieldColumns)
                 {
                     case EnumTypeColumns.Number:
-                        return ((Control)develoverControl).Text;
+                        text = ((Control)develoverControl).Text;
+                        break;
                     case EnumTypeColumns.Check:
-                        return ((CheckEdit)develoverControl).Checked ? "1" : "0";
+                        text = ((CheckEdit)develoverControl).Checked ? "1" : "0";
+                        break;
                     case EnumTypeColumns.Combobox:
-                        return ((Control)develoverControl).Text;
+                        text = ((Control)develoverControl).Text;
+                        break;
                     case EnumTypeColumns.Date:
-                        return DateTime.Parse(((Control)develoverControl).Text).ToString("MM/dd/yyyy");
+                        text = DateTime.Parse(((Control)develoverControl).Text).ToString("MM/dd/yyyy");
+                        break;
                     case EnumTypeColumns.Gridlookup:
-                        return ((Control)develoverControl).Text;
+                        text = ((Control)develoverControl).Text;
+                        break;
                     case EnumTypeColumns.Text:
-                        return ((Control)develoverControl).Text;
+                        text = ((Control)develoverControl).Text;
+                        break;
                     case EnumTypeColumns.Time:
-                        return ((Control)develoverControl).Text;
-                    default:
-                        return "";
+                        text = ((Control)develoverControl).Text;
+                        break;
                 }
+                if (develoverControl.IsGUID)
+                {
+                    new Functions().CheckGuid(text, out guid);
+                    text = guid.ToString();
+                }
+
+                return text;
             }
 
             public bool CheckEmty(IDeveloverControl[] develoverControls)

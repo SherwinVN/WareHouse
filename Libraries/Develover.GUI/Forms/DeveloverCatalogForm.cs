@@ -51,6 +51,11 @@ namespace Develover.GUI.Forms
             {
                 if (iDcontrol is IDeveloverControl)
                 {
+                    if (iDcontrol is DeveloverGroupControl)
+                    {
+                        SetNullControl(iDcontrol);
+                    }
+                    else
                     if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
                     {
                         switch (iDcontrol.TypeFieldColumns)
@@ -91,7 +96,12 @@ namespace Develover.GUI.Forms
             {
                 if (iDcontrol is IDeveloverControl)
                 {
-                    if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                    if (iDcontrol is DeveloverGroupControl)
+                    {
+                        SetStatusEdit(iDcontrol, Enable);
+                    }
+                    else
+                   if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
                     {
                         switch (iDcontrol.TypeFieldColumns)
                         {
@@ -133,6 +143,11 @@ namespace Develover.GUI.Forms
             {
                 if (iDcontrol is IDeveloverControl)
                 {
+                    if (iDcontrol is DeveloverGroupControl)
+                    {
+                        DataBindingsControl(iDcontrol, Datasource);
+                    }
+                    else
                     if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
                     {
                         switch (iDcontrol.TypeFieldColumns)
@@ -174,7 +189,12 @@ namespace Develover.GUI.Forms
             {
                 if (iDcontrol is IDeveloverControl)
                 {
-                    if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                    if (iDcontrol is DeveloverGroupControl)
+                    {
+                        ClearDataBindingsControl(iDcontrol);
+                    }
+                    else
+                      if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
                     {
                         ((Control)iDcontrol).DataBindings.Clear();
                     }
@@ -187,39 +207,57 @@ namespace Develover.GUI.Forms
         protected virtual Dictionary<string, string> LoadListControlAndField(IDeveloverControl GroupControl)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            string text = "";
+            Guid guid;
             foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
             {
                 if (iDcontrol is IDeveloverControl)
                 {
-                    if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                    if (iDcontrol is DeveloverGroupControl)
+                    {
+                        Dictionary<string, string> dictionary2 = LoadListControlAndField(iDcontrol);
+                        foreach (string keys in dictionary2.Keys)
+                        {
+                            dictionary.Add(keys, dictionary2[keys]);
+
+                        }
+                    }
+                    else
+                      if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
                     {
                         switch (iDcontrol.TypeFieldColumns)
                         {
                             case EnumTypeColumns.Number:
-                                dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                text = ((Control)iDcontrol).Text;
                                 break;
                             case EnumTypeColumns.Check:
-                                dictionary.Add(iDcontrol.FieldBinding, ((CheckEdit)iDcontrol).Checked ? "1" : "0");
+                                text = ((CheckEdit)iDcontrol).Checked ? "1" : "0";
                                 break;
                             case EnumTypeColumns.Combobox:
-                                dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                text = ((Control)iDcontrol).Text;
                                 break;
                             case EnumTypeColumns.Date:
-                                dictionary.Add(iDcontrol.FieldBinding, DateTime.Parse(((Control)iDcontrol).Text).ToString("MM/dd/yyyy"));
+                                text = DateTime.Parse(((Control)iDcontrol).Text).ToString("MM/dd/yyyy");
                                 break;
                             case EnumTypeColumns.Gridlookup:
-                                if (string.IsNullOrEmpty(((GridLookUpEdit)iDcontrol).EditValue?.ToString()))
-                                    dictionary.Add(iDcontrol.FieldBinding, "null");
-                                else
-                                    dictionary.Add(iDcontrol.FieldBinding, ((GridLookUpEdit)iDcontrol).EditValue.ToString());
+                                text = ((GridLookUpEdit)iDcontrol).EditValue.ToString();
                                 break;
                             case EnumTypeColumns.Text:
-                                dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                text = ((Control)iDcontrol).Text;
                                 break;
                             case EnumTypeColumns.Time:
-                                dictionary.Add(iDcontrol.FieldBinding, ((Control)iDcontrol).Text);
+                                text = ((Control)iDcontrol).Text;
                                 break;
                         }
+
+                        if (iDcontrol.IsGUID)
+                        {
+                            functionsGUIService.CheckGuid(text, out guid);
+                            text = guid.ToString();
+                        }
+
+                        dictionary.Add(iDcontrol.FieldBinding, text);
+
                     }
 
                 }
@@ -232,28 +270,39 @@ namespace Develover.GUI.Forms
         protected virtual string GetValueByTypeFieldColumns(EnumTypeColumns TypeFieldColumns, IDeveloverControl develoverControl)
         {
 
+            string text = "";
+            Guid guid;
             switch (TypeFieldColumns)
             {
                 case EnumTypeColumns.Number:
-                    return ((Control)develoverControl).Text;
+                    text = decimal.Parse(((Control)develoverControl).Text).ToString();
+                    break;
                 case EnumTypeColumns.Check:
-                    return ((CheckEdit)develoverControl).Checked ? "1" : "0";
+                    text = ((CheckEdit)develoverControl).Checked ? "1" : "0";
+                    break;
                 case EnumTypeColumns.Combobox:
-                    return ((Control)develoverControl).Text;
+                    text = ((Control)develoverControl).Text;
+                    break;
                 case EnumTypeColumns.Date:
-                    return DateTime.Parse(((Control)develoverControl).Text).ToString("MM/dd/yyyy");
+                    text = DateTime.Parse(((Control)develoverControl).Text).ToString("MM/dd/yyyy");
+                    break;
                 case EnumTypeColumns.Gridlookup:
-                    if (string.IsNullOrEmpty(((GridLookUpEdit)develoverControl).EditValue?.ToString()))
-                        return "null";
-                    else
-                        return ((GridLookUpEdit)develoverControl).EditValue.ToString();
+                    text = ((GridLookUpEdit)develoverControl).EditValue.ToString();
+                    break;
                 case EnumTypeColumns.Text:
-                    return ((Control)develoverControl).Text;
+                    text = ((Control)develoverControl).Text;
+                    break;
                 case EnumTypeColumns.Time:
-                    return ((Control)develoverControl).Text;
-                default:
-                    return "";
+                    text = ((Control)develoverControl).Text;
+                    break;
             }
+            if (develoverControl.IsGUID)
+            {
+                functionsGUIService.CheckGuid(text, out guid);
+                text = guid.ToString();
+            }
+
+            return text;
         }
 
         protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary, string codePrimary)
@@ -262,15 +311,16 @@ namespace Develover.GUI.Forms
             string value = "";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
-                value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
-                if (value.Equals("null"))
-                    Where += " AND [" + develoverControl.FieldBinding + "] is " + value;
-                else
+                if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
+                {
+                    value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
+                }
             }
-            return functionsGUIService.CheckExistsValueInTableByWhere(tableName, Where, nameFieldCodePrimary, codePrimary);
 
+            return functionsGUIService.CheckExistsValueInTableByWhere(tableName, Where, nameFieldCodePrimary, codePrimary);
         }
+
 
         protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary)
         {
@@ -278,11 +328,11 @@ namespace Develover.GUI.Forms
             string value = "";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
-                value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
-                if (value.Equals("null"))
-                    Where += " AND [" + develoverControl.FieldBinding + "] is " + value;
-                else
+                if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
+                {
+                    value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
+                }
             }
             return functionsGUIService.CheckExistsValueInTableByWhere(tableName, Where, nameFieldCodePrimary);
 

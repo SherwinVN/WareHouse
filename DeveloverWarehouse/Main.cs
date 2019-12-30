@@ -196,29 +196,18 @@ namespace DeveloverWarehouse
         {
             if (DeveloverOptions.StatusLogins.StatusLogin)
             {
-                if (MdiChildren.Length > 0)
-                {
-                    for (int i = 0; i < MdiChildren.Length; i++)
-                    {
-                        IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
-                        f.Hide();
-                    }
-
-                }
-                DeveloverOptions.StatusLogins.StatusLogin = false;
+                ShowFormChildren(false);
                 login.ShowDialog();
-
-                DeveloverOptions.StatusLogins.StatusLogin = true;
-                if (MdiChildren.Length > 0)
-                {
-                    for (int i = 0; i < MdiChildren.Length; i++)
-                    {
-                        IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
-
-                        f.Show();
-                    }
-
-                }
+                ShowFormChildren(true);
+            }
+        }
+        public void ShowFormChildren(bool show)
+        {
+            foreach (Form form in MdiChildren)
+            {
+                DeveloverOptions.StatusLogins.StatusLogin = show;
+                IDeveloverFormChild f = (IDeveloverFormChild)form;
+                if (show) f.Show(); else f.Hide();
             }
         }
 

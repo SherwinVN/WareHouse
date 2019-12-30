@@ -29,6 +29,19 @@ namespace Develover.GUI.Services
             Guid guid = Guid.NewGuid();
             return guid.ToString();
         }
+        public bool CheckGuid(string guidString, out Guid guid)
+        {
+            try
+            {
+                guid = new Guid(guidString);
+                return true;
+            }
+            catch (FormatException)
+            {
+                guid = default(Guid);
+                return false;
+            }
+        }
         public bool DeleteRowTable(string Table, string NameFieldKey, string value)
         {
             StringBuilder stringBuilder = new StringBuilder();

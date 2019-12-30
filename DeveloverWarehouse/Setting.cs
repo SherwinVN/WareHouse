@@ -89,7 +89,7 @@ namespace DeveloverWarehouse
 
             txtCodePersonal.Text = DeveloverOptions.SysDel.CodePersonal;
             labTextLicense.Text = String.Format(StringMessage.TextLicense, new object[] { DeveloverOptions.SysDel.GetTextTypeLicense(), DeveloverOptions.SysDel.TypeLicense == TypeLicenses.None || DeveloverOptions.SysDel.TypeLicense == TypeLicenses.Free ? "_ //_ //_" : DeveloverOptions.SysDel.ExpirationDate.ToShortDateString() });
-            LoadInstanceSQL();
+            
         }
         private async void LoadInstanceSQL()
         {
@@ -97,6 +97,7 @@ namespace DeveloverWarehouse
             txtServerName.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             AutoCompleteStringCollections sutoCompleteStringCollections = new AutoCompleteStringCollections();
             txtServerName.MaskBox.AutoCompleteCustomSource = await sutoCompleteStringCollections.SERVERTableName();
+            labServerName.ForeColor = Color.Green;
         }
 
         private void butActive_Click(object sender, EventArgs e)
@@ -109,6 +110,11 @@ namespace DeveloverWarehouse
                 flogin.GetLicense();
             }
             labTextLicense.Text = String.Format(StringMessage.TextLicense, new object[] { DeveloverOptions.SysDel.GetTextTypeLicense(), DeveloverOptions.SysDel.TypeLicense == TypeLicenses.None || DeveloverOptions.SysDel.TypeLicense == TypeLicenses.Free ? "_ //_ //_" : DeveloverOptions.SysDel.ExpirationDate.ToShortDateString() });
+        }
+
+        private void txtServerName_Enter(object sender, EventArgs e)
+        {
+            LoadInstanceSQL();
         }
     }
 }
