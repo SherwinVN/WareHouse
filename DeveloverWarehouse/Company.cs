@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Develover.Utilities.Enum;
 
-namespace DeveloverWarehouse.Modules.Sales
+namespace DeveloverWarehouse
 {
-    public partial class Customer : DeveloverCatalogForm, IDeveloverFormChild
+    public partial class Company : DeveloverCatalogForm, IDeveloverFormChild
     {
-        public Customer()
+        public Company()
         {
             InitializeComponent();
-            SQLDataSourceSearch = "SELECT * FROM Customers ORDER BY CustomersID";
-            CodeVoucher = "Customers";        
-            NameFieldCodePrimary = "CustomersID";
+            SQLDataSourceSearch = "SELECT * FROM Company ORDER BY CompanyID";
+            CodeVoucher = "Company";        
+            NameFieldCodePrimary = "CompanyID";
             ControlCheckDuplicate = new IDeveloverControl[] { txtVenderName };
             ControlCheckEmty = new IDeveloverControl[] { txtVenderName };
             DeveloverControlsFocus = txtVenderName;

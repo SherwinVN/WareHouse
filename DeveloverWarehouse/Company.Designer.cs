@@ -1,6 +1,6 @@
-﻿namespace DeveloverWarehouse.Modules.Sales
+﻿namespace DeveloverWarehouse
 {
-    partial class Customer
+    partial class Company
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Company));
             this.memDescription = new Develover.GUI.Controls.DeveloverMemoEdit();
             this.chkActive = new Develover.GUI.Controls.DeveloverCheckEdit();
             this.labDescription = new Develover.GUI.Controls.DeveloverLabelControl();
@@ -223,9 +223,9 @@
             this.labVender.IsGUID = false;
             this.labVender.Location = new System.Drawing.Point(12, 12);
             this.labVender.Name = "labVender";
-            this.labVender.Size = new System.Drawing.Size(76, 13);
+            this.labVender.Size = new System.Drawing.Size(57, 13);
             this.labVender.TabIndex = 12;
-            this.labVender.Text = "Tên khách hàng";
+            this.labVender.Text = "Tên công ty";
             this.labVender.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // txtVenderName
@@ -828,14 +828,15 @@
             this.develoverLabelControl23.Text = "Số tài khoản";
             this.develoverLabelControl23.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // Customer
+            // Company
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 563);
-            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Customer.IconOptions.SvgImage")));
-            this.Name = "Customer";
-            this.Text = "Customer";
+            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Company.IconOptions.Image")));
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Company.IconOptions.SvgImage")));
+            this.Name = "Company";
+            this.Text = "Vender";
             this.Load += new System.EventHandler(this.Product_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_general)).EndInit();

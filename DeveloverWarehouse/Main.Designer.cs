@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DeveloverWarehouse.StartingForm), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.repositoryItemToggleSwitch1 = new DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch();
             this.toolbarControl = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
             this.toolbarManager = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
@@ -95,7 +95,6 @@
             this._060100 = new DevExpress.XtraBars.BarButtonItem();
             this._060200 = new DevExpress.XtraBars.BarButtonItem();
             this._060300 = new DevExpress.XtraBars.BarButtonItem();
-            this._060400 = new DevExpress.XtraBars.BarButtonItem();
             this._070000 = new DevExpress.XtraBars.BarSubItem();
             this._070100 = new DevExpress.XtraBars.BarButtonItem();
             this._070200 = new DevExpress.XtraBars.BarButtonItem();
@@ -203,7 +202,6 @@
             this._060100,
             this._060200,
             this._060300,
-            this._060400,
             this._070100,
             this._070200,
             this._070400,
@@ -516,6 +514,7 @@
             // 
             this._010507.Caption = "&Đơn vị tính";
             this._010507.Id = 13;
+            this._010507.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010507.ImageOptions.SvgImage")));
             this._010507.Name = "_010507";
             this._010507.Tag = "File.UOM";
             this._010507.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010507_ItemClick);
@@ -524,7 +523,7 @@
             // 
             this._010800.Caption = "Đăng nhập lại";
             this._010800.Id = 85;
-            this._010800.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this._010800.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010800.ImageOptions.SvgImage")));
             this._010800.Name = "_010800";
             this._010800.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010800_ItemClick);
             // 
@@ -621,8 +620,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this._040200),
             new DevExpress.XtraBars.LinkPersistInfo(this._040300),
             new DevExpress.XtraBars.LinkPersistInfo(this._040400, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this._040500),
-            new DevExpress.XtraBars.LinkPersistInfo(this._040600)});
+            new DevExpress.XtraBars.LinkPersistInfo(this._040500)});
             this._040000.Name = "_040000";
             this._040000.Tag = "";
             // 
@@ -720,8 +718,7 @@
             this._060000.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this._060100),
             new DevExpress.XtraBars.LinkPersistInfo(this._060200),
-            new DevExpress.XtraBars.LinkPersistInfo(this._060300, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this._060400)});
+            new DevExpress.XtraBars.LinkPersistInfo(this._060300, true)});
             this._060000.Name = "_060000";
             this._060000.Tag = "";
             // 
@@ -746,14 +743,6 @@
             this._060300.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_060300.ImageOptions.SvgImage")));
             this._060300.Name = "_060300";
             this._060300.Tag = "Accounting.Currency";
-            // 
-            // _060400
-            // 
-            this._060400.Caption = "&% &Thuế";
-            this._060400.Id = 44;
-            this._060400.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_060400.ImageOptions.SvgImage")));
-            this._060400.Name = "_060400";
-            this._060400.Tag = "Accounting.TaxRate";
             // 
             // _070000
             // 
@@ -861,13 +850,13 @@
             this.bbt_statusconnect.Id = 76;
             this.bbt_statusconnect.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbt_statusconnect.ImageOptions.SvgImage")));
             this.bbt_statusconnect.Name = "bbt_statusconnect";
-            toolTipTitleItem1.Text = "Status Connetion";
-            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Click to reconnection";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.bbt_statusconnect.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Status Connetion";
+            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Click to reconnection";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.bbt_statusconnect.SuperTip = superToolTip2;
             // 
             // barUserLogin
             // 
@@ -983,7 +972,6 @@
         private DevExpress.XtraBars.BarButtonItem _060100;
         private DevExpress.XtraBars.BarButtonItem _060200;
         private DevExpress.XtraBars.BarButtonItem _060300;
-        private DevExpress.XtraBars.BarButtonItem _060400;
         private DevExpress.XtraBars.BarSubItem _070000;
         private DevExpress.XtraBars.BarButtonItem _070100;
         private DevExpress.XtraBars.BarButtonItem _070200;

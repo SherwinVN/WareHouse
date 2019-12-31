@@ -609,12 +609,12 @@ namespace Develover.GUI.Forms
 
         }
 
-        protected override void OnKeyDown(KeyEventArgs e)
+        protected override bool ProcessDialogKey(Keys keyData)
         {
-            base.OnKeyDown(e);
-            if (e.Control)
+            base.ProcessDialogKey(keyData);
+            if (ModifierKeys == Keys.Control)
             {
-                switch (e.KeyCode)
+                switch (keyData)
                 {
                     case Keys.N:
                         {
@@ -647,11 +647,6 @@ namespace Develover.GUI.Forms
                         break;
                 }
             }
-        }
-        protected override bool ProcessDialogKey(Keys keyData)
-        {
-            base.ProcessDialogKey(keyData);
-
             return base.ProcessDialogKey(keyData);
         }
     }

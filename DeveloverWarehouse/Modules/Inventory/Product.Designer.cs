@@ -98,7 +98,7 @@
             // 
             // tab_information
             // 
-            this.tab_information.Size = new System.Drawing.Size(764, 427);
+            this.tab_information.Size = new System.Drawing.Size(764, 423);
             // 
             // gro_general
             // 
@@ -117,16 +117,16 @@
             this.gro_general.Controls.Add(this.labUOM);
             this.gro_general.Controls.Add(this.chkActive);
             this.gro_general.Controls.Add(this.memDescription);
-            this.gro_general.Size = new System.Drawing.Size(762, 399);
+            this.gro_general.Size = new System.Drawing.Size(762, 391);
             // 
             // develoverSplitterControl1
             // 
             this.develoverSplitterControl1.Location = new System.Drawing.Point(190, 2);
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 431);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 427);
             // 
             // gro_search
             // 
-            this.gro_search.Size = new System.Drawing.Size(188, 431);
+            this.gro_search.Size = new System.Drawing.Size(188, 427);
             // 
             // memDescription
             // 
@@ -248,8 +248,6 @@
             // 
             // gro_size_weigth
             // 
-            this.gro_size_weigth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gro_size_weigth.Controls.Add(this.labUOMSize);
             this.gro_size_weigth.Controls.Add(this.lab_height);
             this.gro_size_weigth.Controls.Add(this.lab_widght);
@@ -452,9 +450,6 @@
             // 
             // groInventory
             // 
-            this.groInventory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.groInventory.Controls.Add(this.labMinimumQuantity);
             this.groInventory.Controls.Add(this.labMaximunQuantity);
             this.groInventory.Controls.Add(this.txtMinimumQuantity);
@@ -474,7 +469,7 @@
             // 
             this.labMinimumQuantity.FieldBinding = null;
             this.labMinimumQuantity.IsGUID = false;
-            this.labMinimumQuantity.Location = new System.Drawing.Point(10, 32);
+            this.labMinimumQuantity.Location = new System.Drawing.Point(10, 33);
             this.labMinimumQuantity.Name = "labMinimumQuantity";
             this.labMinimumQuantity.Size = new System.Drawing.Size(64, 13);
             this.labMinimumQuantity.TabIndex = 21;
@@ -485,7 +480,7 @@
             // 
             this.labMaximunQuantity.FieldBinding = null;
             this.labMaximunQuantity.IsGUID = false;
-            this.labMaximunQuantity.Location = new System.Drawing.Point(10, 52);
+            this.labMaximunQuantity.Location = new System.Drawing.Point(10, 53);
             this.labMaximunQuantity.Name = "labMaximunQuantity";
             this.labMaximunQuantity.Size = new System.Drawing.Size(66, 13);
             this.labMaximunQuantity.TabIndex = 22;
@@ -496,7 +491,7 @@
             // 
             this.txtMinimumQuantity.FieldBinding = "QualityMin";
             this.txtMinimumQuantity.IsGUID = false;
-            this.txtMinimumQuantity.Location = new System.Drawing.Point(80, 26);
+            this.txtMinimumQuantity.Location = new System.Drawing.Point(80, 27);
             this.txtMinimumQuantity.Name = "txtMinimumQuantity";
             this.txtMinimumQuantity.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtMinimumQuantity.Properties.NullText = "0";
@@ -508,7 +503,7 @@
             // 
             this.txtMaximunQuantity.FieldBinding = "QualityMax";
             this.txtMaximunQuantity.IsGUID = false;
-            this.txtMaximunQuantity.Location = new System.Drawing.Point(80, 49);
+            this.txtMaximunQuantity.Location = new System.Drawing.Point(80, 50);
             this.txtMaximunQuantity.Name = "txtMaximunQuantity";
             this.txtMaximunQuantity.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtMaximunQuantity.Properties.NullText = "0";
@@ -521,7 +516,7 @@
             this.lokLocationDefault.EnterMoveNextControl = true;
             this.lokLocationDefault.FieldBinding = "LocationID";
             this.lokLocationDefault.IsGUID = true;
-            this.lokLocationDefault.Location = new System.Drawing.Point(80, 72);
+            this.lokLocationDefault.Location = new System.Drawing.Point(80, 73);
             this.lokLocationDefault.Name = "lokLocationDefault";
             this.lokLocationDefault.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -542,7 +537,7 @@
             // 
             this.labLocationDefault.FieldBinding = null;
             this.labLocationDefault.IsGUID = false;
-            this.labLocationDefault.Location = new System.Drawing.Point(10, 72);
+            this.labLocationDefault.Location = new System.Drawing.Point(10, 73);
             this.labLocationDefault.Name = "labLocationDefault";
             this.labLocationDefault.Size = new System.Drawing.Size(63, 13);
             this.labLocationDefault.TabIndex = 3;

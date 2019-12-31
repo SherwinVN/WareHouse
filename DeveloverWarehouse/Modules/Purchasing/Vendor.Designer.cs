@@ -28,1733 +28,924 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vendor));
-            DevExpress.XtraPrinting.BarCode.QRCodeGenerator qrCodeGenerator1 = new DevExpress.XtraPrinting.BarCode.QRCodeGenerator();
-            this.gro_content = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.gro_information = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.tab_information = new Develover.GUI.Controls.DeveloverXtraTabControl();
-            this.tbp_note = new DevExpress.XtraTab.XtraTabPage();
-            this.gro_note = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.but_delete_note = new Develover.GUI.Controls.DeveloverSimpleButton();
-            this.but_add_note = new Develover.GUI.Controls.DeveloverSimpleButton();
-            this.grc_note = new Develover.GUI.Controls.DeveloverGridControl();
-            this.grv_note = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.brm_form = new DevExpress.XtraBars.BarManager(this.components);
-            this.bar_tools = new DevExpress.XtraBars.Bar();
-            this.but_item_new = new DevExpress.XtraBars.BarButtonItem();
-            this.but_item_edit = new DevExpress.XtraBars.BarButtonItem();
-            this.but_item_cancel = new DevExpress.XtraBars.BarButtonItem();
-            this.but_item_delete = new DevExpress.XtraBars.BarButtonItem();
-            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
-            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
-            this.gro_detail_note = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.mmo_note = new Develover.GUI.Controls.DeveloverMemoEdit();
-            this.tbp_general = new DevExpress.XtraTab.XtraTabPage();
-            this.gro_general = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.gro_qrcode = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.brc_qrcode = new Develover.GUI.Controls.DeveloverBarCodeControl();
-            this.lab_qrcode = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.develoverLabelControl8 = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_details = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.pic_picture = new Develover.GUI.Controls.DeveloverPictureEdit();
-            this.mmo_details = new Develover.GUI.Controls.DeveloverMemoEdit();
-            this.lab_link = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_category = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_orgin = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_product = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_unit = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_model = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_description = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.chk_sevice = new Develover.GUI.Controls.DeveloverCheckEdit();
-            this.chk_active = new Develover.GUI.Controls.DeveloverCheckEdit();
-            this.lok_unit = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lok_category = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.develoverGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txt_model = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.txt_link = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.txt_description = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.txt_origin = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.txt_product = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.tbp_details = new DevExpress.XtraTab.XtraTabPage();
-            this.gro_details = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.lab_defaul_ware_house = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_minimum_quantity = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_maximun_quantity = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_alter_note = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_sku = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.gro_accounting = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.lab_account_cost_of_goods_sold = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_account_raw_materials = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_account_sales = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lok_cost_of_goods_sold = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lok_raw_materials = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lok_account_sales = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gro_inventory = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.develoverGridControl1 = new Develover.GUI.Controls.DeveloverGridControl();
-            this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lab_average_price = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_latest_purchase_price = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_quantity_in_ware_house = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_latest_purchase_price_ = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_average_price_ = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_available_ = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_available = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.gro_size_weigth = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.lab_unit_size = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_height = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_widght = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_unit_weight = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_length = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.txt_width = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.lab_weight = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lok_unit_size = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txt_weight = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.txt_length = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.lok_unit_weight = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txt_height = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.txt_minimum_quantity = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.lok_ware_house = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.txt_maximum_quantity = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.develoverTextEdit8 = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.txt_alter_note = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.develoverTextEdit7 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.memDescription = new Develover.GUI.Controls.DeveloverMemoEdit();
+            this.chkActive = new Develover.GUI.Controls.DeveloverCheckEdit();
+            this.labDescription = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.labOrigin = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.labVender = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.txtVenderName = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.labSKU = new Develover.GUI.Controls.DeveloverLabelControl();
             this.txt_sku = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.tbp_substitute = new DevExpress.XtraTab.XtraTabPage();
-            this.gro_substitute = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.but_delete = new Develover.GUI.Controls.DeveloverSimpleButton();
-            this.but_add = new Develover.GUI.Controls.DeveloverSimpleButton();
-            this.grc_substitute = new Develover.GUI.Controls.DeveloverGridControl();
-            this.grv_substitute = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.tbp_customer = new DevExpress.XtraTab.XtraTabPage();
-            this.gro_customer = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.grc_customer = new Develover.GUI.Controls.DeveloverGridControl();
-            this.grv_customer = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.develoverSplitterControl1 = new Develover.GUI.Controls.DeveloverSplitterControl();
-            this.gro_search = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.gro_search_middle_1 = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.grc_search = new Develover.GUI.Controls.DeveloverGridControl();
-            this.grv_search = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gro_search_middle_2 = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.pic_picture_search = new Develover.GUI.Controls.DeveloverPictureEdit();
-            this.gro_sreach_bottom = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.but_view = new Develover.GUI.Controls.DeveloverSimpleButton();
-            this.lab_active = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_available_search = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.chk_show_pricture = new Develover.GUI.Controls.DeveloverCheckEdit();
-            this.lab_active_ = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.lab_available_search_ = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.gro_search_top = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.develoverSimpleButton2 = new Develover.GUI.Controls.DeveloverSimpleButton();
+            this.txtOrigin = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.groInfoBank = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.develoverTextEdit7 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl8 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit6 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl7 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit5 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl6 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit1 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl1 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit2 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl2 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit3 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl3 = new Develover.GUI.Controls.DeveloverLabelControl();
             this.develoverTextEdit4 = new Develover.GUI.Controls.DeveloverTextEdit();
-            this.lab_search = new Develover.GUI.Controls.DeveloverLabelControl();
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_content)).BeginInit();
-            this.gro_content.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_information)).BeginInit();
-            this.gro_information.SuspendLayout();
+            this.develoverLabelControl4 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverMemoEdit1 = new Develover.GUI.Controls.DeveloverMemoEdit();
+            this.develoverLabelControl5 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverMemoEdit2 = new Develover.GUI.Controls.DeveloverMemoEdit();
+            this.develoverLabelControl9 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverGroupControl1 = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.develoverTextEdit8 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl10 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit9 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl11 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit10 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl12 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit11 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl13 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverMemoEdit3 = new Develover.GUI.Controls.DeveloverMemoEdit();
+            this.develoverMemoEdit4 = new Develover.GUI.Controls.DeveloverMemoEdit();
+            this.develoverLabelControl14 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverLabelControl15 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverGroupControl2 = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.develoverTextEdit12 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl16 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit13 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl17 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit14 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl18 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit15 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl19 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverGroupControl3 = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.develoverTextEdit16 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl20 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit17 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl21 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit18 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl22 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverTextEdit19 = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverLabelControl23 = new Develover.GUI.Controls.DeveloverLabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).BeginInit();
-            this.tab_information.SuspendLayout();
-            this.tbp_note.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_note)).BeginInit();
-            this.gro_note.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grc_note)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_note)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brm_form)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_detail_note)).BeginInit();
-            this.gro_detail_note.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mmo_note.Properties)).BeginInit();
-            this.tbp_general.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gro_general)).BeginInit();
             this.gro_general.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_qrcode)).BeginInit();
-            this.gro_qrcode.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_picture.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mmo_details.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_sevice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_active.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_unit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_category.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_model.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_link.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_description.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_origin.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_product.Properties)).BeginInit();
-            this.tbp_details.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_details)).BeginInit();
-            this.gro_details.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_accounting)).BeginInit();
-            this.gro_accounting.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_cost_of_goods_sold.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_raw_materials.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_account_sales.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_inventory)).BeginInit();
-            this.gro_inventory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_size_weigth)).BeginInit();
-            this.gro_size_weigth.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_width.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_unit_size.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_weight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_length.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_unit_weight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_height.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_minimum_quantity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_ware_house.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_maximum_quantity.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit8.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_alter_note.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_sku.Properties)).BeginInit();
-            this.tbp_substitute.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_substitute)).BeginInit();
-            this.gro_substitute.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grc_substitute)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_substitute)).BeginInit();
-            this.tbp_customer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_customer)).BeginInit();
-            this.gro_customer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grc_customer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_search)).BeginInit();
-            this.gro_search.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_search_middle_1)).BeginInit();
-            this.gro_search_middle_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grc_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_search_middle_2)).BeginInit();
-            this.gro_search_middle_2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_picture_search.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_sreach_bottom)).BeginInit();
-            this.gro_sreach_bottom.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_show_pricture.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_search_top)).BeginInit();
-            this.gro_search_top.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVenderName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_sku.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrigin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groInfoBank)).BeginInit();
+            this.groInfoBank.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl1)).BeginInit();
+            this.develoverGroupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit9.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit10.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit11.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl2)).BeginInit();
+            this.develoverGroupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit12.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit13.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit14.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit15.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl3)).BeginInit();
+            this.develoverGroupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit16.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit17.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit18.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit19.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gro_content
-            // 
-            this.gro_content.Controls.Add(this.gro_information);
-            this.gro_content.Controls.Add(this.develoverSplitterControl1);
-            this.gro_content.Controls.Add(this.gro_search);
-            this.gro_content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_content.Location = new System.Drawing.Point(0, 28);
-            this.gro_content.Name = "gro_content";
-            this.gro_content.ShowCaption = false;
-            this.gro_content.Size = new System.Drawing.Size(1035, 478);
-            this.gro_content.TabIndex = 2;
-            this.gro_content.Text = "develoverGroupControl2";
-            // 
-            // gro_information
-            // 
-            this.gro_information.Controls.Add(this.tab_information);
-            this.gro_information.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_information.Location = new System.Drawing.Point(254, 2);
-            this.gro_information.Name = "gro_information";
-            this.gro_information.ShowCaption = false;
-            this.gro_information.Size = new System.Drawing.Size(779, 474);
-            this.gro_information.TabIndex = 0;
-            this.gro_information.Text = "develoverGroupControl3";
             // 
             // tab_information
             // 
-            this.tab_information.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tab_information.Location = new System.Drawing.Point(2, 2);
-            this.tab_information.Name = "tab_information";
-            this.tab_information.SelectedTabPage = this.tbp_note;
-            this.tab_information.Size = new System.Drawing.Size(775, 470);
-            this.tab_information.TabIndex = 0;
-            this.tab_information.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tbp_general,
-            this.tbp_details,
-            this.tbp_substitute,
-            this.tbp_customer,
-            this.tbp_note});
-            // 
-            // tbp_note
-            // 
-            this.tbp_note.Controls.Add(this.gro_note);
-            this.tbp_note.Name = "tbp_note";
-            this.tbp_note.Size = new System.Drawing.Size(773, 441);
-            this.tbp_note.Text = "Note";
-            // 
-            // gro_note
-            // 
-            this.gro_note.Controls.Add(this.but_delete_note);
-            this.gro_note.Controls.Add(this.but_add_note);
-            this.gro_note.Controls.Add(this.grc_note);
-            this.gro_note.Controls.Add(this.gro_detail_note);
-            this.gro_note.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_note.Location = new System.Drawing.Point(0, 0);
-            this.gro_note.Name = "gro_note";
-            this.gro_note.ShowCaption = false;
-            this.gro_note.Size = new System.Drawing.Size(773, 441);
-            this.gro_note.TabIndex = 2;
-            this.gro_note.Text = "develoverGroupControl12";
-            // 
-            // but_delete_note
-            // 
-            this.but_delete_note.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_delete_note.Location = new System.Drawing.Point(736, 37);
-            this.but_delete_note.Name = "but_delete_note";
-            this.but_delete_note.Size = new System.Drawing.Size(30, 23);
-            this.but_delete_note.TabIndex = 2;
-            this.but_delete_note.Text = "Del";
-            // 
-            // but_add_note
-            // 
-            this.but_add_note.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_add_note.Location = new System.Drawing.Point(736, 8);
-            this.but_add_note.Name = "but_add_note";
-            this.but_add_note.Size = new System.Drawing.Size(30, 23);
-            this.but_add_note.TabIndex = 3;
-            this.but_add_note.Text = "Add";
-            // 
-            // grc_note
-            // 
-            this.grc_note.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grc_note.Location = new System.Drawing.Point(5, 8);
-            this.grc_note.MainView = this.grv_note;
-            this.grc_note.MenuManager = this.brm_form;
-            this.grc_note.Name = "grc_note";
-            this.grc_note.Size = new System.Drawing.Size(725, 200);
-            this.grc_note.TabIndex = 1;
-            this.grc_note.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grv_note});
-            // 
-            // grv_note
-            // 
-            this.grv_note.GridControl = this.grc_note;
-            this.grv_note.Name = "grv_note";
-            // 
-            // brm_form
-            // 
-            this.brm_form.Bars.AddRange(new DevExpress.XtraBars.Bar[] {
-            this.bar_tools});
-            this.brm_form.DockControls.Add(this.barDockControlTop);
-            this.brm_form.DockControls.Add(this.barDockControlBottom);
-            this.brm_form.DockControls.Add(this.barDockControlLeft);
-            this.brm_form.DockControls.Add(this.barDockControlRight);
-            this.brm_form.Form = this;
-            this.brm_form.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3,
-            this.but_item_new,
-            this.but_item_edit,
-            this.but_item_cancel,
-            this.but_item_delete,
-            this.barButtonItem8});
-            this.brm_form.MainMenu = this.bar_tools;
-            this.brm_form.MaxItemId = 8;
-            // 
-            // bar_tools
-            // 
-            this.bar_tools.BarName = "Custom 4";
-            this.bar_tools.DockCol = 0;
-            this.bar_tools.DockRow = 0;
-            this.bar_tools.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar_tools.HideWhenMerging = DevExpress.Utils.DefaultBoolean.True;
-            this.bar_tools.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.Caption, this.but_item_new, "New"),
-            new DevExpress.XtraBars.LinkPersistInfo(this.but_item_edit),
-            new DevExpress.XtraBars.LinkPersistInfo(this.but_item_cancel),
-            new DevExpress.XtraBars.LinkPersistInfo(this.but_item_delete)});
-            this.bar_tools.OptionsBar.AllowQuickCustomization = false;
-            this.bar_tools.OptionsBar.DisableCustomization = true;
-            this.bar_tools.OptionsBar.DrawDragBorder = false;
-            this.bar_tools.OptionsBar.MultiLine = true;
-            this.bar_tools.OptionsBar.UseWholeRow = true;
-            this.bar_tools.Text = "Custom 4";
-            // 
-            // but_item_new
-            // 
-            this.but_item_new.Caption = "New";
-            this.but_item_new.Hint = "sdasdf";
-            this.but_item_new.Id = 3;
-            this.but_item_new.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("but_item_new.ImageOptions.SvgImage")));
-            this.but_item_new.Name = "but_item_new";
-            this.but_item_new.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // but_item_edit
-            // 
-            this.but_item_edit.Caption = "Edit";
-            this.but_item_edit.Id = 4;
-            this.but_item_edit.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("but_item_edit.ImageOptions.SvgImage")));
-            this.but_item_edit.Name = "but_item_edit";
-            this.but_item_edit.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // but_item_cancel
-            // 
-            this.but_item_cancel.Caption = "Cancel";
-            this.but_item_cancel.Id = 5;
-            this.but_item_cancel.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("but_item_cancel.ImageOptions.SvgImage")));
-            this.but_item_cancel.Name = "but_item_cancel";
-            this.but_item_cancel.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // but_item_delete
-            // 
-            this.but_item_delete.Caption = "Delete";
-            this.but_item_delete.Id = 6;
-            this.but_item_delete.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("but_item_delete.ImageOptions.SvgImage")));
-            this.but_item_delete.Name = "but_item_delete";
-            this.but_item_delete.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barDockControlTop
-            // 
-            this.barDockControlTop.CausesValidation = false;
-            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Manager = this.brm_form;
-            this.barDockControlTop.Size = new System.Drawing.Size(1035, 28);
-            // 
-            // barDockControlBottom
-            // 
-            this.barDockControlBottom.CausesValidation = false;
-            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 506);
-            this.barDockControlBottom.Manager = this.brm_form;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1035, 0);
-            // 
-            // barDockControlLeft
-            // 
-            this.barDockControlLeft.CausesValidation = false;
-            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
-            this.barDockControlLeft.Manager = this.brm_form;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 478);
-            // 
-            // barDockControlRight
-            // 
-            this.barDockControlRight.CausesValidation = false;
-            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1035, 28);
-            this.barDockControlRight.Manager = this.brm_form;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 478);
-            // 
-            // barButtonItem1
-            // 
-            this.barButtonItem1.Caption = "NEW";
-            this.barButtonItem1.Id = 0;
-            this.barButtonItem1.Name = "barButtonItem1";
-            // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Edit";
-            this.barButtonItem2.Id = 1;
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "DELE";
-            this.barButtonItem3.Id = 2;
-            this.barButtonItem3.Name = "barButtonItem3";
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "barButtonItem8";
-            this.barButtonItem8.Id = 7;
-            this.barButtonItem8.Name = "barButtonItem8";
-            // 
-            // gro_detail_note
-            // 
-            this.gro_detail_note.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gro_detail_note.Controls.Add(this.mmo_note);
-            this.gro_detail_note.Location = new System.Drawing.Point(5, 214);
-            this.gro_detail_note.Name = "gro_detail_note";
-            this.gro_detail_note.Size = new System.Drawing.Size(761, 220);
-            this.gro_detail_note.TabIndex = 0;
-            this.gro_detail_note.Text = "Note";
-            // 
-            // mmo_note
-            // 
-            this.mmo_note.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mmo_note.Location = new System.Drawing.Point(2, 27);
-            this.mmo_note.MenuManager = this.brm_form;
-            this.mmo_note.Name = "mmo_note";
-            this.mmo_note.Size = new System.Drawing.Size(757, 191);
-            this.mmo_note.TabIndex = 0;
-            // 
-            // tbp_general
-            // 
-            this.tbp_general.Controls.Add(this.gro_general);
-            this.tbp_general.Name = "tbp_general";
-            this.tbp_general.Size = new System.Drawing.Size(773, 441);
-            this.tbp_general.Text = "General";
+            this.tab_information.Size = new System.Drawing.Size(764, 527);
             // 
             // gro_general
             // 
-            this.gro_general.Controls.Add(this.gro_qrcode);
-            this.gro_general.Controls.Add(this.develoverLabelControl8);
-            this.gro_general.Controls.Add(this.lab_details);
-            this.gro_general.Controls.Add(this.pic_picture);
-            this.gro_general.Controls.Add(this.mmo_details);
-            this.gro_general.Controls.Add(this.lab_link);
-            this.gro_general.Controls.Add(this.lab_category);
-            this.gro_general.Controls.Add(this.lab_orgin);
-            this.gro_general.Controls.Add(this.lab_product);
-            this.gro_general.Controls.Add(this.lab_unit);
-            this.gro_general.Controls.Add(this.lab_model);
-            this.gro_general.Controls.Add(this.lab_description);
-            this.gro_general.Controls.Add(this.chk_sevice);
-            this.gro_general.Controls.Add(this.chk_active);
-            this.gro_general.Controls.Add(this.lok_unit);
-            this.gro_general.Controls.Add(this.lok_category);
-            this.gro_general.Controls.Add(this.txt_model);
-            this.gro_general.Controls.Add(this.txt_link);
-            this.gro_general.Controls.Add(this.txt_description);
-            this.gro_general.Controls.Add(this.txt_origin);
-            this.gro_general.Controls.Add(this.txt_product);
-            this.gro_general.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_general.Location = new System.Drawing.Point(0, 0);
-            this.gro_general.Name = "gro_general";
-            this.gro_general.ShowCaption = false;
-            this.gro_general.Size = new System.Drawing.Size(773, 441);
-            this.gro_general.TabIndex = 0;
-            this.gro_general.Text = "General";
-            // 
-            // gro_qrcode
-            // 
-            this.gro_qrcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gro_qrcode.Controls.Add(this.brc_qrcode);
-            this.gro_qrcode.Controls.Add(this.lab_qrcode);
-            this.gro_qrcode.Location = new System.Drawing.Point(613, 5);
-            this.gro_qrcode.Name = "gro_qrcode";
-            this.gro_qrcode.ShowCaption = false;
-            this.gro_qrcode.Size = new System.Drawing.Size(153, 106);
-            this.gro_qrcode.TabIndex = 10;
-            this.gro_qrcode.Text = "develoverGroupControl2";
-            // 
-            // brc_qrcode
-            // 
-            this.brc_qrcode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.brc_qrcode.AutoModule = true;
-            this.brc_qrcode.Location = new System.Drawing.Point(51, 4);
-            this.brc_qrcode.Module = 20D;
-            this.brc_qrcode.Name = "brc_qrcode";
-            this.brc_qrcode.Padding = new System.Windows.Forms.Padding(10, 2, 10, 0);
-            this.brc_qrcode.ShowText = false;
-            this.brc_qrcode.Size = new System.Drawing.Size(97, 98);
-            qrCodeGenerator1.Version = DevExpress.XtraPrinting.BarCode.QRCodeVersion.Version1;
-            this.brc_qrcode.Symbology = qrCodeGenerator1;
-            this.brc_qrcode.TabIndex = 5;
-            // 
-            // lab_qrcode
-            // 
-            this.lab_qrcode.Location = new System.Drawing.Point(5, 7);
-            this.lab_qrcode.Name = "lab_qrcode";
-            this.lab_qrcode.Size = new System.Drawing.Size(45, 13);
-            this.lab_qrcode.TabIndex = 6;
-            this.lab_qrcode.Text = "QR code:";
-            // 
-            // develoverLabelControl8
-            // 
-            this.develoverLabelControl8.Location = new System.Drawing.Point(5, 219);
-            this.develoverLabelControl8.Name = "develoverLabelControl8";
-            this.develoverLabelControl8.Size = new System.Drawing.Size(37, 13);
-            this.develoverLabelControl8.TabIndex = 6;
-            this.develoverLabelControl8.Text = "Picture:";
-            // 
-            // lab_details
-            // 
-            this.lab_details.Location = new System.Drawing.Point(5, 118);
-            this.lab_details.Name = "lab_details";
-            this.lab_details.Size = new System.Drawing.Size(36, 13);
-            this.lab_details.TabIndex = 6;
-            this.lab_details.Text = "Details:";
-            // 
-            // pic_picture
-            // 
-            this.pic_picture.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pic_picture.Location = new System.Drawing.Point(78, 219);
-            this.pic_picture.MenuManager = this.brm_form;
-            this.pic_picture.Name = "pic_picture";
-            this.pic_picture.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pic_picture.Size = new System.Drawing.Size(688, 215);
-            this.pic_picture.TabIndex = 3;
-            // 
-            // mmo_details
-            // 
-            this.mmo_details.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mmo_details.Location = new System.Drawing.Point(78, 117);
-            this.mmo_details.MenuManager = this.brm_form;
-            this.mmo_details.Name = "mmo_details";
-            this.mmo_details.Size = new System.Drawing.Size(688, 96);
-            this.mmo_details.TabIndex = 2;
-            // 
-            // lab_link
-            // 
-            this.lab_link.Location = new System.Drawing.Point(302, 84);
-            this.lab_link.Name = "lab_link";
-            this.lab_link.Size = new System.Drawing.Size(22, 13);
-            this.lab_link.TabIndex = 7;
-            this.lab_link.Text = "Link:";
-            // 
-            // lab_category
-            // 
-            this.lab_category.Location = new System.Drawing.Point(5, 58);
-            this.lab_category.Name = "lab_category";
-            this.lab_category.Size = new System.Drawing.Size(49, 13);
-            this.lab_category.TabIndex = 6;
-            this.lab_category.Text = "Category:";
-            // 
-            // lab_orgin
-            // 
-            this.lab_orgin.Location = new System.Drawing.Point(302, 32);
-            this.lab_orgin.Name = "lab_orgin";
-            this.lab_orgin.Size = new System.Drawing.Size(32, 13);
-            this.lab_orgin.TabIndex = 6;
-            this.lab_orgin.Text = "Origin:";
-            // 
-            // lab_product
-            // 
-            this.lab_product.Location = new System.Drawing.Point(5, 5);
-            this.lab_product.Name = "lab_product";
-            this.lab_product.Size = new System.Drawing.Size(38, 13);
-            this.lab_product.TabIndex = 6;
-            this.lab_product.Text = "Vendor:";
-            // 
-            // lab_unit
-            // 
-            this.lab_unit.Location = new System.Drawing.Point(5, 32);
-            this.lab_unit.Name = "lab_unit";
-            this.lab_unit.Size = new System.Drawing.Size(23, 13);
-            this.lab_unit.TabIndex = 6;
-            this.lab_unit.Text = "Unit:";
-            // 
-            // lab_model
-            // 
-            this.lab_model.Location = new System.Drawing.Point(302, 5);
-            this.lab_model.Name = "lab_model";
-            this.lab_model.Size = new System.Drawing.Size(32, 13);
-            this.lab_model.TabIndex = 6;
-            this.lab_model.Text = "Model:";
-            // 
-            // lab_description
-            // 
-            this.lab_description.Location = new System.Drawing.Point(302, 58);
-            this.lab_description.Name = "lab_description";
-            this.lab_description.Size = new System.Drawing.Size(57, 13);
-            this.lab_description.TabIndex = 6;
-            this.lab_description.Text = "Description:";
-            // 
-            // chk_sevice
-            // 
-            this.chk_sevice.Location = new System.Drawing.Point(157, 84);
-            this.chk_sevice.Name = "chk_sevice";
-            this.chk_sevice.Properties.Caption = "Service";
-            this.chk_sevice.Size = new System.Drawing.Size(83, 20);
-            this.chk_sevice.TabIndex = 4;
-            // 
-            // chk_active
-            // 
-            this.chk_active.Location = new System.Drawing.Point(78, 84);
-            this.chk_active.MenuManager = this.brm_form;
-            this.chk_active.Name = "chk_active";
-            this.chk_active.Properties.Caption = "Active";
-            this.chk_active.Size = new System.Drawing.Size(73, 20);
-            this.chk_active.TabIndex = 4;
-            // 
-            // lok_unit
-            // 
-            this.lok_unit.Location = new System.Drawing.Point(78, 32);
-            this.lok_unit.Name = "lok_unit";
-            this.lok_unit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_unit.Properties.NullText = "";
-            this.lok_unit.Properties.PopupView = this.gridView1;
-            this.lok_unit.Size = new System.Drawing.Size(218, 20);
-            this.lok_unit.TabIndex = 1;
-            // 
-            // gridView1
-            // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
-            // lok_category
-            // 
-            this.lok_category.Location = new System.Drawing.Point(78, 58);
-            this.lok_category.MenuManager = this.brm_form;
-            this.lok_category.Name = "lok_category";
-            this.lok_category.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_category.Properties.NullText = "";
-            this.lok_category.Properties.PopupView = this.develoverGridLookUpEdit1View;
-            this.lok_category.Size = new System.Drawing.Size(218, 20);
-            this.lok_category.TabIndex = 1;
-            // 
-            // develoverGridLookUpEdit1View
-            // 
-            this.develoverGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.develoverGridLookUpEdit1View.Name = "develoverGridLookUpEdit1View";
-            this.develoverGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.develoverGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // txt_model
-            // 
-            this.txt_model.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_model.Location = new System.Drawing.Point(366, 5);
-            this.txt_model.Name = "txt_model";
-            this.txt_model.Size = new System.Drawing.Size(240, 20);
-            this.txt_model.TabIndex = 0;
-            // 
-            // txt_link
-            // 
-            this.txt_link.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_link.Location = new System.Drawing.Point(366, 84);
-            this.txt_link.Name = "txt_link";
-            this.txt_link.Size = new System.Drawing.Size(240, 20);
-            this.txt_link.TabIndex = 0;
-            // 
-            // txt_description
-            // 
-            this.txt_description.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_description.Location = new System.Drawing.Point(366, 58);
-            this.txt_description.Name = "txt_description";
-            this.txt_description.Size = new System.Drawing.Size(240, 20);
-            this.txt_description.TabIndex = 0;
-            // 
-            // txt_origin
-            // 
-            this.txt_origin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_origin.Location = new System.Drawing.Point(366, 32);
-            this.txt_origin.Name = "txt_origin";
-            this.txt_origin.Size = new System.Drawing.Size(240, 20);
-            this.txt_origin.TabIndex = 0;
-            // 
-            // txt_product
-            // 
-            this.txt_product.Location = new System.Drawing.Point(78, 5);
-            this.txt_product.MenuManager = this.brm_form;
-            this.txt_product.Name = "txt_product";
-            this.txt_product.Size = new System.Drawing.Size(218, 20);
-            this.txt_product.TabIndex = 0;
-            // 
-            // tbp_details
-            // 
-            this.tbp_details.Controls.Add(this.gro_details);
-            this.tbp_details.Name = "tbp_details";
-            this.tbp_details.Size = new System.Drawing.Size(773, 441);
-            this.tbp_details.Text = "Detais";
-            // 
-            // gro_details
-            // 
-            this.gro_details.Controls.Add(this.lab_defaul_ware_house);
-            this.gro_details.Controls.Add(this.lab_minimum_quantity);
-            this.gro_details.Controls.Add(this.lab_maximun_quantity);
-            this.gro_details.Controls.Add(this.lab_alter_note);
-            this.gro_details.Controls.Add(this.lab_sku);
-            this.gro_details.Controls.Add(this.gro_accounting);
-            this.gro_details.Controls.Add(this.gro_inventory);
-            this.gro_details.Controls.Add(this.gro_size_weigth);
-            this.gro_details.Controls.Add(this.txt_minimum_quantity);
-            this.gro_details.Controls.Add(this.lok_ware_house);
-            this.gro_details.Controls.Add(this.txt_maximum_quantity);
-            this.gro_details.Controls.Add(this.develoverTextEdit8);
-            this.gro_details.Controls.Add(this.txt_alter_note);
-            this.gro_details.Controls.Add(this.develoverTextEdit7);
-            this.gro_details.Controls.Add(this.txt_sku);
-            this.gro_details.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_details.Location = new System.Drawing.Point(0, 0);
-            this.gro_details.Name = "gro_details";
-            this.gro_details.ShowCaption = false;
-            this.gro_details.Size = new System.Drawing.Size(773, 441);
-            this.gro_details.TabIndex = 1;
-            this.gro_details.Text = "develoverGroupControl9";
-            // 
-            // lab_defaul_ware_house
-            // 
-            this.lab_defaul_ware_house.Location = new System.Drawing.Point(5, 58);
-            this.lab_defaul_ware_house.Name = "lab_defaul_ware_house";
-            this.lab_defaul_ware_house.Size = new System.Drawing.Size(94, 13);
-            this.lab_defaul_ware_house.TabIndex = 12;
-            this.lab_defaul_ware_house.Text = "Defaul ware house:";
-            // 
-            // lab_minimum_quantity
-            // 
-            this.lab_minimum_quantity.Location = new System.Drawing.Point(5, 90);
-            this.lab_minimum_quantity.Name = "lab_minimum_quantity";
-            this.lab_minimum_quantity.Size = new System.Drawing.Size(87, 13);
-            this.lab_minimum_quantity.TabIndex = 12;
-            this.lab_minimum_quantity.Text = "Minimum quantity:";
-            // 
-            // lab_maximun_quantity
-            // 
-            this.lab_maximun_quantity.Location = new System.Drawing.Point(5, 113);
-            this.lab_maximun_quantity.Name = "lab_maximun_quantity";
-            this.lab_maximun_quantity.Size = new System.Drawing.Size(91, 13);
-            this.lab_maximun_quantity.TabIndex = 12;
-            this.lab_maximun_quantity.Text = "Maximum quantity:";
-            // 
-            // lab_alter_note
-            // 
-            this.lab_alter_note.Location = new System.Drawing.Point(5, 32);
-            this.lab_alter_note.Name = "lab_alter_note";
-            this.lab_alter_note.Size = new System.Drawing.Size(52, 13);
-            this.lab_alter_note.TabIndex = 12;
-            this.lab_alter_note.Text = "Alter note:";
-            // 
-            // lab_sku
-            // 
-            this.lab_sku.Location = new System.Drawing.Point(5, 5);
-            this.lab_sku.Name = "lab_sku";
-            this.lab_sku.Size = new System.Drawing.Size(23, 13);
-            this.lab_sku.TabIndex = 12;
-            this.lab_sku.Text = "SKU:";
-            // 
-            // gro_accounting
-            // 
-            this.gro_accounting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gro_accounting.Controls.Add(this.lab_account_cost_of_goods_sold);
-            this.gro_accounting.Controls.Add(this.lab_account_raw_materials);
-            this.gro_accounting.Controls.Add(this.lab_account_sales);
-            this.gro_accounting.Controls.Add(this.lok_cost_of_goods_sold);
-            this.gro_accounting.Controls.Add(this.lok_raw_materials);
-            this.gro_accounting.Controls.Add(this.lok_account_sales);
-            this.gro_accounting.Location = new System.Drawing.Point(5, 136);
-            this.gro_accounting.Name = "gro_accounting";
-            this.gro_accounting.Size = new System.Drawing.Size(761, 94);
-            this.gro_accounting.TabIndex = 11;
-            this.gro_accounting.Text = "Accounting";
-            // 
-            // lab_account_cost_of_goods_sold
-            // 
-            this.lab_account_cost_of_goods_sold.Location = new System.Drawing.Point(5, 64);
-            this.lab_account_cost_of_goods_sold.Name = "lab_account_cost_of_goods_sold";
-            this.lab_account_cost_of_goods_sold.Size = new System.Drawing.Size(133, 13);
-            this.lab_account_cost_of_goods_sold.TabIndex = 12;
-            this.lab_account_cost_of_goods_sold.Text = "Account cost of goods sold:";
-            // 
-            // lab_account_raw_materials
-            // 
-            this.lab_account_raw_materials.Location = new System.Drawing.Point(302, 37);
-            this.lab_account_raw_materials.Name = "lab_account_raw_materials";
-            this.lab_account_raw_materials.Size = new System.Drawing.Size(110, 13);
-            this.lab_account_raw_materials.TabIndex = 12;
-            this.lab_account_raw_materials.Text = "Account raw materials:";
-            // 
-            // lab_account_sales
-            // 
-            this.lab_account_sales.Location = new System.Drawing.Point(5, 37);
-            this.lab_account_sales.Name = "lab_account_sales";
-            this.lab_account_sales.Size = new System.Drawing.Size(70, 13);
-            this.lab_account_sales.TabIndex = 12;
-            this.lab_account_sales.Text = "Account sales:";
-            // 
-            // lok_cost_of_goods_sold
-            // 
-            this.lok_cost_of_goods_sold.Location = new System.Drawing.Point(144, 63);
-            this.lok_cost_of_goods_sold.Name = "lok_cost_of_goods_sold";
-            this.lok_cost_of_goods_sold.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_cost_of_goods_sold.Properties.NullText = "";
-            this.lok_cost_of_goods_sold.Properties.PopupView = this.gridView7;
-            this.lok_cost_of_goods_sold.Size = new System.Drawing.Size(147, 20);
-            this.lok_cost_of_goods_sold.TabIndex = 9;
-            // 
-            // gridView7
-            // 
-            this.gridView7.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView7.Name = "gridView7";
-            this.gridView7.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView7.OptionsView.ShowGroupPanel = false;
-            // 
-            // lok_raw_materials
-            // 
-            this.lok_raw_materials.Location = new System.Drawing.Point(418, 36);
-            this.lok_raw_materials.Name = "lok_raw_materials";
-            this.lok_raw_materials.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_raw_materials.Properties.NullText = "";
-            this.lok_raw_materials.Properties.PopupView = this.gridView6;
-            this.lok_raw_materials.Size = new System.Drawing.Size(218, 20);
-            this.lok_raw_materials.TabIndex = 9;
-            // 
-            // gridView6
-            // 
-            this.gridView6.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView6.Name = "gridView6";
-            this.gridView6.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView6.OptionsView.ShowGroupPanel = false;
-            // 
-            // lok_account_sales
-            // 
-            this.lok_account_sales.Location = new System.Drawing.Point(81, 37);
-            this.lok_account_sales.Name = "lok_account_sales";
-            this.lok_account_sales.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_account_sales.Properties.NullText = "";
-            this.lok_account_sales.Properties.PopupView = this.gridView5;
-            this.lok_account_sales.Size = new System.Drawing.Size(210, 20);
-            this.lok_account_sales.TabIndex = 9;
-            // 
-            // gridView5
-            // 
-            this.gridView5.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView5.Name = "gridView5";
-            this.gridView5.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView5.OptionsView.ShowGroupPanel = false;
-            // 
-            // gro_inventory
-            // 
-            this.gro_inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gro_inventory.Controls.Add(this.develoverGridControl1);
-            this.gro_inventory.Controls.Add(this.lab_average_price);
-            this.gro_inventory.Controls.Add(this.lab_latest_purchase_price);
-            this.gro_inventory.Controls.Add(this.lab_quantity_in_ware_house);
-            this.gro_inventory.Controls.Add(this.lab_latest_purchase_price_);
-            this.gro_inventory.Controls.Add(this.lab_average_price_);
-            this.gro_inventory.Controls.Add(this.lab_available_);
-            this.gro_inventory.Controls.Add(this.lab_available);
-            this.gro_inventory.Location = new System.Drawing.Point(5, 236);
-            this.gro_inventory.Name = "gro_inventory";
-            this.gro_inventory.Size = new System.Drawing.Size(761, 198);
-            this.gro_inventory.TabIndex = 10;
-            this.gro_inventory.Text = "Purchasing";
-            // 
-            // develoverGridControl1
-            // 
-            this.develoverGridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.develoverGridControl1.Location = new System.Drawing.Point(316, 30);
-            this.develoverGridControl1.MainView = this.gridView8;
-            this.develoverGridControl1.MenuManager = this.brm_form;
-            this.develoverGridControl1.Name = "develoverGridControl1";
-            this.develoverGridControl1.Size = new System.Drawing.Size(440, 163);
-            this.develoverGridControl1.TabIndex = 9;
-            this.develoverGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView8});
-            // 
-            // gridView8
-            // 
-            this.gridView8.GridControl = this.develoverGridControl1;
-            this.gridView8.Name = "gridView8";
-            // 
-            // lab_average_price
-            // 
-            this.lab_average_price.Location = new System.Drawing.Point(5, 49);
-            this.lab_average_price.Name = "lab_average_price";
-            this.lab_average_price.Size = new System.Drawing.Size(71, 13);
-            this.lab_average_price.TabIndex = 8;
-            this.lab_average_price.Text = "Average price:";
-            // 
-            // lab_latest_purchase_price
-            // 
-            this.lab_latest_purchase_price.Location = new System.Drawing.Point(5, 68);
-            this.lab_latest_purchase_price.Name = "lab_latest_purchase_price";
-            this.lab_latest_purchase_price.Size = new System.Drawing.Size(107, 13);
-            this.lab_latest_purchase_price.TabIndex = 8;
-            this.lab_latest_purchase_price.Text = "Latest purchase price:";
-            // 
-            // lab_quantity_in_ware_house
-            // 
-            this.lab_quantity_in_ware_house.Location = new System.Drawing.Point(194, 30);
-            this.lab_quantity_in_ware_house.Name = "lab_quantity_in_ware_house";
-            this.lab_quantity_in_ware_house.Size = new System.Drawing.Size(116, 13);
-            this.lab_quantity_in_ware_house.TabIndex = 8;
-            this.lab_quantity_in_ware_house.Text = "Quantity in ware house:";
-            // 
-            // lab_latest_purchase_price_
-            // 
-            this.lab_latest_purchase_price_.Location = new System.Drawing.Point(144, 68);
-            this.lab_latest_purchase_price_.Name = "lab_latest_purchase_price_";
-            this.lab_latest_purchase_price_.Size = new System.Drawing.Size(6, 13);
-            this.lab_latest_purchase_price_.TabIndex = 8;
-            this.lab_latest_purchase_price_.Text = "0";
-            // 
-            // lab_average_price_
-            // 
-            this.lab_average_price_.Location = new System.Drawing.Point(91, 49);
-            this.lab_average_price_.Name = "lab_average_price_";
-            this.lab_average_price_.Size = new System.Drawing.Size(6, 13);
-            this.lab_average_price_.TabIndex = 8;
-            this.lab_average_price_.Text = "0";
-            // 
-            // lab_available_
-            // 
-            this.lab_available_.Location = new System.Drawing.Point(65, 30);
-            this.lab_available_.Name = "lab_available_";
-            this.lab_available_.Size = new System.Drawing.Size(6, 13);
-            this.lab_available_.TabIndex = 8;
-            this.lab_available_.Text = "0";
-            // 
-            // lab_available
-            // 
-            this.lab_available.Location = new System.Drawing.Point(5, 30);
-            this.lab_available.Name = "lab_available";
-            this.lab_available.Size = new System.Drawing.Size(47, 13);
-            this.lab_available.TabIndex = 8;
-            this.lab_available.Text = "Available:";
-            // 
-            // gro_size_weigth
-            // 
-            this.gro_size_weigth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gro_size_weigth.Controls.Add(this.lab_unit_size);
-            this.gro_size_weigth.Controls.Add(this.lab_height);
-            this.gro_size_weigth.Controls.Add(this.lab_widght);
-            this.gro_size_weigth.Controls.Add(this.lab_unit_weight);
-            this.gro_size_weigth.Controls.Add(this.lab_length);
-            this.gro_size_weigth.Controls.Add(this.txt_width);
-            this.gro_size_weigth.Controls.Add(this.lab_weight);
-            this.gro_size_weigth.Controls.Add(this.lok_unit_size);
-            this.gro_size_weigth.Controls.Add(this.txt_weight);
-            this.gro_size_weigth.Controls.Add(this.txt_length);
-            this.gro_size_weigth.Controls.Add(this.lok_unit_weight);
-            this.gro_size_weigth.Controls.Add(this.txt_height);
-            this.gro_size_weigth.Location = new System.Drawing.Point(302, 5);
-            this.gro_size_weigth.Name = "gro_size_weigth";
-            this.gro_size_weigth.Size = new System.Drawing.Size(464, 84);
-            this.gro_size_weigth.TabIndex = 10;
-            this.gro_size_weigth.Text = "Size && Weight";
-            // 
-            // lab_unit_size
-            // 
-            this.lab_unit_size.Location = new System.Drawing.Point(311, 30);
-            this.lab_unit_size.Name = "lab_unit_size";
-            this.lab_unit_size.Size = new System.Drawing.Size(44, 13);
-            this.lab_unit_size.TabIndex = 12;
-            this.lab_unit_size.Text = "Unit size:";
-            // 
-            // lab_height
-            // 
-            this.lab_height.Location = new System.Drawing.Point(209, 30);
-            this.lab_height.Name = "lab_height";
-            this.lab_height.Size = new System.Drawing.Size(35, 13);
-            this.lab_height.TabIndex = 12;
-            this.lab_height.Text = "Height:";
-            // 
-            // lab_widght
-            // 
-            this.lab_widght.Location = new System.Drawing.Point(107, 30);
-            this.lab_widght.Name = "lab_widght";
-            this.lab_widght.Size = new System.Drawing.Size(32, 13);
-            this.lab_widght.TabIndex = 12;
-            this.lab_widght.Text = "Width:";
-            // 
-            // lab_unit_weight
-            // 
-            this.lab_unit_weight.Location = new System.Drawing.Point(107, 56);
-            this.lab_unit_weight.Name = "lab_unit_weight";
-            this.lab_unit_weight.Size = new System.Drawing.Size(58, 13);
-            this.lab_unit_weight.TabIndex = 12;
-            this.lab_unit_weight.Text = "Unit weight:";
-            // 
-            // lab_length
-            // 
-            this.lab_length.Location = new System.Drawing.Point(5, 30);
-            this.lab_length.Name = "lab_length";
-            this.lab_length.Size = new System.Drawing.Size(37, 13);
-            this.lab_length.TabIndex = 12;
-            this.lab_length.Text = "Length:";
-            // 
-            // txt_width
-            // 
-            this.txt_width.Location = new System.Drawing.Point(154, 30);
-            this.txt_width.Name = "txt_width";
-            this.txt_width.Size = new System.Drawing.Size(49, 20);
-            this.txt_width.TabIndex = 7;
-            // 
-            // lab_weight
-            // 
-            this.lab_weight.Location = new System.Drawing.Point(5, 56);
-            this.lab_weight.Name = "lab_weight";
-            this.lab_weight.Size = new System.Drawing.Size(38, 13);
-            this.lab_weight.TabIndex = 12;
-            this.lab_weight.Text = "Weight:";
-            // 
-            // lok_unit_size
-            // 
-            this.lok_unit_size.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lok_unit_size.Location = new System.Drawing.Point(358, 30);
-            this.lok_unit_size.Name = "lok_unit_size";
-            this.lok_unit_size.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_unit_size.Properties.NullText = "";
-            this.lok_unit_size.Properties.PopupView = this.gridView4;
-            this.lok_unit_size.Size = new System.Drawing.Size(101, 20);
-            this.lok_unit_size.TabIndex = 9;
-            // 
-            // gridView4
-            // 
-            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView4.OptionsView.ShowGroupPanel = false;
-            // 
-            // txt_weight
-            // 
-            this.txt_weight.Location = new System.Drawing.Point(52, 56);
-            this.txt_weight.Name = "txt_weight";
-            this.txt_weight.Size = new System.Drawing.Size(49, 20);
-            this.txt_weight.TabIndex = 7;
-            // 
-            // txt_length
-            // 
-            this.txt_length.Location = new System.Drawing.Point(52, 30);
-            this.txt_length.Name = "txt_length";
-            this.txt_length.Size = new System.Drawing.Size(49, 20);
-            this.txt_length.TabIndex = 7;
-            // 
-            // lok_unit_weight
-            // 
-            this.lok_unit_weight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lok_unit_weight.Location = new System.Drawing.Point(171, 56);
-            this.lok_unit_weight.Name = "lok_unit_weight";
-            this.lok_unit_weight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_unit_weight.Properties.NullText = "";
-            this.lok_unit_weight.Properties.PopupView = this.gridView3;
-            this.lok_unit_weight.Size = new System.Drawing.Size(288, 20);
-            this.lok_unit_weight.TabIndex = 9;
-            // 
-            // gridView3
-            // 
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
-            // 
-            // txt_height
-            // 
-            this.txt_height.Location = new System.Drawing.Point(256, 30);
-            this.txt_height.Name = "txt_height";
-            this.txt_height.Size = new System.Drawing.Size(49, 20);
-            this.txt_height.TabIndex = 7;
-            // 
-            // txt_minimum_quantity
-            // 
-            this.txt_minimum_quantity.Location = new System.Drawing.Point(101, 84);
-            this.txt_minimum_quantity.Name = "txt_minimum_quantity";
-            this.txt_minimum_quantity.Size = new System.Drawing.Size(49, 20);
-            this.txt_minimum_quantity.TabIndex = 7;
-            // 
-            // lok_ware_house
-            // 
-            this.lok_ware_house.Location = new System.Drawing.Point(101, 58);
-            this.lok_ware_house.MenuManager = this.brm_form;
-            this.lok_ware_house.Name = "lok_ware_house";
-            this.lok_ware_house.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lok_ware_house.Properties.NullText = "";
-            this.lok_ware_house.Properties.PopupView = this.gridView2;
-            this.lok_ware_house.Size = new System.Drawing.Size(195, 20);
-            this.lok_ware_house.TabIndex = 9;
-            // 
-            // gridView2
-            // 
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
-            // 
-            // txt_maximum_quantity
-            // 
-            this.txt_maximum_quantity.Location = new System.Drawing.Point(101, 110);
-            this.txt_maximum_quantity.Name = "txt_maximum_quantity";
-            this.txt_maximum_quantity.Size = new System.Drawing.Size(49, 20);
-            this.txt_maximum_quantity.TabIndex = 7;
-            // 
-            // develoverTextEdit8
-            // 
-            this.develoverTextEdit8.Location = new System.Drawing.Point(1191, -47);
-            this.develoverTextEdit8.Name = "develoverTextEdit8";
-            this.develoverTextEdit8.Size = new System.Drawing.Size(10, 20);
-            this.develoverTextEdit8.TabIndex = 7;
-            // 
-            // txt_alter_note
-            // 
-            this.txt_alter_note.Location = new System.Drawing.Point(78, 31);
-            this.txt_alter_note.Name = "txt_alter_note";
-            this.txt_alter_note.Size = new System.Drawing.Size(218, 20);
-            this.txt_alter_note.TabIndex = 7;
-            // 
-            // develoverTextEdit7
-            // 
-            this.develoverTextEdit7.Location = new System.Drawing.Point(997, 36);
-            this.develoverTextEdit7.Name = "develoverTextEdit7";
-            this.develoverTextEdit7.Size = new System.Drawing.Size(10, 20);
-            this.develoverTextEdit7.TabIndex = 7;
-            // 
-            // txt_sku
-            // 
-            this.txt_sku.Location = new System.Drawing.Point(78, 5);
-            this.txt_sku.MenuManager = this.brm_form;
-            this.txt_sku.Name = "txt_sku";
-            this.txt_sku.Size = new System.Drawing.Size(218, 20);
-            this.txt_sku.TabIndex = 7;
-            // 
-            // tbp_substitute
-            // 
-            this.tbp_substitute.Controls.Add(this.gro_substitute);
-            this.tbp_substitute.Name = "tbp_substitute";
-            this.tbp_substitute.Size = new System.Drawing.Size(773, 441);
-            this.tbp_substitute.Text = "Substitute";
-            // 
-            // gro_substitute
-            // 
-            this.gro_substitute.Controls.Add(this.but_delete);
-            this.gro_substitute.Controls.Add(this.but_add);
-            this.gro_substitute.Controls.Add(this.grc_substitute);
-            this.gro_substitute.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_substitute.Location = new System.Drawing.Point(0, 0);
-            this.gro_substitute.Name = "gro_substitute";
-            this.gro_substitute.ShowCaption = false;
-            this.gro_substitute.Size = new System.Drawing.Size(773, 441);
-            this.gro_substitute.TabIndex = 2;
-            this.gro_substitute.Text = "develoverGroupControl10";
-            // 
-            // but_delete
-            // 
-            this.but_delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_delete.Location = new System.Drawing.Point(736, 37);
-            this.but_delete.Name = "but_delete";
-            this.but_delete.Size = new System.Drawing.Size(30, 23);
-            this.but_delete.TabIndex = 1;
-            this.but_delete.Text = "Del";
-            // 
-            // but_add
-            // 
-            this.but_add.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_add.Location = new System.Drawing.Point(736, 8);
-            this.but_add.Name = "but_add";
-            this.but_add.Size = new System.Drawing.Size(30, 23);
-            this.but_add.TabIndex = 1;
-            this.but_add.Text = "Add";
-            // 
-            // grc_substitute
-            // 
-            this.grc_substitute.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grc_substitute.Location = new System.Drawing.Point(5, 8);
-            this.grc_substitute.MainView = this.grv_substitute;
-            this.grc_substitute.MenuManager = this.brm_form;
-            this.grc_substitute.Name = "grc_substitute";
-            this.grc_substitute.Size = new System.Drawing.Size(725, 426);
-            this.grc_substitute.TabIndex = 0;
-            this.grc_substitute.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grv_substitute});
-            // 
-            // grv_substitute
-            // 
-            this.grv_substitute.GridControl = this.grc_substitute;
-            this.grv_substitute.Name = "grv_substitute";
-            // 
-            // tbp_customer
-            // 
-            this.tbp_customer.Controls.Add(this.gro_customer);
-            this.tbp_customer.Name = "tbp_customer";
-            this.tbp_customer.Size = new System.Drawing.Size(773, 441);
-            this.tbp_customer.Text = "Vendor";
-            // 
-            // gro_customer
-            // 
-            this.gro_customer.Controls.Add(this.grc_customer);
-            this.gro_customer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_customer.Location = new System.Drawing.Point(0, 0);
-            this.gro_customer.Name = "gro_customer";
-            this.gro_customer.ShowCaption = false;
-            this.gro_customer.Size = new System.Drawing.Size(773, 441);
-            this.gro_customer.TabIndex = 2;
-            this.gro_customer.Text = "develoverGroupControl11";
-            // 
-            // grc_customer
-            // 
-            this.grc_customer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grc_customer.Location = new System.Drawing.Point(5, 8);
-            this.grc_customer.MainView = this.grv_customer;
-            this.grc_customer.MenuManager = this.brm_form;
-            this.grc_customer.Name = "grc_customer";
-            this.grc_customer.Size = new System.Drawing.Size(761, 426);
-            this.grc_customer.TabIndex = 1;
-            this.grc_customer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grv_customer});
-            // 
-            // grv_customer
-            // 
-            this.grv_customer.GridControl = this.grc_customer;
-            this.grv_customer.Name = "grv_customer";
+            this.gro_general.Controls.Add(this.develoverGroupControl3);
+            this.gro_general.Controls.Add(this.develoverGroupControl2);
+            this.gro_general.Controls.Add(this.develoverGroupControl1);
+            this.gro_general.Controls.Add(this.groInfoBank);
+            this.gro_general.Controls.Add(this.labSKU);
+            this.gro_general.Controls.Add(this.txt_sku);
+            this.gro_general.Controls.Add(this.develoverLabelControl3);
+            this.gro_general.Controls.Add(this.develoverLabelControl2);
+            this.gro_general.Controls.Add(this.develoverLabelControl4);
+            this.gro_general.Controls.Add(this.labOrigin);
+            this.gro_general.Controls.Add(this.labVender);
+            this.gro_general.Controls.Add(this.develoverTextEdit3);
+            this.gro_general.Controls.Add(this.develoverTextEdit2);
+            this.gro_general.Controls.Add(this.develoverTextEdit4);
+            this.gro_general.Controls.Add(this.txtOrigin);
+            this.gro_general.Controls.Add(this.develoverLabelControl15);
+            this.gro_general.Controls.Add(this.txtVenderName);
+            this.gro_general.Controls.Add(this.develoverLabelControl9);
+            this.gro_general.Controls.Add(this.develoverLabelControl14);
+            this.gro_general.Controls.Add(this.develoverLabelControl5);
+            this.gro_general.Controls.Add(this.labDescription);
+            this.gro_general.Controls.Add(this.develoverMemoEdit4);
+            this.gro_general.Controls.Add(this.chkActive);
+            this.gro_general.Controls.Add(this.develoverMemoEdit2);
+            this.gro_general.Controls.Add(this.develoverMemoEdit3);
+            this.gro_general.Controls.Add(this.develoverMemoEdit1);
+            this.gro_general.Controls.Add(this.memDescription);
+            this.gro_general.Size = new System.Drawing.Size(762, 495);
             // 
             // develoverSplitterControl1
             // 
-            this.develoverSplitterControl1.Location = new System.Drawing.Point(244, 2);
-            this.develoverSplitterControl1.MinExtra = 0;
-            this.develoverSplitterControl1.MinSize = 0;
-            this.develoverSplitterControl1.Name = "develoverSplitterControl1";
-            this.develoverSplitterControl1.ShowSplitGlyph = DevExpress.Utils.DefaultBoolean.True;
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 474);
-            this.develoverSplitterControl1.TabIndex = 1;
-            this.develoverSplitterControl1.TabStop = false;
+            this.develoverSplitterControl1.Location = new System.Drawing.Point(190, 2);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 531);
             // 
             // gro_search
             // 
-            this.gro_search.Controls.Add(this.gro_search_middle_1);
-            this.gro_search.Controls.Add(this.gro_search_middle_2);
-            this.gro_search.Controls.Add(this.gro_sreach_bottom);
-            this.gro_search.Controls.Add(this.gro_search_top);
-            this.gro_search.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gro_search.Location = new System.Drawing.Point(2, 2);
-            this.gro_search.Name = "gro_search";
-            this.gro_search.Size = new System.Drawing.Size(242, 474);
-            this.gro_search.TabIndex = 0;
-            this.gro_search.Text = "Search";
+            this.gro_search.Size = new System.Drawing.Size(188, 531);
             // 
-            // gro_search_middle_1
+            // memDescription
             // 
-            this.gro_search_middle_1.Controls.Add(this.grc_search);
-            this.gro_search_middle_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_search_middle_1.Location = new System.Drawing.Point(2, 86);
-            this.gro_search_middle_1.Name = "gro_search_middle_1";
-            this.gro_search_middle_1.ShowCaption = false;
-            this.gro_search_middle_1.Size = new System.Drawing.Size(238, 171);
-            this.gro_search_middle_1.TabIndex = 0;
-            this.gro_search_middle_1.Text = "Search Middle 1";
+            this.memDescription.FieldBinding = "Description";
+            this.memDescription.IsGUID = false;
+            this.memDescription.Location = new System.Drawing.Point(109, 266);
+            this.memDescription.Name = "memDescription";
+            this.memDescription.Size = new System.Drawing.Size(527, 87);
+            this.memDescription.TabIndex = 1;
+            this.memDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
-            // grc_search
+            // chkActive
             // 
-            this.grc_search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grc_search.Location = new System.Drawing.Point(2, 2);
-            this.grc_search.MainView = this.grv_search;
-            this.grc_search.MenuManager = this.brm_form;
-            this.grc_search.Name = "grc_search";
-            this.grc_search.Size = new System.Drawing.Size(234, 167);
-            this.grc_search.TabIndex = 0;
-            this.grc_search.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grv_search});
+            this.chkActive.FieldBinding = "Active";
+            this.chkActive.IsGUID = false;
+            this.chkActive.Location = new System.Drawing.Point(109, 359);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Properties.Caption = "Trạng thái sử dụng";
+            this.chkActive.Size = new System.Drawing.Size(527, 20);
+            this.chkActive.TabIndex = 2;
+            this.chkActive.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Check;
             // 
-            // grv_search
+            // labDescription
             // 
-            this.grv_search.GridControl = this.grc_search;
-            this.grv_search.Name = "grv_search";
+            this.labDescription.FieldBinding = null;
+            this.labDescription.IsGUID = false;
+            this.labDescription.Location = new System.Drawing.Point(12, 266);
+            this.labDescription.Name = "labDescription";
+            this.labDescription.Size = new System.Drawing.Size(45, 13);
+            this.labDescription.TabIndex = 4;
+            this.labDescription.Text = "Chú thích";
+            this.labDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // gro_search_middle_2
+            // labOrigin
             // 
-            this.gro_search_middle_2.Controls.Add(this.pic_picture_search);
-            this.gro_search_middle_2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gro_search_middle_2.Location = new System.Drawing.Point(2, 257);
-            this.gro_search_middle_2.Name = "gro_search_middle_2";
-            this.gro_search_middle_2.Size = new System.Drawing.Size(238, 126);
-            this.gro_search_middle_2.TabIndex = 0;
-            this.gro_search_middle_2.Text = "Picture";
+            this.labOrigin.FieldBinding = null;
+            this.labOrigin.IsGUID = false;
+            this.labOrigin.Location = new System.Drawing.Point(12, 89);
+            this.labOrigin.Name = "labOrigin";
+            this.labOrigin.Size = new System.Drawing.Size(62, 13);
+            this.labOrigin.TabIndex = 11;
+            this.labOrigin.Text = "Số điện thoại";
+            this.labOrigin.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // pic_picture_search
+            // labVender
             // 
-            this.pic_picture_search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pic_picture_search.Location = new System.Drawing.Point(2, 27);
-            this.pic_picture_search.MenuManager = this.brm_form;
-            this.pic_picture_search.Name = "pic_picture_search";
-            this.pic_picture_search.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pic_picture_search.Size = new System.Drawing.Size(234, 97);
-            this.pic_picture_search.TabIndex = 4;
+            this.labVender.FieldBinding = null;
+            this.labVender.IsGUID = false;
+            this.labVender.Location = new System.Drawing.Point(12, 12);
+            this.labVender.Name = "labVender";
+            this.labVender.Size = new System.Drawing.Size(85, 13);
+            this.labVender.TabIndex = 12;
+            this.labVender.Text = "Tên nhà cung cấp";
+            this.labVender.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // gro_sreach_bottom
+            // txtVenderName
             // 
-            this.gro_sreach_bottom.Controls.Add(this.but_view);
-            this.gro_sreach_bottom.Controls.Add(this.lab_active);
-            this.gro_sreach_bottom.Controls.Add(this.lab_available_search);
-            this.gro_sreach_bottom.Controls.Add(this.chk_show_pricture);
-            this.gro_sreach_bottom.Controls.Add(this.lab_active_);
-            this.gro_sreach_bottom.Controls.Add(this.lab_available_search_);
-            this.gro_sreach_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gro_sreach_bottom.Location = new System.Drawing.Point(2, 383);
-            this.gro_sreach_bottom.Name = "gro_sreach_bottom";
-            this.gro_sreach_bottom.ShowCaption = false;
-            this.gro_sreach_bottom.Size = new System.Drawing.Size(238, 89);
-            this.gro_sreach_bottom.TabIndex = 0;
-            this.gro_sreach_bottom.Text = "Search Bottom";
+            this.txtVenderName.FieldBinding = "ProductName";
+            this.txtVenderName.IsGUID = false;
+            this.txtVenderName.Location = new System.Drawing.Point(109, 12);
+            this.txtVenderName.Name = "txtVenderName";
+            this.txtVenderName.Size = new System.Drawing.Size(308, 20);
+            this.txtVenderName.TabIndex = 9;
+            this.txtVenderName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
-            // but_view
+            // labSKU
             // 
-            this.but_view.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_view.Location = new System.Drawing.Point(158, 58);
-            this.but_view.Name = "but_view";
-            this.but_view.Size = new System.Drawing.Size(75, 23);
-            this.but_view.TabIndex = 7;
-            this.but_view.Text = "View";
+            this.labSKU.FieldBinding = null;
+            this.labSKU.IsGUID = false;
+            this.labSKU.Location = new System.Drawing.Point(12, 66);
+            this.labSKU.Name = "labSKU";
+            this.labSKU.Size = new System.Drawing.Size(35, 13);
+            this.labSKU.TabIndex = 17;
+            this.labSKU.Text = "Ông bà";
+            this.labSKU.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // lab_active
+            // txt_sku
             // 
-            this.lab_active.Location = new System.Drawing.Point(5, 33);
-            this.lab_active.Name = "lab_active";
-            this.lab_active.Size = new System.Drawing.Size(34, 13);
-            this.lab_active.TabIndex = 6;
-            this.lab_active.Text = "Active:";
+            this.txt_sku.FieldBinding = "ProductCode";
+            this.txt_sku.IsGUID = false;
+            this.txt_sku.Location = new System.Drawing.Point(109, 66);
+            this.txt_sku.Name = "txt_sku";
+            this.txt_sku.Size = new System.Drawing.Size(162, 20);
+            this.txt_sku.TabIndex = 16;
+            this.txt_sku.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
-            // lab_available_search
+            // txtOrigin
             // 
-            this.lab_available_search.Location = new System.Drawing.Point(5, 8);
-            this.lab_available_search.Name = "lab_available_search";
-            this.lab_available_search.Size = new System.Drawing.Size(47, 13);
-            this.lab_available_search.TabIndex = 6;
-            this.lab_available_search.Text = "Availabel:";
+            this.txtOrigin.FieldBinding = "Origin";
+            this.txtOrigin.IsGUID = false;
+            this.txtOrigin.Location = new System.Drawing.Point(109, 89);
+            this.txtOrigin.Name = "txtOrigin";
+            this.txtOrigin.Size = new System.Drawing.Size(162, 20);
+            this.txtOrigin.TabIndex = 7;
+            this.txtOrigin.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
-            // chk_show_pricture
+            // groInfoBank
             // 
-            this.chk_show_pricture.Location = new System.Drawing.Point(5, 61);
-            this.chk_show_pricture.Name = "chk_show_pricture";
-            this.chk_show_pricture.Properties.Caption = "Display picture";
-            this.chk_show_pricture.Size = new System.Drawing.Size(132, 20);
-            this.chk_show_pricture.TabIndex = 4;
+            this.groInfoBank.Controls.Add(this.develoverTextEdit7);
+            this.groInfoBank.Controls.Add(this.develoverLabelControl8);
+            this.groInfoBank.Controls.Add(this.develoverTextEdit6);
+            this.groInfoBank.Controls.Add(this.develoverLabelControl7);
+            this.groInfoBank.Controls.Add(this.develoverTextEdit5);
+            this.groInfoBank.Controls.Add(this.develoverLabelControl6);
+            this.groInfoBank.Controls.Add(this.develoverTextEdit1);
+            this.groInfoBank.Controls.Add(this.develoverLabelControl1);
+            this.groInfoBank.FieldBinding = null;
+            this.groInfoBank.IsGUID = false;
+            this.groInfoBank.Location = new System.Drawing.Point(109, 158);
+            this.groInfoBank.Name = "groInfoBank";
+            this.groInfoBank.Size = new System.Drawing.Size(527, 105);
+            this.groInfoBank.TabIndex = 18;
+            this.groInfoBank.Text = "Thông tin ngân hàng";
+            this.groInfoBank.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // lab_active_
+            // develoverTextEdit7
             // 
-            this.lab_active_.Location = new System.Drawing.Point(51, 33);
-            this.lab_active_.Name = "lab_active_";
-            this.lab_active_.Size = new System.Drawing.Size(29, 13);
-            this.lab_active_.TabIndex = 8;
-            this.lab_active_.Text = "active";
+            this.develoverTextEdit7.FieldBinding = "Model";
+            this.develoverTextEdit7.IsGUID = false;
+            this.develoverTextEdit7.Location = new System.Drawing.Point(97, 74);
+            this.develoverTextEdit7.Name = "develoverTextEdit7";
+            this.develoverTextEdit7.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit7.TabIndex = 7;
+            this.develoverTextEdit7.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
-            // lab_available_search_
+            // develoverLabelControl8
             // 
-            this.lab_available_search_.Location = new System.Drawing.Point(58, 8);
-            this.lab_available_search_.Name = "lab_available_search_";
-            this.lab_available_search_.Size = new System.Drawing.Size(6, 13);
-            this.lab_available_search_.TabIndex = 8;
-            this.lab_available_search_.Text = "0";
+            this.develoverLabelControl8.FieldBinding = null;
+            this.develoverLabelControl8.IsGUID = false;
+            this.develoverLabelControl8.Location = new System.Drawing.Point(5, 78);
+            this.develoverLabelControl8.Name = "develoverLabelControl8";
+            this.develoverLabelControl8.Size = new System.Drawing.Size(67, 13);
+            this.develoverLabelControl8.TabIndex = 14;
+            this.develoverLabelControl8.Text = "Tên chi nhánh";
+            this.develoverLabelControl8.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // gro_search_top
+            // develoverTextEdit6
             // 
-            this.gro_search_top.Controls.Add(this.develoverSimpleButton2);
-            this.gro_search_top.Controls.Add(this.develoverTextEdit4);
-            this.gro_search_top.Controls.Add(this.lab_search);
-            this.gro_search_top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gro_search_top.Location = new System.Drawing.Point(2, 27);
-            this.gro_search_top.Name = "gro_search_top";
-            this.gro_search_top.ShowCaption = false;
-            this.gro_search_top.Size = new System.Drawing.Size(238, 59);
-            this.gro_search_top.TabIndex = 0;
-            this.gro_search_top.Text = "Search Top";
+            this.develoverTextEdit6.FieldBinding = "Model";
+            this.develoverTextEdit6.IsGUID = false;
+            this.develoverTextEdit6.Location = new System.Drawing.Point(97, 52);
+            this.develoverTextEdit6.Name = "develoverTextEdit6";
+            this.develoverTextEdit6.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit6.TabIndex = 7;
+            this.develoverTextEdit6.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
-            // develoverSimpleButton2
+            // develoverLabelControl7
             // 
-            this.develoverSimpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.develoverSimpleButton2.Location = new System.Drawing.Point(135, 31);
-            this.develoverSimpleButton2.Name = "develoverSimpleButton2";
-            this.develoverSimpleButton2.Size = new System.Drawing.Size(98, 23);
-            this.develoverSimpleButton2.TabIndex = 7;
-            this.develoverSimpleButton2.Text = "Search advances";
+            this.develoverLabelControl7.FieldBinding = null;
+            this.develoverLabelControl7.IsGUID = false;
+            this.develoverLabelControl7.Location = new System.Drawing.Point(5, 57);
+            this.develoverLabelControl7.Name = "develoverLabelControl7";
+            this.develoverLabelControl7.Size = new System.Drawing.Size(72, 13);
+            this.develoverLabelControl7.TabIndex = 14;
+            this.develoverLabelControl7.Text = "Tên ngân hàng";
+            this.develoverLabelControl7.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit5
+            // 
+            this.develoverTextEdit5.FieldBinding = "Model";
+            this.develoverTextEdit5.IsGUID = false;
+            this.develoverTextEdit5.Location = new System.Drawing.Point(334, 30);
+            this.develoverTextEdit5.Name = "develoverTextEdit5";
+            this.develoverTextEdit5.Size = new System.Drawing.Size(188, 20);
+            this.develoverTextEdit5.TabIndex = 7;
+            this.develoverTextEdit5.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl6
+            // 
+            this.develoverLabelControl6.FieldBinding = null;
+            this.develoverLabelControl6.IsGUID = false;
+            this.develoverLabelControl6.Location = new System.Drawing.Point(242, 36);
+            this.develoverLabelControl6.Name = "develoverLabelControl6";
+            this.develoverLabelControl6.Size = new System.Drawing.Size(85, 13);
+            this.develoverLabelControl6.TabIndex = 14;
+            this.develoverLabelControl6.Text = "Tên chủ tài khoản";
+            this.develoverLabelControl6.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit1
+            // 
+            this.develoverTextEdit1.FieldBinding = "Model";
+            this.develoverTextEdit1.IsGUID = false;
+            this.develoverTextEdit1.Location = new System.Drawing.Point(97, 30);
+            this.develoverTextEdit1.Name = "develoverTextEdit1";
+            this.develoverTextEdit1.Size = new System.Drawing.Size(141, 20);
+            this.develoverTextEdit1.TabIndex = 7;
+            this.develoverTextEdit1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl1
+            // 
+            this.develoverLabelControl1.FieldBinding = null;
+            this.develoverLabelControl1.IsGUID = false;
+            this.develoverLabelControl1.Location = new System.Drawing.Point(5, 37);
+            this.develoverLabelControl1.Name = "develoverLabelControl1";
+            this.develoverLabelControl1.Size = new System.Drawing.Size(59, 13);
+            this.develoverLabelControl1.TabIndex = 14;
+            this.develoverLabelControl1.Text = "Số tài khoản";
+            this.develoverLabelControl1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit2
+            // 
+            this.develoverTextEdit2.FieldBinding = "Origin";
+            this.develoverTextEdit2.IsGUID = false;
+            this.develoverTextEdit2.Location = new System.Drawing.Point(109, 135);
+            this.develoverTextEdit2.Name = "develoverTextEdit2";
+            this.develoverTextEdit2.Size = new System.Drawing.Size(308, 20);
+            this.develoverTextEdit2.TabIndex = 7;
+            this.develoverTextEdit2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl2
+            // 
+            this.develoverLabelControl2.FieldBinding = null;
+            this.develoverLabelControl2.IsGUID = false;
+            this.develoverLabelControl2.Location = new System.Drawing.Point(12, 135);
+            this.develoverLabelControl2.Name = "develoverLabelControl2";
+            this.develoverLabelControl2.Size = new System.Drawing.Size(24, 13);
+            this.develoverLabelControl2.TabIndex = 11;
+            this.develoverLabelControl2.Text = "Email";
+            this.develoverLabelControl2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit3
+            // 
+            this.develoverTextEdit3.FieldBinding = "Origin";
+            this.develoverTextEdit3.IsGUID = false;
+            this.develoverTextEdit3.Location = new System.Drawing.Point(109, 112);
+            this.develoverTextEdit3.Name = "develoverTextEdit3";
+            this.develoverTextEdit3.Size = new System.Drawing.Size(162, 20);
+            this.develoverTextEdit3.TabIndex = 7;
+            this.develoverTextEdit3.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl3
+            // 
+            this.develoverLabelControl3.FieldBinding = null;
+            this.develoverLabelControl3.IsGUID = false;
+            this.develoverLabelControl3.Location = new System.Drawing.Point(12, 112);
+            this.develoverLabelControl3.Name = "develoverLabelControl3";
+            this.develoverLabelControl3.Size = new System.Drawing.Size(18, 13);
+            this.develoverLabelControl3.TabIndex = 11;
+            this.develoverLabelControl3.Text = "Fax";
+            this.develoverLabelControl3.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // develoverTextEdit4
             // 
-            this.develoverTextEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.develoverTextEdit4.Location = new System.Drawing.Point(51, 8);
+            this.develoverTextEdit4.FieldBinding = "Origin";
+            this.develoverTextEdit4.IsGUID = false;
+            this.develoverTextEdit4.Location = new System.Drawing.Point(479, 12);
             this.develoverTextEdit4.Name = "develoverTextEdit4";
-            this.develoverTextEdit4.Size = new System.Drawing.Size(182, 20);
-            this.develoverTextEdit4.TabIndex = 0;
+            this.develoverTextEdit4.Size = new System.Drawing.Size(157, 20);
+            this.develoverTextEdit4.TabIndex = 7;
+            this.develoverTextEdit4.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
-            // lab_search
+            // develoverLabelControl4
             // 
-            this.lab_search.Location = new System.Drawing.Point(8, 11);
-            this.lab_search.Name = "lab_search";
-            this.lab_search.Size = new System.Drawing.Size(37, 13);
-            this.lab_search.TabIndex = 6;
-            this.lab_search.Text = "Search:";
+            this.develoverLabelControl4.FieldBinding = null;
+            this.develoverLabelControl4.IsGUID = false;
+            this.develoverLabelControl4.Location = new System.Drawing.Point(420, 12);
+            this.develoverLabelControl4.Name = "develoverLabelControl4";
+            this.develoverLabelControl4.Size = new System.Drawing.Size(53, 13);
+            this.develoverLabelControl4.TabIndex = 11;
+            this.develoverLabelControl4.Text = "Mã số thuế";
+            this.develoverLabelControl4.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // bar1
+            // develoverMemoEdit1
             // 
-            this.bar1.BarName = "Custom 4";
-            this.bar1.DockCol = 1;
-            this.bar1.DockRow = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.but_item_new),
-            new DevExpress.XtraBars.LinkPersistInfo(this.but_item_edit)});
-            this.bar1.Text = "Custom 4";
+            this.develoverMemoEdit1.FieldBinding = "Description";
+            this.develoverMemoEdit1.IsGUID = false;
+            this.develoverMemoEdit1.Location = new System.Drawing.Point(109, 35);
+            this.develoverMemoEdit1.Name = "develoverMemoEdit1";
+            this.develoverMemoEdit1.Size = new System.Drawing.Size(527, 28);
+            this.develoverMemoEdit1.TabIndex = 1;
+            this.develoverMemoEdit1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl5
+            // 
+            this.develoverLabelControl5.FieldBinding = null;
+            this.develoverLabelControl5.IsGUID = false;
+            this.develoverLabelControl5.Location = new System.Drawing.Point(12, 35);
+            this.develoverLabelControl5.Name = "develoverLabelControl5";
+            this.develoverLabelControl5.Size = new System.Drawing.Size(32, 13);
+            this.develoverLabelControl5.TabIndex = 4;
+            this.develoverLabelControl5.Text = "Địa chỉ";
+            this.develoverLabelControl5.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverMemoEdit2
+            // 
+            this.develoverMemoEdit2.FieldBinding = "Description";
+            this.develoverMemoEdit2.IsGUID = false;
+            this.develoverMemoEdit2.Location = new System.Drawing.Point(109, 266);
+            this.develoverMemoEdit2.Name = "develoverMemoEdit2";
+            this.develoverMemoEdit2.Size = new System.Drawing.Size(527, 87);
+            this.develoverMemoEdit2.TabIndex = 1;
+            this.develoverMemoEdit2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl9
+            // 
+            this.develoverLabelControl9.FieldBinding = null;
+            this.develoverLabelControl9.IsGUID = false;
+            this.develoverLabelControl9.Location = new System.Drawing.Point(12, 266);
+            this.develoverLabelControl9.Name = "develoverLabelControl9";
+            this.develoverLabelControl9.Size = new System.Drawing.Size(45, 13);
+            this.develoverLabelControl9.TabIndex = 4;
+            this.develoverLabelControl9.Text = "Chú thích";
+            this.develoverLabelControl9.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverGroupControl1
+            // 
+            this.develoverGroupControl1.Controls.Add(this.develoverTextEdit8);
+            this.develoverGroupControl1.Controls.Add(this.develoverLabelControl10);
+            this.develoverGroupControl1.Controls.Add(this.develoverTextEdit9);
+            this.develoverGroupControl1.Controls.Add(this.develoverLabelControl11);
+            this.develoverGroupControl1.Controls.Add(this.develoverTextEdit10);
+            this.develoverGroupControl1.Controls.Add(this.develoverLabelControl12);
+            this.develoverGroupControl1.Controls.Add(this.develoverTextEdit11);
+            this.develoverGroupControl1.Controls.Add(this.develoverLabelControl13);
+            this.develoverGroupControl1.FieldBinding = null;
+            this.develoverGroupControl1.IsGUID = false;
+            this.develoverGroupControl1.Location = new System.Drawing.Point(109, 158);
+            this.develoverGroupControl1.Name = "develoverGroupControl1";
+            this.develoverGroupControl1.Size = new System.Drawing.Size(527, 105);
+            this.develoverGroupControl1.TabIndex = 18;
+            this.develoverGroupControl1.Text = "Thông tin ngân hàng";
+            this.develoverGroupControl1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit8
+            // 
+            this.develoverTextEdit8.FieldBinding = "Model";
+            this.develoverTextEdit8.IsGUID = false;
+            this.develoverTextEdit8.Location = new System.Drawing.Point(97, 74);
+            this.develoverTextEdit8.Name = "develoverTextEdit8";
+            this.develoverTextEdit8.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit8.TabIndex = 7;
+            this.develoverTextEdit8.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl10
+            // 
+            this.develoverLabelControl10.FieldBinding = null;
+            this.develoverLabelControl10.IsGUID = false;
+            this.develoverLabelControl10.Location = new System.Drawing.Point(5, 78);
+            this.develoverLabelControl10.Name = "develoverLabelControl10";
+            this.develoverLabelControl10.Size = new System.Drawing.Size(67, 13);
+            this.develoverLabelControl10.TabIndex = 14;
+            this.develoverLabelControl10.Text = "Tên chi nhánh";
+            this.develoverLabelControl10.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit9
+            // 
+            this.develoverTextEdit9.FieldBinding = "Model";
+            this.develoverTextEdit9.IsGUID = false;
+            this.develoverTextEdit9.Location = new System.Drawing.Point(97, 52);
+            this.develoverTextEdit9.Name = "develoverTextEdit9";
+            this.develoverTextEdit9.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit9.TabIndex = 7;
+            this.develoverTextEdit9.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl11
+            // 
+            this.develoverLabelControl11.FieldBinding = null;
+            this.develoverLabelControl11.IsGUID = false;
+            this.develoverLabelControl11.Location = new System.Drawing.Point(5, 57);
+            this.develoverLabelControl11.Name = "develoverLabelControl11";
+            this.develoverLabelControl11.Size = new System.Drawing.Size(72, 13);
+            this.develoverLabelControl11.TabIndex = 14;
+            this.develoverLabelControl11.Text = "Tên ngân hàng";
+            this.develoverLabelControl11.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit10
+            // 
+            this.develoverTextEdit10.FieldBinding = "Model";
+            this.develoverTextEdit10.IsGUID = false;
+            this.develoverTextEdit10.Location = new System.Drawing.Point(334, 30);
+            this.develoverTextEdit10.Name = "develoverTextEdit10";
+            this.develoverTextEdit10.Size = new System.Drawing.Size(188, 20);
+            this.develoverTextEdit10.TabIndex = 7;
+            this.develoverTextEdit10.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl12
+            // 
+            this.develoverLabelControl12.FieldBinding = null;
+            this.develoverLabelControl12.IsGUID = false;
+            this.develoverLabelControl12.Location = new System.Drawing.Point(242, 36);
+            this.develoverLabelControl12.Name = "develoverLabelControl12";
+            this.develoverLabelControl12.Size = new System.Drawing.Size(85, 13);
+            this.develoverLabelControl12.TabIndex = 14;
+            this.develoverLabelControl12.Text = "Tên chủ tài khoản";
+            this.develoverLabelControl12.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit11
+            // 
+            this.develoverTextEdit11.FieldBinding = "Model";
+            this.develoverTextEdit11.IsGUID = false;
+            this.develoverTextEdit11.Location = new System.Drawing.Point(97, 30);
+            this.develoverTextEdit11.Name = "develoverTextEdit11";
+            this.develoverTextEdit11.Size = new System.Drawing.Size(141, 20);
+            this.develoverTextEdit11.TabIndex = 7;
+            this.develoverTextEdit11.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl13
+            // 
+            this.develoverLabelControl13.FieldBinding = null;
+            this.develoverLabelControl13.IsGUID = false;
+            this.develoverLabelControl13.Location = new System.Drawing.Point(5, 37);
+            this.develoverLabelControl13.Name = "develoverLabelControl13";
+            this.develoverLabelControl13.Size = new System.Drawing.Size(59, 13);
+            this.develoverLabelControl13.TabIndex = 14;
+            this.develoverLabelControl13.Text = "Số tài khoản";
+            this.develoverLabelControl13.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverMemoEdit3
+            // 
+            this.develoverMemoEdit3.FieldBinding = "Description";
+            this.develoverMemoEdit3.IsGUID = false;
+            this.develoverMemoEdit3.Location = new System.Drawing.Point(109, 266);
+            this.develoverMemoEdit3.Name = "develoverMemoEdit3";
+            this.develoverMemoEdit3.Size = new System.Drawing.Size(527, 87);
+            this.develoverMemoEdit3.TabIndex = 1;
+            this.develoverMemoEdit3.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverMemoEdit4
+            // 
+            this.develoverMemoEdit4.FieldBinding = "Description";
+            this.develoverMemoEdit4.IsGUID = false;
+            this.develoverMemoEdit4.Location = new System.Drawing.Point(109, 266);
+            this.develoverMemoEdit4.Name = "develoverMemoEdit4";
+            this.develoverMemoEdit4.Size = new System.Drawing.Size(527, 87);
+            this.develoverMemoEdit4.TabIndex = 1;
+            this.develoverMemoEdit4.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl14
+            // 
+            this.develoverLabelControl14.FieldBinding = null;
+            this.develoverLabelControl14.IsGUID = false;
+            this.develoverLabelControl14.Location = new System.Drawing.Point(12, 266);
+            this.develoverLabelControl14.Name = "develoverLabelControl14";
+            this.develoverLabelControl14.Size = new System.Drawing.Size(45, 13);
+            this.develoverLabelControl14.TabIndex = 4;
+            this.develoverLabelControl14.Text = "Chú thích";
+            this.develoverLabelControl14.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverLabelControl15
+            // 
+            this.develoverLabelControl15.FieldBinding = null;
+            this.develoverLabelControl15.IsGUID = false;
+            this.develoverLabelControl15.Location = new System.Drawing.Point(12, 266);
+            this.develoverLabelControl15.Name = "develoverLabelControl15";
+            this.develoverLabelControl15.Size = new System.Drawing.Size(45, 13);
+            this.develoverLabelControl15.TabIndex = 4;
+            this.develoverLabelControl15.Text = "Chú thích";
+            this.develoverLabelControl15.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverGroupControl2
+            // 
+            this.develoverGroupControl2.Controls.Add(this.develoverTextEdit12);
+            this.develoverGroupControl2.Controls.Add(this.develoverLabelControl16);
+            this.develoverGroupControl2.Controls.Add(this.develoverTextEdit13);
+            this.develoverGroupControl2.Controls.Add(this.develoverLabelControl17);
+            this.develoverGroupControl2.Controls.Add(this.develoverTextEdit14);
+            this.develoverGroupControl2.Controls.Add(this.develoverLabelControl18);
+            this.develoverGroupControl2.Controls.Add(this.develoverTextEdit15);
+            this.develoverGroupControl2.Controls.Add(this.develoverLabelControl19);
+            this.develoverGroupControl2.FieldBinding = null;
+            this.develoverGroupControl2.IsGUID = false;
+            this.develoverGroupControl2.Location = new System.Drawing.Point(109, 158);
+            this.develoverGroupControl2.Name = "develoverGroupControl2";
+            this.develoverGroupControl2.Size = new System.Drawing.Size(527, 105);
+            this.develoverGroupControl2.TabIndex = 18;
+            this.develoverGroupControl2.Text = "Thông tin ngân hàng";
+            this.develoverGroupControl2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit12
+            // 
+            this.develoverTextEdit12.FieldBinding = "Model";
+            this.develoverTextEdit12.IsGUID = false;
+            this.develoverTextEdit12.Location = new System.Drawing.Point(97, 74);
+            this.develoverTextEdit12.Name = "develoverTextEdit12";
+            this.develoverTextEdit12.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit12.TabIndex = 7;
+            this.develoverTextEdit12.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl16
+            // 
+            this.develoverLabelControl16.FieldBinding = null;
+            this.develoverLabelControl16.IsGUID = false;
+            this.develoverLabelControl16.Location = new System.Drawing.Point(5, 78);
+            this.develoverLabelControl16.Name = "develoverLabelControl16";
+            this.develoverLabelControl16.Size = new System.Drawing.Size(67, 13);
+            this.develoverLabelControl16.TabIndex = 14;
+            this.develoverLabelControl16.Text = "Tên chi nhánh";
+            this.develoverLabelControl16.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit13
+            // 
+            this.develoverTextEdit13.FieldBinding = "Model";
+            this.develoverTextEdit13.IsGUID = false;
+            this.develoverTextEdit13.Location = new System.Drawing.Point(97, 52);
+            this.develoverTextEdit13.Name = "develoverTextEdit13";
+            this.develoverTextEdit13.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit13.TabIndex = 7;
+            this.develoverTextEdit13.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl17
+            // 
+            this.develoverLabelControl17.FieldBinding = null;
+            this.develoverLabelControl17.IsGUID = false;
+            this.develoverLabelControl17.Location = new System.Drawing.Point(5, 57);
+            this.develoverLabelControl17.Name = "develoverLabelControl17";
+            this.develoverLabelControl17.Size = new System.Drawing.Size(72, 13);
+            this.develoverLabelControl17.TabIndex = 14;
+            this.develoverLabelControl17.Text = "Tên ngân hàng";
+            this.develoverLabelControl17.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit14
+            // 
+            this.develoverTextEdit14.FieldBinding = "Model";
+            this.develoverTextEdit14.IsGUID = false;
+            this.develoverTextEdit14.Location = new System.Drawing.Point(334, 30);
+            this.develoverTextEdit14.Name = "develoverTextEdit14";
+            this.develoverTextEdit14.Size = new System.Drawing.Size(188, 20);
+            this.develoverTextEdit14.TabIndex = 7;
+            this.develoverTextEdit14.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl18
+            // 
+            this.develoverLabelControl18.FieldBinding = null;
+            this.develoverLabelControl18.IsGUID = false;
+            this.develoverLabelControl18.Location = new System.Drawing.Point(242, 36);
+            this.develoverLabelControl18.Name = "develoverLabelControl18";
+            this.develoverLabelControl18.Size = new System.Drawing.Size(85, 13);
+            this.develoverLabelControl18.TabIndex = 14;
+            this.develoverLabelControl18.Text = "Tên chủ tài khoản";
+            this.develoverLabelControl18.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit15
+            // 
+            this.develoverTextEdit15.FieldBinding = "Model";
+            this.develoverTextEdit15.IsGUID = false;
+            this.develoverTextEdit15.Location = new System.Drawing.Point(97, 30);
+            this.develoverTextEdit15.Name = "develoverTextEdit15";
+            this.develoverTextEdit15.Size = new System.Drawing.Size(141, 20);
+            this.develoverTextEdit15.TabIndex = 7;
+            this.develoverTextEdit15.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl19
+            // 
+            this.develoverLabelControl19.FieldBinding = null;
+            this.develoverLabelControl19.IsGUID = false;
+            this.develoverLabelControl19.Location = new System.Drawing.Point(5, 37);
+            this.develoverLabelControl19.Name = "develoverLabelControl19";
+            this.develoverLabelControl19.Size = new System.Drawing.Size(59, 13);
+            this.develoverLabelControl19.TabIndex = 14;
+            this.develoverLabelControl19.Text = "Số tài khoản";
+            this.develoverLabelControl19.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverGroupControl3
+            // 
+            this.develoverGroupControl3.Controls.Add(this.develoverTextEdit16);
+            this.develoverGroupControl3.Controls.Add(this.develoverLabelControl20);
+            this.develoverGroupControl3.Controls.Add(this.develoverTextEdit17);
+            this.develoverGroupControl3.Controls.Add(this.develoverLabelControl21);
+            this.develoverGroupControl3.Controls.Add(this.develoverTextEdit18);
+            this.develoverGroupControl3.Controls.Add(this.develoverLabelControl22);
+            this.develoverGroupControl3.Controls.Add(this.develoverTextEdit19);
+            this.develoverGroupControl3.Controls.Add(this.develoverLabelControl23);
+            this.develoverGroupControl3.FieldBinding = null;
+            this.develoverGroupControl3.IsGUID = false;
+            this.develoverGroupControl3.Location = new System.Drawing.Point(109, 158);
+            this.develoverGroupControl3.Name = "develoverGroupControl3";
+            this.develoverGroupControl3.Size = new System.Drawing.Size(527, 105);
+            this.develoverGroupControl3.TabIndex = 18;
+            this.develoverGroupControl3.Text = "Thông tin ngân hàng";
+            this.develoverGroupControl3.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit16
+            // 
+            this.develoverTextEdit16.FieldBinding = "Model";
+            this.develoverTextEdit16.IsGUID = false;
+            this.develoverTextEdit16.Location = new System.Drawing.Point(97, 74);
+            this.develoverTextEdit16.Name = "develoverTextEdit16";
+            this.develoverTextEdit16.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit16.TabIndex = 7;
+            this.develoverTextEdit16.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl20
+            // 
+            this.develoverLabelControl20.FieldBinding = null;
+            this.develoverLabelControl20.IsGUID = false;
+            this.develoverLabelControl20.Location = new System.Drawing.Point(5, 78);
+            this.develoverLabelControl20.Name = "develoverLabelControl20";
+            this.develoverLabelControl20.Size = new System.Drawing.Size(67, 13);
+            this.develoverLabelControl20.TabIndex = 14;
+            this.develoverLabelControl20.Text = "Tên chi nhánh";
+            this.develoverLabelControl20.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit17
+            // 
+            this.develoverTextEdit17.FieldBinding = "Model";
+            this.develoverTextEdit17.IsGUID = false;
+            this.develoverTextEdit17.Location = new System.Drawing.Point(97, 52);
+            this.develoverTextEdit17.Name = "develoverTextEdit17";
+            this.develoverTextEdit17.Size = new System.Drawing.Size(425, 20);
+            this.develoverTextEdit17.TabIndex = 7;
+            this.develoverTextEdit17.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl21
+            // 
+            this.develoverLabelControl21.FieldBinding = null;
+            this.develoverLabelControl21.IsGUID = false;
+            this.develoverLabelControl21.Location = new System.Drawing.Point(5, 57);
+            this.develoverLabelControl21.Name = "develoverLabelControl21";
+            this.develoverLabelControl21.Size = new System.Drawing.Size(72, 13);
+            this.develoverLabelControl21.TabIndex = 14;
+            this.develoverLabelControl21.Text = "Tên ngân hàng";
+            this.develoverLabelControl21.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit18
+            // 
+            this.develoverTextEdit18.FieldBinding = "Model";
+            this.develoverTextEdit18.IsGUID = false;
+            this.develoverTextEdit18.Location = new System.Drawing.Point(334, 30);
+            this.develoverTextEdit18.Name = "develoverTextEdit18";
+            this.develoverTextEdit18.Size = new System.Drawing.Size(188, 20);
+            this.develoverTextEdit18.TabIndex = 7;
+            this.develoverTextEdit18.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl22
+            // 
+            this.develoverLabelControl22.FieldBinding = null;
+            this.develoverLabelControl22.IsGUID = false;
+            this.develoverLabelControl22.Location = new System.Drawing.Point(242, 36);
+            this.develoverLabelControl22.Name = "develoverLabelControl22";
+            this.develoverLabelControl22.Size = new System.Drawing.Size(85, 13);
+            this.develoverLabelControl22.TabIndex = 14;
+            this.develoverLabelControl22.Text = "Tên chủ tài khoản";
+            this.develoverLabelControl22.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverTextEdit19
+            // 
+            this.develoverTextEdit19.FieldBinding = "Model";
+            this.develoverTextEdit19.IsGUID = false;
+            this.develoverTextEdit19.Location = new System.Drawing.Point(97, 30);
+            this.develoverTextEdit19.Name = "develoverTextEdit19";
+            this.develoverTextEdit19.Size = new System.Drawing.Size(141, 20);
+            this.develoverTextEdit19.TabIndex = 7;
+            this.develoverTextEdit19.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverLabelControl23
+            // 
+            this.develoverLabelControl23.FieldBinding = null;
+            this.develoverLabelControl23.IsGUID = false;
+            this.develoverLabelControl23.Location = new System.Drawing.Point(5, 37);
+            this.develoverLabelControl23.Name = "develoverLabelControl23";
+            this.develoverLabelControl23.Size = new System.Drawing.Size(59, 13);
+            this.develoverLabelControl23.TabIndex = 14;
+            this.develoverLabelControl23.Text = "Số tài khoản";
+            this.develoverLabelControl23.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // Vendor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 506);
-            this.Controls.Add(this.gro_content);
-            this.Controls.Add(this.barDockControlLeft);
-            this.Controls.Add(this.barDockControlRight);
-            this.Controls.Add(this.barDockControlBottom);
-            this.Controls.Add(this.barDockControlTop);
+            this.ClientSize = new System.Drawing.Size(970, 563);
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("Vendor.IconOptions.SvgImage")));
             this.Name = "Vendor";
-            this.Text = "Vendor";
-            ((System.ComponentModel.ISupportInitialize)(this.gro_content)).EndInit();
-            this.gro_content.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_information)).EndInit();
-            this.gro_information.ResumeLayout(false);
+            this.Text = "Vender";
+            this.Load += new System.EventHandler(this.Product_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).EndInit();
-            this.tab_information.ResumeLayout(false);
-            this.tbp_note.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_note)).EndInit();
-            this.gro_note.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grc_note)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_note)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.brm_form)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_detail_note)).EndInit();
-            this.gro_detail_note.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mmo_note.Properties)).EndInit();
-            this.tbp_general.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gro_general)).EndInit();
             this.gro_general.ResumeLayout(false);
             this.gro_general.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_qrcode)).EndInit();
-            this.gro_qrcode.ResumeLayout(false);
-            this.gro_qrcode.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_picture.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mmo_details.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_sevice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_active.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_unit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_category.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_model.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_link.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_description.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_origin.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_product.Properties)).EndInit();
-            this.tbp_details.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_details)).EndInit();
-            this.gro_details.ResumeLayout(false);
-            this.gro_details.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_accounting)).EndInit();
-            this.gro_accounting.ResumeLayout(false);
-            this.gro_accounting.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_cost_of_goods_sold.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_raw_materials.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_account_sales.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_inventory)).EndInit();
-            this.gro_inventory.ResumeLayout(false);
-            this.gro_inventory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_size_weigth)).EndInit();
-            this.gro_size_weigth.ResumeLayout(false);
-            this.gro_size_weigth.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_width.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_unit_size.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_weight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_length.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_unit_weight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_height.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_minimum_quantity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lok_ware_house.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_maximum_quantity.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit8.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_alter_note.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_sku.Properties)).EndInit();
-            this.tbp_substitute.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_substitute)).EndInit();
-            this.gro_substitute.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grc_substitute)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_substitute)).EndInit();
-            this.tbp_customer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_customer)).EndInit();
-            this.gro_customer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grc_customer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_search)).EndInit();
-            this.gro_search.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_search_middle_1)).EndInit();
-            this.gro_search_middle_1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grc_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_search_middle_2)).EndInit();
-            this.gro_search_middle_2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_picture_search.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_sreach_bottom)).EndInit();
-            this.gro_sreach_bottom.ResumeLayout(false);
-            this.gro_sreach_bottom.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chk_show_pricture.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_search_top)).EndInit();
-            this.gro_search_top.ResumeLayout(false);
-            this.gro_search_top.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVenderName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txt_sku.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOrigin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groInfoBank)).EndInit();
+            this.groInfoBank.ResumeLayout(false);
+            this.groInfoBank.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl1)).EndInit();
+            this.develoverGroupControl1.ResumeLayout(false);
+            this.develoverGroupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit9.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit10.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit11.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverMemoEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl2)).EndInit();
+            this.develoverGroupControl2.ResumeLayout(false);
+            this.develoverGroupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit12.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit13.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit14.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit15.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl3)).EndInit();
+            this.develoverGroupControl3.ResumeLayout(false);
+            this.develoverGroupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit16.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit17.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit18.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverTextEdit19.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private Develover.GUI.Controls.DeveloverGroupControl gro_content;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_information;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_search;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.BarDockControl barDockControlTop;
-        private DevExpress.XtraBars.BarManager brm_form;
-        private DevExpress.XtraBars.Bar bar_tools;
-        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
-        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
-        private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarButtonItem but_item_new;
-        private DevExpress.XtraBars.BarButtonItem but_item_edit;
-        private Develover.GUI.Controls.DeveloverSplitterControl develoverSplitterControl1;
-        private Develover.GUI.Controls.DeveloverXtraTabControl tab_information;
-        private DevExpress.XtraTab.XtraTabPage tbp_general;
-        private DevExpress.XtraTab.XtraTabPage tbp_details;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_general;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_search_middle_1;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_search_middle_2;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_sreach_bottom;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_search_top;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_details;
-        private DevExpress.XtraTab.XtraTabPage tbp_substitute;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_substitute;
-        private DevExpress.XtraTab.XtraTabPage tbp_customer;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_customer;
-        private DevExpress.XtraTab.XtraTabPage tbp_note;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_note;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_model;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_description;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_product;
-        private Develover.GUI.Controls.DeveloverPictureEdit pic_picture;
-        private Develover.GUI.Controls.DeveloverMemoEdit mmo_details;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_unit;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_category;
-        private DevExpress.XtraGrid.Views.Grid.GridView develoverGridLookUpEdit1View;
-        private Develover.GUI.Controls.DeveloverCheckEdit chk_sevice;
-        private Develover.GUI.Controls.DeveloverCheckEdit chk_active;
-        private Develover.GUI.Controls.DeveloverBarCodeControl brc_qrcode;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_available_search;
-        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl8;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_details;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_category;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_unit;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_search;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_model;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_description;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_qrcode;
-        private Develover.GUI.Controls.DeveloverSimpleButton but_view;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_active;
-        private Develover.GUI.Controls.DeveloverCheckEdit chk_show_pricture;
-        private Develover.GUI.Controls.DeveloverSimpleButton develoverSimpleButton2;
-        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit4;
-        private Develover.GUI.Controls.DeveloverPictureEdit pic_picture_search;
-        private Develover.GUI.Controls.DeveloverGridControl grc_search;
-        private DevExpress.XtraGrid.Views.Grid.GridView grv_search;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_product;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_orgin;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_origin;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_link;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_link;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_inventory;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_size_weigth;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_width;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_unit_size;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_weight;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_length;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_unit_weight;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_height;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_ware_house;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_available;
-        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit8;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_account_sales;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_alter_note;
-        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit7;
+        private Develover.GUI.Controls.DeveloverCheckEdit chkActive;
+        private Develover.GUI.Controls.DeveloverMemoEdit memDescription;
+        private Develover.GUI.Controls.DeveloverLabelControl labDescription;
+        private Develover.GUI.Controls.DeveloverLabelControl labOrigin;
+        private Develover.GUI.Controls.DeveloverLabelControl labVender;
+        private Develover.GUI.Controls.DeveloverTextEdit txtVenderName;
+        private Develover.GUI.Controls.DeveloverLabelControl labSKU;
         private Develover.GUI.Controls.DeveloverTextEdit txt_sku;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_accounting;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_raw_materials;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_average_price;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_latest_purchase_price;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_defaul_ware_house;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_alter_note;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_sku;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_account_raw_materials;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_account_sales;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_unit_size;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_height;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_unit_weight;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_weight;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_widght;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_length;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_minimum_quantity;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_maximun_quantity;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_minimum_quantity;
-        private Develover.GUI.Controls.DeveloverTextEdit txt_maximum_quantity;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_account_cost_of_goods_sold;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lok_cost_of_goods_sold;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
-        private Develover.GUI.Controls.DeveloverGridControl develoverGridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView8;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_quantity_in_ware_house;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_latest_purchase_price_;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_average_price_;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_available_;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_active_;
-        private Develover.GUI.Controls.DeveloverLabelControl lab_available_search_;
-        private Develover.GUI.Controls.DeveloverGridControl grc_substitute;
-        private DevExpress.XtraGrid.Views.Grid.GridView grv_substitute;
-        private DevExpress.XtraBars.Bar bar1;
-        private Develover.GUI.Controls.DeveloverSimpleButton but_delete;
-        private Develover.GUI.Controls.DeveloverSimpleButton but_add;
-        private Develover.GUI.Controls.DeveloverGridControl grc_customer;
-        private DevExpress.XtraGrid.Views.Grid.GridView grv_customer;
-        private Develover.GUI.Controls.DeveloverGridControl grc_note;
-        private DevExpress.XtraGrid.Views.Grid.GridView grv_note;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_detail_note;
-        private Develover.GUI.Controls.DeveloverMemoEdit mmo_note;
-        private Develover.GUI.Controls.DeveloverSimpleButton but_delete_note;
-        private Develover.GUI.Controls.DeveloverSimpleButton but_add_note;
-        private DevExpress.XtraBars.BarButtonItem but_item_cancel;
-        private DevExpress.XtraBars.BarButtonItem but_item_delete;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
-        private Develover.GUI.Controls.DeveloverGroupControl gro_qrcode;
+        private Develover.GUI.Controls.DeveloverTextEdit txtOrigin;
+        private Develover.GUI.Controls.DeveloverGroupControl groInfoBank;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit1;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl1;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl3;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl2;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl4;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit3;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit2;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit4;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl5;
+        private Develover.GUI.Controls.DeveloverMemoEdit develoverMemoEdit1;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit7;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl8;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit6;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl7;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit5;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl6;
+        private Develover.GUI.Controls.DeveloverGroupControl develoverGroupControl3;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit16;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl20;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit17;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl21;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit18;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl22;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit19;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl23;
+        private Develover.GUI.Controls.DeveloverGroupControl develoverGroupControl2;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit12;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl16;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit13;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl17;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit14;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl18;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit15;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl19;
+        private Develover.GUI.Controls.DeveloverGroupControl develoverGroupControl1;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit8;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl10;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit9;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl11;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit10;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl12;
+        private Develover.GUI.Controls.DeveloverTextEdit develoverTextEdit11;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl13;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl15;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl9;
+        private Develover.GUI.Controls.DeveloverLabelControl develoverLabelControl14;
+        private Develover.GUI.Controls.DeveloverMemoEdit develoverMemoEdit4;
+        private Develover.GUI.Controls.DeveloverMemoEdit develoverMemoEdit2;
+        private Develover.GUI.Controls.DeveloverMemoEdit develoverMemoEdit3;
     }
 }

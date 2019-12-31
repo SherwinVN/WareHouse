@@ -126,7 +126,18 @@ namespace DeveloverWarehouse
                     case Keys.F11:
                         WindowState = WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
                         break;
+                    case Keys.W: {
 
+                            if (Form.ModifierKeys == Keys.Control)
+                            {
+                                if (MdiChildren.Length > 0)
+                                {
+                                    tabbedMdiManager.ActiveFloatForm.Close();
+                                }
+                                else { Application.Exit(); }
+                            }
+                        }
+                        break;
                 }
 
             }
@@ -183,6 +194,11 @@ namespace DeveloverWarehouse
         }
 
         private void _010600_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ExitApplications();
+        }
+
+        private void ExitApplications()
         {
             if (MdiChildren.Length > 0)
             {
