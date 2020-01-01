@@ -36,8 +36,8 @@ namespace Develover.GUI.RepositoryItems
             ShowPopupShadow = true;
             AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             ValidateOnEnterKey = true;
-            //Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
-            //Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
+            Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
+            Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
         }
                
         protected override ColumnView CreateViewInstance()
