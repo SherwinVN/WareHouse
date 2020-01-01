@@ -373,43 +373,43 @@ namespace Develover.GUI.Forms
 
         protected virtual bool BarButtonNew_Click()
         {
-            if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
-            {
+            //if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
+            //{
 
-                if (CheckEmty(ControlCheckEmty))
-                {
-                    DelMessageBox.DelMessageBoxOk(StringMessage.CompelInput);
-                    return false;
-                }
-                if (EnumPermission.New == StatusUse)
-                {
-                    if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary))
-                    {
-                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
-                        return false;
-                    }
-                    CodePrimary = functionsGUIService.GetGUID();
+            //    if (CheckEmty(ControlCheckEmty))
+            //    {
+            //        DelMessageBox.DelMessageBoxOk(StringMessage.CompelInput);
+            //        return false;
+            //    }
+            //    if (EnumPermission.New == StatusUse)
+            //    {
+            //        if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary))
+            //        {
+            //            DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+            //            return false;
+            //        }
+            //        CodePrimary = functionsGUIService.GetGUID();
 
-                    functionsGUIService.InsertIntoTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-                    LoadData();
-                }
-                else
-                if (EnumPermission.Edit == StatusUse)
-                {
-                    if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary, CodePrimary))
-                    {
-                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
-                        return false;
-                    }
-                    functionsGUIService.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-                    LoadData();
-                }
-            }
-            else
-            {
-                SetNullControl(gro_general);
-                ((Control)DeveloverControlsFocus).Focus();
-            }
+            //        functionsGUIService.InsertIntoTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
+            //        LoadData();
+            //    }
+            //    else
+            //    if (EnumPermission.Edit == StatusUse)
+            //    {
+            //        if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary, CodePrimary))
+            //        {
+            //            DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+            //            return false;
+            //        }
+            //        functionsGUIService.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
+            //        LoadData();
+            //    }
+            //}
+            //else
+            //{
+            //    SetNullControl(gro_general);
+            //    ((Control)DeveloverControlsFocus).Focus();
+            //}
             return true;
         }
 
@@ -428,11 +428,11 @@ namespace Develover.GUI.Forms
         {
             if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionDelete, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                functionsGUIService.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
+              //  functionsGUIService.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
                 SetNullControl(gro_general);
                 LoadData();
-                if (grv_search.RowCount > 0)
-                    CodePrimary = grv_search.GetRowCellValue(0, NameFieldCodePrimary)?.ToString();
+                //if (grv_search.RowCount > 0)
+                //    CodePrimary = grv_search.GetRowCellValue(0, NameFieldCodePrimary)?.ToString();
             }
 
             return true;
@@ -477,7 +477,7 @@ namespace Develover.GUI.Forms
                     break;
                 case EnumPermission.View:
                     {
-                        if (String.IsNullOrEmpty(CodePrimary))
+                        if (String.IsNullOrEmpty(VoucherID))
                         {
                             barButtonEdit.Enabled = false;
                             barButtonDelete.Enabled = false;
@@ -526,16 +526,17 @@ namespace Develover.GUI.Forms
 
         protected virtual void InitForm()
         {
-            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
-            {
-                foreach (DataRow dr in data.Rows)
-                {
-                    Text = dr["Name"].ToString().ToUpper();
-                    Table = dr["TableHeader"].ToString();
-                    ModelName = dr["ModelName"].ToString();
-                }
-            }
-            grc_search.BuildGridControlsView(SQLDataSourceSearch, ModelName);
+            //using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,TableDeail,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
+            //{
+            //    foreach (DataRow dr in data.Rows)
+            //    {
+            //        Text = dr["Name"].ToString().ToUpper();
+            //        TableTH = dr["TableHeader"].ToString();
+            //        TableCT = dr["TableDeail"].ToString();
+            //        ModelName = dr["ModelName"].ToString();
+            //    }
+            //}
+           // grc_search.BuildGridControlsView(SQLDataSourceSearch, ModelName);
             LoadData();
             SetEnableBarButton();
             LoadDataControls();
@@ -544,20 +545,20 @@ namespace Develover.GUI.Forms
 
         protected virtual void LoadData()
         {
-            string code = CodePrimary;
+            string code = VoucherID;
             grc_search.LoadData();
             ClearDataBindingsControl(gro_general);
             DataBindingsControl(gro_general, grc_search.DataSource);
-            if (grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code) >= 0)
-            {
-                grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code);
-                grv_search.ClearSelection();
-                grv_search.SelectRow(grv_search.FocusedRowHandle);
-            }
-            else
-            {
-                grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], CodePrimary);
-            }
+            //if (grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code) >= 0)
+            //{
+            //    grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code);
+            //    grv_search.ClearSelection();
+            //    grv_search.SelectRow(grv_search.FocusedRowHandle);
+            //}
+            //else
+            //{
+            //    grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], CodePrimary);
+            //}
         }
 
         protected virtual void LoadDataControls()
@@ -588,7 +589,7 @@ namespace Develover.GUI.Forms
         private void BarButtonEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!CheckEdit()) return;
-            if (string.IsNullOrEmpty(CodePrimary)) return;
+            if (string.IsNullOrEmpty(VoucherID)) return;
             ClearDataBindingsControl(gro_general);
             ((Control)DeveloverControlsFocus).Focus();
             if (!BarButtonEdit_Click()) return;
@@ -607,7 +608,7 @@ namespace Develover.GUI.Forms
         private void BarButtonDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!CheckDelete()) return;
-            if (string.IsNullOrEmpty(CodePrimary)) return;
+            if (string.IsNullOrEmpty(VoucherID)) return;
             if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit) return;
             if (!BarButtonDelete_Click()) return;
             StatusUse = EnumPermission.Delete;
@@ -617,7 +618,7 @@ namespace Develover.GUI.Forms
         private void barButtonPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!CheckPrint()) return;
-            if (string.IsNullOrEmpty(CodePrimary)) return;
+            if (string.IsNullOrEmpty(VoucherID)) return;
             if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit) return;
             if (!BarButtonPrint_Click()) return;
             StatusUse = EnumPermission.Print;
@@ -629,7 +630,7 @@ namespace Develover.GUI.Forms
             if (EnumPermission.Edit == StatusUse) return;
             if (EnumPermission.New == StatusUse) return;
 
-            CodePrimary = ((GridView)sender).GetFocusedRowCellValue(((GridView)sender).Columns[NameFieldCodePrimary])?.ToString();
+         //   CodePrimary = ((GridView)sender).GetFocusedRowCellValue(((GridView)sender).Columns[NameFieldCodePrimary])?.ToString();
 
         }
 
