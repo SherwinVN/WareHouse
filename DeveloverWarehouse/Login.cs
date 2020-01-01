@@ -13,6 +13,7 @@ using Develover.Utilities;
 using DevExpress.XtraSplashScreen;
 using Develover.GUI.Forms;
 using Develover.GUI;
+using DeveloverWarehouse.Modules.File;
 
 namespace DeveloverWarehouse
 {

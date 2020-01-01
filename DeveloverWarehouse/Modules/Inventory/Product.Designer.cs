@@ -98,7 +98,7 @@
             // 
             // tab_information
             // 
-            this.tab_information.Size = new System.Drawing.Size(764, 423);
+            this.tab_information.Size = new System.Drawing.Size(643, 423);
             // 
             // gro_general
             // 
@@ -117,36 +117,36 @@
             this.gro_general.Controls.Add(this.labUOM);
             this.gro_general.Controls.Add(this.chkActive);
             this.gro_general.Controls.Add(this.memDescription);
-            this.gro_general.Size = new System.Drawing.Size(762, 391);
+            this.gro_general.Size = new System.Drawing.Size(641, 391);
             // 
             // develoverSplitterControl1
             // 
-            this.develoverSplitterControl1.Location = new System.Drawing.Point(190, 2);
+            this.develoverSplitterControl1.Location = new System.Drawing.Point(311, 2);
             this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 427);
             // 
             // gro_search
             // 
-            this.gro_search.Size = new System.Drawing.Size(188, 427);
+            this.gro_search.Size = new System.Drawing.Size(309, 427);
             // 
             // memDescription
             // 
             this.memDescription.FieldBinding = "Description";
             this.memDescription.IsGUID = false;
-            this.memDescription.Location = new System.Drawing.Point(85, 188);
+            this.memDescription.Location = new System.Drawing.Point(85, 195);
             this.memDescription.Name = "memDescription";
             this.memDescription.Size = new System.Drawing.Size(546, 87);
-            this.memDescription.TabIndex = 1;
+            this.memDescription.TabIndex = 5;
             this.memDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
             // chkActive
             // 
             this.chkActive.FieldBinding = "Active";
             this.chkActive.IsGUID = false;
-            this.chkActive.Location = new System.Drawing.Point(85, 281);
+            this.chkActive.Location = new System.Drawing.Point(85, 288);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Caption = "Trạng thái sử dụng";
             this.chkActive.Size = new System.Drawing.Size(284, 20);
-            this.chkActive.TabIndex = 2;
+            this.chkActive.TabIndex = 6;
             this.chkActive.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Check;
             // 
             // labUOM
@@ -156,7 +156,7 @@
             this.labUOM.Location = new System.Drawing.Point(5, 41);
             this.labUOM.Name = "labUOM";
             this.labUOM.Size = new System.Drawing.Size(71, 13);
-            this.labUOM.TabIndex = 3;
+            this.labUOM.TabIndex = 8;
             this.labUOM.Text = "Tên đơn vị tính";
             this.labUOM.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -164,10 +164,10 @@
             // 
             this.labDescription.FieldBinding = null;
             this.labDescription.IsGUID = false;
-            this.labDescription.Location = new System.Drawing.Point(12, 190);
+            this.labDescription.Location = new System.Drawing.Point(12, 197);
             this.labDescription.Name = "labDescription";
             this.labDescription.Size = new System.Drawing.Size(45, 13);
-            this.labDescription.TabIndex = 4;
+            this.labDescription.TabIndex = 10;
             this.labDescription.Text = "Chú thích";
             this.labDescription.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -178,7 +178,7 @@
             this.labOrigin.Location = new System.Drawing.Point(405, 41);
             this.labOrigin.Name = "labOrigin";
             this.labOrigin.Size = new System.Drawing.Size(38, 13);
-            this.labOrigin.TabIndex = 11;
+            this.labOrigin.TabIndex = 13;
             this.labOrigin.Text = "Xuất xứ";
             this.labOrigin.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -189,7 +189,7 @@
             this.labProductName.Location = new System.Drawing.Point(5, 14);
             this.labProductName.Name = "labProductName";
             this.labProductName.Size = new System.Drawing.Size(67, 13);
-            this.labProductName.TabIndex = 12;
+            this.labProductName.TabIndex = 7;
             this.labProductName.Text = "Tên sản phẩm";
             this.labProductName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -200,12 +200,13 @@
             this.labModel.Location = new System.Drawing.Point(405, 14);
             this.labModel.Name = "labModel";
             this.labModel.Size = new System.Drawing.Size(43, 13);
-            this.labModel.TabIndex = 14;
+            this.labModel.TabIndex = 12;
             this.labModel.Text = "Kiểu mẫu";
             this.labModel.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // lokUOM
             // 
+            this.lokUOM.EditValue = "dada";
             this.lokUOM.EnterMoveNextControl = true;
             this.lokUOM.FieldBinding = "UOMID";
             this.lokUOM.IsGUID = true;
@@ -216,7 +217,7 @@
             this.lokUOM.Properties.NullText = "";
             this.lokUOM.Properties.PopupView = this.gridView1;
             this.lokUOM.Size = new System.Drawing.Size(122, 20);
-            this.lokUOM.TabIndex = 10;
+            this.lokUOM.TabIndex = 1;
             this.lokUOM.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
             // 
             // gridView1
@@ -233,7 +234,7 @@
             this.txtModel.Location = new System.Drawing.Point(469, 14);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(162, 20);
-            this.txtModel.TabIndex = 7;
+            this.txtModel.TabIndex = 3;
             this.txtModel.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
             // txtProductName
@@ -243,7 +244,7 @@
             this.txtProductName.Location = new System.Drawing.Point(85, 14);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(308, 20);
-            this.txtProductName.TabIndex = 9;
+            this.txtProductName.TabIndex = 0;
             this.txtProductName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
             // gro_size_weigth
@@ -264,8 +265,8 @@
             this.gro_size_weigth.IsGUID = false;
             this.gro_size_weigth.Location = new System.Drawing.Point(5, 63);
             this.gro_size_weigth.Name = "gro_size_weigth";
-            this.gro_size_weigth.Size = new System.Drawing.Size(340, 119);
-            this.gro_size_weigth.TabIndex = 15;
+            this.gro_size_weigth.Size = new System.Drawing.Size(340, 129);
+            this.gro_size_weigth.TabIndex = 9;
             this.gro_size_weigth.Text = "Kích thước & cân nặng";
             this.gro_size_weigth.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -273,10 +274,10 @@
             // 
             this.labUOMSize.FieldBinding = null;
             this.labUOMSize.IsGUID = false;
-            this.labUOMSize.Location = new System.Drawing.Point(7, 30);
+            this.labUOMSize.Location = new System.Drawing.Point(7, 35);
             this.labUOMSize.Name = "labUOMSize";
             this.labUOMSize.Size = new System.Drawing.Size(83, 13);
-            this.labUOMSize.TabIndex = 12;
+            this.labUOMSize.TabIndex = 6;
             this.labUOMSize.Text = "Đơn vị kích thước";
             this.labUOMSize.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -284,10 +285,10 @@
             // 
             this.lab_height.FieldBinding = null;
             this.lab_height.IsGUID = false;
-            this.lab_height.Location = new System.Drawing.Point(230, 72);
+            this.lab_height.Location = new System.Drawing.Point(230, 77);
             this.lab_height.Name = "lab_height";
             this.lab_height.Size = new System.Drawing.Size(19, 13);
-            this.lab_height.TabIndex = 12;
+            this.lab_height.TabIndex = 10;
             this.lab_height.Text = "Cao";
             this.lab_height.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -295,10 +296,10 @@
             // 
             this.lab_widght.FieldBinding = null;
             this.lab_widght.IsGUID = false;
-            this.lab_widght.Location = new System.Drawing.Point(230, 50);
+            this.lab_widght.Location = new System.Drawing.Point(230, 55);
             this.lab_widght.Name = "lab_widght";
             this.lab_widght.Size = new System.Drawing.Size(25, 13);
-            this.lab_widght.TabIndex = 12;
+            this.lab_widght.TabIndex = 9;
             this.lab_widght.Text = "Rộng";
             this.lab_widght.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -306,10 +307,10 @@
             // 
             this.labUOMWeight.FieldBinding = null;
             this.labUOMWeight.IsGUID = false;
-            this.labUOMWeight.Location = new System.Drawing.Point(7, 95);
+            this.labUOMWeight.Location = new System.Drawing.Point(7, 100);
             this.labUOMWeight.Name = "labUOMWeight";
             this.labUOMWeight.Size = new System.Drawing.Size(78, 13);
-            this.labUOMWeight.TabIndex = 12;
+            this.labUOMWeight.TabIndex = 7;
             this.labUOMWeight.Text = "Đơn vị cân nặng";
             this.labUOMWeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -317,10 +318,10 @@
             // 
             this.lab_length.FieldBinding = null;
             this.lab_length.IsGUID = false;
-            this.lab_length.Location = new System.Drawing.Point(230, 33);
+            this.lab_length.Location = new System.Drawing.Point(230, 38);
             this.lab_length.Name = "lab_length";
             this.lab_length.Size = new System.Drawing.Size(15, 13);
-            this.lab_length.TabIndex = 12;
+            this.lab_length.TabIndex = 8;
             this.lab_length.Text = "Dài";
             this.lab_length.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -328,22 +329,22 @@
             // 
             this.txtWidth.FieldBinding = "Width";
             this.txtWidth.IsGUID = false;
-            this.txtWidth.Location = new System.Drawing.Point(259, 50);
+            this.txtWidth.Location = new System.Drawing.Point(259, 55);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtWidth.Properties.NullText = "0";
             this.txtWidth.Size = new System.Drawing.Size(63, 20);
-            this.txtWidth.TabIndex = 7;
+            this.txtWidth.TabIndex = 2;
             this.txtWidth.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Number;
             // 
             // labWeight
             // 
             this.labWeight.FieldBinding = null;
             this.labWeight.IsGUID = false;
-            this.labWeight.Location = new System.Drawing.Point(195, 95);
+            this.labWeight.Location = new System.Drawing.Point(195, 100);
             this.labWeight.Name = "labWeight";
             this.labWeight.Size = new System.Drawing.Size(50, 13);
-            this.labWeight.TabIndex = 12;
+            this.labWeight.TabIndex = 11;
             this.labWeight.Text = "Khối lượng";
             this.labWeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -352,14 +353,14 @@
             this.lokUOMSize.EnterMoveNextControl = true;
             this.lokUOMSize.FieldBinding = "UOMSize";
             this.lokUOMSize.IsGUID = true;
-            this.lokUOMSize.Location = new System.Drawing.Point(96, 26);
+            this.lokUOMSize.Location = new System.Drawing.Point(96, 31);
             this.lokUOMSize.Name = "lokUOMSize";
             this.lokUOMSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokUOMSize.Properties.NullText = "";
             this.lokUOMSize.Properties.PopupView = this.gridView4;
             this.lokUOMSize.Size = new System.Drawing.Size(126, 20);
-            this.lokUOMSize.TabIndex = 9;
+            this.lokUOMSize.TabIndex = 0;
             this.lokUOMSize.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
             // 
             // gridView4
@@ -373,39 +374,39 @@
             // 
             this.txtWeight.FieldBinding = "Weight";
             this.txtWeight.IsGUID = false;
-            this.txtWeight.Location = new System.Drawing.Point(259, 95);
+            this.txtWeight.Location = new System.Drawing.Point(259, 100);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtWeight.Properties.NullText = "0";
             this.txtWeight.Size = new System.Drawing.Size(63, 20);
-            this.txtWeight.TabIndex = 7;
+            this.txtWeight.TabIndex = 5;
             this.txtWeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Number;
             // 
             // txtLength
             // 
             this.txtLength.FieldBinding = "Length";
             this.txtLength.IsGUID = false;
-            this.txtLength.Location = new System.Drawing.Point(259, 27);
+            this.txtLength.Location = new System.Drawing.Point(259, 32);
             this.txtLength.Name = "txtLength";
             this.txtLength.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtLength.Properties.NullText = "0";
             this.txtLength.Size = new System.Drawing.Size(63, 20);
-            this.txtLength.TabIndex = 7;
+            this.txtLength.TabIndex = 1;
             this.txtLength.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Number;
             // 
             // lokUOMWeight
             // 
             this.lokUOMWeight.EnterMoveNextControl = true;
             this.lokUOMWeight.FieldBinding = "UOMWeight";
-            this.lokUOMWeight.IsGUID = false;
-            this.lokUOMWeight.Location = new System.Drawing.Point(96, 95);
+            this.lokUOMWeight.IsGUID = true;
+            this.lokUOMWeight.Location = new System.Drawing.Point(96, 100);
             this.lokUOMWeight.Name = "lokUOMWeight";
             this.lokUOMWeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokUOMWeight.Properties.NullText = "";
             this.lokUOMWeight.Properties.PopupView = this.gridView3;
             this.lokUOMWeight.Size = new System.Drawing.Size(93, 20);
-            this.lokUOMWeight.TabIndex = 9;
+            this.lokUOMWeight.TabIndex = 4;
             this.lokUOMWeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
             // 
             // gridView3
@@ -419,12 +420,12 @@
             // 
             this.txtHeight.FieldBinding = "Height";
             this.txtHeight.IsGUID = false;
-            this.txtHeight.Location = new System.Drawing.Point(259, 72);
+            this.txtHeight.Location = new System.Drawing.Point(259, 77);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtHeight.Properties.NullText = "0";
             this.txtHeight.Size = new System.Drawing.Size(63, 20);
-            this.txtHeight.TabIndex = 7;
+            this.txtHeight.TabIndex = 3;
             this.txtHeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Number;
             // 
             // labSKU
@@ -434,7 +435,7 @@
             this.labSKU.Location = new System.Drawing.Point(213, 41);
             this.labSKU.Name = "labSKU";
             this.labSKU.Size = new System.Drawing.Size(19, 13);
-            this.labSKU.TabIndex = 17;
+            this.labSKU.TabIndex = 11;
             this.labSKU.Text = "SKU";
             this.labSKU.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -445,7 +446,7 @@
             this.txt_sku.Location = new System.Drawing.Point(251, 37);
             this.txt_sku.Name = "txt_sku";
             this.txt_sku.Size = new System.Drawing.Size(142, 20);
-            this.txt_sku.TabIndex = 16;
+            this.txt_sku.TabIndex = 2;
             this.txt_sku.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
             // groInventory
@@ -460,8 +461,8 @@
             this.groInventory.IsGUID = false;
             this.groInventory.Location = new System.Drawing.Point(351, 63);
             this.groInventory.Name = "groInventory";
-            this.groInventory.Size = new System.Drawing.Size(280, 119);
-            this.groInventory.TabIndex = 18;
+            this.groInventory.Size = new System.Drawing.Size(280, 129);
+            this.groInventory.TabIndex = 14;
             this.groInventory.Text = "Kho";
             this.groInventory.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -469,10 +470,10 @@
             // 
             this.labMinimumQuantity.FieldBinding = null;
             this.labMinimumQuantity.IsGUID = false;
-            this.labMinimumQuantity.Location = new System.Drawing.Point(10, 33);
+            this.labMinimumQuantity.Location = new System.Drawing.Point(6, 38);
             this.labMinimumQuantity.Name = "labMinimumQuantity";
             this.labMinimumQuantity.Size = new System.Drawing.Size(64, 13);
-            this.labMinimumQuantity.TabIndex = 21;
+            this.labMinimumQuantity.TabIndex = 3;
             this.labMinimumQuantity.Text = "Số lượng MIN";
             this.labMinimumQuantity.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -480,10 +481,10 @@
             // 
             this.labMaximunQuantity.FieldBinding = null;
             this.labMaximunQuantity.IsGUID = false;
-            this.labMaximunQuantity.Location = new System.Drawing.Point(10, 53);
+            this.labMaximunQuantity.Location = new System.Drawing.Point(6, 58);
             this.labMaximunQuantity.Name = "labMaximunQuantity";
             this.labMaximunQuantity.Size = new System.Drawing.Size(66, 13);
-            this.labMaximunQuantity.TabIndex = 22;
+            this.labMaximunQuantity.TabIndex = 4;
             this.labMaximunQuantity.Text = "Số lượng MAX";
             this.labMaximunQuantity.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -491,24 +492,24 @@
             // 
             this.txtMinimumQuantity.FieldBinding = "QualityMin";
             this.txtMinimumQuantity.IsGUID = false;
-            this.txtMinimumQuantity.Location = new System.Drawing.Point(80, 27);
+            this.txtMinimumQuantity.Location = new System.Drawing.Point(76, 32);
             this.txtMinimumQuantity.Name = "txtMinimumQuantity";
             this.txtMinimumQuantity.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtMinimumQuantity.Properties.NullText = "0";
             this.txtMinimumQuantity.Size = new System.Drawing.Size(61, 20);
-            this.txtMinimumQuantity.TabIndex = 19;
+            this.txtMinimumQuantity.TabIndex = 0;
             this.txtMinimumQuantity.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Number;
             // 
             // txtMaximunQuantity
             // 
             this.txtMaximunQuantity.FieldBinding = "QualityMax";
             this.txtMaximunQuantity.IsGUID = false;
-            this.txtMaximunQuantity.Location = new System.Drawing.Point(80, 50);
+            this.txtMaximunQuantity.Location = new System.Drawing.Point(76, 55);
             this.txtMaximunQuantity.Name = "txtMaximunQuantity";
             this.txtMaximunQuantity.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
             this.txtMaximunQuantity.Properties.NullText = "0";
             this.txtMaximunQuantity.Size = new System.Drawing.Size(61, 20);
-            this.txtMaximunQuantity.TabIndex = 20;
+            this.txtMaximunQuantity.TabIndex = 1;
             this.txtMaximunQuantity.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Number;
             // 
             // lokLocationDefault
@@ -516,14 +517,14 @@
             this.lokLocationDefault.EnterMoveNextControl = true;
             this.lokLocationDefault.FieldBinding = "LocationID";
             this.lokLocationDefault.IsGUID = true;
-            this.lokLocationDefault.Location = new System.Drawing.Point(80, 73);
+            this.lokLocationDefault.Location = new System.Drawing.Point(76, 78);
             this.lokLocationDefault.Name = "lokLocationDefault";
             this.lokLocationDefault.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokLocationDefault.Properties.NullText = "";
             this.lokLocationDefault.Properties.PopupView = this.gridView2;
             this.lokLocationDefault.Size = new System.Drawing.Size(195, 20);
-            this.lokLocationDefault.TabIndex = 10;
+            this.lokLocationDefault.TabIndex = 2;
             this.lokLocationDefault.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
             // 
             // gridView2
@@ -537,10 +538,10 @@
             // 
             this.labLocationDefault.FieldBinding = null;
             this.labLocationDefault.IsGUID = false;
-            this.labLocationDefault.Location = new System.Drawing.Point(10, 73);
+            this.labLocationDefault.Location = new System.Drawing.Point(6, 78);
             this.labLocationDefault.Name = "labLocationDefault";
             this.labLocationDefault.Size = new System.Drawing.Size(63, 13);
-            this.labLocationDefault.TabIndex = 3;
+            this.labLocationDefault.TabIndex = 5;
             this.labLocationDefault.Text = "Kho mặc định";
             this.labLocationDefault.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
@@ -551,7 +552,7 @@
             this.txtOrigin.Location = new System.Drawing.Point(469, 36);
             this.txtOrigin.Name = "txtOrigin";
             this.txtOrigin.Size = new System.Drawing.Size(162, 20);
-            this.txtOrigin.TabIndex = 7;
+            this.txtOrigin.TabIndex = 4;
             this.txtOrigin.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
             // 
             // Product

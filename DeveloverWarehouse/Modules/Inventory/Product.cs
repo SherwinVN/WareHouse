@@ -22,17 +22,17 @@ namespace DeveloverWarehouse.Modules.Inventory
             CodeVoucher = "PRODUCT";        
             NameFieldCodePrimary = "ProductID";
             ControlCheckDuplicate = new IDeveloverControl[] { txtProductName };
-            ControlCheckEmty = new IDeveloverControl[] { txtProductName,lokUOM };
+            ControlCheckEmty = new IDeveloverControl[] { txtProductName };
             DeveloverControlsFocus = txtProductName;
         }
 
         private void Product_Load(object sender, EventArgs e)
         {
             InitForm();
-            lokLocationDefault.LoadData("SELECT * FROM Location ORDER BY LocationID", "Location", "LocationID", "LocationID", "LocationName", "");
-            lokUOM.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
-            lokUOMSize.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
-            lokUOMWeight.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
+            //lokLocationDefault.LoadData("SELECT * FROM Location ORDER BY LocationID", "Location", "LocationID", "LocationID", "LocationName", "");
+            //lokUOM.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
+            //lokUOMSize.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
+            //lokUOMWeight.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
             
         }
     }

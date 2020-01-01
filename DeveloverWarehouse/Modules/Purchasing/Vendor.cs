@@ -21,9 +21,9 @@ namespace DeveloverWarehouse.Modules.Purchasing
             SQLDataSourceSearch = "SELECT * FROM Vendor ORDER BY VendorID";
             CodeVoucher = "Vendor";        
             NameFieldCodePrimary = "VendorID";
-            ControlCheckDuplicate = new IDeveloverControl[] { txtVenderName };
-            ControlCheckEmty = new IDeveloverControl[] { txtVenderName };
-            DeveloverControlsFocus = txtVenderName;
+            ControlCheckDuplicate = new IDeveloverControl[] { txtVendorName };
+            ControlCheckEmty = new IDeveloverControl[] { txtVendorName };
+            DeveloverControlsFocus = txtVendorName;
         }
 
         private void Product_Load(object sender, EventArgs e)

@@ -14,7 +14,7 @@ using Develover.GUI.Forms;
 using Develover.GUI;
 using static Develover.Utilities.Enum;
 
-namespace DeveloverWarehouse
+namespace DeveloverWarehouse.Modules.File
 {
     public partial class Setting : DeveloverForm, IDeveloverFormChild
     {

@@ -16,13 +16,12 @@ namespace Develover.GUI.Controls
 
         public DeveloverCalcEdit()
         {
-           Properties.AutoHeight = false;
-             Properties.Mask.UseMaskAsDisplayFormat = true;
-             Properties.ShowCloseButton = true;
-             Properties.NullText = "0";
-             Properties.CloseUpKey = new KeyShortcut(Keys.Space);
-             Properties.ShowPopupShadow = true;
+            Properties.Mask.UseMaskAsDisplayFormat = true;
+            Properties.ShowCloseButton = true;
+            Properties.NullText = "0";
+            Properties.CloseUpKey = new KeyShortcut(Keys.Space);
+            Properties.ShowPopupShadow = true;
         }
-      
+
     }
 }

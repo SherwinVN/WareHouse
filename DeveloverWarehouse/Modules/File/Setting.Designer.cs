@@ -1,4 +1,4 @@
-﻿namespace DeveloverWarehouse
+﻿namespace DeveloverWarehouse.Modules.File
 {
     partial class Setting
     {

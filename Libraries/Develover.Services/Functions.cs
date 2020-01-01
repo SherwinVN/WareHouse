@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -373,6 +374,24 @@ namespace Develover.Services
                     }
                 }
                 return false;
+            }
+
+            public bool LoadColorControlNotEmty(IDeveloverControl[] develoverControls)
+            {
+                try
+                {
+                    foreach (IDeveloverControl develoverControl in develoverControls)
+                    {
+                        ((Control)develoverControl).BackColor = Color.LightGoldenrodYellow;
+                    }
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
             }
         }
 

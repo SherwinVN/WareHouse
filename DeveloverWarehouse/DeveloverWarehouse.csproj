@@ -129,10 +129,10 @@
     <Compile Include="Modules\Sales\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setting.cs">
+    <Compile Include="Modules\File\Setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setting.Designer.cs">
+    <Compile Include="Modules\File\Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -200,12 +200,6 @@
     </Compile>
     <Compile Include="Modules\General\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Inventory\ProducBaks.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Inventory\ProducBaks.Designer.cs">
-      <DependentUpon>ProducBaks.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Inventory\Delivery.cs">
       <SubType>Form</SubType>
@@ -275,10 +269,10 @@
     <Compile Include="Modules\Purchasing\ReceivingPO.Designer.cs">
       <DependentUpon>ReceivingPO.cs</DependentUpon>
     </Compile>
-    <Compile Include="Company.cs">
+    <Compile Include="Modules\File\Company.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Company.Designer.cs">
+    <Compile Include="Modules\File\Company.Designer.cs">
       <DependentUpon>Company.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Modules\Accounting\Currency.resx">
@@ -305,7 +299,7 @@
     <EmbeddedResource Include="Modules\Sales\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setting.resx">
+    <EmbeddedResource Include="Modules\File\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -341,9 +335,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\General\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Inventory\ProducBaks.resx">
-      <DependentUpon>ProducBaks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Inventory\Delivery.resx">
       <DependentUpon>Delivery.cs</DependentUpon>
@@ -383,7 +374,7 @@
     <EmbeddedResource Include="Modules\Purchasing\ReceivingPO.resx">
       <DependentUpon>ReceivingPO.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Company.resx">
+    <EmbeddedResource Include="Modules\File\Company.resx">
       <DependentUpon>Company.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />

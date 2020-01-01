@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Develover.Utilities.Enum;
 
-namespace DeveloverWarehouse
+namespace DeveloverWarehouse.Modules.File
 {
     public partial class Company : DeveloverCatalogForm, IDeveloverFormChild
     {
@@ -21,9 +21,9 @@ namespace DeveloverWarehouse
             SQLDataSourceSearch = "SELECT * FROM Company ORDER BY CompanyID";
             CodeVoucher = "Company";        
             NameFieldCodePrimary = "CompanyID";
-            ControlCheckDuplicate = new IDeveloverControl[] { txtVenderName };
-            ControlCheckEmty = new IDeveloverControl[] { txtVenderName };
-            DeveloverControlsFocus = txtVenderName;
+            ControlCheckDuplicate = new IDeveloverControl[] { txtCompanyName };
+            ControlCheckEmty = new IDeveloverControl[] { txtCompanyName };
+            DeveloverControlsFocus = txtCompanyName;
         }
 
         private void Product_Load(object sender, EventArgs e)

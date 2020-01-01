@@ -18,12 +18,12 @@ namespace DeveloverWarehouse.Modules.Sales
         public Customer()
         {
             InitializeComponent();
-            SQLDataSourceSearch = "SELECT * FROM Customers ORDER BY CustomersID";
-            CodeVoucher = "Customers";        
-            NameFieldCodePrimary = "CustomersID";
-            ControlCheckDuplicate = new IDeveloverControl[] { txtVenderName };
-            ControlCheckEmty = new IDeveloverControl[] { txtVenderName };
-            DeveloverControlsFocus = txtVenderName;
+            SQLDataSourceSearch = "SELECT * FROM Customer ORDER BY CustomerID";
+            CodeVoucher = "Customer";        
+            NameFieldCodePrimary = "CustomerID";
+            ControlCheckDuplicate = new IDeveloverControl[] { txtCustomerName };
+            ControlCheckEmty = new IDeveloverControl[] { txtCustomerName };
+            DeveloverControlsFocus = txtCustomerName;
         }
 
         private void Product_Load(object sender, EventArgs e)

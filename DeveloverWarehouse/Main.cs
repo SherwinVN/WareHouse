@@ -92,6 +92,7 @@ namespace DeveloverWarehouse
             barButtonServerName.Caption = "Máy chủ: " + DeveloverOptions.InfoDatabase.ServerName;
             barButtonDatabaseName.Caption = "CSDL: " + DeveloverOptions.InfoDatabase.DatabaseName;
             barUserLogin.Caption = DeveloverOptions.InfoUser.Name;
+            barUserLogin.Caption = DeveloverOptions.InfoUser.Name;
         }
 
         private void RunTime()
@@ -114,33 +115,35 @@ namespace DeveloverWarehouse
                 barButtonStatus.Caption = message;
             });
         }
-
-        protected override bool ProcessDialogKey(Keys keyData)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
-            if (Form.ModifierKeys == Keys.None)
+            base.OnKeyDown(e);
+            if (e.Control)
             {
-                switch (keyData)
+                switch (e.KeyCode)
                 {
                     case Keys.Escape:
                         break;
                     case Keys.F11:
                         WindowState = WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
                         break;
-                    case Keys.W: {
-
-                            if (Form.ModifierKeys == Keys.Control)
-                            {
-                                if (MdiChildren.Length > 0)
-                                {
-                                    tabbedMdiManager.ActiveFloatForm.Close();
-                                }
-                                else { Application.Exit(); }
-                            }
+                    case Keys.W:
+                        {
+                            //if (MdiChildren.Length > 0)
+                            //{
+                            //    n
+                            //}
+                            //else { Application.Exit(); }
                         }
                         break;
                 }
-
             }
+
+
+        }
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+
             return base.ProcessDialogKey(keyData);
         }
 
@@ -302,6 +305,11 @@ namespace DeveloverWarehouse
                     Application.Restart();
             }
             else { Application.Restart(); }
+        }
+
+        private void _010501_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
         }
     }
 }
