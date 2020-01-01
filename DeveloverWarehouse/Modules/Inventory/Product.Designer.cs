@@ -37,7 +37,6 @@
             this.labProductName = new Develover.GUI.Controls.DeveloverLabelControl();
             this.labModel = new Develover.GUI.Controls.DeveloverLabelControl();
             this.lokUOM = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtModel = new Develover.GUI.Controls.DeveloverTextEdit();
             this.txtProductName = new Develover.GUI.Controls.DeveloverTextEdit();
             this.gro_size_weigth = new Develover.GUI.Controls.DeveloverGroupControl();
@@ -49,11 +48,9 @@
             this.txtWidth = new Develover.GUI.Controls.DeveloverCalcEdit();
             this.labWeight = new Develover.GUI.Controls.DeveloverLabelControl();
             this.lokUOMSize = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtWeight = new Develover.GUI.Controls.DeveloverCalcEdit();
             this.txtLength = new Develover.GUI.Controls.DeveloverCalcEdit();
             this.lokUOMWeight = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.txtHeight = new Develover.GUI.Controls.DeveloverCalcEdit();
             this.labSKU = new Develover.GUI.Controls.DeveloverLabelControl();
             this.txt_sku = new Develover.GUI.Controls.DeveloverTextEdit();
@@ -63,7 +60,6 @@
             this.txtMinimumQuantity = new Develover.GUI.Controls.DeveloverCalcEdit();
             this.txtMaximunQuantity = new Develover.GUI.Controls.DeveloverCalcEdit();
             this.lokLocationDefault = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.labLocationDefault = new Develover.GUI.Controls.DeveloverLabelControl();
             this.txtOrigin = new Develover.GUI.Controls.DeveloverTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).BeginInit();
@@ -73,18 +69,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOM.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_size_weigth)).BeginInit();
             this.gro_size_weigth.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOMSize.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLength.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOMWeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_sku.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groInventory)).BeginInit();
@@ -92,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimumQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaximunQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokLocationDefault.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrigin.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -215,17 +207,9 @@
             this.lokUOM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokUOM.Properties.NullText = "";
-            this.lokUOM.Properties.PopupView = this.gridView1;
             this.lokUOM.Size = new System.Drawing.Size(122, 20);
             this.lokUOM.TabIndex = 1;
             this.lokUOM.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
-            // 
-            // gridView1
-            // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // txtModel
             // 
@@ -358,17 +342,9 @@
             this.lokUOMSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokUOMSize.Properties.NullText = "";
-            this.lokUOMSize.Properties.PopupView = this.gridView4;
             this.lokUOMSize.Size = new System.Drawing.Size(126, 20);
             this.lokUOMSize.TabIndex = 0;
             this.lokUOMSize.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
-            // 
-            // gridView4
-            // 
-            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView4.OptionsView.ShowGroupPanel = false;
             // 
             // txtWeight
             // 
@@ -404,17 +380,9 @@
             this.lokUOMWeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokUOMWeight.Properties.NullText = "";
-            this.lokUOMWeight.Properties.PopupView = this.gridView3;
             this.lokUOMWeight.Size = new System.Drawing.Size(93, 20);
             this.lokUOMWeight.TabIndex = 4;
             this.lokUOMWeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
-            // 
-            // gridView3
-            // 
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
             // 
             // txtHeight
             // 
@@ -522,17 +490,9 @@
             this.lokLocationDefault.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokLocationDefault.Properties.NullText = "";
-            this.lokLocationDefault.Properties.PopupView = this.gridView2;
             this.lokLocationDefault.Size = new System.Drawing.Size(195, 20);
             this.lokLocationDefault.TabIndex = 2;
             this.lokLocationDefault.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
-            // 
-            // gridView2
-            // 
-            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView2.OptionsView.ShowGroupPanel = false;
             // 
             // labLocationDefault
             // 
@@ -572,7 +532,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.memDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOM.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtModel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_size_weigth)).EndInit();
@@ -580,11 +539,9 @@
             this.gro_size_weigth.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOMSize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLength.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOMWeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_sku.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groInventory)).EndInit();
@@ -593,7 +550,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimumQuantity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaximunQuantity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokLocationDefault.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrigin.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -610,7 +566,6 @@
         private Develover.GUI.Controls.DeveloverLabelControl labProductName;
         private Develover.GUI.Controls.DeveloverLabelControl labModel;
         private Develover.GUI.Controls.DeveloverGridLookUpEdit lokUOM;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private Develover.GUI.Controls.DeveloverTextEdit txtModel;
         private Develover.GUI.Controls.DeveloverTextEdit txtProductName;
         private Develover.GUI.Controls.DeveloverGroupControl gro_size_weigth;
@@ -621,9 +576,7 @@
         private Develover.GUI.Controls.DeveloverLabelControl lab_length;
         private Develover.GUI.Controls.DeveloverLabelControl labWeight;
         private Develover.GUI.Controls.DeveloverGridLookUpEdit lokUOMSize;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
         private Develover.GUI.Controls.DeveloverGridLookUpEdit lokUOMWeight;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private Develover.GUI.Controls.DeveloverLabelControl labSKU;
         private Develover.GUI.Controls.DeveloverTextEdit txt_sku;
         private Develover.GUI.Controls.DeveloverGroupControl groInventory;
@@ -631,7 +584,6 @@
         private Develover.GUI.Controls.DeveloverLabelControl labMaximunQuantity;
         private Develover.GUI.Controls.DeveloverTextEdit txtOrigin;
         private Develover.GUI.Controls.DeveloverGridLookUpEdit lokLocationDefault;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private Develover.GUI.Controls.DeveloverLabelControl labLocationDefault;
         private Develover.GUI.Controls.DeveloverCalcEdit txtMaximunQuantity;
         private Develover.GUI.Controls.DeveloverCalcEdit txtWidth;

@@ -10,9 +10,9 @@ using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Services
 {
-    public class Functions 
+    public class Functions
     {
-       public DataBase dataBase;
+        public DataBase dataBase;
         public Functions()
         {
             dataBase = new DataBase();
@@ -129,8 +129,9 @@ namespace Develover.GUI.Services
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
-        public bool CheckExistsValueInTable(string TableName,string ColumnName,string value,string nameFieldCodePrimary, string CodePrimary) {
-           return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' AND ["+ nameFieldCodePrimary + "] <> N'"+ CodePrimary + "'").Rows.Count >0;
+        public bool CheckExistsValueInTable(string TableName, string ColumnName, string value, string nameFieldCodePrimary, string CodePrimary)
+        {
+            return dataBase.GetDataTable("SELECT top 1 [" + ColumnName + "] FROM [" + TableName + "] WHERE [" + ColumnName + "] = N'" + value + "' AND [" + nameFieldCodePrimary + "] <> N'" + CodePrimary + "'").Rows.Count > 0;
         }
         public bool CheckExistsValueInTable(string TableName, string ColumnName, string value)
         {
@@ -144,9 +145,9 @@ namespace Develover.GUI.Services
         {
             return dataBase.GetDataTable("SELECT top 1 [" + nameFieldCodePrimary + "] FROM [" + TableName + "] WHERE " + Where).Rows.Count > 0;
         }
-        public bool CheckExistsColumnInTableOrView(string TypeObject,string ObjectName,string ColumnName)
+        public bool CheckExistsColumnInTableOrView(string TypeObject, string ObjectName, string ColumnName)
         {
-            return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '"+ TypeObject+"'  and  [name] = N'"+ ObjectName+"' and [id] IN (SELECT [id] FROM syscolumns WHERE [name] =  N'"+ ColumnName+"' )").Rows.Count > 0;
+            return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '" + TypeObject + "'  and  [name] = N'" + ObjectName + "' and [id] IN (SELECT [id] FROM syscolumns WHERE [name] =  N'" + ColumnName + "' )").Rows.Count > 0;
         }
 
         public bool CheckExistsObject(string TypeObject, string ObjectName)
@@ -154,7 +155,8 @@ namespace Develover.GUI.Services
             return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '" + TypeObject + "'  and  [name] = N'" + ObjectName + "' ").Rows.Count > 0;
         }
 
-        public class GetObjects {
+        public class GetObjects
+        {
 
             public DataBase dataBase;
 
@@ -231,7 +233,10 @@ namespace Develover.GUI.Services
                         typeColumns_.SumaryType = GetSumaryType(dr["SumaryType"]?.ToString());
                         typeColumns_.StringFormat = dr["StringFormat"]?.ToString();
 
-                        typeColumns_.TypeColumn = GetTypeColumn("Text");
+                        if (dr["Type"].ToString().Equals("Combobox") || dr["Type"].ToString().Equals("Gridlookup"))
+                            typeColumns_.TypeColumn = GetTypeColumn("Text");
+                        else
+                            typeColumns_.TypeColumn = GetTypeColumn(dr["Type"]?.ToString());
 
 
                         typeColumns_.ChildModel = dr["ChildModel"]?.ToString();

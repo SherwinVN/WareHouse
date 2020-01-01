@@ -15,7 +15,7 @@ namespace Develover.GUI.Controls
 {
     public class DeveloverGridLookUpEdit : GridLookUpEdit, IDeveloverControl
     {
-        static DeveloverGridLookUpEdit() { DeveloverRepositoryItemGridLookUpEdit.RegisterCustomGridLookUpEdit(); }
+        static DeveloverGridLookUpEdit() { DeveloverRepositoryItemGridLookUpEdit.RegisterDeveloverGridLookUpEdit(); }
         public override string EditorTypeName { get { return DeveloverRepositoryItemGridLookUpEdit.DeveloverGridLookUpEditName; } }
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -48,7 +48,7 @@ namespace Develover.GUI.Controls
             sqldata_ = sqlData;
             LoadData();
             model_ = model;
-            //Properties.LoadData(sqldata_, model_, KeyMember,  ValueMember, DisplayMember,NullText);
+            Properties.LoadData(sqldata_, model_, KeyMember,  ValueMember, DisplayMember,NullText);
         }
 
         public void LoadData() {

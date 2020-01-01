@@ -78,7 +78,7 @@ namespace Develover.GUI.Controls
                 gridColumn.OptionsColumn.AllowFocus = typeColumns_.AllowFocus;
                 gridColumn.OptionsColumn.AllowEdit = typeColumns_.AllowEdit;
                 gridColumn.Visible = typeColumns_.Visible;
-                        
+
                 gridColumn.SummaryItem.SummaryType = GetSummaryItemType(typeColumns_.SumaryType);
                 if (typeColumns_.SumaryType != SumaryType.None)
                 {
@@ -123,7 +123,8 @@ namespace Develover.GUI.Controls
                 gridColumn.Visible = typeColumns_.Visible;
 
                 gridColumn.SummaryItem.SummaryType = GetSummaryItemType(typeColumns_.SumaryType);
-                if (typeColumns_.SumaryType != SumaryType.None) {
+                if (typeColumns_.SumaryType != SumaryType.None)
+                {
                     this.OptionsView.ShowFooter = true;
                 }
                 gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
