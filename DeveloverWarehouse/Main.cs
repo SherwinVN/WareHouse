@@ -92,6 +92,7 @@ namespace DeveloverWarehouse
             barButtonServerName.Caption = "Máy chủ: " + DeveloverOptions.InfoDatabase.ServerName;
             barButtonDatabaseName.Caption = "CSDL: " + DeveloverOptions.InfoDatabase.DatabaseName;
             barUserLogin.Caption = DeveloverOptions.InfoUser.Name;
+            barUserLogin.Caption = DeveloverOptions.InfoUser.Name;
         }
 
         private void RunTime()
@@ -114,22 +115,35 @@ namespace DeveloverWarehouse
                 barButtonStatus.Caption = message;
             });
         }
-
-        protected override bool ProcessDialogKey(Keys keyData)
+        protected override void OnKeyDown(KeyEventArgs e)
         {
-            if (Form.ModifierKeys == Keys.None)
+            base.OnKeyDown(e);
+            if (e.Control)
             {
-                switch (keyData)
+                switch (e.KeyCode)
                 {
                     case Keys.Escape:
                         break;
                     case Keys.F11:
                         WindowState = WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
                         break;
-
+                    case Keys.W:
+                        {
+                            //if (MdiChildren.Length > 0)
+                            //{
+                            //    n
+                            //}
+                            //else { Application.Exit(); }
+                        }
+                        break;
                 }
-
             }
+
+
+        }
+        protected override bool ProcessDialogKey(Keys keyData)
+        {
+
             return base.ProcessDialogKey(keyData);
         }
 
@@ -184,6 +198,11 @@ namespace DeveloverWarehouse
 
         private void _010600_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ExitApplications();
+        }
+
+        private void ExitApplications()
+        {
             if (MdiChildren.Length > 0)
             {
                 if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
@@ -196,29 +215,18 @@ namespace DeveloverWarehouse
         {
             if (DeveloverOptions.StatusLogins.StatusLogin)
             {
-                if (MdiChildren.Length > 0)
-                {
-                    for (int i = 0; i < MdiChildren.Length; i++)
-                    {
-                        IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
-                        f.Hide();
-                    }
-
-                }
-                DeveloverOptions.StatusLogins.StatusLogin = false;
+                ShowFormChildren(false);
                 login.ShowDialog();
-
-                DeveloverOptions.StatusLogins.StatusLogin = true;
-                if (MdiChildren.Length > 0)
-                {
-                    for (int i = 0; i < MdiChildren.Length; i++)
-                    {
-                        IDeveloverFormChild f = (IDeveloverFormChild)MdiChildren[i];
-
-                        f.Show();
-                    }
-
-                }
+                ShowFormChildren(true);
+            }
+        }
+        public void ShowFormChildren(bool show)
+        {
+            foreach (Form form in MdiChildren)
+            {
+                DeveloverOptions.StatusLogins.StatusLogin = show;
+                IDeveloverFormChild f = (IDeveloverFormChild)form;
+                if (show) f.Show(); else f.Hide();
             }
         }
 
@@ -297,6 +305,11 @@ namespace DeveloverWarehouse
                     Application.Restart();
             }
             else { Application.Restart(); }
+        }
+
+        private void _010501_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
         }
     }
 }

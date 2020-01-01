@@ -42,10 +42,6 @@ namespace Develover.GUI.Forms
             KeyPreview = true;
             LoadPermission();
         }
-        protected override void OnKeyDown(KeyEventArgs e)
-        {
-            base.OnKeyDown(e);
-        }
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (Form.ModifierKeys == Keys.None)
@@ -53,11 +49,8 @@ namespace Develover.GUI.Forms
                 switch (keyData)
                 {
                     case Keys.Escape:
-                        if (iwhenCloseForm)
-                            this.Close();
-                        else
-                           if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionCloseForm) == DialogResult.Yes)
-                            this.Close();
+
+                        this.Close();
                         break;
                     case Keys.F11:
                         WindowState = WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
@@ -67,6 +60,13 @@ namespace Develover.GUI.Forms
 
             }
             return base.ProcessDialogKey(keyData);
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!iwhenCloseForm)
+                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionCloseForm) == DialogResult.No)
+                    e.Cancel = true;
+            base.OnFormClosing(e);
         }
 
         #region CheckPermission

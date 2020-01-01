@@ -1,4 +1,4 @@
-﻿namespace DeveloverWarehouse
+﻿namespace DeveloverWarehouse.Modules.File
 {
     partial class Setting
     {
@@ -218,6 +218,7 @@
             this.txtServerName.Size = new System.Drawing.Size(158, 20);
             this.txtServerName.TabIndex = 0;
             this.txtServerName.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.txtServerName.Enter += new System.EventHandler(this.txtServerName_Enter);
             // 
             // labPasswordSQL
             // 

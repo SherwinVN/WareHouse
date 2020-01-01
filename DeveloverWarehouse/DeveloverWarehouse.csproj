@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\Accounting\Currency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Accounting\Currency.Designer.cs">
+      <DependentUpon>Currency.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\File\Location.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,10 +111,28 @@
     <Compile Include="Modules\File\UOM.Designer.cs">
       <DependentUpon>UOM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Setting.cs">
+    <Compile Include="Modules\Inventory\Product.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Setting.Designer.cs">
+    <Compile Include="Modules\Inventory\Product.Designer.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Purchasing\Vendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Purchasing\Vendor.Designer.cs">
+      <DependentUpon>Vendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Sales\Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Sales\Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\File\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\File\Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -153,12 +177,6 @@
     <Compile Include="Modules\Accounting\ReceiptVoucher.Designer.cs">
       <DependentUpon>ReceiptVoucher.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Accounting\Currency.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Accounting\Currency.Designer.cs">
-      <DependentUpon>Currency.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Accounting\PaymentVoucher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,12 +201,6 @@
     <Compile Include="Modules\General\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Inventory\Product.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Inventory\Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Inventory\Delivery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,12 +218,6 @@
     </Compile>
     <Compile Include="Modules\Inventory\Receiving.Designer.cs">
       <DependentUpon>Receiving.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Sales\Customer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Sales\Customer.Designer.cs">
-      <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Sales\Picking.cs">
       <SubType>Form</SubType>
@@ -236,12 +242,6 @@
     </Compile>
     <Compile Include="Modules\Purchasing\PurchaseOrder.Designer.cs">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Purchasing\Vendor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Purchasing\Vendor.Designer.cs">
-      <DependentUpon>Vendor.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Sales\RMASO.cs">
       <SubType>Form</SubType>
@@ -269,6 +269,15 @@
     <Compile Include="Modules\Purchasing\ReceivingPO.Designer.cs">
       <DependentUpon>ReceivingPO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\File\Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\File\Company.Designer.cs">
+      <DependentUpon>Company.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Modules\Accounting\Currency.resx">
+      <DependentUpon>Currency.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\File\Location.resx">
       <DependentUpon>Location.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,7 +290,16 @@
     <EmbeddedResource Include="Modules\File\UOM.resx">
       <DependentUpon>UOM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Setting.resx">
+    <EmbeddedResource Include="Modules\Inventory\Product.resx">
+      <DependentUpon>Product.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Purchasing\Vendor.resx">
+      <DependentUpon>Vendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Sales\Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\File\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -306,9 +324,6 @@
     <EmbeddedResource Include="Modules\Accounting\ReceiptVoucher.resx">
       <DependentUpon>ReceiptVoucher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Accounting\Currency.resx">
-      <DependentUpon>Currency.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Accounting\PaymentVoucher.resx">
       <DependentUpon>PaymentVoucher.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,9 +336,6 @@
     <EmbeddedResource Include="Modules\General\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Inventory\Product.resx">
-      <DependentUpon>Product.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Inventory\Delivery.resx">
       <DependentUpon>Delivery.cs</DependentUpon>
     </EmbeddedResource>
@@ -332,9 +344,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Inventory\Receiving.resx">
       <DependentUpon>Receiving.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Sales\Customer.resx">
-      <DependentUpon>Customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Sales\Picking.resx">
       <DependentUpon>Picking.cs</DependentUpon>
@@ -347,9 +356,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Purchasing\PurchaseOrder.resx">
       <DependentUpon>PurchaseOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Purchasing\Vendor.resx">
-      <DependentUpon>Vendor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Sales\RMASO.resx">
       <DependentUpon>RMASO.cs</DependentUpon>
@@ -367,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Purchasing\ReceivingPO.resx">
       <DependentUpon>ReceivingPO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\File\Company.resx">
+      <DependentUpon>Company.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">

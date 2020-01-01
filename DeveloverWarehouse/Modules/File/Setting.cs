@@ -14,7 +14,7 @@ using Develover.GUI.Forms;
 using Develover.GUI;
 using static Develover.Utilities.Enum;
 
-namespace DeveloverWarehouse
+namespace DeveloverWarehouse.Modules.File
 {
     public partial class Setting : DeveloverForm, IDeveloverFormChild
     {
@@ -60,7 +60,7 @@ namespace DeveloverWarehouse
                 laberror.Text = "Không thể truy cập Database [" + DeveloverOptions.InfoDatabase.DatabaseName + "] ?\n" + DeveloverOptions.SysDel.MessageError + ".";
             }
             else laberror.Text = "Kết nối SERVER [" + DeveloverOptions.InfoDatabase.ServerName + "] - DATABASE [" + DeveloverOptions.InfoDatabase.DatabaseName + "] Thành công!";
-            
+
             flogin.setInfoServer();
             SetEnableControl();
             this.Close();
@@ -84,11 +84,20 @@ namespace DeveloverWarehouse
             }
             if (DeveloverOptions.StatusLogins.StatusLogin)
             {
-                grSettingSQL.Enabled = false;            
+                grSettingSQL.Enabled = false;
             }
 
             txtCodePersonal.Text = DeveloverOptions.SysDel.CodePersonal;
-            labTextLicense.Text = String.Format(StringMessage.TextLicense, new object[] { DeveloverOptions.SysDel.GetTextTypeLicense(), DeveloverOptions.SysDel.TypeLicense == TypeLicenses.None || DeveloverOptions.SysDel.TypeLicense == TypeLicenses.Free? "_ //_ //_" :  DeveloverOptions.SysDel.ExpirationDate.ToShortDateString() });
+            labTextLicense.Text = String.Format(StringMessage.TextLicense, new object[] { DeveloverOptions.SysDel.GetTextTypeLicense(), DeveloverOptions.SysDel.TypeLicense == TypeLicenses.None || DeveloverOptions.SysDel.TypeLicense == TypeLicenses.Free ? "_ //_ //_" : DeveloverOptions.SysDel.ExpirationDate.ToShortDateString() });
+            
+        }
+        private async void LoadInstanceSQL()
+        {
+            txtServerName.MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtServerName.MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollections sutoCompleteStringCollections = new AutoCompleteStringCollections();
+            txtServerName.MaskBox.AutoCompleteCustomSource = await sutoCompleteStringCollections.SERVERTableName();
+            labServerName.ForeColor = Color.Green;
         }
 
         private void butActive_Click(object sender, EventArgs e)
@@ -101,6 +110,11 @@ namespace DeveloverWarehouse
                 flogin.GetLicense();
             }
             labTextLicense.Text = String.Format(StringMessage.TextLicense, new object[] { DeveloverOptions.SysDel.GetTextTypeLicense(), DeveloverOptions.SysDel.TypeLicense == TypeLicenses.None || DeveloverOptions.SysDel.TypeLicense == TypeLicenses.Free ? "_ //_ //_" : DeveloverOptions.SysDel.ExpirationDate.ToShortDateString() });
+        }
+
+        private void txtServerName_Enter(object sender, EventArgs e)
+        {
+            LoadInstanceSQL();
         }
     }
 }

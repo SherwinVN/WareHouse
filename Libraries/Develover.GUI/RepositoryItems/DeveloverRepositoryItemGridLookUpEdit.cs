@@ -20,6 +20,13 @@ namespace Develover.GUI.RepositoryItems
     [UserRepositoryItem("RegisterDeveloverGridLookUpEdit")]
     public class DeveloverRepositoryItemGridLookUpEdit : RepositoryItemGridLookUpEdit
     {
+
+        Functions functions = new Functions();
+        GetObjects getObjects = new GetObjects();
+        string sqlData_; string model_;
+        public const string DeveloverGridLookUpEditName = "DeveloverGridLookUpEdit";
+
+        public override string EditorTypeName { get { return DeveloverGridLookUpEditName; } }
         static DeveloverRepositoryItemGridLookUpEdit() { RegisterCustomGridLookUpEdit(); }
 
         private GridLookUpEdit edt;
@@ -29,14 +36,37 @@ namespace Develover.GUI.RepositoryItems
             ShowPopupShadow = true;
             AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             ValidateOnEnterKey = true;
-            Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
-            Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
+            //Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
+            //Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
+        }
+               
+        protected override ColumnView CreateViewInstance()
+        {
+            switch (ViewType)
+            {
+                case GridLookUpViewType.BandedView:
+                    return new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+                case GridLookUpViewType.AdvBandedView:
+                    return new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
+            }
+            return new DeveloverGridView();
+        }
+
+        public static void RegisterCustomGridLookUpEdit()
+        {
+            EditorRegistrationInfo.Default.Editors.Add(new EditorClassInfo(DeveloverGridLookUpEditName,
+              typeof(DeveloverGridLookUpEdit), typeof(DeveloverRepositoryItemGridLookUpEdit),
+              typeof(GridLookUpEditBaseViewInfo), new ButtonEditPainter(), true));
+        }
+        protected override DevExpress.XtraGrid.GridControl CreateGrid()
+        {
+            return new DeveloverGridControl();
         }
 
         private void DeveloverRepositoryItemGridLookUpEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             edt = ((GridLookUpEdit)sender);
-            edt.Properties.View.DoubleClick -= View_DoubleClick; 
+            edt.Properties.View.DoubleClick -= View_DoubleClick;
             edt.Properties.View.Click -= View_DoubleClick;
             edt = null;
         }
@@ -57,37 +87,6 @@ namespace Develover.GUI.RepositoryItems
             edt.Properties.View.Click += View_DoubleClick;
         }
 
-        public static void RegisterCustomGridLookUpEdit()
-        {
-            EditorRegistrationInfo.Default.Editors.Add(new EditorClassInfo(DeveloverGridLookUpEditName,
-              typeof(DeveloverGridLookUpEdit), typeof(DeveloverRepositoryItemGridLookUpEdit),
-              typeof(GridLookUpEditBaseViewInfo), new ButtonEditPainter(), true));
-        }
-        public const string DeveloverGridLookUpEditName = "DeveloverGridLookUpEdit";
-
-        public override string EditorTypeName { get { return DeveloverGridLookUpEditName; } }
-
-        Functions functions = new Functions();
-        GetObjects getObjects = new GetObjects();
-
-        string sqlData_; string model_;
-
-
-        protected override ColumnView CreateViewInstance()
-        {
-            switch (ViewType)
-            {
-                case GridLookUpViewType.BandedView:
-                    return new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-                case GridLookUpViewType.AdvBandedView:
-                    return new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
-            }
-            return new DeveloverGridView();
-        }
-        protected override DevExpress.XtraGrid.GridControl CreateGrid()
-        {
-            return new DeveloverGridControl();
-        }
 
 
         public void LoadData(DataTable data, string model, string keyMember = "", string displayMember = "", string valueMember = "", string nullText = "")
@@ -113,7 +112,7 @@ namespace Develover.GUI.RepositoryItems
             LoadData();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
             ((DeveloverGridView)PopupView).BuidColumnsView(getObjects.GetSysDelGridcolumnsView(model_));
             DataSource = functions.dataBase.GetDataTable(sqlData_);

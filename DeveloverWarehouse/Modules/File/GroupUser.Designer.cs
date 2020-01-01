@@ -45,7 +45,7 @@
             // 
             // tab_information
             // 
-            this.tab_information.Size = new System.Drawing.Size(461, 414);
+            this.tab_information.Size = new System.Drawing.Size(461, 418);
             // 
             // gro_general
             // 
@@ -54,21 +54,22 @@
             this.gro_general.Controls.Add(this.chkActive);
             this.gro_general.Controls.Add(this.txtDescription);
             this.gro_general.Controls.Add(this.txtNameGroup);
-            this.gro_general.Size = new System.Drawing.Size(459, 382);
+            this.gro_general.Size = new System.Drawing.Size(459, 390);
             // 
             // develoverSplitterControl1
             // 
             this.develoverSplitterControl1.Location = new System.Drawing.Point(323, 2);
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 418);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 422);
             // 
             // gro_search
             // 
-            this.gro_search.Size = new System.Drawing.Size(321, 418);
+            this.gro_search.Size = new System.Drawing.Size(321, 422);
             // 
             // txtDescription
             // 
             this.txtDescription.EnterMoveNextControl = true;
             this.txtDescription.FieldBinding = "Description";
+            this.txtDescription.IsGUID = false;
             this.txtDescription.Location = new System.Drawing.Point(124, 28);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(284, 66);
@@ -78,6 +79,7 @@
             // chkActive
             // 
             this.chkActive.FieldBinding = "Active";
+            this.chkActive.IsGUID = false;
             this.chkActive.Location = new System.Drawing.Point(124, 97);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Caption = "Trạng thái sử dụng";
@@ -88,6 +90,7 @@
             // labAdress
             // 
             this.labAdress.FieldBinding = null;
+            this.labAdress.IsGUID = false;
             this.labAdress.Location = new System.Drawing.Point(7, 30);
             this.labAdress.Name = "labAdress";
             this.labAdress.Size = new System.Drawing.Size(35, 13);
@@ -98,6 +101,7 @@
             // txtNameGroup
             // 
             this.txtNameGroup.FieldBinding = "NameGroup";
+            this.txtNameGroup.IsGUID = false;
             this.txtNameGroup.Location = new System.Drawing.Point(124, 5);
             this.txtNameGroup.Name = "txtNameGroup";
             this.txtNameGroup.Size = new System.Drawing.Size(284, 20);
@@ -107,6 +111,7 @@
             // labNameGroup
             // 
             this.labNameGroup.FieldBinding = null;
+            this.labNameGroup.IsGUID = false;
             this.labNameGroup.Location = new System.Drawing.Point(7, 8);
             this.labNameGroup.Name = "labNameGroup";
             this.labNameGroup.Size = new System.Drawing.Size(47, 13);
