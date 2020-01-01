@@ -27,7 +27,7 @@ namespace Develover.GUI.RepositoryItems
         public const string DeveloverGridLookUpEditName = "DeveloverGridLookUpEdit";
 
         public override string EditorTypeName { get { return DeveloverGridLookUpEditName; } }
-        static DeveloverRepositoryItemGridLookUpEdit() { RegisterCustomGridLookUpEdit(); }
+        static DeveloverRepositoryItemGridLookUpEdit() { RegisterDeveloverGridLookUpEdit(); }
 
         private GridLookUpEdit edt;
         public DeveloverRepositoryItemGridLookUpEdit() : base()
@@ -36,8 +36,8 @@ namespace Develover.GUI.RepositoryItems
             ShowPopupShadow = true;
             AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             ValidateOnEnterKey = true;
-            //Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
-            //Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
+            Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
+            Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
         }
                
         protected override ColumnView CreateViewInstance()
@@ -52,7 +52,7 @@ namespace Develover.GUI.RepositoryItems
             return new DeveloverGridView();
         }
 
-        public static void RegisterCustomGridLookUpEdit()
+        public static void RegisterDeveloverGridLookUpEdit()
         {
             EditorRegistrationInfo.Default.Editors.Add(new EditorClassInfo(DeveloverGridLookUpEditName,
               typeof(DeveloverGridLookUpEdit), typeof(DeveloverRepositoryItemGridLookUpEdit),
