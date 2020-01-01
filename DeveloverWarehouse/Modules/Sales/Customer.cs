@@ -9,24 +9,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Develover.Utilities.Enum;
 
 namespace DeveloverWarehouse.Modules.Sales
 {
-    public partial class Customer : DeveloverForm, IDeveloverFormChild
+    public partial class Customer : DeveloverCatalogForm, IDeveloverFormChild
     {
         public Customer()
         {
             InitializeComponent();
+            SQLDataSourceSearch = "SELECT * FROM Customer ORDER BY CustomerID";
+            CodeVoucher = "Customer";        
+            NameFieldCodePrimary = "CustomerID";
+            ControlCheckDuplicate = new IDeveloverControl[] { txtCustomerName };
+            ControlCheckEmty = new IDeveloverControl[] { txtCustomerName };
+            DeveloverControlsFocus = txtCustomerName;
         }
 
-        public void SetStatus(string message)
+        private void Product_Load(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task SetStatusAsync(string message)
-        {
-            throw new NotImplementedException();
+            InitForm();
+            //lokLocationDefault.LoadData("SELECT * FROM Location ORDER BY LocationID", "Location", "LocationID", "LocationID", "LocationName", "");
+            //lokUOM.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
+            //lokUOMSize.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
+            //lokUOMWeight.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,17 +10,19 @@ namespace Develover.Utilities
 {
     public class DeveloverOptions
     {
+        public static Color ControlRequiedInputBackColor = Color.Green;
+        public static Color ControlRequiedInputForeColor = Color.White;
         public DeveloverOptions()
         {
-
         }
+
         public static class SysDel
         {
             public static string CodePersonal = "";
             public static string SerialNumber = "";
             public static string ProcessorId = "";
             public static TypeLicenses TypeLicense = TypeLicenses.None;
-            public static DateTime ExpirationDate = DateTime.Now.AddDays(-5*365);
+            public static DateTime ExpirationDate = DateTime.Now.AddDays(-5 * 365);
             public static bool StatusLicense = false;
 
             public static string MessageError = "";
@@ -62,7 +65,7 @@ namespace Develover.Utilities
                 }
             }
 
-            public static TypeLicenses GetTextTypeLicenseByString(string TypeLicense )
+            public static TypeLicenses GetTextTypeLicenseByString(string TypeLicense)
             {
                 switch (TypeLicense)
                 {
@@ -80,7 +83,8 @@ namespace Develover.Utilities
             }
 
         }
-        public static class InfoDatabase {
+        public static class InfoDatabase
+        {
 
             public static string ServerName = "";
             public static string DatabaseName = "";
@@ -93,7 +97,7 @@ namespace Develover.Utilities
             public static bool StatusLogin = false;
             public static string Username = "";
             public static string Password = "";
-            public static bool RememberPassword =false;
+            public static bool RememberPassword = false;
         }
         public static class InfoUser
         {
@@ -115,5 +119,6 @@ namespace Develover.Utilities
             public static string Website = "";
         }
     }
-
 }
+
+

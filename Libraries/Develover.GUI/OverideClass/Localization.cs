@@ -100,8 +100,8 @@ namespace Develover.GUI.OverideClass
                     //    return "2FieldCheck";
                     case GridStringId.CustomFilterDialogCaption:
                         return "Hiển thị những hàng có:";
-                    //case GridStringId.CustomFilterDialogClearFilter:
-                    //    return "Clear";
+                    case GridStringId.CustomFilterDialogClearFilter:
+                        return "Xóa lọc";
                     case GridStringId.CustomFilterDialogEmptyOperator:
                         return "(Chọn phép toán:";
                     case GridStringId.CustomFilterDialogEmptyValue:
@@ -115,14 +115,14 @@ namespace Develover.GUI.OverideClass
                     case GridStringId.CustomFilterDialogRadioAnd:
                         return "Và";
                     case GridStringId.CustomFilterDialogRadioOr:
-                        return "Hoặc";        
+                        return "Hoặc";                
                     default:
                         return base.GetLocalizedString(id);
                 }
             }
             public void Globalization()
             { //    vi           Vietnamese                              vi-VN
-                CultureInfo culture = CultureInfo.CreateSpecificCulture("vi-VN");
+                CultureInfo culture = CultureInfo.CreateSpecificCulture("en-EN");
 
                 Thread.CurrentThread.CurrentUICulture = culture;
 

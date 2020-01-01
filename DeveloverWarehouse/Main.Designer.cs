@@ -31,14 +31,13 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DeveloverWarehouse.StartingForm), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.repositoryItemToggleSwitch1 = new DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch();
             this.toolbarControl = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
             this.toolbarManager = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
             this.statusBar = new DevExpress.XtraBars.Bar();
-            this.barButtonTasks = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonStatus = new DevExpress.XtraBars.BarButtonItem();
             this.barSubServerInfo = new DevExpress.XtraBars.BarSubItem();
             this.barButtonServerName = new DevExpress.XtraBars.BarButtonItem();
@@ -85,7 +84,6 @@
             this._040300 = new DevExpress.XtraBars.BarButtonItem();
             this._040400 = new DevExpress.XtraBars.BarButtonItem();
             this._040500 = new DevExpress.XtraBars.BarButtonItem();
-            this._040600 = new DevExpress.XtraBars.BarButtonItem();
             this._050000 = new DevExpress.XtraBars.BarSubItem();
             this._050100 = new DevExpress.XtraBars.BarButtonItem();
             this._050200 = new DevExpress.XtraBars.BarButtonItem();
@@ -95,7 +93,6 @@
             this._060100 = new DevExpress.XtraBars.BarButtonItem();
             this._060200 = new DevExpress.XtraBars.BarButtonItem();
             this._060300 = new DevExpress.XtraBars.BarButtonItem();
-            this._060400 = new DevExpress.XtraBars.BarButtonItem();
             this._070000 = new DevExpress.XtraBars.BarSubItem();
             this._070100 = new DevExpress.XtraBars.BarButtonItem();
             this._070200 = new DevExpress.XtraBars.BarButtonItem();
@@ -110,15 +107,20 @@
             this._080400 = new DevExpress.XtraBars.BarButtonItem();
             this._080500 = new DevExpress.XtraBars.BarButtonItem();
             this._080600 = new DevExpress.XtraBars.BarButtonItem();
+            this._040600 = new DevExpress.XtraBars.BarButtonItem();
             this.bbt_statusconnect = new DevExpress.XtraBars.BarButtonItem();
             this.barUserLogin = new DevExpress.XtraBars.BarStaticItem();
             this.tabbedMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bar1 = new DevExpress.XtraBars.Bar();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.butbarTool = new DevExpress.XtraBars.BarSubItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemToggleSwitch1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemToggleSwitch1
@@ -203,7 +205,6 @@
             this._060100,
             this._060200,
             this._060300,
-            this._060400,
             this._070100,
             this._070200,
             this._070400,
@@ -216,7 +217,6 @@
             this._080400,
             this._080500,
             this._080600,
-            this.barButtonTasks,
             this.barButtonNotifications,
             this.barSubServerInfo,
             this.barButtonServerName,
@@ -231,9 +231,10 @@
             this.barButtonHome,
             this.barUserLogin,
             this._010700,
-            this._010800});
+            this._010800,
+            this.butbarTool});
             this.toolbarManager.MainMenu = this.toolBar;
-            this.toolbarManager.MaxItemId = 86;
+            this.toolbarManager.MaxItemId = 87;
             this.toolbarManager.StatusBar = this.statusBar;
             // 
             // statusBar
@@ -244,7 +245,7 @@
             this.statusBar.DockRow = 0;
             this.statusBar.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.statusBar.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonTasks),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.butbarTool, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonStatus),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubServerInfo),
             new DevExpress.XtraBars.LinkPersistInfo(this.barButtonDateTime),
@@ -255,13 +256,6 @@
             this.statusBar.OptionsBar.MultiLine = true;
             this.statusBar.OptionsBar.UseWholeRow = true;
             this.statusBar.Text = "Bar Status";
-            // 
-            // barButtonTasks
-            // 
-            this.barButtonTasks.Id = 57;
-            this.barButtonTasks.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonTasks.ImageOptions.SvgImage")));
-            this.barButtonTasks.Name = "barButtonTasks";
-            this.barButtonTasks.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTasks_ItemClick);
             // 
             // barButtonStatus
             // 
@@ -476,6 +470,8 @@
             this._010501.Id = 7;
             this._010501.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010501.ImageOptions.SvgImage")));
             this._010501.Name = "_010501";
+            this._010501.Tag = "File.Company";
+            this._010501.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010501_ItemClick);
             // 
             // _010502
             // 
@@ -516,6 +512,7 @@
             // 
             this._010507.Caption = "&Đơn vị tính";
             this._010507.Id = 13;
+            this._010507.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010507.ImageOptions.SvgImage")));
             this._010507.Name = "_010507";
             this._010507.Tag = "File.UOM";
             this._010507.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010507_ItemClick);
@@ -524,7 +521,7 @@
             // 
             this._010800.Caption = "Đăng nhập lại";
             this._010800.Id = 85;
-            this._010800.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
+            this._010800.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_010800.ImageOptions.SvgImage")));
             this._010800.Name = "_010800";
             this._010800.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._010800_ItemClick);
             // 
@@ -621,8 +618,7 @@
             new DevExpress.XtraBars.LinkPersistInfo(this._040200),
             new DevExpress.XtraBars.LinkPersistInfo(this._040300),
             new DevExpress.XtraBars.LinkPersistInfo(this._040400, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this._040500),
-            new DevExpress.XtraBars.LinkPersistInfo(this._040600)});
+            new DevExpress.XtraBars.LinkPersistInfo(this._040500)});
             this._040000.Name = "_040000";
             this._040000.Tag = "";
             // 
@@ -663,14 +659,6 @@
             this._040500.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_040500.ImageOptions.SvgImage")));
             this._040500.Name = "_040500";
             this._040500.Tag = "Sales.PricingRule";
-            // 
-            // _040600
-            // 
-            this._040600.Caption = "&Chiết khấu";
-            this._040600.Id = 36;
-            this._040600.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_040600.ImageOptions.SvgImage")));
-            this._040600.Name = "_040600";
-            this._040600.Tag = "Sales.Discount";
             // 
             // _050000
             // 
@@ -720,8 +708,7 @@
             this._060000.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this._060100),
             new DevExpress.XtraBars.LinkPersistInfo(this._060200),
-            new DevExpress.XtraBars.LinkPersistInfo(this._060300, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this._060400)});
+            new DevExpress.XtraBars.LinkPersistInfo(this._060300, true)});
             this._060000.Name = "_060000";
             this._060000.Tag = "";
             // 
@@ -746,14 +733,6 @@
             this._060300.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_060300.ImageOptions.SvgImage")));
             this._060300.Name = "_060300";
             this._060300.Tag = "Accounting.Currency";
-            // 
-            // _060400
-            // 
-            this._060400.Caption = "&% &Thuế";
-            this._060400.Id = 44;
-            this._060400.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_060400.ImageOptions.SvgImage")));
-            this._060400.Name = "_060400";
-            this._060400.Tag = "Accounting.TaxRate";
             // 
             // _070000
             // 
@@ -854,6 +833,14 @@
             this._080600.Id = 56;
             this._080600.Name = "_080600";
             // 
+            // _040600
+            // 
+            this._040600.Caption = "&Chiết khấu";
+            this._040600.Id = 36;
+            this._040600.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_040600.ImageOptions.SvgImage")));
+            this._040600.Name = "_040600";
+            this._040600.Tag = "Sales.Discount";
+            // 
             // bbt_statusconnect
             // 
             this.bbt_statusconnect.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
@@ -861,13 +848,13 @@
             this.bbt_statusconnect.Id = 76;
             this.bbt_statusconnect.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbt_statusconnect.ImageOptions.SvgImage")));
             this.bbt_statusconnect.Name = "bbt_statusconnect";
-            toolTipTitleItem1.Text = "Status Connetion";
-            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Click to reconnection";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.bbt_statusconnect.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Status Connetion";
+            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Click to reconnection";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.bbt_statusconnect.SuperTip = superToolTip2;
             // 
             // barUserLogin
             // 
@@ -879,9 +866,13 @@
             // tabbedMdiManager
             // 
             this.tabbedMdiManager.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
+            this.tabbedMdiManager.FloatOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
+            this.tabbedMdiManager.FloatOnDrag = DevExpress.Utils.DefaultBoolean.True;
+            this.tabbedMdiManager.FloatPageDragMode = DevExpress.XtraTabbedMdi.FloatPageDragMode.Preview;
             this.tabbedMdiManager.MdiParent = this;
             this.tabbedMdiManager.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeaderAndOnMouseHover;
             this.tabbedMdiManager.SetNextMdiChildMode = DevExpress.XtraTabbedMdi.SetNextMdiChildMode.Windows;
+            this.tabbedMdiManager.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.False;
             // 
             // bar2
             // 
@@ -908,6 +899,28 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.Text = "Custom 4";
             // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Manager = this.toolbarManager;
+            this.popupMenu1.Name = "popupMenu1";
+            // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barSubItem1.Caption = "Kết nối";
+            this.barSubItem1.Id = 61;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonServerName),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonDatabaseName)});
+            this.barSubItem1.Name = "barSubItem1";
+            this.barSubItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // butbarTool
+            // 
+            this.butbarTool.Id = 86;
+            this.butbarTool.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem2.ImageOptions.SvgImage")));
+            this.butbarTool.Name = "butbarTool";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -933,6 +946,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.toolbarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedMdiManager)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -983,7 +997,6 @@
         private DevExpress.XtraBars.BarButtonItem _060100;
         private DevExpress.XtraBars.BarButtonItem _060200;
         private DevExpress.XtraBars.BarButtonItem _060300;
-        private DevExpress.XtraBars.BarButtonItem _060400;
         private DevExpress.XtraBars.BarSubItem _070000;
         private DevExpress.XtraBars.BarButtonItem _070100;
         private DevExpress.XtraBars.BarButtonItem _070200;
@@ -999,7 +1012,6 @@
         private DevExpress.XtraBars.BarButtonItem _080500;
         private DevExpress.XtraBars.BarButtonItem _080600;
         private DevExpress.XtraBars.Bar statusBar;
-        private DevExpress.XtraBars.BarButtonItem barButtonTasks;
         private DevExpress.XtraBars.BarButtonItem barButtonStatus;
         private DevExpress.XtraBars.BarSubItem barSubServerInfo;
         private DevExpress.XtraBars.BarButtonItem barButtonServerName;
@@ -1021,6 +1033,9 @@
         private DevExpress.XtraBars.ToolbarForm.ToolbarFormManager toolbarManager;
         private DevExpress.XtraBars.BarButtonItem _010700;
         private DevExpress.XtraBars.BarButtonItem _010800;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarSubItem butbarTool;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
     }
 }
 

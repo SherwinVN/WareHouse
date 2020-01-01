@@ -18,21 +18,22 @@ using Develover.GUI.Services;
 
 namespace Develover.GUI.Forms
 {
-    public partial class DeveloverCatalogForm : DeveloverForm
+    public partial class DeveloverVoucherForm : DeveloverForm
     {
         Functions functionsGUIService = new Functions();
-        public string SQLDataSourceSearch;
-        public string CodeVoucher;
-        private string Table;
+        public string ViewSearch;
+        public string ViewVouvher;
+        public string VoucherID;
+        private string TableTH;
+        private string TableCT;
         private string ModelName;
-        public string CodePrimary;
-        public string NameFieldCodePrimary;
         public EnumPermission StatusUse;
         public IDeveloverControl DeveloverControlsFocus;
-        public IDeveloverControl[] ControlCheckDuplicate;
+        public IDeveloverControl[] ControlCheckExit;
         public IDeveloverControl[] ControlCheckEmty;
+        public string[] FieldCheckEmty;
 
-        public DeveloverCatalogForm()
+        public DeveloverVoucherForm()
         {
             InitializeComponent();
         }
@@ -305,9 +306,9 @@ namespace Develover.GUI.Forms
             return text;
         }
 
-        protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary, string codePrimary)
+        protected virtual bool CheckExitValue(IDeveloverControl[] develoverControls)
         {
-            string Where = "1=1 ";
+            string Where = " 1=1 ";
             string value = "";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
@@ -315,10 +316,13 @@ namespace Develover.GUI.Forms
                 {
                     value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
-                }
-            }
 
-            return functionsGUIService.CheckExistsValueInTableByWhere(tableName, Where, nameFieldCodePrimary, codePrimary);
+
+                    return functionsGUIService.CheckExistsValueInTableByWhere(TableTH, Where, "VoucherID", VoucherID);
+                }
+                else return false;
+            }
+            return false;
         }
 
         protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary)
@@ -362,7 +366,7 @@ namespace Develover.GUI.Forms
             }
             catch (Exception ex)
             {
-                DelMessageBox.DelMessageBoxError("Error:"+ex.Message);
+                DelMessageBox.DelMessageBoxError("Error:" + ex.Message);
                 return false;
             }
         }
@@ -668,7 +672,7 @@ namespace Develover.GUI.Forms
                 }
             }
         }
-      
-   
+
+
     }
 }

@@ -11,19 +11,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Develover.Utilities.Enum;
 
-namespace DeveloverWarehouse.Modules.Purchasing
+namespace DeveloverWarehouse.Modules.File
 {
-    public partial class Vendor : DeveloverCatalogForm, IDeveloverFormChild
+    public partial class Company : DeveloverCatalogForm, IDeveloverFormChild
     {
-        public Vendor()
+        public Company()
         {
             InitializeComponent();
-            SQLDataSourceSearch = "SELECT * FROM Vendor ORDER BY VendorID";
-            CodeVoucher = "Vendor";        
-            NameFieldCodePrimary = "VendorID";
-            ControlCheckDuplicate = new IDeveloverControl[] { txtVendorName };
-            ControlCheckEmty = new IDeveloverControl[] { txtVendorName };
-            DeveloverControlsFocus = txtVendorName;
+            SQLDataSourceSearch = "SELECT * FROM Company ORDER BY CompanyID";
+            CodeVoucher = "Company";        
+            NameFieldCodePrimary = "CompanyID";
+            ControlCheckDuplicate = new IDeveloverControl[] { txtCompanyName };
+            ControlCheckEmty = new IDeveloverControl[] { txtCompanyName };
+            DeveloverControlsFocus = txtCompanyName;
         }
 
         private void Product_Load(object sender, EventArgs e)

@@ -68,6 +68,7 @@
             // txtName
             // 
             this.txtName.FieldBinding = "UoMName";
+            this.txtName.IsGUID = false;
             this.txtName.Location = new System.Drawing.Point(129, 27);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(284, 20);
@@ -77,6 +78,7 @@
             // memDescription
             // 
             this.memDescription.FieldBinding = "Description";
+            this.memDescription.IsGUID = false;
             this.memDescription.Location = new System.Drawing.Point(129, 50);
             this.memDescription.Name = "memDescription";
             this.memDescription.Size = new System.Drawing.Size(284, 66);
@@ -86,6 +88,7 @@
             // chkActive
             // 
             this.chkActive.FieldBinding = "Active";
+            this.chkActive.IsGUID = false;
             this.chkActive.Location = new System.Drawing.Point(129, 119);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Caption = "Trạng thái sử dụng";
@@ -96,6 +99,7 @@
             // labOUMName
             // 
             this.labOUMName.FieldBinding = null;
+            this.labOUMName.IsGUID = false;
             this.labOUMName.Location = new System.Drawing.Point(9, 27);
             this.labOUMName.Name = "labOUMName";
             this.labOUMName.Size = new System.Drawing.Size(71, 13);
@@ -106,6 +110,7 @@
             // labDescription
             // 
             this.labDescription.FieldBinding = null;
+            this.labDescription.IsGUID = false;
             this.labDescription.Location = new System.Drawing.Point(9, 50);
             this.labDescription.Name = "labDescription";
             this.labDescription.Size = new System.Drawing.Size(45, 13);
@@ -118,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("UOM.IconOptions.Image")));
+            this.IconOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("UOM.IconOptions.SvgImage")));
             this.Name = "UOM";
             this.Text = "UOM";
             this.Load += new System.EventHandler(this.UOM_Load);

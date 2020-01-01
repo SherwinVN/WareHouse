@@ -79,7 +79,19 @@
     <Compile Include="Controls\DeveloverTextEditCode.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\DeveloverTextEditEmail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditNumberLandline.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditNumberPhone.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\DeveloverTextEditNumber.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\DeveloverTextEditPercent.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\DeveloverTextEditReadOnly.cs">
@@ -92,6 +104,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ISupportRefresh.cs" />
+    <Compile Include="Forms\DeveloverVoucherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeveloverVoucherForm.Designer.cs">
+      <DependentUpon>DeveloverVoucherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DeveloverCatalogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +300,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\DeveloverGridLookUpEdit.resx">
       <DependentUpon>DeveloverGridLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeveloverVoucherForm.resx">
+      <DependentUpon>DeveloverVoucherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeveloverCatalogForm.resx">
       <DependentUpon>DeveloverCatalogForm.cs</DependentUpon>
