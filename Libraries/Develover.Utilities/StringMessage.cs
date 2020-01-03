@@ -9,6 +9,7 @@ namespace Develover.Utilities
     public class StringMessage
     {
         #region System
+        public static string NameApplication = "Develover Software Co., Ltd.";
         public static string DataNullOrEmty = "Dữ liệu trống hoặc không tồn tại!";
         public static string MessageSystem = "Thông báo từ hệ thống";
         public static string Unknown = "Không xác định";

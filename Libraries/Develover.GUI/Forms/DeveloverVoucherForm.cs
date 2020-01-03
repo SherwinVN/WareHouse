@@ -27,6 +27,7 @@ namespace Develover.GUI.Forms
         private string TableTH;
         private string TableCT;
         private string ModelName;
+        public string CodeVoucher;
         public EnumPermission StatusUse;
         public IDeveloverControl DeveloverControlsFocus;
         public IDeveloverControl[] ControlCheckExit;
@@ -87,11 +88,11 @@ namespace Develover.GUI.Forms
 
                     }
                 }
-
             }
+            ((DataTable)grcDetai.DataSource).Rows.Clear();
         }
 
-        protected virtual bool SetStatusEdit(IDeveloverControl GroupControl, bool Enable)
+        protected virtual bool SetStatusReadOnly(IDeveloverControl GroupControl, bool Enable)
         {
             foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
             {
@@ -99,7 +100,7 @@ namespace Develover.GUI.Forms
                 {
                     if (iDcontrol is DeveloverGroupControl)
                     {
-                        SetStatusEdit(iDcontrol, Enable);
+                        SetStatusReadOnly(iDcontrol, Enable);
                     }
                     else
                    if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
@@ -312,46 +313,58 @@ namespace Develover.GUI.Forms
             string value = "";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
+                Where = " 1=1 ";
+                value = "";
                 if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
                 {
                     value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
-
-
-                    return functionsGUIService.CheckExistsValueInTableByWhere(TableTH, Where, "VoucherID", VoucherID);
+                    if (functionsGUIService.CheckExistsValueInTableByWhere(TableTH, Where, "VoucherID", VoucherID))
+                    {
+                        ((Control)develoverControl).BackColor = DeveloverOptions.ControlExistsValueBackColor;
+                        ((Control)develoverControl).ForeColor = DeveloverOptions.ControlExistsValueForeColor;
+                        ((Control)develoverControl).Focus();
+                        return true;
+                    }
                 }
-                else return false;
             }
             return false;
-        }
-
-        protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary)
-        {
-            string Where = "1=1 ";
-            string value = "";
-            foreach (IDeveloverControl develoverControl in develoverControls)
-            {
-                if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
-                {
-                    value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
-                    Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
-                }
-            }
-            return functionsGUIService.CheckExistsValueInTableByWhere(tableName, Where, nameFieldCodePrimary);
-
         }
 
         protected virtual bool CheckEmty(IDeveloverControl[] develoverControls)
         {
-            foreach (IDeveloverControl develoverControl in develoverControls)
+            if (grvDetail.RowCount > 0)
             {
-                if (string.IsNullOrEmpty(((Control)develoverControl).Text))
+                foreach (IDeveloverControl develoverControl in develoverControls)
                 {
-                    return true;
+                    if (string.IsNullOrEmpty(((Control)develoverControl).Text))
+                    {
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            else
+                return false;
         }
+
+        protected virtual bool GetListColumnTableHeader(IDeveloverControl[] develoverControls)
+        {
+            if (grvDetail.RowCount > 0)
+            {
+                foreach (IDeveloverControl develoverControl in develoverControls)
+                {
+                    if (string.IsNullOrEmpty(((Control)develoverControl).Text))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+                return false;
+        }
+
         protected virtual bool LoadColorControlNotEmty(IDeveloverControl[] develoverControls)
         {
             try
@@ -373,43 +386,43 @@ namespace Develover.GUI.Forms
 
         protected virtual bool BarButtonNew_Click()
         {
-            //if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
-            //{
+            if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
+            {
 
-            //    if (CheckEmty(ControlCheckEmty))
-            //    {
-            //        DelMessageBox.DelMessageBoxOk(StringMessage.CompelInput);
-            //        return false;
-            //    }
-            //    if (EnumPermission.New == StatusUse)
-            //    {
-            //        if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary))
-            //        {
-            //            DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
-            //            return false;
-            //        }
-            //        CodePrimary = functionsGUIService.GetGUID();
+                if (CheckEmty(ControlCheckEmty))
+                {
+                    DelMessageBox.DelMessageBoxOk(StringMessage.CompelInput);
+                    return false;
+                }
+                if (EnumPermission.New == StatusUse)
+                {
+                    if (CheckExitValue(ControlCheckExit))
+                    {
+                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                        return false;
+                    }
+                    VoucherID = functionsGUIService.GetGUID();
 
-            //        functionsGUIService.InsertIntoTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-            //        LoadData();
-            //    }
-            //    else
-            //    if (EnumPermission.Edit == StatusUse)
-            //    {
-            //        if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary, CodePrimary))
-            //        {
-            //            DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
-            //            return false;
-            //        }
-            //        functionsGUIService.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-            //        LoadData();
-            //    }
-            //}
-            //else
-            //{
-            //    SetNullControl(gro_general);
-            //    ((Control)DeveloverControlsFocus).Focus();
-            //}
+                    functionsGUIService.InsertIntoTable(LoadListControlAndField(groHeader), TableTH, "VoucherID", VoucherID);
+                    LoadData();
+                }
+                else
+                if (EnumPermission.Edit == StatusUse)
+                {
+                    if (CheckExitValue(ControlCheckExit))
+                    {
+                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                        return false;
+                    }
+                    functionsGUIService.UpdateTable(LoadListControlAndField(groHeader), TableTH, "VoucherID", VoucherID);
+                    LoadData();
+                }
+            }
+            else
+            {
+                SetNullControl(groHeader);
+                ((Control)DeveloverControlsFocus).Focus();
+            }
             return true;
         }
 
@@ -428,11 +441,11 @@ namespace Develover.GUI.Forms
         {
             if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionDelete, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-              //  functionsGUIService.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
-                SetNullControl(gro_general);
+                DeleteVoucher();
+                SetNullControl(groHeader);
                 LoadData();
-                //if (grv_search.RowCount > 0)
-                //    CodePrimary = grv_search.GetRowCellValue(0, NameFieldCodePrimary)?.ToString();
+                if (grvSearch.RowCount > 0)
+                    VoucherID = grvSearch.GetRowCellValue(0, "VoucherID")?.ToString();
             }
 
             return true;
@@ -463,7 +476,7 @@ namespace Develover.GUI.Forms
                         barButtonDelete.Enabled = false;
                         barButtonCancel.Enabled = true;
                         barButtonPrint.Enabled = false;
-                        SetStatusEdit(gro_general, false);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, false);
                     }
                     break;
                 case EnumPermission.Edit:
@@ -472,7 +485,7 @@ namespace Develover.GUI.Forms
                         barButtonDelete.Enabled = false;
                         barButtonCancel.Enabled = true;
                         barButtonPrint.Enabled = false;
-                        SetStatusEdit(gro_general, false);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, false);
                     }
                     break;
                 case EnumPermission.View:
@@ -490,7 +503,7 @@ namespace Develover.GUI.Forms
                             barButtonPrint.Enabled = true;
                         }
                         barButtonCancel.Enabled = false;
-                        SetStatusEdit(gro_general, true);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, true);
                     }
                     break;
                 case EnumPermission.Denial:
@@ -500,7 +513,7 @@ namespace Develover.GUI.Forms
                         barButtonDelete.Enabled = false;
                         barButtonCancel.Enabled = false;
                         barButtonPrint.Enabled = false;
-                        SetStatusEdit(gro_general, true);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, true);
                     }
                     break;
             }
@@ -526,39 +539,42 @@ namespace Develover.GUI.Forms
 
         protected virtual void InitForm()
         {
-            //using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,TableDeail,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
-            //{
-            //    foreach (DataRow dr in data.Rows)
-            //    {
-            //        Text = dr["Name"].ToString().ToUpper();
-            //        TableTH = dr["TableHeader"].ToString();
-            //        TableCT = dr["TableDeail"].ToString();
-            //        ModelName = dr["ModelName"].ToString();
-            //    }
-            //}
-           // grc_search.BuildGridControlsView(SQLDataSourceSearch, ModelName);
-            LoadData();
+            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,TableDeail,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Text = dr["Name"].ToString().ToUpper();
+                    TableTH = dr["TableHeader"].ToString();
+                    TableCT = dr["TableDeail"].ToString();
+                    ModelName = dr["ModelName"].ToString();
+                }
+            }
+            grcSearch.BuildGridControlsView("SElECT * FROM " + ViewSearch, ModelName + "Search");
+            grcDetai.BuildGridControlsView("SElECT * FROM " + ViewVouvher + " WHERE VoucherID ='" + VoucherID + "'", ModelName);
             SetEnableBarButton();
-            LoadDataControls();
             LoadColorControlNotEmty(ControlCheckEmty);
+
+            LoadDataControls();
+            LoadData();
         }
 
         protected virtual void LoadData()
         {
             string code = VoucherID;
-            grc_search.LoadData();
-            ClearDataBindingsControl(gro_general);
-            DataBindingsControl(gro_general, grc_search.DataSource);
-            //if (grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code) >= 0)
-            //{
-            //    grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code);
-            //    grv_search.ClearSelection();
-            //    grv_search.SelectRow(grv_search.FocusedRowHandle);
-            //}
-            //else
-            //{
-            //    grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], CodePrimary);
-            //}
+            grcSearch.LoadData();
+            grcDetai.LoadData();
+            ClearDataBindingsControl(groHeader);
+            DataBindingsControl(groHeader, grcSearch.DataSource);
+            if (grvSearch.LocateByDisplayText(0, grvSearch.Columns["VoucherID"], code) >= 0)
+            {
+                grvSearch.FocusedRowHandle = grvSearch.LocateByDisplayText(0, grvSearch.Columns["VoucherID"], code);
+                grvSearch.ClearSelection();
+                grvSearch.SelectRow(grvSearch.FocusedRowHandle);
+            }
+            else
+            {
+                grvSearch.FocusedRowHandle = grvSearch.LocateByDisplayText(0, grvSearch.Columns["VoucherID"], VoucherID);
+            }
         }
 
         protected virtual void LoadDataControls()
@@ -567,10 +583,15 @@ namespace Develover.GUI.Forms
 
         }
 
+        protected virtual bool DeleteVoucher()
+        {
+            throw new NotImplementedException();
+        }
+
         private void BarButtonNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!CheckNew()) return;
-            ClearDataBindingsControl(gro_general);
+            ClearDataBindingsControl(groHeader);
             ((Control)DeveloverControlsFocus).Focus();
             if (!BarButtonNew_Click()) return;
             if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit)
@@ -590,7 +611,7 @@ namespace Develover.GUI.Forms
         {
             if (!CheckEdit()) return;
             if (string.IsNullOrEmpty(VoucherID)) return;
-            ClearDataBindingsControl(gro_general);
+            ClearDataBindingsControl(groHeader);
             ((Control)DeveloverControlsFocus).Focus();
             if (!BarButtonEdit_Click()) return;
             StatusUse = EnumPermission.Edit;
@@ -630,7 +651,7 @@ namespace Develover.GUI.Forms
             if (EnumPermission.Edit == StatusUse) return;
             if (EnumPermission.New == StatusUse) return;
 
-         //   CodePrimary = ((GridView)sender).GetFocusedRowCellValue(((GridView)sender).Columns[NameFieldCodePrimary])?.ToString();
+            //   CodePrimary = ((GridView)sender).GetFocusedRowCellValue(((GridView)sender).Columns[NameFieldCodePrimary])?.ToString();
 
         }
 
@@ -674,6 +695,9 @@ namespace Develover.GUI.Forms
             }
         }
 
+        private void groDetail_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
