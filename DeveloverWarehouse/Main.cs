@@ -28,7 +28,7 @@ namespace DeveloverWarehouse
         {
 
             InitializeComponent();
-            this.Text += " - Develover Software Co., Ltd.";
+            this.Text += StringMessage.NameApplication;
             toolbarManager.ItemClick += ToolbarManager_ItemClick;
             _010100.Enabled = false;
         }

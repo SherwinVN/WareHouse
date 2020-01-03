@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DeveloverWarehouse.StartingForm), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.repositoryItemToggleSwitch1 = new DevExpress.XtraEditors.Repository.RepositoryItemToggleSwitch();
             this.toolbarControl = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
             this.toolbarManager = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
             this.statusBar = new DevExpress.XtraBars.Bar();
+            this.butbarTool = new DevExpress.XtraBars.BarSubItem();
             this.barButtonStatus = new DevExpress.XtraBars.BarButtonItem();
             this.barSubServerInfo = new DevExpress.XtraBars.BarSubItem();
             this.barButtonServerName = new DevExpress.XtraBars.BarButtonItem();
@@ -115,7 +116,6 @@
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
-            this.butbarTool = new DevExpress.XtraBars.BarSubItem();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemToggleSwitch1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarManager)).BeginInit();
@@ -256,6 +256,12 @@
             this.statusBar.OptionsBar.MultiLine = true;
             this.statusBar.OptionsBar.UseWholeRow = true;
             this.statusBar.Text = "Bar Status";
+            // 
+            // butbarTool
+            // 
+            this.butbarTool.Id = 86;
+            this.butbarTool.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("butbarTool.ImageOptions.SvgImage")));
+            this.butbarTool.Name = "butbarTool";
             // 
             // barButtonStatus
             // 
@@ -848,13 +854,13 @@
             this.bbt_statusconnect.Id = 76;
             this.bbt_statusconnect.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("bbt_statusconnect.ImageOptions.SvgImage")));
             this.bbt_statusconnect.Name = "bbt_statusconnect";
-            toolTipTitleItem2.Text = "Status Connetion";
-            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "Click to reconnection";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
-            this.bbt_statusconnect.SuperTip = superToolTip2;
+            toolTipTitleItem1.Text = "Status Connetion";
+            toolTipItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Click to reconnection";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.bbt_statusconnect.SuperTip = superToolTip1;
             // 
             // barUserLogin
             // 
@@ -915,30 +921,26 @@
             this.barSubItem1.Name = "barSubItem1";
             this.barSubItem1.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // butbarTool
-            // 
-            this.butbarTool.Id = 86;
-            this.butbarTool.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barSubItem2.ImageOptions.SvgImage")));
-            this.butbarTool.Name = "butbarTool";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageStore = global::DeveloverWarehouse.Properties.Resources.TAOLAO;
             this.ClientSize = new System.Drawing.Size(872, 470);
             this.Controls.Add(this.barDockLeft);
             this.Controls.Add(this.barDockRight);
             this.Controls.Add(this.barDockBottom);
             this.Controls.Add(this.barDockTop);
             this.Controls.Add(this.toolbarControl);
+            this.DoubleBuffered = true;
             this.IconOptions.Image = global::DeveloverWarehouse.Properties.Resources.icon;
             this.IsMdiContainer = true;
+            this.MdiChildCaptionFormatString = "[{1}] - [{0}]";
             this.MinimumSize = new System.Drawing.Size(700, 400);
             this.Name = "Main";
             this.ShowMdiChildCaptionInParentTitle = true;
-            this.ShowText = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Develover Warehouse";
             this.ToolbarFormControl = this.toolbarControl;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);

@@ -233,9 +233,9 @@ namespace Develover.GUI.Services
                         typeColumns_.SumaryType = GetSumaryType(dr["SumaryType"]?.ToString());
                         typeColumns_.StringFormat = dr["StringFormat"]?.ToString();
 
-                        if (dr["Type"].ToString().Equals("Combobox") || dr["Type"].ToString().Equals("Gridlookup"))
-                            typeColumns_.TypeColumn = GetTypeColumn("Text");
-                        else
+                        //if (dr["Type"].ToString().Equals("Combobox") || dr["Type"].ToString().Equals("Gridlookup"))
+                        //    typeColumns_.TypeColumn = GetTypeColumn("Text");
+                        //else
                             typeColumns_.TypeColumn = GetTypeColumn(dr["Type"]?.ToString());
 
 
@@ -246,7 +246,7 @@ namespace Develover.GUI.Services
                         typeColumns_.ValueMember = dr["ValueMember"]?.ToString();
                         typeColumns_.NullText = dr["NullText"]?.ToString();
 
-                        //typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumnsView(typeColumns_.ChildModel);
+                        typeColumns_.Model = typeColumns_.ChildModel;
                         typeColumns.Add(typeColumns_);
                     }
                 }

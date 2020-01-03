@@ -42,7 +42,7 @@
             // progressBarControl
             // 
             this.progressBarControl.EditValue = 0;
-            this.progressBarControl.Location = new System.Drawing.Point(23, 231);
+            this.progressBarControl.Location = new System.Drawing.Point(23, 202);
             this.progressBarControl.Name = "progressBarControl";
             this.progressBarControl.Size = new System.Drawing.Size(404, 12);
             this.progressBarControl.TabIndex = 5;
@@ -50,7 +50,7 @@
             // labelCopyright
             // 
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelCopyright.Location = new System.Drawing.Point(23, 286);
+            this.labelCopyright.Location = new System.Drawing.Point(23, 257);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(112, 13);
             this.labelCopyright.TabIndex = 6;
@@ -58,7 +58,7 @@
             // 
             // labelStatus
             // 
-            this.labelStatus.Location = new System.Drawing.Point(23, 206);
+            this.labelStatus.Location = new System.Drawing.Point(23, 177);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(99, 13);
             this.labelStatus.TabIndex = 7;
@@ -66,8 +66,8 @@
             // 
             // peImage
             // 
-            this.peImage.EditValue = ((object)(resources.GetObject("peImage.EditValue")));
-            this.peImage.Location = new System.Drawing.Point(12, 12);
+            this.peImage.EditValue = global::DeveloverWarehouse.Properties.Resources.TAOLAO;
+            this.peImage.Location = new System.Drawing.Point(157, 5);
             this.peImage.Name = "peImage";
             this.peImage.Properties.AllowFocused = false;
             this.peImage.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -75,13 +75,13 @@
             this.peImage.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peImage.Properties.ShowMenu = false;
             this.peImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.peImage.Size = new System.Drawing.Size(426, 180);
+            this.peImage.Size = new System.Drawing.Size(126, 196);
             this.peImage.TabIndex = 9;
             // 
             // peLogo
             // 
             this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
-            this.peLogo.Location = new System.Drawing.Point(337, 249);
+            this.peLogo.Location = new System.Drawing.Point(337, 220);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
             this.peLogo.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -96,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 320);
+            this.ClientSize = new System.Drawing.Size(450, 277);
             this.Controls.Add(this.peImage);
             this.Controls.Add(this.peLogo);
             this.Controls.Add(this.labelStatus);

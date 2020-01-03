@@ -130,7 +130,8 @@ namespace Develover.GUI.Controls
                 gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
                 gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
 
-                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
+                //GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
+                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }
         }
