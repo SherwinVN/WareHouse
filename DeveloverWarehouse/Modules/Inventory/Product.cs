@@ -35,5 +35,10 @@ namespace DeveloverWarehouse.Modules.Inventory
             lokUOMWeight.LoadData("SELECT * FROM UOM ORDER BY UOMID", "UOM", "UOMID", "UOMID", "UOMName", "");
             
         }
+
+        private void lokUOM_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -111,6 +111,12 @@
     <Compile Include="Modules\File\UOM.Designer.cs">
       <DependentUpon>UOM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Inventory\Delivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Inventory\Delivery.Designer.cs">
+      <DependentUpon>Delivery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Inventory\Product.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,12 +207,6 @@
     <Compile Include="Modules\General\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Inventory\Delivery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Inventory\Delivery.Designer.cs">
-      <DependentUpon>Delivery.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Inventory\Tranfer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +290,9 @@
     <EmbeddedResource Include="Modules\File\UOM.resx">
       <DependentUpon>UOM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Inventory\Delivery.resx">
+      <DependentUpon>Delivery.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Inventory\Product.resx">
       <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
@@ -335,9 +338,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\General\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Inventory\Delivery.resx">
-      <DependentUpon>Delivery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Inventory\Tranfer.resx">
       <DependentUpon>Tranfer.cs</DependentUpon>

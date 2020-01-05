@@ -37,6 +37,8 @@ namespace Develover.GUI.Controls
             Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             Properties.PopupView = new DeveloverGridView();
             EnterMoveNextControl = true;
+            IsGUID = true;
+            TypeFieldColumns = EnumTypeColumns.Gridlookup;
         }
 
         public void LoadData(DataTable data, string Model, string KeyMember = "", string DisplayMember = "", string ValueMember = "", string NullText = "")

@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using System.Windows.Forms;
+using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Controls
 {
@@ -12,6 +13,7 @@ namespace Develover.GUI.Controls
             MaskBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
             MaskBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             MaskBox.AutoCompleteCustomSource = collection;
+            TypeFieldColumns = EnumTypeColumns.Text;
         }
         public void init(string[] AutoCompleteSource, bool RetainTheOld) {
             if (RetainTheOld)

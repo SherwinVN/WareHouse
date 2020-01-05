@@ -15,6 +15,8 @@ using static Develover.Utilities.Enum;
 using Develover.GUI.Controls;
 using Develover.GUI.OverideClass;
 using Develover.GUI.Services;
+using DevExpress.XtraGrid.Columns;
+using System.Data.SqlClient;
 
 namespace Develover.GUI.Forms
 {
@@ -24,15 +26,14 @@ namespace Develover.GUI.Forms
         public string ViewSearch;
         public string ViewVouvher;
         public string VoucherID;
-        private string TableTH;
-        private string TableCT;
+        private string TableHeader;
+        private string TableDetail;
         private string ModelName;
         public string CodeVoucher;
-        public EnumPermission StatusUse;
+        public EnumPermission StatusUse = EnumPermission.View;
         public IDeveloverControl DeveloverControlsFocus;
         public IDeveloverControl[] ControlCheckExit;
         public IDeveloverControl[] ControlCheckEmty;
-        public string[] FieldCheckEmty;
 
         public DeveloverVoucherForm()
         {
@@ -269,12 +270,12 @@ namespace Develover.GUI.Forms
             return dictionary;
         }
 
-        protected virtual string GetValueByTypeFieldColumns(EnumTypeColumns TypeFieldColumns, IDeveloverControl develoverControl)
+        protected virtual string GetValueByTypeFieldColumns(IDeveloverControl develoverControl)
         {
 
             string text = "";
             Guid guid;
-            switch (TypeFieldColumns)
+            switch (develoverControl.TypeFieldColumns)
             {
                 case EnumTypeColumns.Number:
                     text = decimal.Parse(((Control)develoverControl).Text).ToString();
@@ -306,7 +307,37 @@ namespace Develover.GUI.Forms
 
             return text;
         }
+        protected virtual Type GetTypeControl(IDeveloverControl develoverControl)
+        {
 
+            Type type = null; ;
+            switch (develoverControl.TypeFieldColumns)
+            {
+                case EnumTypeColumns.Number:
+                    type = typeof(Double);
+                    break;
+                case EnumTypeColumns.Check:
+                    type = typeof(bool);
+                    break;
+                case EnumTypeColumns.Combobox:
+                    type = typeof(string);
+                    break;
+                case EnumTypeColumns.Date:
+                    type = typeof(DateTime);
+                    break;
+                case EnumTypeColumns.Gridlookup:
+                    type = typeof(string);
+                    break;
+                case EnumTypeColumns.Text:
+                    type = typeof(string);
+                    break;
+                case EnumTypeColumns.Time:
+                    type = typeof(Timer);
+                    break;
+            }
+
+            return type;
+        }
         protected virtual bool CheckExitValue(IDeveloverControl[] develoverControls)
         {
             string Where = " 1=1 ";
@@ -317,9 +348,9 @@ namespace Develover.GUI.Forms
                 value = "";
                 if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
                 {
-                    value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
+                    value = GetValueByTypeFieldColumns(develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
-                    if (functionsGUIService.CheckExistsValueInTableByWhere(TableTH, Where, "VoucherID", VoucherID))
+                    if (functionsGUIService.CheckExistsValueInTableByWhere(TableHeader, Where, "VoucherID", VoucherID))
                     {
                         ((Control)develoverControl).BackColor = DeveloverOptions.ControlExistsValueBackColor;
                         ((Control)develoverControl).ForeColor = DeveloverOptions.ControlExistsValueForeColor;
@@ -347,24 +378,6 @@ namespace Develover.GUI.Forms
             else
                 return false;
         }
-
-        protected virtual bool GetListColumnTableHeader(IDeveloverControl[] develoverControls)
-        {
-            if (grvDetail.RowCount > 0)
-            {
-                foreach (IDeveloverControl develoverControl in develoverControls)
-                {
-                    if (string.IsNullOrEmpty(((Control)develoverControl).Text))
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            else
-                return false;
-        }
-
         protected virtual bool LoadColorControlNotEmty(IDeveloverControl[] develoverControls)
         {
             try
@@ -384,6 +397,86 @@ namespace Develover.GUI.Forms
             }
         }
 
+        protected virtual List<string> GetlistColumnTableHeader(IDeveloverControl GroupControl)
+        {
+            List<string> listColumn = new List<string>();
+            foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
+            {
+                if (iDcontrol is IDeveloverControl)
+                {
+                    if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                    {
+                        listColumn.Add(iDcontrol.FieldBinding);
+                    }
+                }
+            }
+            return listColumn;
+        }
+
+        protected virtual List<string> GetlistColumnTableDetail(string modelName)
+        {
+            List<string> listColumn = new List<string>();
+            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + modelName + "' ORDER BY OrderNo"))
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    listColumn.Add(dr["Name"]?.ToString());
+                }
+            }
+            return listColumn;
+        }
+
+        protected virtual List<string> GetlistColumnTableDetail(GridView gridView)
+        {
+            List<string> listColumn = new List<string>();
+
+            foreach (GridColumn cl in gridView.Columns)
+            {
+                listColumn.Add(cl.FieldName);
+            }
+
+            return listColumn;
+        }
+        protected virtual bool CreateTableHeaderTemp(string tableNameCopy, string tableNameAs, List<string> listColumn)
+        {
+            try
+            {
+
+                string sql = "IF(EXISTS(SELECT name FROM sysObjects WHERE name = '" + tableNameAs + "')) DROP TABLE " + tableNameAs;
+                functionsGUIService.dataBase.ExecuteNonQuery(sql);
+                sql = "SELECT top 0 " + listColumn.Select(x => string.Join(",", x)) + " INTO " + tableNameAs + " FROM " + tableNameCopy;
+                if (functionsGUIService.dataBase.ExecuteNonQuery(sql) != 1)
+                {
+                    return true;
+                }
+
+            }
+            catch
+            {
+            }
+            return false;
+        }
+
+        protected virtual bool CreateTableHeaderTemp(string tableNameCopy, string tableNameAs)
+        {
+            try
+            {
+
+                string sql = "IF(EXISTS(SELECT name FROM sysObjects WHERE name = '" + tableNameAs + "')) DROP TABLE " + tableNameAs;
+                functionsGUIService.dataBase.ExecuteNonQuery(sql);
+                sql = "SELECT top 0 * INTO " + tableNameAs + " FROM " + tableNameCopy;
+                if (functionsGUIService.dataBase.ExecuteNonQuery(sql) != 1)
+                {
+                    return true;
+                }
+
+            }
+            catch
+            {
+            }
+            return false;
+        }
+
         protected virtual bool BarButtonNew_Click()
         {
             if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
@@ -396,6 +489,7 @@ namespace Develover.GUI.Forms
                 }
                 if (EnumPermission.New == StatusUse)
                 {
+
                     if (CheckExitValue(ControlCheckExit))
                     {
                         DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
@@ -403,7 +497,23 @@ namespace Develover.GUI.Forms
                     }
                     VoucherID = functionsGUIService.GetGUID();
 
-                    functionsGUIService.InsertIntoTable(LoadListControlAndField(groHeader), TableTH, "VoucherID", VoucherID);
+                    string tableNameHeader = "Header" + ModelName + VoucherID;
+                    string tableNameDetail = "Detail" + ModelName + VoucherID;
+
+                    if (CreateTableHeaderTemp(TableHeader, tableNameHeader))
+                    {
+                        if (functionsGUIService.InsertIntoTable(LoadListControlAndField(groHeader), tableNameHeader, "VoucherID", VoucherID))
+                        {
+                            if (CreateTableHeaderTemp(TableDetail, tableNameDetail, GetlistColumnTableDetail(grvDetail)))
+                            {
+                                if (functionsGUIService.dataBase.bulkcopy(((DataTable)grcDetai.DataSource), tableNameDetail))
+                                {
+                                    functionsGUIService.dataBase.ExecuteProcedure("PROPOSTVOUCHER", new string[] { "model", "VoucherID" }, new string[] { ModelName, VoucherID });
+                                }
+                            }
+                        }
+                    }
+
                     LoadData();
                 }
                 else
@@ -414,7 +524,7 @@ namespace Develover.GUI.Forms
                         DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
                         return false;
                     }
-                    functionsGUIService.UpdateTable(LoadListControlAndField(groHeader), TableTH, "VoucherID", VoucherID);
+                    functionsGUIService.UpdateTable(LoadListControlAndField(groHeader), TableHeader, "VoucherID", VoucherID);
                     LoadData();
                 }
             }
@@ -539,21 +649,23 @@ namespace Develover.GUI.Forms
 
         protected virtual void InitForm()
         {
-            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,TableDeail,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
+
+            VoucherID = functionsGUIService.GetDefaulString();
+            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,TableDetail,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
             {
                 foreach (DataRow dr in data.Rows)
                 {
                     Text = dr["Name"].ToString().ToUpper();
-                    TableTH = dr["TableHeader"].ToString();
-                    TableCT = dr["TableDeail"].ToString();
+                    TableHeader = dr["TableHeader"].ToString();
+                    TableDetail = dr["TableDetail"].ToString();
                     ModelName = dr["ModelName"].ToString();
                 }
             }
+            SetStatus("Đang mở");
             grcSearch.BuildGridControlsView("SElECT * FROM " + ViewSearch, ModelName + "Search");
-            grcDetai.BuildGridControlsView("SElECT * FROM " + ViewVouvher + " WHERE VoucherID ='" + VoucherID + "'", ModelName);
+            grcDetai.BuildGridControls("SElECT * FROM " + ViewVouvher + " WHERE VoucherID ='" + VoucherID + "'", ModelName);
             SetEnableBarButton();
             LoadColorControlNotEmty(ControlCheckEmty);
-
             LoadDataControls();
             LoadData();
         }
@@ -586,6 +698,11 @@ namespace Develover.GUI.Forms
         protected virtual bool DeleteVoucher()
         {
             throw new NotImplementedException();
+        }
+
+        protected virtual void SetStatus(string stringStatus)
+        {
+            ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("[" + Text + ".] - " + stringStatus);
         }
 
         private void BarButtonNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -658,7 +775,7 @@ namespace Develover.GUI.Forms
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
-            if (e.Control)
+            if (e.Control && e.Shift)
             {
                 switch (e.KeyCode)
                 {

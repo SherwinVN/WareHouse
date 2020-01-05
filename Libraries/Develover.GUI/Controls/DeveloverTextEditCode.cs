@@ -1,5 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿
+using DevExpress.XtraEditors;
 using System.Windows.Forms;
+using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Controls
 {
@@ -7,6 +9,7 @@ namespace Develover.GUI.Controls
     {
         public DeveloverTextEditCode() {
             Properties.CharacterCasing = CharacterCasing.Upper;
+            TypeFieldColumns = EnumTypeColumns.Text;
         }
     }
 }

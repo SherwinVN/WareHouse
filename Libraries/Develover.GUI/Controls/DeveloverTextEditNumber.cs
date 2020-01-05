@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask;
+using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Controls
 {
@@ -7,6 +8,7 @@ namespace Develover.GUI.Controls
     {
         public DeveloverTextEditNumber() {
             Properties.Mask.MaskType = MaskType.Numeric;
+            TypeFieldColumns = EnumTypeColumns.Text;
         }
     }
 }
