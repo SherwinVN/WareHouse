@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Sql;
@@ -6,7 +7,8 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Develover.Utilities;
 
-namespace Develover.Core {
+namespace Develover.Core
+{
     public sealed class SqlDataProvider
     {
 
@@ -369,7 +371,7 @@ namespace Develover.Core {
                             value = command.ExecuteNonQuery();
                             transaction.Commit();
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             DeveloverOptions.SysDel.MessageError = ex.Message;
                             value = -1;
@@ -461,7 +463,7 @@ namespace Develover.Core {
                 }
             }
         }
-
+               
         public async Task ExecuteProcedureAsync(string procedureName, SqlParameter[] paramsIn)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -475,8 +477,52 @@ namespace Develover.Core {
                     await command.ExecuteNonQueryAsync();
                 }
             }
+        }        
+
+        public void ExecuteProcedure(string procedureName, string[] parameterName, string[] parameterValue)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    using (SqlCommand command = new SqlCommand(procedureName, connection, transaction) { CommandType = CommandType.StoredProcedure })
+                    {
+                        try
+                        {
+                            foreach (string str in parameterName)
+                            {
+                                command.Parameters.Add(new SqlParameter(str, parameterValue[Array.IndexOf(parameterName, str)]));
+                            }
+
+                            command.ExecuteNonQuery();
+                            transaction.Commit();
+                        }
+                        catch { transaction.Rollback(); }
+                    }
+                }
+            }
         }
 
+        public async Task ExecuteProcedureAsync(string procedureName, string[] parameterName, string[] parameterValue)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(procedureName, connection) { CommandType = CommandType.StoredProcedure })
+                {
+                    foreach (string str in parameterName)
+                    {
+                        command.Parameters.Add(new SqlParameter(str, parameterValue[Array.IndexOf(parameterName, str)]));
+                    }
+
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+            
+        }
         public object ExecuteProcedureOut(string procedureName, SqlParameter[] paramsIn, SqlParameter paramOut)
         {
             object value;
@@ -525,6 +571,173 @@ namespace Develover.Core {
                     await command.ExecuteNonQueryAsync();
 
                     return paramOut.Value;
+                }
+            }
+        }
+
+        public bool bulkcopy(DataTable dataWrite, string destinationTableName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+
+                        bulkCopy.WriteToServer(dataWrite);
+                        return true;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public bool bulkcopy(DataTable dataWrite, string destinationTableName, string[] columnMapping)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach (string str in columnMapping)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, str));
+                        }
+                        bulkCopy.WriteToServer(dataWrite);
+                        return true;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public bool bulkcopy(DataTable dataWrite, string destinationTableName, Dictionary<string, string> columnMapping)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach (string str in columnMapping.Keys)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, columnMapping[str]));
+                        }
+                        bulkCopy.WriteToServer(dataWrite);
+                        return true;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        await bulkCopy.WriteToServerAsync(dataWrite);
+                        return true;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName, string[] columnMapping)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach (string str in columnMapping)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, str));
+                        }
+                        await bulkCopy.WriteToServerAsync(dataWrite);
+                        return true;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName, Dictionary<string, string> columnMapping)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach (string str in columnMapping.Keys)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, columnMapping[str]));
+                        }
+                        await bulkCopy.WriteToServerAsync(dataWrite);
+                        return true;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
                 }
             }
         }

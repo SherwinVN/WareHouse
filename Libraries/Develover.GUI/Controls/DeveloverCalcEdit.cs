@@ -21,6 +21,8 @@ namespace Develover.GUI.Controls
             Properties.NullText = "0";
             Properties.CloseUpKey = new KeyShortcut(Keys.Space);
             Properties.ShowPopupShadow = true;
+
+            TypeFieldColumns = EnumTypeColumns.Number;
         }
 
     }

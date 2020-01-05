@@ -26,6 +26,7 @@ namespace Develover.GUI.Controls
             Properties.AutoHeight = false;
             Properties.CloseUpKey = new KeyShortcut(Keys.Space);
             Properties.ShowPopupShadow = true;
+            TypeFieldColumns = EnumTypeColumns.Combobox;
         }
 
         public void LoadData(DataTable data, string columName)

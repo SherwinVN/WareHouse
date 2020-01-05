@@ -1,53 +1,38 @@
-﻿using Develover.GUI;
+﻿
 using Develover.GUI.Forms;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
+using Develover.GUI;
 
 namespace DeveloverWarehouse.Modules.Inventory
 {
-    public partial class Delivery : DeveloverForm, IDeveloverFormChild
+    public partial class Delivery : DeveloverVoucherForm, IDeveloverFormChild
     {
         public Delivery()
         {
             InitializeComponent();
+            CodeVoucher = "Delivery";
+            ViewSearch = "VDeliverySearch";
+            ViewVouvher = "VDelivery";
+
+
+
+            DeveloverControlsFocus = lokCustomer;
+            ControlCheckExit = new IDeveloverControl[] { };
+            ControlCheckEmty = new IDeveloverControl[] { lokCustomer };
         }
 
-        private async void But_item_new_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void groHeader_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
         {
-            await ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("vừa new xong");
 
-                for (int i = 0; i < 1000; i++)
-                    await ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("đang làm " + i);
-
-
-            await ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("Ready");
         }
 
-        private void But_item_cancel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void Delivery_Load(object sender, System.EventArgs e)
         {
+            InitForm();
 
-            ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("vừa cancel xong");
-
-            Task.Run(() =>
-            {
-                for (int i = 0; i < 1000; i++)
-                    ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("đang làm " + i);
-            });
-
-
-            ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("Ready");
         }
-
-        public void SetStatus(string message)
+        protected override void LoadDataControls()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task SetStatusAsync(string message)
-        {
-            throw new NotImplementedException();
+            lokCustomer.LoadData("SELECT * FROM CUSTOMER", "CUSTOMMER", "CustomerID", "CustomerID", "CustomerName", "");
         }
     }
 }

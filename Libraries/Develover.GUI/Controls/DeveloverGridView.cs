@@ -37,12 +37,13 @@ namespace Develover.GUI.Controls
 
         public DeveloverGridView(GridControl grid) : base(grid)
         {
-            this.OptionsView.ShowGroupPanel = false;
-            this.OptionsView.ColumnAutoWidth = false;
-            this.OptionsSelection.MultiSelect = true;
-            this.IndicatorWidth = 40;
-            this.CustomDrawRowIndicator += DeveloverGridView_CustomDrawRowIndicator;
-            this.PopupMenuShowing += DeveloverGridView_PopupMenuShowing;
+           OptionsView.ShowGroupPanel = false;
+           OptionsView.ColumnAutoWidth = false;
+           OptionsSelection.MultiSelect = true;
+           IndicatorWidth = 40;
+           CustomDrawRowIndicator += DeveloverGridView_CustomDrawRowIndicator;
+           PopupMenuShowing += DeveloverGridView_PopupMenuShowing;
+
         }
 
         private void DeveloverGridView_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
