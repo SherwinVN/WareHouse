@@ -17,10 +17,10 @@ using DeveloverWarehouse.Modules.File;
 
 namespace DeveloverWarehouse
 {
-    public partial class Login : DeveloverForm, IDeveloverFormChild
+    public partial class Dashboard : DeveloverForm, IDeveloverFormChild
     {
         IDeveloverLoginFunction flogin = new IDeveloverLoginFunction();
-        public Login()
+        public Dashboard()
         {
             InitializeComponent();
         }

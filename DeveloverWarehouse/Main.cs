@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraSplashScreen;
 using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Develover.GUI.OverideClass.Localization;
@@ -115,6 +116,7 @@ namespace DeveloverWarehouse
                 barButtonStatus.Caption = message;
             });
         }
+
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
@@ -141,6 +143,7 @@ namespace DeveloverWarehouse
 
 
         }
+
         protected override bool ProcessDialogKey(Keys keyData)
         {
 
@@ -192,24 +195,18 @@ namespace DeveloverWarehouse
                     }
                 }
                 DeveloverOptions.StatusLogins.StatusLogin = false;
+
+                new WriteHistory().EndSession();
                 login.ShowDialog();
             }
         }
 
         private void _010600_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ExitApplications();
+            this.Close();
         }
 
-        private void ExitApplications()
-        {
-            if (MdiChildren.Length > 0)
-            {
-                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
-                    Application.Exit();
-            }
-            else { Application.Exit(); }
-        }
+
 
         private void _010700_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -220,6 +217,7 @@ namespace DeveloverWarehouse
                 ShowFormChildren(true);
             }
         }
+
         public void ShowFormChildren(bool show)
         {
             foreach (Form form in MdiChildren)
@@ -310,6 +308,23 @@ namespace DeveloverWarehouse
         private void _010501_ItemClick(object sender, ItemClickEventArgs e)
         {
             LoadForm(sender);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (MdiChildren.Length > 0)
+            {
+                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
+                {
+                    new WriteHistory().EndSession();
+                }
+                else
+                    e.Cancel = true;
+            }
+            else
+            {
+                new WriteHistory().EndSession(); Application.Exit();
+            }
         }
 
     }

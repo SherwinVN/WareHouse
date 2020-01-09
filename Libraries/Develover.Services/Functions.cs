@@ -67,11 +67,11 @@ namespace Develover.Services
         }
         public bool InsertIntoTable(Dictionary<string, string> listFilesValues, string tableName, string nameFieldKey, string value)
         {
-            return FunctionsGUIService.UpdateTable(listFilesValues, tableName, nameFieldKey, value);
+            return FunctionsGUIService.InsertIntoTable(listFilesValues, tableName, nameFieldKey, value);
         }
         public bool InsertIntoTable(Dictionary<string, string> listFilesValues, string tableName)
         {
-            return FunctionsGUIService.UpdateTable(listFilesValues, tableName);
+            return FunctionsGUIService.InsertIntoTable(listFilesValues, tableName);
         }
         public bool CheckExistsValueInTable(string tableName, string columnName, string value, string nameFieldCodePrimary, string codePrimary)
         {
