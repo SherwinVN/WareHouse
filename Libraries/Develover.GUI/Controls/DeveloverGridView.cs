@@ -37,12 +37,13 @@ namespace Develover.GUI.Controls
 
         public DeveloverGridView(GridControl grid) : base(grid)
         {
-            this.OptionsView.ShowGroupPanel = false;
-            this.OptionsView.ColumnAutoWidth = false;
-            this.OptionsSelection.MultiSelect = true;
-            this.IndicatorWidth = 40;
-            this.CustomDrawRowIndicator += DeveloverGridView_CustomDrawRowIndicator;
-            this.PopupMenuShowing += DeveloverGridView_PopupMenuShowing;
+           OptionsView.ShowGroupPanel = false;
+           OptionsView.ColumnAutoWidth = false;
+           OptionsSelection.MultiSelect = true;
+           IndicatorWidth = 40;
+           CustomDrawRowIndicator += DeveloverGridView_CustomDrawRowIndicator;
+           PopupMenuShowing += DeveloverGridView_PopupMenuShowing;
+
         }
 
         private void DeveloverGridView_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
@@ -130,7 +131,8 @@ namespace Develover.GUI.Controls
                 gridColumn.SummaryItem.DisplayFormat = typeColumns_.StringFormat;
                 gridColumn.SummaryItem.FieldName = typeColumns_.FieldName;
 
-                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
+                //GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn == EnumTypeColumns.Gridlookup || typeColumns_.TypeColumn == EnumTypeColumns.Combobox ? EnumTypeColumns.Text : typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
+                GetTypeColumn(ref gridColumn, typeColumns_.TypeColumn, typeColumns_.SQLData, typeColumns_.Model, typeColumns_.KeyMember, typeColumns_.ValueMember, typeColumns_.DisplayMember, typeColumns_.NullText);
                 Columns.Add(gridColumn);
             }
         }

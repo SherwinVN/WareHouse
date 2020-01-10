@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Mask;
+using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Controls
 {
@@ -12,6 +13,7 @@ namespace Develover.GUI.Controls
             Properties.Mask.PlaceHolder = '_';
             Properties.Mask.BeepOnError = true;
             Properties.Mask.UseMaskAsDisplayFormat = true;
+            TypeFieldColumns = EnumTypeColumns.Text;
         }
     }
 }

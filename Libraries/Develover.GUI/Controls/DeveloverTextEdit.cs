@@ -14,6 +14,7 @@ namespace Develover.GUI.Controls
 
         public DeveloverTextEdit()
         {
+            TypeFieldColumns = EnumTypeColumns.Text;
         }
     }
 }

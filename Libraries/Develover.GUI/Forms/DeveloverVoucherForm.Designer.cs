@@ -43,47 +43,62 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.gro_content = new Develover.GUI.Controls.DeveloverGroupControl();
             this.gro_information = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.tab_information = new Develover.GUI.Controls.DeveloverXtraTabControl();
-            this.tbp_general = new DevExpress.XtraTab.XtraTabPage();
-            this.gro_general = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.tbp_note = new DevExpress.XtraTab.XtraTabPage();
-            this.gro_note = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.develoverGridControl2 = new Develover.GUI.Controls.DeveloverGridControl();
-            this.develoverGridView2 = new Develover.GUI.Controls.DeveloverGridView();
-            this.but_delete_note = new Develover.GUI.Controls.DeveloverSimpleButton();
-            this.but_add_note = new Develover.GUI.Controls.DeveloverSimpleButton();
-            this.gro_detail_note = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.mmo_note = new Develover.GUI.Controls.DeveloverMemoEdit();
+            this.tabDetail = new Develover.GUI.Controls.DeveloverXtraTabControl();
+            this.tapDetail = new DevExpress.XtraTab.XtraTabPage();
+            this.grcDetai = new Develover.GUI.Controls.DeveloverGridControl();
+            this.grvDetail = new Develover.GUI.Controls.DeveloverGridView();
+            this.repositoryItemCalcEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
+            this.groHeader = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.groVoucherInfo = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.develoverLabelControl2 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverLabelControl1 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.txtDateNo = new Develover.GUI.Controls.DeveloverDateEdit();
+            this.txtVoucherNo = new Develover.GUI.Controls.DeveloverTextEdit();
+            this.develoverSplitterControl2 = new Develover.GUI.Controls.DeveloverSplitterControl();
             this.develoverSplitterControl1 = new Develover.GUI.Controls.DeveloverSplitterControl();
             this.gro_search = new Develover.GUI.Controls.DeveloverGroupControl();
             this.gro_search_middle_1 = new Develover.GUI.Controls.DeveloverGroupControl();
-            this.grc_search = new Develover.GUI.Controls.DeveloverGridControl();
-            this.grv_search = new Develover.GUI.Controls.DeveloverGridView();
+            this.grcSearch = new Develover.GUI.Controls.DeveloverGridControl();
+            this.grvSearch = new Develover.GUI.Controls.DeveloverGridView();
             this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
+            this.develoverGroupControl1 = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.develoverLabelControl3 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverLabelControl4 = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.develoverHyperlinkLabelControl1 = new Develover.GUI.Controls.DeveloverHyperlinkLabelControl();
+            this.develoverDateEdit2 = new Develover.GUI.Controls.DeveloverDateEdit();
+            this.develoverDateEdit1 = new Develover.GUI.Controls.DeveloverDateEdit();
+            this.butSearch = new Develover.GUI.Controls.DeveloverSimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_content)).BeginInit();
             this.gro_content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gro_information)).BeginInit();
             this.gro_information.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tab_information)).BeginInit();
-            this.tab_information.SuspendLayout();
-            this.tbp_general.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_general)).BeginInit();
-            this.tbp_note.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_note)).BeginInit();
-            this.gro_note.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridControl2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_detail_note)).BeginInit();
-            this.gro_detail_note.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mmo_note.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabDetail)).BeginInit();
+            this.tabDetail.SuspendLayout();
+            this.tapDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grcDetai)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groHeader)).BeginInit();
+            this.groHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groVoucherInfo)).BeginInit();
+            this.groVoucherInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateNo.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_search)).BeginInit();
             this.gro_search.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gro_search_middle_1)).BeginInit();
             this.gro_search_middle_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grc_search)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_search)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grcSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl1)).BeginInit();
+            this.develoverGroupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // toolbarManager
@@ -180,7 +195,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.toolbarManager;
-            this.barDockControlTop.Size = new System.Drawing.Size(838, 28);
+            this.barDockControlTop.Size = new System.Drawing.Size(838, 24);
             // 
             // barDockControlBottom
             // 
@@ -194,17 +209,17 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 28);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.toolbarManager;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 413);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(838, 28);
+            this.barDockControlRight.Location = new System.Drawing.Point(838, 24);
             this.barDockControlRight.Manager = this.toolbarManager;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 409);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 413);
             // 
             // gro_content
             // 
@@ -214,178 +229,198 @@
             this.gro_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gro_content.FieldBinding = null;
             this.gro_content.IsGUID = false;
-            this.gro_content.Location = new System.Drawing.Point(0, 28);
+            this.gro_content.Location = new System.Drawing.Point(0, 24);
             this.gro_content.Name = "gro_content";
             this.gro_content.ShowCaption = false;
-            this.gro_content.Size = new System.Drawing.Size(838, 409);
+            this.gro_content.Size = new System.Drawing.Size(838, 413);
             this.gro_content.TabIndex = 4;
             this.gro_content.Text = "develoverGroupControl2";
             this.gro_content.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // gro_information
             // 
-            this.gro_information.Controls.Add(this.tab_information);
+            this.gro_information.Controls.Add(this.tabDetail);
+            this.gro_information.Controls.Add(this.groHeader);
             this.gro_information.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gro_information.FieldBinding = null;
             this.gro_information.IsGUID = false;
-            this.gro_information.Location = new System.Drawing.Point(254, 2);
+            this.gro_information.Location = new System.Drawing.Point(282, 2);
             this.gro_information.Name = "gro_information";
             this.gro_information.ShowCaption = false;
-            this.gro_information.Size = new System.Drawing.Size(582, 405);
+            this.gro_information.Size = new System.Drawing.Size(554, 409);
             this.gro_information.TabIndex = 0;
             this.gro_information.Text = "develoverGroupControl3";
             this.gro_information.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // tab_information
+            // tabDetail
             // 
-            this.tab_information.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tab_information.FieldBinding = null;
-            this.tab_information.IsGUID = false;
-            this.tab_information.Location = new System.Drawing.Point(2, 2);
-            this.tab_information.Name = "tab_information";
-            this.tab_information.SelectedTabPage = this.tbp_general;
-            this.tab_information.Size = new System.Drawing.Size(578, 401);
-            this.tab_information.TabIndex = 0;
-            this.tab_information.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.tbp_general,
-            this.tbp_note});
-            this.tab_information.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.tabDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDetail.FieldBinding = null;
+            this.tabDetail.IsGUID = false;
+            this.tabDetail.Location = new System.Drawing.Point(2, 196);
+            this.tabDetail.Name = "tabDetail";
+            this.tabDetail.SelectedTabPage = this.tapDetail;
+            this.tabDetail.Size = new System.Drawing.Size(550, 211);
+            this.tabDetail.TabIndex = 5;
+            this.tabDetail.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tapDetail});
+            this.tabDetail.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // tbp_general
+            // tapDetail
             // 
-            this.tbp_general.Controls.Add(this.gro_general);
-            this.tbp_general.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("tbp_general.ImageOptions.SvgImage")));
-            this.tbp_general.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
-            this.tbp_general.Name = "tbp_general";
-            this.tbp_general.Size = new System.Drawing.Size(576, 369);
-            this.tbp_general.Text = "Thông tin";
+            this.tapDetail.Controls.Add(this.grcDetai);
+            this.tapDetail.Name = "tapDetail";
+            this.tapDetail.Size = new System.Drawing.Size(548, 186);
+            this.tapDetail.Text = "Hàng hóa";
             // 
-            // gro_general
+            // grcDetai
             // 
-            this.gro_general.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_general.FieldBinding = null;
-            this.gro_general.IsGUID = false;
-            this.gro_general.Location = new System.Drawing.Point(0, 0);
-            this.gro_general.Name = "gro_general";
-            this.gro_general.ShowCaption = false;
-            this.gro_general.Size = new System.Drawing.Size(576, 369);
-            this.gro_general.TabIndex = 0;
-            this.gro_general.Text = "General";
-            this.gro_general.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.grcDetai.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grcDetai.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.grcDetai.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.grcDetai.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.grcDetai.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.grcDetai.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.grcDetai.FieldBinding = null;
+            this.grcDetai.IsGUID = false;
+            this.grcDetai.Location = new System.Drawing.Point(0, 0);
+            this.grcDetai.MainView = this.grvDetail;
+            this.grcDetai.MenuManager = this.toolbarManager;
+            this.grcDetai.Name = "grcDetai";
+            this.grcDetai.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCalcEdit2});
+            this.grcDetai.Size = new System.Drawing.Size(548, 186);
+            this.grcDetai.TabIndex = 2;
+            this.grcDetai.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.grcDetai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvDetail});
             // 
-            // tbp_note
+            // grvDetail
             // 
-            this.tbp_note.Controls.Add(this.gro_note);
-            this.tbp_note.Name = "tbp_note";
-            this.tbp_note.PageVisible = false;
-            this.tbp_note.Size = new System.Drawing.Size(576, 369);
-            this.tbp_note.Text = "Note";
+            this.grvDetail.FieldBinding = null;
+            this.grvDetail.GridControl = this.grcDetai;
+            this.grvDetail.IndicatorWidth = 40;
+            this.grvDetail.IsGUID = false;
+            this.grvDetail.Name = "grvDetail";
+            this.grvDetail.OptionsBehavior.AllowIncrementalSearch = true;
+            this.grvDetail.OptionsBehavior.SmartVertScrollBar = false;
+            this.grvDetail.OptionsView.ShowFooter = true;
+            this.grvDetail.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // gro_note
+            // repositoryItemCalcEdit2
             // 
-            this.gro_note.Controls.Add(this.develoverGridControl2);
-            this.gro_note.Controls.Add(this.but_delete_note);
-            this.gro_note.Controls.Add(this.but_add_note);
-            this.gro_note.Controls.Add(this.gro_detail_note);
-            this.gro_note.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gro_note.FieldBinding = null;
-            this.gro_note.IsGUID = false;
-            this.gro_note.Location = new System.Drawing.Point(0, 0);
-            this.gro_note.Name = "gro_note";
-            this.gro_note.ShowCaption = false;
-            this.gro_note.Size = new System.Drawing.Size(576, 369);
-            this.gro_note.TabIndex = 2;
-            this.gro_note.Text = "develoverGroupControl12";
-            this.gro_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.repositoryItemCalcEdit2.AutoHeight = false;
+            this.repositoryItemCalcEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemCalcEdit2.Name = "repositoryItemCalcEdit2";
             // 
-            // develoverGridControl2
+            // groHeader
             // 
-            this.develoverGridControl2.FieldBinding = null;
-            this.develoverGridControl2.IsGUID = false;
-            this.develoverGridControl2.Location = new System.Drawing.Point(5, 5);
-            this.develoverGridControl2.MainView = this.develoverGridView2;
-            this.develoverGridControl2.MenuManager = this.toolbarManager;
-            this.develoverGridControl2.Name = "develoverGridControl2";
-            this.develoverGridControl2.Size = new System.Drawing.Size(529, 203);
-            this.develoverGridControl2.TabIndex = 4;
-            this.develoverGridControl2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
-            this.develoverGridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.develoverGridView2});
+            this.groHeader.AppearanceCaption.Options.UseTextOptions = true;
+            this.groHeader.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.groHeader.Controls.Add(this.groVoucherInfo);
+            this.groHeader.Controls.Add(this.develoverSplitterControl2);
+            this.groHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groHeader.FieldBinding = null;
+            this.groHeader.IsGUID = false;
+            this.groHeader.Location = new System.Drawing.Point(2, 2);
+            this.groHeader.Name = "groHeader";
+            this.groHeader.Size = new System.Drawing.Size(550, 194);
+            this.groHeader.TabIndex = 4;
+            this.groHeader.Text = "Thông tin chung";
+            this.groHeader.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // develoverGridView2
+            // groVoucherInfo
             // 
-            this.develoverGridView2.FieldBinding = null;
-            this.develoverGridView2.GridControl = this.develoverGridControl2;
-            this.develoverGridView2.IndicatorWidth = 40;
-            this.develoverGridView2.IsGUID = false;
-            this.develoverGridView2.Name = "develoverGridView2";
-            this.develoverGridView2.OptionsView.ShowGroupPanel = false;
-            this.develoverGridView2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.groVoucherInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groVoucherInfo.Controls.Add(this.develoverLabelControl2);
+            this.groVoucherInfo.Controls.Add(this.develoverLabelControl1);
+            this.groVoucherInfo.Controls.Add(this.txtDateNo);
+            this.groVoucherInfo.Controls.Add(this.txtVoucherNo);
+            this.groVoucherInfo.FieldBinding = null;
+            this.groVoucherInfo.IsGUID = false;
+            this.groVoucherInfo.Location = new System.Drawing.Point(345, 27);
+            this.groVoucherInfo.Name = "groVoucherInfo";
+            this.groVoucherInfo.Size = new System.Drawing.Size(200, 77);
+            this.groVoucherInfo.TabIndex = 1;
+            this.groVoucherInfo.Text = "Thông tin chứng từ";
+            this.groVoucherInfo.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // but_delete_note
+            // develoverLabelControl2
             // 
-            this.but_delete_note.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_delete_note.FieldBinding = null;
-            this.but_delete_note.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.but_delete_note.IsGUID = false;
-            this.but_delete_note.Location = new System.Drawing.Point(539, 37);
-            this.but_delete_note.Name = "but_delete_note";
-            this.but_delete_note.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.but_delete_note.Size = new System.Drawing.Size(30, 23);
-            this.but_delete_note.TabIndex = 2;
-            this.but_delete_note.Text = "Del";
-            this.but_delete_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.develoverLabelControl2.FieldBinding = null;
+            this.develoverLabelControl2.IsGUID = false;
+            this.develoverLabelControl2.Location = new System.Drawing.Point(7, 50);
+            this.develoverLabelControl2.Name = "develoverLabelControl2";
+            this.develoverLabelControl2.Size = new System.Drawing.Size(72, 13);
+            this.develoverLabelControl2.TabIndex = 4;
+            this.develoverLabelControl2.Text = "Ngày chứng từ";
+            this.develoverLabelControl2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // but_add_note
+            // develoverLabelControl1
             // 
-            this.but_add_note.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.but_add_note.FieldBinding = null;
-            this.but_add_note.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.but_add_note.IsGUID = false;
-            this.but_add_note.Location = new System.Drawing.Point(539, 8);
-            this.but_add_note.Name = "but_add_note";
-            this.but_add_note.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.but_add_note.Size = new System.Drawing.Size(28, 23);
-            this.but_add_note.TabIndex = 3;
-            this.but_add_note.Text = "Add";
-            this.but_add_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.develoverLabelControl1.FieldBinding = null;
+            this.develoverLabelControl1.IsGUID = false;
+            this.develoverLabelControl1.Location = new System.Drawing.Point(7, 27);
+            this.develoverLabelControl1.Name = "develoverLabelControl1";
+            this.develoverLabelControl1.Size = new System.Drawing.Size(59, 13);
+            this.develoverLabelControl1.TabIndex = 4;
+            this.develoverLabelControl1.Text = "Số chứng từ";
+            this.develoverLabelControl1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // gro_detail_note
+            // txtDateNo
             // 
-            this.gro_detail_note.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gro_detail_note.Controls.Add(this.mmo_note);
-            this.gro_detail_note.FieldBinding = null;
-            this.gro_detail_note.IsGUID = false;
-            this.gro_detail_note.Location = new System.Drawing.Point(5, 214);
-            this.gro_detail_note.Name = "gro_detail_note";
-            this.gro_detail_note.Size = new System.Drawing.Size(564, 148);
-            this.gro_detail_note.TabIndex = 0;
-            this.gro_detail_note.Text = "Note";
-            this.gro_detail_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.txtDateNo.EditValue = null;
+            this.txtDateNo.FieldBinding = "VoucherDate";
+            this.txtDateNo.IsGUID = false;
+            this.txtDateNo.Location = new System.Drawing.Point(94, 50);
+            this.txtDateNo.MenuManager = this.toolbarManager;
+            this.txtDateNo.Name = "txtDateNo";
+            this.txtDateNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDateNo.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtDateNo.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
+            this.txtDateNo.Size = new System.Drawing.Size(100, 20);
+            this.txtDateNo.TabIndex = 3;
+            this.txtDateNo.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // mmo_note
+            // txtVoucherNo
             // 
-            this.mmo_note.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mmo_note.FieldBinding = null;
-            this.mmo_note.IsGUID = false;
-            this.mmo_note.Location = new System.Drawing.Point(2, 27);
-            this.mmo_note.Name = "mmo_note";
-            this.mmo_note.Size = new System.Drawing.Size(560, 119);
-            this.mmo_note.TabIndex = 0;
-            this.mmo_note.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.txtVoucherNo.FieldBinding = "VoucherNO";
+            this.txtVoucherNo.IsGUID = false;
+            this.txtVoucherNo.Location = new System.Drawing.Point(94, 27);
+            this.txtVoucherNo.MenuManager = this.toolbarManager;
+            this.txtVoucherNo.Name = "txtVoucherNo";
+            this.txtVoucherNo.Size = new System.Drawing.Size(100, 20);
+            this.txtVoucherNo.TabIndex = 2;
+            this.txtVoucherNo.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Text;
+            // 
+            // develoverSplitterControl2
+            // 
+            this.develoverSplitterControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.develoverSplitterControl2.FieldBinding = null;
+            this.develoverSplitterControl2.IsGUID = false;
+            this.develoverSplitterControl2.Location = new System.Drawing.Point(2, 182);
+            this.develoverSplitterControl2.MinExtra = 0;
+            this.develoverSplitterControl2.MinSize = 0;
+            this.develoverSplitterControl2.Name = "develoverSplitterControl2";
+            this.develoverSplitterControl2.ShowSplitGlyph = DevExpress.Utils.DefaultBoolean.True;
+            this.develoverSplitterControl2.Size = new System.Drawing.Size(546, 10);
+            this.develoverSplitterControl2.TabIndex = 0;
+            this.develoverSplitterControl2.TabStop = false;
+            this.develoverSplitterControl2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // develoverSplitterControl1
             // 
             this.develoverSplitterControl1.FieldBinding = null;
             this.develoverSplitterControl1.IsGUID = false;
-            this.develoverSplitterControl1.Location = new System.Drawing.Point(244, 2);
+            this.develoverSplitterControl1.Location = new System.Drawing.Point(272, 2);
             this.develoverSplitterControl1.MinExtra = 0;
             this.develoverSplitterControl1.MinSize = 0;
             this.develoverSplitterControl1.Name = "develoverSplitterControl1";
             this.develoverSplitterControl1.ShowSplitGlyph = DevExpress.Utils.DefaultBoolean.True;
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 405);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 409);
             this.develoverSplitterControl1.TabIndex = 1;
             this.develoverSplitterControl1.TabStop = false;
             this.develoverSplitterControl1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
@@ -398,59 +433,60 @@
             this.gro_search.IsGUID = false;
             this.gro_search.Location = new System.Drawing.Point(2, 2);
             this.gro_search.Name = "gro_search";
-            this.gro_search.Size = new System.Drawing.Size(242, 405);
+            this.gro_search.Size = new System.Drawing.Size(270, 409);
             this.gro_search.TabIndex = 0;
-            this.gro_search.Text = "Tìm phiếu";
+            this.gro_search.Text = "Tra cứu phiếu";
             this.gro_search.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // gro_search_middle_1
             // 
-            this.gro_search_middle_1.Controls.Add(this.grc_search);
+            this.gro_search_middle_1.Controls.Add(this.grcSearch);
+            this.gro_search_middle_1.Controls.Add(this.develoverGroupControl1);
             this.gro_search_middle_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gro_search_middle_1.FieldBinding = null;
             this.gro_search_middle_1.IsGUID = false;
-            this.gro_search_middle_1.Location = new System.Drawing.Point(2, 27);
+            this.gro_search_middle_1.Location = new System.Drawing.Point(2, 23);
             this.gro_search_middle_1.Name = "gro_search_middle_1";
             this.gro_search_middle_1.ShowCaption = false;
-            this.gro_search_middle_1.Size = new System.Drawing.Size(238, 376);
+            this.gro_search_middle_1.Size = new System.Drawing.Size(266, 384);
             this.gro_search_middle_1.TabIndex = 0;
             this.gro_search_middle_1.Text = "Search Middle 1";
             this.gro_search_middle_1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // grc_search
+            // grcSearch
             // 
-            this.grc_search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grc_search.EmbeddedNavigator.Buttons.Append.Visible = false;
-            this.grc_search.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
-            this.grc_search.EmbeddedNavigator.Buttons.Edit.Visible = false;
-            this.grc_search.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
-            this.grc_search.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.grc_search.FieldBinding = null;
-            this.grc_search.IsGUID = false;
-            this.grc_search.Location = new System.Drawing.Point(2, 2);
-            this.grc_search.MainView = this.grv_search;
-            this.grc_search.MenuManager = this.toolbarManager;
-            this.grc_search.Name = "grc_search";
-            this.grc_search.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.grcSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grcSearch.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.grcSearch.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.grcSearch.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.grcSearch.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.grcSearch.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.grcSearch.FieldBinding = null;
+            this.grcSearch.IsGUID = false;
+            this.grcSearch.Location = new System.Drawing.Point(2, 55);
+            this.grcSearch.MainView = this.grvSearch;
+            this.grcSearch.MenuManager = this.toolbarManager;
+            this.grcSearch.Name = "grcSearch";
+            this.grcSearch.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCalcEdit1});
-            this.grc_search.Size = new System.Drawing.Size(234, 372);
-            this.grc_search.TabIndex = 0;
-            this.grc_search.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
-            this.grc_search.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grv_search});
+            this.grcSearch.Size = new System.Drawing.Size(262, 327);
+            this.grcSearch.TabIndex = 0;
+            this.grcSearch.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.grcSearch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvSearch});
             // 
-            // grv_search
+            // grvSearch
             // 
-            this.grv_search.FieldBinding = null;
-            this.grv_search.GridControl = this.grc_search;
-            this.grv_search.IndicatorWidth = 40;
-            this.grv_search.IsGUID = false;
-            this.grv_search.Name = "grv_search";
-            this.grv_search.OptionsBehavior.AllowIncrementalSearch = true;
-            this.grv_search.OptionsBehavior.SmartVertScrollBar = false;
-            this.grv_search.OptionsView.ShowFooter = true;
-            this.grv_search.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
-            this.grv_search.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grv_search_FocusedRowChanged);
+            this.grvSearch.FieldBinding = null;
+            this.grvSearch.GridControl = this.grcSearch;
+            this.grvSearch.IndicatorWidth = 40;
+            this.grvSearch.IsGUID = false;
+            this.grvSearch.Name = "grvSearch";
+            this.grvSearch.OptionsBehavior.AllowIncrementalSearch = true;
+            this.grvSearch.OptionsBehavior.SmartVertScrollBar = false;
+            this.grvSearch.OptionsView.ShowFooter = true;
+            this.grvSearch.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.grvSearch.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grv_search_FocusedRowChanged);
             // 
             // repositoryItemCalcEdit1
             // 
@@ -458,6 +494,102 @@
             this.repositoryItemCalcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
+            // 
+            // develoverGroupControl1
+            // 
+            this.develoverGroupControl1.Controls.Add(this.develoverLabelControl3);
+            this.develoverGroupControl1.Controls.Add(this.develoverLabelControl4);
+            this.develoverGroupControl1.Controls.Add(this.develoverHyperlinkLabelControl1);
+            this.develoverGroupControl1.Controls.Add(this.develoverDateEdit2);
+            this.develoverGroupControl1.Controls.Add(this.develoverDateEdit1);
+            this.develoverGroupControl1.Controls.Add(this.butSearch);
+            this.develoverGroupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.develoverGroupControl1.FieldBinding = null;
+            this.develoverGroupControl1.IsGUID = false;
+            this.develoverGroupControl1.Location = new System.Drawing.Point(2, 2);
+            this.develoverGroupControl1.Name = "develoverGroupControl1";
+            this.develoverGroupControl1.ShowCaption = false;
+            this.develoverGroupControl1.Size = new System.Drawing.Size(262, 53);
+            this.develoverGroupControl1.TabIndex = 2;
+            this.develoverGroupControl1.Text = "General";
+            this.develoverGroupControl1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverLabelControl3
+            // 
+            this.develoverLabelControl3.FieldBinding = null;
+            this.develoverLabelControl3.IsGUID = false;
+            this.develoverLabelControl3.Location = new System.Drawing.Point(7, 28);
+            this.develoverLabelControl3.Name = "develoverLabelControl3";
+            this.develoverLabelControl3.Size = new System.Drawing.Size(47, 13);
+            this.develoverLabelControl3.TabIndex = 4;
+            this.develoverLabelControl3.Text = "Đến ngày";
+            this.develoverLabelControl3.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverLabelControl4
+            // 
+            this.develoverLabelControl4.FieldBinding = null;
+            this.develoverLabelControl4.IsGUID = false;
+            this.develoverLabelControl4.Location = new System.Drawing.Point(7, 5);
+            this.develoverLabelControl4.Name = "develoverLabelControl4";
+            this.develoverLabelControl4.Size = new System.Drawing.Size(40, 13);
+            this.develoverLabelControl4.TabIndex = 3;
+            this.develoverLabelControl4.Text = "Từ ngày";
+            this.develoverLabelControl4.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverHyperlinkLabelControl1
+            // 
+            this.develoverHyperlinkLabelControl1.FieldBinding = null;
+            this.develoverHyperlinkLabelControl1.IsGUID = false;
+            this.develoverHyperlinkLabelControl1.Location = new System.Drawing.Point(175, 28);
+            this.develoverHyperlinkLabelControl1.Name = "develoverHyperlinkLabelControl1";
+            this.develoverHyperlinkLabelControl1.Size = new System.Drawing.Size(63, 13);
+            this.develoverHyperlinkLabelControl1.TabIndex = 5;
+            this.develoverHyperlinkLabelControl1.Text = "Tìm nâng cao";
+            this.develoverHyperlinkLabelControl1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverDateEdit2
+            // 
+            this.develoverDateEdit2.EditValue = null;
+            this.develoverDateEdit2.FieldBinding = null;
+            this.develoverDateEdit2.IsGUID = false;
+            this.develoverDateEdit2.Location = new System.Drawing.Point(69, 28);
+            this.develoverDateEdit2.Name = "develoverDateEdit2";
+            this.develoverDateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.develoverDateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.develoverDateEdit2.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
+            this.develoverDateEdit2.Size = new System.Drawing.Size(100, 20);
+            this.develoverDateEdit2.TabIndex = 1;
+            this.develoverDateEdit2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // develoverDateEdit1
+            // 
+            this.develoverDateEdit1.EditValue = null;
+            this.develoverDateEdit1.FieldBinding = null;
+            this.develoverDateEdit1.IsGUID = false;
+            this.develoverDateEdit1.Location = new System.Drawing.Point(69, 5);
+            this.develoverDateEdit1.MenuManager = this.toolbarManager;
+            this.develoverDateEdit1.Name = "develoverDateEdit1";
+            this.develoverDateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.develoverDateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.develoverDateEdit1.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.Space);
+            this.develoverDateEdit1.Size = new System.Drawing.Size(100, 20);
+            this.develoverDateEdit1.TabIndex = 0;
+            this.develoverDateEdit1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // butSearch
+            // 
+            this.butSearch.FieldBinding = null;
+            this.butSearch.IsGUID = false;
+            this.butSearch.Location = new System.Drawing.Point(175, 5);
+            this.butSearch.Name = "butSearch";
+            this.butSearch.Size = new System.Drawing.Size(55, 20);
+            this.butSearch.TabIndex = 2;
+            this.butSearch.Text = "Lọc";
+            this.butSearch.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // DeveloverVoucherForm
             // 
@@ -478,25 +610,34 @@
             this.gro_content.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gro_information)).EndInit();
             this.gro_information.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tab_information)).EndInit();
-            this.tab_information.ResumeLayout(false);
-            this.tbp_general.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_general)).EndInit();
-            this.tbp_note.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gro_note)).EndInit();
-            this.gro_note.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridControl2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gro_detail_note)).EndInit();
-            this.gro_detail_note.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.mmo_note.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabDetail)).EndInit();
+            this.tabDetail.ResumeLayout(false);
+            this.tapDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grcDetai)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvDetail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groHeader)).EndInit();
+            this.groHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groVoucherInfo)).EndInit();
+            this.groVoucherInfo.ResumeLayout(false);
+            this.groVoucherInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateNo.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVoucherNo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_search)).EndInit();
             this.gro_search.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gro_search_middle_1)).EndInit();
             this.gro_search_middle_1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grc_search)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grv_search)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grcSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvSearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGroupControl1)).EndInit();
+            this.develoverGroupControl1.ResumeLayout(false);
+            this.develoverGroupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverDateEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,24 +656,32 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private Controls.DeveloverGroupControl gro_content;
         private Controls.DeveloverGroupControl gro_information;
-        private DevExpress.XtraTab.XtraTabPage tbp_general;
-        private DevExpress.XtraTab.XtraTabPage tbp_note;
-        private Controls.DeveloverGroupControl gro_note;
-        private Controls.DeveloverSimpleButton but_delete_note;
-        private Controls.DeveloverSimpleButton but_add_note;
-        private Controls.DeveloverGroupControl gro_detail_note;
-        private Controls.DeveloverMemoEdit mmo_note;
         private Controls.DeveloverGroupControl gro_search_middle_1;
-        private Controls.DeveloverGridControl develoverGridControl2;
-        private Controls.DeveloverGridView develoverGridView2;
-        private Controls.DeveloverGridView grv_search;
+        private Controls.DeveloverGridView grvSearch;
         private DevExpress.XtraBars.BarButtonItem BarButtonNew;
         private DevExpress.XtraBars.BarButtonItem barButtonPrint;
-        public Controls.DeveloverXtraTabControl tab_information;
-        public Controls.DeveloverGroupControl gro_general;
         public Controls.DeveloverSplitterControl develoverSplitterControl1;
         public Controls.DeveloverGroupControl gro_search;
-        public Controls.DeveloverGridControl grc_search;
+        public Controls.DeveloverGridControl grcSearch;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
+        private DevExpress.XtraTab.XtraTabPage tapDetail;
+        public Controls.DeveloverGridControl grcDetai;
+        private Controls.DeveloverGridView grvDetail;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit2;
+        private Controls.DeveloverSplitterControl develoverSplitterControl2;
+        private Controls.DeveloverLabelControl develoverLabelControl2;
+        private Controls.DeveloverLabelControl develoverLabelControl1;
+        private Controls.DeveloverLabelControl develoverLabelControl3;
+        private Controls.DeveloverLabelControl develoverLabelControl4;
+        private Controls.DeveloverHyperlinkLabelControl develoverHyperlinkLabelControl1;
+        private Controls.DeveloverDateEdit develoverDateEdit2;
+        private Controls.DeveloverDateEdit develoverDateEdit1;
+        private Controls.DeveloverSimpleButton butSearch;
+        protected Controls.DeveloverXtraTabControl tabDetail;
+        protected Controls.DeveloverGroupControl groHeader;
+        protected Controls.DeveloverGroupControl groVoucherInfo;
+        protected Controls.DeveloverGroupControl develoverGroupControl1;
+        protected Controls.DeveloverDateEdit txtDateNo;
+        protected Controls.DeveloverTextEdit txtVoucherNo;
     }
 }

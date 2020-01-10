@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="AutoCompleteStringCollections.cs" />
     <Compile Include="BarCodes.cs" />
+    <Compile Include="DataHelper.cs" />
     <Compile Include="DelTypeData.cs" />
     <Compile Include="DeveloverOptions.cs" />
     <Compile Include="DeveloverPermission.cs" />

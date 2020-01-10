@@ -400,28 +400,37 @@ namespace Develover.GUI.Forms
                     functionsGUIService.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
                     LoadData();
                 }
+
+                SetStatus("Lưu thành công");
             }
             else
             {
+                SetStatus("Đang thêm mới");
                 SetNullControl(gro_general);
                 ((Control)DeveloverControlsFocus).Focus();
             }
             return true;
         }
-
+        protected virtual void SetStatus(string stringStatus)
+        {
+            ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("[" + Text+".] - " + stringStatus );
+        }
         protected virtual bool BarButtonEdit_Click()
         {
+            SetStatus("Đang sửa");
             return true;
         }
 
         protected virtual bool BarButtonCancel_Click()
         {
+            SetStatus("Hủy hoạt động");
             LoadData();
             return true;
         }
 
         protected virtual bool BarButtonDelete_Click()
         {
+            SetStatus("Đang xóa");
             if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionDelete, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 functionsGUIService.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
@@ -429,13 +438,17 @@ namespace Develover.GUI.Forms
                 LoadData();
                 if (grv_search.RowCount > 0)
                     CodePrimary = grv_search.GetRowCellValue(0, NameFieldCodePrimary)?.ToString();
+                SetStatus("Xóa thành công");
             }
 
+            SetStatus("Hủy xóa");
             return true;
         }
 
         protected virtual bool BarButtonPrint_Click()
         {
+            SetStatus("Đang in");
+
             return true;
         }
 
@@ -531,6 +544,7 @@ namespace Develover.GUI.Forms
                     ModelName = dr["ModelName"].ToString();
                 }
             }
+            SetStatus("Đang mở");
             grc_search.BuildGridControlsView(SQLDataSourceSearch, ModelName);
             LoadData();
             SetEnableBarButton();
@@ -632,7 +646,7 @@ namespace Develover.GUI.Forms
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
-            if (e.Control)
+            if (e.Control && e.Shift)
             {
                 switch (e.KeyCode)
                 {

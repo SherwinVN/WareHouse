@@ -17,6 +17,7 @@ namespace Develover.GUI.Controls
         public DeveloverDateEdit()
         {
             Properties.CloseUpKey = new KeyShortcut(Keys.Space);
+            TypeFieldColumns = EnumTypeColumns.Date;
         }
 
     }

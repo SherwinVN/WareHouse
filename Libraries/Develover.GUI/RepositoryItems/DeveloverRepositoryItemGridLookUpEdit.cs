@@ -38,8 +38,15 @@ namespace Develover.GUI.RepositoryItems
             ValidateOnEnterKey = true;
             Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
             Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
+            Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Thêm danh mục"));
+            Buttons[1].Click += DeveloverRepositoryItemGridLookUpEdit_Click;
         }
-               
+
+        private void DeveloverRepositoryItemGridLookUpEdit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Test");
+        }
+
         protected override ColumnView CreateViewInstance()
         {
             switch (ViewType)

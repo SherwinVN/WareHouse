@@ -50,6 +50,7 @@ namespace DeveloverWarehouse
 
             if (flogin.Login())
             {
+                new WriteHistory().StartSession();
                 this.Hide();
             }
             else

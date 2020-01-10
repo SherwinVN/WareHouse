@@ -15,6 +15,8 @@ using static Develover.Utilities.Enum;
 using Develover.GUI.Controls;
 using Develover.GUI.OverideClass;
 using Develover.GUI.Services;
+using DevExpress.XtraGrid.Columns;
+using System.Data.SqlClient;
 
 namespace Develover.GUI.Forms
 {
@@ -24,14 +26,14 @@ namespace Develover.GUI.Forms
         public string ViewSearch;
         public string ViewVouvher;
         public string VoucherID;
-        private string TableTH;
-        private string TableCT;
+        private string TableHeader;
+        private string TableDetail;
         private string ModelName;
-        public EnumPermission StatusUse;
+        public string CodeVoucher;
+        public EnumPermission StatusUse = EnumPermission.View;
         public IDeveloverControl DeveloverControlsFocus;
         public IDeveloverControl[] ControlCheckExit;
         public IDeveloverControl[] ControlCheckEmty;
-        public string[] FieldCheckEmty;
 
         public DeveloverVoucherForm()
         {
@@ -87,11 +89,11 @@ namespace Develover.GUI.Forms
 
                     }
                 }
-
             }
+            ((DataTable)grcDetai.DataSource).Rows.Clear();
         }
 
-        protected virtual bool SetStatusEdit(IDeveloverControl GroupControl, bool Enable)
+        protected virtual bool SetStatusReadOnly(IDeveloverControl GroupControl, bool Enable)
         {
             foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
             {
@@ -99,7 +101,7 @@ namespace Develover.GUI.Forms
                 {
                     if (iDcontrol is DeveloverGroupControl)
                     {
-                        SetStatusEdit(iDcontrol, Enable);
+                        SetStatusReadOnly(iDcontrol, Enable);
                     }
                     else
                    if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
@@ -268,12 +270,12 @@ namespace Develover.GUI.Forms
             return dictionary;
         }
 
-        protected virtual string GetValueByTypeFieldColumns(EnumTypeColumns TypeFieldColumns, IDeveloverControl develoverControl)
+        protected virtual string GetValueByTypeFieldColumns(IDeveloverControl develoverControl)
         {
 
             string text = "";
             Guid guid;
-            switch (TypeFieldColumns)
+            switch (develoverControl.TypeFieldColumns)
             {
                 case EnumTypeColumns.Number:
                     text = decimal.Parse(((Control)develoverControl).Text).ToString();
@@ -305,52 +307,76 @@ namespace Develover.GUI.Forms
 
             return text;
         }
+        protected virtual Type GetTypeControl(IDeveloverControl develoverControl)
+        {
 
+            Type type = null; ;
+            switch (develoverControl.TypeFieldColumns)
+            {
+                case EnumTypeColumns.Number:
+                    type = typeof(Double);
+                    break;
+                case EnumTypeColumns.Check:
+                    type = typeof(bool);
+                    break;
+                case EnumTypeColumns.Combobox:
+                    type = typeof(string);
+                    break;
+                case EnumTypeColumns.Date:
+                    type = typeof(DateTime);
+                    break;
+                case EnumTypeColumns.Gridlookup:
+                    type = typeof(string);
+                    break;
+                case EnumTypeColumns.Text:
+                    type = typeof(string);
+                    break;
+                case EnumTypeColumns.Time:
+                    type = typeof(Timer);
+                    break;
+            }
+
+            return type;
+        }
         protected virtual bool CheckExitValue(IDeveloverControl[] develoverControls)
         {
             string Where = " 1=1 ";
             string value = "";
             foreach (IDeveloverControl develoverControl in develoverControls)
             {
+                Where = " 1=1 ";
+                value = "";
                 if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
                 {
-                    value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
+                    value = GetValueByTypeFieldColumns(develoverControl);
                     Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
-
-
-                    return functionsGUIService.CheckExistsValueInTableByWhere(TableTH, Where, "VoucherID", VoucherID);
+                    if (functionsGUIService.CheckExistsValueInTableByWhere(TableHeader, Where, "VoucherID", VoucherID))
+                    {
+                        ((Control)develoverControl).BackColor = DeveloverOptions.ControlExistsValueBackColor;
+                        ((Control)develoverControl).ForeColor = DeveloverOptions.ControlExistsValueForeColor;
+                        ((Control)develoverControl).Focus();
+                        return true;
+                    }
                 }
-                else return false;
             }
             return false;
-        }
-
-        protected virtual bool CheckDuplicate(IDeveloverControl[] develoverControls, string tableName, string nameFieldCodePrimary)
-        {
-            string Where = "1=1 ";
-            string value = "";
-            foreach (IDeveloverControl develoverControl in develoverControls)
-            {
-                if (!string.IsNullOrEmpty(develoverControl.FieldBinding))
-                {
-                    value = GetValueByTypeFieldColumns(develoverControl.TypeFieldColumns, develoverControl);
-                    Where += " AND [" + develoverControl.FieldBinding + "] = N'" + value + "'";
-                }
-            }
-            return functionsGUIService.CheckExistsValueInTableByWhere(tableName, Where, nameFieldCodePrimary);
-
         }
 
         protected virtual bool CheckEmty(IDeveloverControl[] develoverControls)
         {
-            foreach (IDeveloverControl develoverControl in develoverControls)
+            if (grvDetail.RowCount > 0)
             {
-                if (string.IsNullOrEmpty(((Control)develoverControl).Text))
+                foreach (IDeveloverControl develoverControl in develoverControls)
                 {
-                    return true;
+                    if (string.IsNullOrEmpty(((Control)develoverControl).Text))
+                    {
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            else
+                return false;
         }
         protected virtual bool LoadColorControlNotEmty(IDeveloverControl[] develoverControls)
         {
@@ -371,45 +397,142 @@ namespace Develover.GUI.Forms
             }
         }
 
+        protected virtual List<string> GetlistColumnTableHeader(IDeveloverControl GroupControl)
+        {
+            List<string> listColumn = new List<string>();
+            foreach (IDeveloverControl iDcontrol in ((Control)GroupControl).Controls)
+            {
+                if (iDcontrol is IDeveloverControl)
+                {
+                    if (!string.IsNullOrEmpty(iDcontrol.FieldBinding))
+                    {
+                        listColumn.Add(iDcontrol.FieldBinding);
+                    }
+                }
+            }
+            return listColumn;
+        }
+
+        protected virtual List<string> GetlistColumnTableDetail(string modelName)
+        {
+            List<string> listColumn = new List<string>();
+            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + modelName + "' ORDER BY OrderNo"))
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    listColumn.Add(dr["Name"]?.ToString());
+                }
+            }
+            return listColumn;
+        }
+
+        protected virtual List<string> GetlistColumnTableDetail(GridView gridView)
+        {
+            List<string> listColumn = new List<string>();
+
+            foreach (GridColumn cl in gridView.Columns)
+            {
+                listColumn.Add(cl.FieldName);
+            }
+
+            return listColumn;
+        }
+        protected virtual bool CreateTableHeaderTemp(string tableNameCopy, string tableNameAs, List<string> listColumn)
+        {
+            try
+            {
+
+                string sql = "IF(EXISTS(SELECT name FROM sysObjects WHERE name = '" + tableNameAs + "')) DROP TABLE " + tableNameAs;
+                functionsGUIService.dataBase.ExecuteNonQuery(sql);
+                sql = "SELECT top 0 " + listColumn.Select(x => string.Join(",", x)) + " INTO " + tableNameAs + " FROM " + tableNameCopy;
+                if (functionsGUIService.dataBase.ExecuteNonQuery(sql) != 1)
+                {
+                    return true;
+                }
+
+            }
+            catch
+            {
+            }
+            return false;
+        }
+
+        protected virtual bool CreateTableHeaderTemp(string tableNameCopy, string tableNameAs)
+        {
+            try
+            {
+
+                string sql = "IF(EXISTS(SELECT name FROM sysObjects WHERE name = '" + tableNameAs + "')) DROP TABLE " + tableNameAs;
+                functionsGUIService.dataBase.ExecuteNonQuery(sql);
+                sql = "SELECT top 0 * INTO " + tableNameAs + " FROM " + tableNameCopy;
+                if (functionsGUIService.dataBase.ExecuteNonQuery(sql) != 1)
+                {
+                    return true;
+                }
+
+            }
+            catch
+            {
+            }
+            return false;
+        }
+
         protected virtual bool BarButtonNew_Click()
         {
-            //if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
-            //{
+            if (EnumPermission.Edit == StatusUse || EnumPermission.New == StatusUse)
+            {
 
-            //    if (CheckEmty(ControlCheckEmty))
-            //    {
-            //        DelMessageBox.DelMessageBoxOk(StringMessage.CompelInput);
-            //        return false;
-            //    }
-            //    if (EnumPermission.New == StatusUse)
-            //    {
-            //        if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary))
-            //        {
-            //            DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
-            //            return false;
-            //        }
-            //        CodePrimary = functionsGUIService.GetGUID();
+                if (CheckEmty(ControlCheckEmty))
+                {
+                    DelMessageBox.DelMessageBoxOk(StringMessage.CompelInput);
+                    return false;
+                }
+                if (EnumPermission.New == StatusUse)
+                {
 
-            //        functionsGUIService.InsertIntoTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-            //        LoadData();
-            //    }
-            //    else
-            //    if (EnumPermission.Edit == StatusUse)
-            //    {
-            //        if (CheckDuplicate(ControlCheckDuplicate, Table, NameFieldCodePrimary, CodePrimary))
-            //        {
-            //            DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
-            //            return false;
-            //        }
-            //        functionsGUIService.UpdateTable(LoadListControlAndField(gro_general), Table, NameFieldCodePrimary, CodePrimary);
-            //        LoadData();
-            //    }
-            //}
-            //else
-            //{
-            //    SetNullControl(gro_general);
-            //    ((Control)DeveloverControlsFocus).Focus();
-            //}
+                    if (CheckExitValue(ControlCheckExit))
+                    {
+                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                        return false;
+                    }
+                    VoucherID = functionsGUIService.GetGUID();
+
+                    string tableNameHeader = "Header" + ModelName + VoucherID;
+                    string tableNameDetail = "Detail" + ModelName + VoucherID;
+
+                    if (CreateTableHeaderTemp(TableHeader, tableNameHeader))
+                    {
+                        if (functionsGUIService.InsertIntoTable(LoadListControlAndField(groHeader), tableNameHeader, "VoucherID", VoucherID))
+                        {
+                            if (CreateTableHeaderTemp(TableDetail, tableNameDetail, GetlistColumnTableDetail(grvDetail)))
+                            {
+                                if (functionsGUIService.dataBase.bulkcopy(((DataTable)grcDetai.DataSource), tableNameDetail))
+                                {
+                                    functionsGUIService.dataBase.ExecuteProcedure("PROPOSTVOUCHER", new string[] { "model", "VoucherID" }, new string[] { ModelName, VoucherID });
+                                }
+                            }
+                        }
+                    }
+
+                    LoadData();
+                }
+                else
+                if (EnumPermission.Edit == StatusUse)
+                {
+                    if (CheckExitValue(ControlCheckExit))
+                    {
+                        DelMessageBox.DelMessageBoxOk(StringMessage.InfomationExistsObject);
+                        return false;
+                    }
+                    functionsGUIService.UpdateTable(LoadListControlAndField(groHeader), TableHeader, "VoucherID", VoucherID);
+                    LoadData();
+                }
+            }
+            else
+            {
+                SetNullControl(groHeader);
+                ((Control)DeveloverControlsFocus).Focus();
+            }
             return true;
         }
 
@@ -428,11 +551,11 @@ namespace Develover.GUI.Forms
         {
             if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionDelete, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-              //  functionsGUIService.DeleteRowTable(Table, NameFieldCodePrimary, CodePrimary);
-                SetNullControl(gro_general);
+                DeleteVoucher();
+                SetNullControl(groHeader);
                 LoadData();
-                //if (grv_search.RowCount > 0)
-                //    CodePrimary = grv_search.GetRowCellValue(0, NameFieldCodePrimary)?.ToString();
+                if (grvSearch.RowCount > 0)
+                    VoucherID = grvSearch.GetRowCellValue(0, "VoucherID")?.ToString();
             }
 
             return true;
@@ -463,7 +586,7 @@ namespace Develover.GUI.Forms
                         barButtonDelete.Enabled = false;
                         barButtonCancel.Enabled = true;
                         barButtonPrint.Enabled = false;
-                        SetStatusEdit(gro_general, false);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, false);
                     }
                     break;
                 case EnumPermission.Edit:
@@ -472,7 +595,7 @@ namespace Develover.GUI.Forms
                         barButtonDelete.Enabled = false;
                         barButtonCancel.Enabled = true;
                         barButtonPrint.Enabled = false;
-                        SetStatusEdit(gro_general, false);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, false);
                     }
                     break;
                 case EnumPermission.View:
@@ -490,7 +613,7 @@ namespace Develover.GUI.Forms
                             barButtonPrint.Enabled = true;
                         }
                         barButtonCancel.Enabled = false;
-                        SetStatusEdit(gro_general, true);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, true);
                     }
                     break;
                 case EnumPermission.Denial:
@@ -500,7 +623,7 @@ namespace Develover.GUI.Forms
                         barButtonDelete.Enabled = false;
                         barButtonCancel.Enabled = false;
                         barButtonPrint.Enabled = false;
-                        SetStatusEdit(gro_general, true);
+                        grvDetail.OptionsBehavior.Editable = !SetStatusReadOnly(groHeader, true);
                     }
                     break;
             }
@@ -526,39 +649,44 @@ namespace Develover.GUI.Forms
 
         protected virtual void InitForm()
         {
-            //using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,TableDeail,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
-            //{
-            //    foreach (DataRow dr in data.Rows)
-            //    {
-            //        Text = dr["Name"].ToString().ToUpper();
-            //        TableTH = dr["TableHeader"].ToString();
-            //        TableCT = dr["TableDeail"].ToString();
-            //        ModelName = dr["ModelName"].ToString();
-            //    }
-            //}
-           // grc_search.BuildGridControlsView(SQLDataSourceSearch, ModelName);
-            LoadData();
+
+            VoucherID = functionsGUIService.GetDefaulString();
+            using (DataTable data = functionsGUIService.dataBase.GetDataTable("SELECT   ID, Code, Name, TableHeader,TableDetail,ModelName FROM SysDELListVoucher WHERE code = '" + CodeVoucher + "'"))
+            {
+                foreach (DataRow dr in data.Rows)
+                {
+                    Text = dr["Name"].ToString().ToUpper();
+                    TableHeader = dr["TableHeader"].ToString();
+                    TableDetail = dr["TableDetail"].ToString();
+                    ModelName = dr["ModelName"].ToString();
+                }
+            }
+            SetStatus("Đang mở");
+            grcSearch.BuildGridControlsView("SElECT * FROM " + ViewSearch, ModelName + "Search");
+            grcDetai.BuildGridControls("SElECT * FROM " + ViewVouvher + " WHERE VoucherID ='" + VoucherID + "'", ModelName);
             SetEnableBarButton();
-            LoadDataControls();
             LoadColorControlNotEmty(ControlCheckEmty);
+            LoadDataControls();
+            LoadData();
         }
 
         protected virtual void LoadData()
         {
             string code = VoucherID;
-            grc_search.LoadData();
-            ClearDataBindingsControl(gro_general);
-            DataBindingsControl(gro_general, grc_search.DataSource);
-            //if (grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code) >= 0)
-            //{
-            //    grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], code);
-            //    grv_search.ClearSelection();
-            //    grv_search.SelectRow(grv_search.FocusedRowHandle);
-            //}
-            //else
-            //{
-            //    grv_search.FocusedRowHandle = grv_search.LocateByDisplayText(0, grv_search.Columns[NameFieldCodePrimary], CodePrimary);
-            //}
+            grcSearch.LoadData();
+            grcDetai.LoadData();
+            ClearDataBindingsControl(groHeader);
+            DataBindingsControl(groHeader, grcSearch.DataSource);
+            if (grvSearch.LocateByDisplayText(0, grvSearch.Columns["VoucherID"], code) >= 0)
+            {
+                grvSearch.FocusedRowHandle = grvSearch.LocateByDisplayText(0, grvSearch.Columns["VoucherID"], code);
+                grvSearch.ClearSelection();
+                grvSearch.SelectRow(grvSearch.FocusedRowHandle);
+            }
+            else
+            {
+                grvSearch.FocusedRowHandle = grvSearch.LocateByDisplayText(0, grvSearch.Columns["VoucherID"], VoucherID);
+            }
         }
 
         protected virtual void LoadDataControls()
@@ -567,10 +695,20 @@ namespace Develover.GUI.Forms
 
         }
 
+        protected virtual bool DeleteVoucher()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected virtual void SetStatus(string stringStatus)
+        {
+            ((IDeveloverFormParent)this.MdiParent).SetStatusAsync("[" + Text + ".] - " + stringStatus);
+        }
+
         private void BarButtonNew_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!CheckNew()) return;
-            ClearDataBindingsControl(gro_general);
+            ClearDataBindingsControl(groHeader);
             ((Control)DeveloverControlsFocus).Focus();
             if (!BarButtonNew_Click()) return;
             if (StatusUse == EnumPermission.New || StatusUse == EnumPermission.Edit)
@@ -590,7 +728,7 @@ namespace Develover.GUI.Forms
         {
             if (!CheckEdit()) return;
             if (string.IsNullOrEmpty(VoucherID)) return;
-            ClearDataBindingsControl(gro_general);
+            ClearDataBindingsControl(groHeader);
             ((Control)DeveloverControlsFocus).Focus();
             if (!BarButtonEdit_Click()) return;
             StatusUse = EnumPermission.Edit;
@@ -630,14 +768,14 @@ namespace Develover.GUI.Forms
             if (EnumPermission.Edit == StatusUse) return;
             if (EnumPermission.New == StatusUse) return;
 
-         //   CodePrimary = ((GridView)sender).GetFocusedRowCellValue(((GridView)sender).Columns[NameFieldCodePrimary])?.ToString();
+            //   CodePrimary = ((GridView)sender).GetFocusedRowCellValue(((GridView)sender).Columns[NameFieldCodePrimary])?.ToString();
 
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
             base.OnKeyDown(e);
-            if (e.Control)
+            if (e.Control && e.Shift)
             {
                 switch (e.KeyCode)
                 {
@@ -674,6 +812,9 @@ namespace Develover.GUI.Forms
             }
         }
 
+        private void groDetail_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

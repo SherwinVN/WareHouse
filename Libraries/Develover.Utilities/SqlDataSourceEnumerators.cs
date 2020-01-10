@@ -10,6 +10,7 @@ namespace Develover.Utilities
 {
     public class SqlDataSourceEnumerators
     {
+        public static string StringFormatDateISO8601 = "MM/dd/yyyy HH:mm:ss.fff";
         public  async Task<DataTable> GetNameInstanceAsync()
         {
             SqlDataSourceEnumerator instance = System.Data.Sql.SqlDataSourceEnumerator.Instance;

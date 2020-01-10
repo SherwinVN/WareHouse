@@ -12,6 +12,9 @@ namespace Develover.Utilities
     {
         public static Color ControlRequiedInputBackColor = Color.Green;
         public static Color ControlRequiedInputForeColor = Color.White;
+
+        public static Color ControlExistsValueBackColor = Color.Red;
+        public static Color ControlExistsValueForeColor = Color.White;
         public DeveloverOptions()
         {
         }
@@ -94,6 +97,8 @@ namespace Develover.Utilities
 
         public static class StatusLogins
         {
+            public static string session = "";
+            public static string UserID = "";
             public static bool StatusLogin = false;
             public static string Username = "";
             public static string Password = "";

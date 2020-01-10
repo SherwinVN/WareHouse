@@ -42,6 +42,23 @@ namespace Develover.GUI.Services
                 return false;
             }
         }
+
+        public string GetDefaulString(string guidString)
+        {
+            try
+            {
+                new Guid(guidString);
+                return guidString;
+            }
+            catch (FormatException)
+            {
+                return default(Guid).ToString();
+            }
+        }
+        public string GetDefaulString()
+        {
+            return default(Guid).ToString();
+        }
         public bool DeleteRowTable(string Table, string NameFieldKey, string value)
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -73,7 +90,7 @@ namespace Develover.GUI.Services
 
             }
 
-            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + " FROM  [" + Table + "] a  WHERE  [" + NameFieldKey + "] = N'" + value + "' ";
+            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + " FROM  [" + Table + "] a  WHERE  a.[" + NameFieldKey + "] = N'" + value + "' ";
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
@@ -120,6 +137,7 @@ namespace Develover.GUI.Services
             stringBuilderValue.Append("Values(");
             foreach (string key in ListFilesValues.Keys)
             {
+                stringBuilderField.Append("[" + key + "],");
                 if (ListFilesValues[key].Equals("null"))
                     stringBuilderValue.Append("null,");
                 else
@@ -233,10 +251,10 @@ namespace Develover.GUI.Services
                         typeColumns_.SumaryType = GetSumaryType(dr["SumaryType"]?.ToString());
                         typeColumns_.StringFormat = dr["StringFormat"]?.ToString();
 
-                        if (dr["Type"].ToString().Equals("Combobox") || dr["Type"].ToString().Equals("Gridlookup"))
-                            typeColumns_.TypeColumn = GetTypeColumn("Text");
-                        else
-                            typeColumns_.TypeColumn = GetTypeColumn(dr["Type"]?.ToString());
+                        //if (dr["Type"].ToString().Equals("Combobox") || dr["Type"].ToString().Equals("Gridlookup"))
+                        //    typeColumns_.TypeColumn = GetTypeColumn("Text");
+                        //else
+                        typeColumns_.TypeColumn = GetTypeColumn(dr["Type"]?.ToString());
 
 
                         typeColumns_.ChildModel = dr["ChildModel"]?.ToString();
@@ -246,7 +264,7 @@ namespace Develover.GUI.Services
                         typeColumns_.ValueMember = dr["ValueMember"]?.ToString();
                         typeColumns_.NullText = dr["NullText"]?.ToString();
 
-                        //typeColumns_.TypeColumnGridLookup = GetSysDelGridcolumnsView(typeColumns_.ChildModel);
+                        typeColumns_.Model = typeColumns_.ChildModel;
                         typeColumns.Add(typeColumns_);
                     }
                 }
@@ -345,23 +363,64 @@ namespace Develover.GUI.Services
 
             public void ExecuteProcedure(string procedureName, SqlParameter[] paramsIn)
             {
-                ExecuteProcedure(procedureName, paramsIn);
+                sqlDataProvider.ExecuteProcedure(procedureName, paramsIn);
             }
 
             public async Task ExecuteProcedureAsync(string procedureName, SqlParameter[] paramsIn)
             {
-                await ExecuteProcedureAsync(procedureName, paramsIn);
+                await sqlDataProvider.ExecuteProcedureAsync(procedureName, paramsIn);
+            }
+            public void ExecuteProcedure(string procedureName, string[] parameterName, string[] parameterValue)
+            {
+                sqlDataProvider.ExecuteProcedure(procedureName, parameterName, parameterValue);
+            }
+            public void ExecuteProcedureAsync(string procedureName, string[] parameterName, string[] parameterValue)
+            {
+                sqlDataProvider.ExecuteProcedureAsync(procedureName, parameterName, parameterValue);
             }
 
             public object ExecuteProcedureOut(string procedureName, SqlParameter[] paramsIn, SqlParameter paramOut)
             {
 
-                return ExecuteProcedureOut(procedureName, paramsIn, paramOut);
+                return sqlDataProvider.ExecuteProcedureOut(procedureName, paramsIn, paramOut);
             }
 
             public async Task<object> ExecuteProcedureOutAsync(string procedureName, SqlParameter[] paramsIn, SqlParameter paramOut)
             {
-                return await ExecuteProcedureOutAsync(procedureName, paramsIn, paramOut);
+                return await sqlDataProvider.ExecuteProcedureOutAsync(procedureName, paramsIn, paramOut);
+            }
+
+            public bool bulkcopy(DataTable dataWrite, string destinationTableName)
+            {
+                return sqlDataProvider.bulkcopy(dataWrite, destinationTableName);
+            }
+
+            public bool bulkcopy(DataTable dataWrite, string destinationTableName, string[] columnMapping)
+            {
+                return sqlDataProvider.bulkcopy(dataWrite, destinationTableName, columnMapping);
+            }
+
+            public bool bulkcopy(DataTable dataWrite, string destinationTableName, Dictionary<string, string> columnMapping)
+            {
+
+                return sqlDataProvider.bulkcopy(dataWrite, destinationTableName, columnMapping);
+            }
+
+            public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName)
+            {
+
+                return await sqlDataProvider.bulkcopyAsync(dataWrite, destinationTableName);
+            }
+
+            public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName, string[] columnMapping)
+            {
+
+                return await sqlDataProvider.bulkcopyAsync(dataWrite, destinationTableName, columnMapping);
+            }
+
+            public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName, Dictionary<string, string> columnMapping)
+            {
+                return await sqlDataProvider.bulkcopyAsync(dataWrite, destinationTableName, columnMapping);
             }
         }
 
