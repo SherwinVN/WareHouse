@@ -121,8 +121,8 @@ namespace Develover.GUI.OverideClass
                 }
             }
             public void Globalization()
-            { //    vi           Vietnamese                              vi-VN
-                CultureInfo culture = CultureInfo.CreateSpecificCulture("en-EN");
+            { //    vi           Vietnamese                              vi-VN - en-EN
+                CultureInfo culture = CultureInfo.CreateSpecificCulture("vi-VN");
 
                 Thread.CurrentThread.CurrentUICulture = culture;
 

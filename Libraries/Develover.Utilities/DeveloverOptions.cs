@@ -97,6 +97,8 @@ namespace Develover.Utilities
 
         public static class StatusLogins
         {
+            public static string session = "";
+            public static string UserID = "";
             public static bool StatusLogin = false;
             public static string Username = "";
             public static string Password = "";

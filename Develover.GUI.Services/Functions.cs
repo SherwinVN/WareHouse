@@ -90,7 +90,7 @@ namespace Develover.GUI.Services
 
             }
 
-            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + " FROM  [" + Table + "] a  WHERE  [" + NameFieldKey + "] = N'" + value + "' ";
+            string result = stringBuilder.ToString(0, stringBuilder.Length - 1) + " FROM  [" + Table + "] a  WHERE  a.[" + NameFieldKey + "] = N'" + value + "' ";
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
@@ -137,6 +137,7 @@ namespace Develover.GUI.Services
             stringBuilderValue.Append("Values(");
             foreach (string key in ListFilesValues.Keys)
             {
+                stringBuilderField.Append("[" + key + "],");
                 if (ListFilesValues[key].Equals("null"))
                     stringBuilderValue.Append("null,");
                 else
