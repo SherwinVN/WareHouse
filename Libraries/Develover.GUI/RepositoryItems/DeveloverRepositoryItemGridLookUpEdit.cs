@@ -2,6 +2,7 @@
 using Develover.GUI.Services;
 using DevExpress.Data.Linq;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Drawing;
 using DevExpress.XtraEditors.Registrator;
 using DevExpress.XtraEditors.Repository;
@@ -37,14 +38,12 @@ namespace Develover.GUI.RepositoryItems
             AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             ValidateOnEnterKey = true;
             Popup += DeveloverRepositoryItemGridLookUpEdit_Popup; ;
-            Closed += DeveloverRepositoryItemGridLookUpEdit_Closed; ;
-            Buttons.Add(new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "Thêm danh mục"));
-            Buttons[1].Click += DeveloverRepositoryItemGridLookUpEdit_Click;
-        }
+            Closed += DeveloverRepositoryItemGridLookUpEdit_Closed;
 
-        private void DeveloverRepositoryItemGridLookUpEdit_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.MessageBox.Show("Test");
+            this.Buttons.Add(new EditorButton(ButtonPredefines.Combo));
+            EditorButton btn = new EditorButton(ButtonPredefines.Plus, "Add");
+            btn.Click += delegate { System.Windows.Forms.MessageBox.Show("Test"); };
+            this.Buttons.Add(btn);
         }
 
         protected override ColumnView CreateViewInstance()
@@ -70,6 +69,7 @@ namespace Develover.GUI.RepositoryItems
             return new DeveloverGridControl();
         }
 
+
         private void DeveloverRepositoryItemGridLookUpEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
             edt = ((GridLookUpEdit)sender);
@@ -93,8 +93,6 @@ namespace Develover.GUI.RepositoryItems
             edt.Properties.View.DoubleClick += View_DoubleClick;
             edt.Properties.View.Click += View_DoubleClick;
         }
-
-
 
         public void LoadData(DataTable data, string model, string keyMember = "", string displayMember = "", string valueMember = "", string nullText = "")
         {

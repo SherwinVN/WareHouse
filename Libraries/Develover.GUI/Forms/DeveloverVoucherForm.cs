@@ -22,7 +22,7 @@ namespace Develover.GUI.Forms
 {
     public partial class DeveloverVoucherForm : DeveloverForm
     {
-        Functions functionsGUIService = new Functions();
+        readonly Functions functionsGUIService = new Functions();
         public string ViewSearch;
         public string ViewVouvher;
         public string VoucherID;
@@ -444,7 +444,7 @@ namespace Develover.GUI.Forms
 
                 string sql = "IF(EXISTS(SELECT name FROM sysObjects WHERE name = '" + tableNameAs + "')) DROP TABLE " + tableNameAs;
                 functionsGUIService.dataBase.ExecuteNonQuery(sql);
-                sql = "SELECT top 0 " + listColumn.Select(x => string.Join(",", x)) + " INTO " + tableNameAs + " FROM " + tableNameCopy;
+                sql = "SELECT top 0 " + string.Join(",", listColumn.ToArray()) + " INTO " + tableNameAs + " FROM " + tableNameCopy;
                 if (functionsGUIService.dataBase.ExecuteNonQuery(sql) != 1)
                 {
                     return true;
@@ -454,7 +454,7 @@ namespace Develover.GUI.Forms
             catch
             {
             }
-            return false;
+            return true;
         }
 
         protected virtual bool CreateTableHeaderTemp(string tableNameCopy, string tableNameAs)
@@ -462,10 +462,10 @@ namespace Develover.GUI.Forms
             try
             {
 
-                string sql = "IF(EXISTS(SELECT name FROM sysObjects WHERE name = '" + tableNameAs + "')) DROP TABLE " + tableNameAs;
+                string sql = "IF EXISTS(SELECT name FROM sysObjects WHERE name = '" + tableNameAs + "') DROP TABLE " + tableNameAs;
                 functionsGUIService.dataBase.ExecuteNonQuery(sql);
-                sql = "SELECT top 0 * INTO " + tableNameAs + " FROM " + tableNameCopy;
-                if (functionsGUIService.dataBase.ExecuteNonQuery(sql) != 1)
+                sql = "SELECT * INTO " + tableNameAs + " FROM " + tableNameCopy + " WHERE 1 = 2";
+                if (functionsGUIService.dataBase.ExecuteNonQuery(sql) >= 0)
                 {
                     return true;
                 }
@@ -497,8 +497,8 @@ namespace Develover.GUI.Forms
                     }
                     VoucherID = functionsGUIService.GetGUID();
 
-                    string tableNameHeader = "Header" + ModelName + VoucherID;
-                    string tableNameDetail = "Detail" + ModelName + VoucherID;
+                    string tableNameHeader = ("Header" + ModelName + VoucherID.Replace("-", "")).ToUpper();
+                    string tableNameDetail = ("Detail" + ModelName + VoucherID.Replace("-", "")).ToUpper();
 
                     if (CreateTableHeaderTemp(TableHeader, tableNameHeader))
                     {
@@ -506,7 +506,7 @@ namespace Develover.GUI.Forms
                         {
                             if (CreateTableHeaderTemp(TableDetail, tableNameDetail, GetlistColumnTableDetail(grvDetail)))
                             {
-                                if (functionsGUIService.dataBase.bulkcopy(((DataTable)grcDetai.DataSource), tableNameDetail))
+                                if (functionsGUIService.dataBase.bulkcopy(((DataTable)grcDetai.DataSource), tableNameDetail, GetlistColumnTableDetail(grvDetail).ToArray()))
                                 {
                                     functionsGUIService.dataBase.ExecuteProcedure("PROPOSTVOUCHER", new string[] { "model", "VoucherID" }, new string[] { ModelName, VoucherID });
                                 }
@@ -810,11 +810,6 @@ namespace Develover.GUI.Forms
                         break;
                 }
             }
-        }
-
-        private void groDetail_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
