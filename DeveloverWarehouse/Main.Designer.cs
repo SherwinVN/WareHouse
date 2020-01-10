@@ -565,7 +565,6 @@
             this._020200.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("_020200.ImageOptions.SvgImage")));
             this._020200.Name = "_020200";
             this._020200.Tag = "General.DashBoard";
-            this._020200.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this._020200_ItemClick);
             // 
             // _020300
             // 
