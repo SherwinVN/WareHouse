@@ -10,6 +10,7 @@ using System.Linq;
 using static Develover.Utilities.DelTypeData;
 using static Develover.Utilities.Enum;
 using static Develover.GUI.Services.Functions;
+using DevExpress.XtraEditors.Controls;
 
 namespace Develover.GUI.Controls
 {
@@ -41,6 +42,11 @@ namespace Develover.GUI.Controls
             TypeFieldColumns = EnumTypeColumns.Gridlookup;
         }
 
+        private void DeveloverRepositoryItemGridLookUpEdit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("Test");
+        }
+
         public void LoadData(DataTable data, string Model, string KeyMember = "", string DisplayMember = "", string ValueMember = "", string NullText = "")
         {
             Properties.LoadData(data, Model, KeyMember, DisplayMember, ValueMember, NullText);
@@ -50,10 +56,11 @@ namespace Develover.GUI.Controls
             sqldata_ = sqlData;
             LoadData();
             model_ = model;
-            Properties.LoadData(sqldata_, model_, KeyMember,  ValueMember, DisplayMember,NullText);
+            Properties.LoadData(sqldata_, model_, KeyMember, ValueMember, DisplayMember, NullText);
         }
 
-        public void LoadData() {
+        public void LoadData()
+        {
 
             Properties.LoadData();
         }
