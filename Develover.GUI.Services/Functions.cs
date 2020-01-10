@@ -12,11 +12,15 @@ namespace Develover.GUI.Services
 {
     public class Functions
     {
+        private readonly IUnitOfWork _unitOfWork;
+
         public DataBase dataBase;
         public Functions()
         {
             dataBase = new DataBase();
+            _unitOfWork = new UnitOfWork(new DbContextFactory<DeveloverDbContext>());
         }
+
         //public List<Dictionary<string, string>> LoadListControlAndFile(iDeveloverControl, string Table)
         //{
         //    List<Dictionary<string, string>> list = new List<Dictionary<string, string>>();

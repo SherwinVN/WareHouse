@@ -1,4 +1,6 @@
-﻿namespace Develover.Core
+﻿using System;
+
+namespace Develover.Core.Entities
 {
     /// <summary>
     /// Base class for entities
@@ -8,6 +10,6 @@
         /// <summary>
         /// Gets or sets the entity identifier
         /// </summary>
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

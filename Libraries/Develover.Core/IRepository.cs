@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Develover.Core.Entities;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace Develover.Core.Data
+namespace Develover.Core
 {
     /// <summary>
     /// Represents an entity repository
@@ -40,7 +41,7 @@ namespace Develover.Core.Data
         /// Update entities
         /// </summary>
         /// <param name="entities">Entities</param>
-        void Update(IEnumerable<TEntity> entities);
+        /// void Update(IEnumerable<TEntity> entities);
 
         /// <summary>
         /// Delete entity
