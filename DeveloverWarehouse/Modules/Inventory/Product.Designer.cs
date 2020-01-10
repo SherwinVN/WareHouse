@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
             this.memDescription = new Develover.GUI.Controls.DeveloverMemoEdit();
             this.chkActive = new Develover.GUI.Controls.DeveloverCheckEdit();
@@ -59,8 +49,14 @@
             this.txtModel = new Develover.GUI.Controls.DeveloverTextEdit();
             this.txtProductName = new Develover.GUI.Controls.DeveloverTextEdit();
             this.gro_size_weigth = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.develoverGridLookUpEdit1 = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
+            this.develoverGridView1 = new Develover.GUI.Controls.DeveloverGridView();
             this.labUOMSize = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.lokUOMWeight = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
+            this.develoverGridView3 = new Develover.GUI.Controls.DeveloverGridView();
             this.lab_height = new Develover.GUI.Controls.DeveloverLabelControl();
+            this.lokUOMSize = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
+            this.develoverGridView2 = new Develover.GUI.Controls.DeveloverGridView();
             this.lab_widght = new Develover.GUI.Controls.DeveloverLabelControl();
             this.labUOMWeight = new Develover.GUI.Controls.DeveloverLabelControl();
             this.lab_length = new Develover.GUI.Controls.DeveloverLabelControl();
@@ -72,6 +68,8 @@
             this.labSKU = new Develover.GUI.Controls.DeveloverLabelControl();
             this.txt_sku = new Develover.GUI.Controls.DeveloverTextEdit();
             this.groInventory = new Develover.GUI.Controls.DeveloverGroupControl();
+            this.lokLocationDefault = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
+            this.develoverGridView4 = new Develover.GUI.Controls.DeveloverGridView();
             this.labMinimumQuantity = new Develover.GUI.Controls.DeveloverLabelControl();
             this.labMaximunQuantity = new Develover.GUI.Controls.DeveloverLabelControl();
             this.txtMinimumQuantity = new Develover.GUI.Controls.DeveloverCalcEdit();
@@ -79,13 +77,9 @@
             this.labLocationDefault = new Develover.GUI.Controls.DeveloverLabelControl();
             this.txtOrigin = new Develover.GUI.Controls.DeveloverTextEdit();
             this.lokUOM = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.develoverGridView1 = new Develover.GUI.Controls.DeveloverGridView();
-            this.lokUOMSize = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.develoverGridView2 = new Develover.GUI.Controls.DeveloverGridView();
-            this.lokUOMWeight = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.develoverGridView3 = new Develover.GUI.Controls.DeveloverGridView();
-            this.lokLocationDefault = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
-            this.develoverGridView4 = new Develover.GUI.Controls.DeveloverGridView();
+            this.develoverGridLookUpEdit1View = new Develover.GUI.Controls.DeveloverGridView();
+            this.develoverGridLookUpEdit2 = new Develover.GUI.Controls.DeveloverGridLookUpEdit();
+            this.develoverGridLookUpEdit2View = new Develover.GUI.Controls.DeveloverGridView();
             ((System.ComponentModel.ISupportInitialize)(this.tab_information)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_general)).BeginInit();
             this.gro_general.SuspendLayout();
@@ -96,6 +90,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gro_size_weigth)).BeginInit();
             this.gro_size_weigth.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokUOMWeight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokUOMSize.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLength.Properties)).BeginInit();
@@ -103,22 +103,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_sku.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groInventory)).BeginInit();
             this.groInventory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lokLocationDefault.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimumQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaximunQuantity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrigin.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOM.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokUOMSize.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokUOMWeight.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokLocationDefault.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit2View)).BeginInit();
             this.SuspendLayout();
+            // 
+            // develoverSplitterControl1
+            // 
+            this.develoverSplitterControl1.Location = new System.Drawing.Point(311, 2);
+            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 427);
             // 
             // tab_information
             // 
-            this.tab_information.Size = new System.Drawing.Size(643, 427);
+            this.tab_information.Size = new System.Drawing.Size(643, 423);
             // 
             // gro_general
             // 
@@ -137,16 +140,11 @@
             this.gro_general.Controls.Add(this.labUOM);
             this.gro_general.Controls.Add(this.chkActive);
             this.gro_general.Controls.Add(this.memDescription);
-            this.gro_general.Size = new System.Drawing.Size(641, 399);
-            // 
-            // develoverSplitterControl1
-            // 
-            this.develoverSplitterControl1.Location = new System.Drawing.Point(311, 2);
-            this.develoverSplitterControl1.Size = new System.Drawing.Size(10, 431);
+            this.gro_general.Size = new System.Drawing.Size(641, 391);
             // 
             // gro_search
             // 
-            this.gro_search.Size = new System.Drawing.Size(309, 431);
+            this.gro_search.Size = new System.Drawing.Size(309, 427);
             // 
             // memDescription
             // 
@@ -246,6 +244,8 @@
             // 
             // gro_size_weigth
             // 
+            this.gro_size_weigth.Controls.Add(this.develoverGridLookUpEdit2);
+            this.gro_size_weigth.Controls.Add(this.develoverGridLookUpEdit1);
             this.gro_size_weigth.Controls.Add(this.labUOMSize);
             this.gro_size_weigth.Controls.Add(this.lokUOMWeight);
             this.gro_size_weigth.Controls.Add(this.lab_height);
@@ -267,6 +267,37 @@
             this.gro_size_weigth.Text = "Kích thước & cân nặng";
             this.gro_size_weigth.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
+            // develoverGridLookUpEdit1
+            // 
+            this.develoverGridLookUpEdit1.EnterMoveNextControl = true;
+            this.develoverGridLookUpEdit1.FieldBinding = null;
+            this.develoverGridLookUpEdit1.IsGUID = true;
+            this.develoverGridLookUpEdit1.Location = new System.Drawing.Point(7, 52);
+            this.develoverGridLookUpEdit1.Name = "develoverGridLookUpEdit1";
+            this.develoverGridLookUpEdit1.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.develoverGridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Add", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.develoverGridLookUpEdit1.Properties.NullText = "";
+            this.develoverGridLookUpEdit1.Properties.PopupView = this.develoverGridView1;
+            this.develoverGridLookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.develoverGridLookUpEdit1.Properties.ValidateOnEnterKey = true;
+            this.develoverGridLookUpEdit1.Size = new System.Drawing.Size(100, 20);
+            this.develoverGridLookUpEdit1.TabIndex = 12;
+            this.develoverGridLookUpEdit1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
+            // 
+            // develoverGridView1
+            // 
+            this.develoverGridView1.FieldBinding = null;
+            this.develoverGridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.develoverGridView1.IndicatorWidth = 40;
+            this.develoverGridView1.IsGUID = false;
+            this.develoverGridView1.Name = "develoverGridView1";
+            this.develoverGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.develoverGridView1.OptionsSelection.MultiSelect = true;
+            this.develoverGridView1.OptionsView.ColumnAutoWidth = false;
+            this.develoverGridView1.OptionsView.ShowGroupPanel = false;
+            this.develoverGridView1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
             // labUOMSize
             // 
             this.labUOMSize.FieldBinding = null;
@@ -278,6 +309,37 @@
             this.labUOMSize.Text = "Đơn vị kích thước";
             this.labUOMSize.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
+            // lokUOMWeight
+            // 
+            this.lokUOMWeight.EnterMoveNextControl = true;
+            this.lokUOMWeight.FieldBinding = "UOMWeight";
+            this.lokUOMWeight.IsGUID = true;
+            this.lokUOMWeight.Location = new System.Drawing.Point(96, 100);
+            this.lokUOMWeight.Name = "lokUOMWeight";
+            this.lokUOMWeight.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.lokUOMWeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokUOMWeight.Properties.NullText = "";
+            this.lokUOMWeight.Properties.PopupView = this.develoverGridView3;
+            this.lokUOMWeight.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lokUOMWeight.Properties.ValidateOnEnterKey = true;
+            this.lokUOMWeight.Size = new System.Drawing.Size(87, 20);
+            this.lokUOMWeight.TabIndex = 4;
+            this.lokUOMWeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
+            // 
+            // develoverGridView3
+            // 
+            this.develoverGridView3.FieldBinding = null;
+            this.develoverGridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.develoverGridView3.IndicatorWidth = 40;
+            this.develoverGridView3.IsGUID = false;
+            this.develoverGridView3.Name = "develoverGridView3";
+            this.develoverGridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.develoverGridView3.OptionsSelection.MultiSelect = true;
+            this.develoverGridView3.OptionsView.ColumnAutoWidth = false;
+            this.develoverGridView3.OptionsView.ShowGroupPanel = false;
+            this.develoverGridView3.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
             // lab_height
             // 
             this.lab_height.FieldBinding = null;
@@ -288,6 +350,37 @@
             this.lab_height.TabIndex = 10;
             this.lab_height.Text = "Cao";
             this.lab_height.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
+            // lokUOMSize
+            // 
+            this.lokUOMSize.EnterMoveNextControl = true;
+            this.lokUOMSize.FieldBinding = "UOMSize";
+            this.lokUOMSize.IsGUID = true;
+            this.lokUOMSize.Location = new System.Drawing.Point(96, 31);
+            this.lokUOMSize.Name = "lokUOMSize";
+            this.lokUOMSize.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.lokUOMSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokUOMSize.Properties.NullText = "";
+            this.lokUOMSize.Properties.PopupView = this.develoverGridView2;
+            this.lokUOMSize.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lokUOMSize.Properties.ValidateOnEnterKey = true;
+            this.lokUOMSize.Size = new System.Drawing.Size(128, 20);
+            this.lokUOMSize.TabIndex = 0;
+            this.lokUOMSize.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
+            // 
+            // develoverGridView2
+            // 
+            this.develoverGridView2.FieldBinding = null;
+            this.develoverGridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.develoverGridView2.IndicatorWidth = 40;
+            this.develoverGridView2.IsGUID = false;
+            this.develoverGridView2.Name = "develoverGridView2";
+            this.develoverGridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.develoverGridView2.OptionsSelection.MultiSelect = true;
+            this.develoverGridView2.OptionsView.ColumnAutoWidth = false;
+            this.develoverGridView2.OptionsView.ShowGroupPanel = false;
+            this.develoverGridView2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // lab_widght
             // 
@@ -419,6 +512,37 @@
             this.groInventory.Text = "Kho";
             this.groInventory.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
+            // lokLocationDefault
+            // 
+            this.lokLocationDefault.EnterMoveNextControl = true;
+            this.lokLocationDefault.FieldBinding = "LocationID";
+            this.lokLocationDefault.IsGUID = true;
+            this.lokLocationDefault.Location = new System.Drawing.Point(76, 77);
+            this.lokLocationDefault.Name = "lokLocationDefault";
+            this.lokLocationDefault.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.lokLocationDefault.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokLocationDefault.Properties.NullText = "";
+            this.lokLocationDefault.Properties.PopupView = this.develoverGridView4;
+            this.lokLocationDefault.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lokLocationDefault.Properties.ValidateOnEnterKey = true;
+            this.lokLocationDefault.Size = new System.Drawing.Size(179, 20);
+            this.lokLocationDefault.TabIndex = 2;
+            this.lokLocationDefault.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
+            // 
+            // develoverGridView4
+            // 
+            this.develoverGridView4.FieldBinding = null;
+            this.develoverGridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.develoverGridView4.IndicatorWidth = 40;
+            this.develoverGridView4.IsGUID = false;
+            this.develoverGridView4.Name = "develoverGridView4";
+            this.develoverGridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.develoverGridView4.OptionsSelection.MultiSelect = true;
+            this.develoverGridView4.OptionsView.ColumnAutoWidth = false;
+            this.develoverGridView4.OptionsView.ShowGroupPanel = false;
+            this.develoverGridView4.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            // 
             // labMinimumQuantity
             // 
             this.labMinimumQuantity.FieldBinding = null;
@@ -491,125 +615,63 @@
             this.lokUOM.EnterMoveNextControl = true;
             this.lokUOM.FieldBinding = "UOMID";
             this.lokUOM.IsGUID = true;
-            this.lokUOM.Location = new System.Drawing.Point(85, 36);
+            this.lokUOM.Location = new System.Drawing.Point(85, 38);
             this.lokUOM.Name = "lokUOM";
             this.lokUOM.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.lokUOM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Thêm danh mục", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokUOM.Properties.NullText = "";
-            this.lokUOM.Properties.PopupView = this.develoverGridView1;
+            this.lokUOM.Properties.PopupView = this.develoverGridLookUpEdit1View;
             this.lokUOM.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lokUOM.Properties.ValidateOnEnterKey = true;
             this.lokUOM.Size = new System.Drawing.Size(122, 20);
-            this.lokUOM.TabIndex = 1;
+            this.lokUOM.TabIndex = 15;
             this.lokUOM.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
-            this.lokUOM.EditValueChanged += new System.EventHandler(this.lokUOM_EditValueChanged);
             // 
-            // develoverGridView1
+            // develoverGridLookUpEdit1View
             // 
-            this.develoverGridView1.FieldBinding = null;
-            this.develoverGridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.develoverGridView1.IndicatorWidth = 40;
-            this.develoverGridView1.IsGUID = false;
-            this.develoverGridView1.Name = "develoverGridView1";
-            this.develoverGridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.develoverGridView1.OptionsSelection.MultiSelect = true;
-            this.develoverGridView1.OptionsView.ColumnAutoWidth = false;
-            this.develoverGridView1.OptionsView.ShowGroupPanel = false;
-            this.develoverGridView1.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.develoverGridLookUpEdit1View.FieldBinding = null;
+            this.develoverGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.develoverGridLookUpEdit1View.IndicatorWidth = 40;
+            this.develoverGridLookUpEdit1View.IsGUID = false;
+            this.develoverGridLookUpEdit1View.Name = "develoverGridLookUpEdit1View";
+            this.develoverGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.develoverGridLookUpEdit1View.OptionsSelection.MultiSelect = true;
+            this.develoverGridLookUpEdit1View.OptionsView.ColumnAutoWidth = false;
+            this.develoverGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.develoverGridLookUpEdit1View.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
-            // lokUOMSize
+            // develoverGridLookUpEdit2
             // 
-            this.lokUOMSize.EnterMoveNextControl = true;
-            this.lokUOMSize.FieldBinding = "UOMSize";
-            this.lokUOMSize.IsGUID = true;
-            this.lokUOMSize.Location = new System.Drawing.Point(96, 31);
-            this.lokUOMSize.Name = "lokUOMSize";
-            this.lokUOMSize.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.lokUOMSize.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "Thêm danh mục", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.lokUOMSize.Properties.NullText = "";
-            this.lokUOMSize.Properties.PopupView = this.develoverGridView2;
-            this.lokUOMSize.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lokUOMSize.Properties.ValidateOnEnterKey = true;
-            this.lokUOMSize.Size = new System.Drawing.Size(128, 20);
-            this.lokUOMSize.TabIndex = 0;
-            this.lokUOMSize.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
+            this.develoverGridLookUpEdit2.EnterMoveNextControl = true;
+            this.develoverGridLookUpEdit2.FieldBinding = null;
+            this.develoverGridLookUpEdit2.IsGUID = true;
+            this.develoverGridLookUpEdit2.Location = new System.Drawing.Point(96, 75);
+            this.develoverGridLookUpEdit2.Name = "develoverGridLookUpEdit2";
+            this.develoverGridLookUpEdit2.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
+            this.develoverGridLookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "Add", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            this.develoverGridLookUpEdit2.Properties.NullText = "";
+            this.develoverGridLookUpEdit2.Properties.PopupView = this.develoverGridLookUpEdit2View;
+            this.develoverGridLookUpEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.develoverGridLookUpEdit2.Properties.ValidateOnEnterKey = true;
+            this.develoverGridLookUpEdit2.Size = new System.Drawing.Size(100, 20);
+            this.develoverGridLookUpEdit2.TabIndex = 13;
+            this.develoverGridLookUpEdit2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
             // 
-            // develoverGridView2
+            // develoverGridLookUpEdit2View
             // 
-            this.develoverGridView2.FieldBinding = null;
-            this.develoverGridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.develoverGridView2.IndicatorWidth = 40;
-            this.develoverGridView2.IsGUID = false;
-            this.develoverGridView2.Name = "develoverGridView2";
-            this.develoverGridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.develoverGridView2.OptionsSelection.MultiSelect = true;
-            this.develoverGridView2.OptionsView.ColumnAutoWidth = false;
-            this.develoverGridView2.OptionsView.ShowGroupPanel = false;
-            this.develoverGridView2.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
-            // 
-            // lokUOMWeight
-            // 
-            this.lokUOMWeight.EnterMoveNextControl = true;
-            this.lokUOMWeight.FieldBinding = "UOMWeight";
-            this.lokUOMWeight.IsGUID = true;
-            this.lokUOMWeight.Location = new System.Drawing.Point(96, 100);
-            this.lokUOMWeight.Name = "lokUOMWeight";
-            this.lokUOMWeight.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.lokUOMWeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "Thêm danh mục", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.lokUOMWeight.Properties.NullText = "";
-            this.lokUOMWeight.Properties.PopupView = this.develoverGridView3;
-            this.lokUOMWeight.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lokUOMWeight.Properties.ValidateOnEnterKey = true;
-            this.lokUOMWeight.Size = new System.Drawing.Size(87, 20);
-            this.lokUOMWeight.TabIndex = 4;
-            this.lokUOMWeight.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
-            // 
-            // develoverGridView3
-            // 
-            this.develoverGridView3.FieldBinding = null;
-            this.develoverGridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.develoverGridView3.IndicatorWidth = 40;
-            this.develoverGridView3.IsGUID = false;
-            this.develoverGridView3.Name = "develoverGridView3";
-            this.develoverGridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.develoverGridView3.OptionsSelection.MultiSelect = true;
-            this.develoverGridView3.OptionsView.ColumnAutoWidth = false;
-            this.develoverGridView3.OptionsView.ShowGroupPanel = false;
-            this.develoverGridView3.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
-            // 
-            // lokLocationDefault
-            // 
-            this.lokLocationDefault.EnterMoveNextControl = true;
-            this.lokLocationDefault.FieldBinding = "LocationID";
-            this.lokLocationDefault.IsGUID = true;
-            this.lokLocationDefault.Location = new System.Drawing.Point(76, 77);
-            this.lokLocationDefault.Name = "lokLocationDefault";
-            this.lokLocationDefault.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.lokLocationDefault.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Plus, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "Thêm danh mục", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
-            this.lokLocationDefault.Properties.NullText = "";
-            this.lokLocationDefault.Properties.PopupView = this.develoverGridView4;
-            this.lokLocationDefault.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lokLocationDefault.Properties.ValidateOnEnterKey = true;
-            this.lokLocationDefault.Size = new System.Drawing.Size(179, 20);
-            this.lokLocationDefault.TabIndex = 2;
-            this.lokLocationDefault.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Gridlookup;
-            // 
-            // develoverGridView4
-            // 
-            this.develoverGridView4.FieldBinding = null;
-            this.develoverGridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.develoverGridView4.IndicatorWidth = 40;
-            this.develoverGridView4.IsGUID = false;
-            this.develoverGridView4.Name = "develoverGridView4";
-            this.develoverGridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.develoverGridView4.OptionsSelection.MultiSelect = true;
-            this.develoverGridView4.OptionsView.ColumnAutoWidth = false;
-            this.develoverGridView4.OptionsView.ShowGroupPanel = false;
-            this.develoverGridView4.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
+            this.develoverGridLookUpEdit2View.FieldBinding = null;
+            this.develoverGridLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.develoverGridLookUpEdit2View.IndicatorWidth = 40;
+            this.develoverGridLookUpEdit2View.IsGUID = false;
+            this.develoverGridLookUpEdit2View.Name = "develoverGridLookUpEdit2View";
+            this.develoverGridLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.develoverGridLookUpEdit2View.OptionsSelection.MultiSelect = true;
+            this.develoverGridLookUpEdit2View.OptionsView.ColumnAutoWidth = false;
+            this.develoverGridLookUpEdit2View.OptionsView.ShowGroupPanel = false;
+            this.develoverGridLookUpEdit2View.TypeFieldColumns = Develover.Utilities.Enum.EnumTypeColumns.Date;
             // 
             // Product
             // 
@@ -632,6 +694,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gro_size_weigth)).EndInit();
             this.gro_size_weigth.ResumeLayout(false);
             this.gro_size_weigth.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokUOMWeight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokUOMSize.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWidth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLength.Properties)).EndInit();
@@ -640,17 +708,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groInventory)).EndInit();
             this.groInventory.ResumeLayout(false);
             this.groInventory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lokLocationDefault.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMinimumQuantity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaximunQuantity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOrigin.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokUOM.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokUOMSize.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokUOMWeight.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokLocationDefault.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.develoverGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.develoverGridLookUpEdit2View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -687,13 +753,17 @@
         private Develover.GUI.Controls.DeveloverCalcEdit txtLength;
         private Develover.GUI.Controls.DeveloverCalcEdit txtHeight;
         private Develover.GUI.Controls.DeveloverCalcEdit txtMinimumQuantity;
-        private Develover.GUI.Controls.DeveloverGridLookUpEdit lokUOM;
-        private Develover.GUI.Controls.DeveloverGridView develoverGridView1;
         private Develover.GUI.Controls.DeveloverGridLookUpEdit lokUOMWeight;
         private Develover.GUI.Controls.DeveloverGridView develoverGridView3;
         private Develover.GUI.Controls.DeveloverGridLookUpEdit lokUOMSize;
         private Develover.GUI.Controls.DeveloverGridView develoverGridView2;
         private Develover.GUI.Controls.DeveloverGridLookUpEdit lokLocationDefault;
         private Develover.GUI.Controls.DeveloverGridView develoverGridView4;
+        private Develover.GUI.Controls.DeveloverGridLookUpEdit lokUOM;
+        private Develover.GUI.Controls.DeveloverGridView develoverGridLookUpEdit1View;
+        private Develover.GUI.Controls.DeveloverGridLookUpEdit develoverGridLookUpEdit1;
+        private Develover.GUI.Controls.DeveloverGridView develoverGridView1;
+        private Develover.GUI.Controls.DeveloverGridLookUpEdit develoverGridLookUpEdit2;
+        private Develover.GUI.Controls.DeveloverGridView develoverGridLookUpEdit2View;
     }
 }

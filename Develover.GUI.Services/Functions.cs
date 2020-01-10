@@ -114,7 +114,7 @@ namespace Develover.GUI.Services
         {
             StringBuilder stringBuilderField = new StringBuilder();
             StringBuilder stringBuilderValue = new StringBuilder();
-            stringBuilderField.Append("INSERT INTO [" + Table + "] ([" + NameFieldKey + "],");
+            stringBuilderField.Append("INSERT INTO [" + Table.Replace("-", "") + "] ([" + NameFieldKey + "],");
             stringBuilderValue.Append(" Values(N'" + value + "',");
             foreach (string key in ListFilesValues.Keys)
             {
