@@ -76,6 +76,7 @@ namespace DeveloverWarehouse
 
         private void Main_Load(object sender, System.EventArgs e)
         {
+
             RunTime();
             login = new Login();
             login.ShowDialog();
@@ -150,20 +151,7 @@ namespace DeveloverWarehouse
             return base.ProcessDialogKey(keyData);
         }
 
-        private void Bei_viewatabpage_EditValueChanged(object sender, EventArgs e)
-        {
-            this.SuspendLayout();
-            tabbedMdiManager.MdiParent = (bool)((BarEditItem)sender).EditValue ? null : this;
-            this.ResumeLayout(false);
-            this.PerformLayout();
-        }
-
-        private void BarButtonHowTo_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-         
-        }
-
+        #region ButBar
         private void _010100_ItemClick(object sender, ItemClickEventArgs e)
         {
             _010100.Enabled = false;
@@ -199,12 +187,41 @@ namespace DeveloverWarehouse
             }
         }
 
-        private void _010600_ItemClick(object sender, ItemClickEventArgs e)
+        private void _010501_ItemClick(object sender, ItemClickEventArgs e)
         {
-            this.Close();
+            LoadForm(sender);
         }
 
+        private void _010502_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Setting setting = new Setting();
+            setting.ShowDialog();
+        }
 
+        private void _010506_ItemClick(object sender, ItemClickEventArgs e)
+        {
+        }
+
+        private void _010505_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
+
+        }
+
+        private void _010503_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
+        }
+
+        private void _010504_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            LoadForm(sender);
+        }
+
+        private void _010600_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ExitApplications();
+        }
 
         private void _010700_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -216,6 +233,54 @@ namespace DeveloverWarehouse
             }
         }
 
+        private void _010507_ItemClick(object sender, ItemClickEventArgs e)
+
+        {
+            LoadForm(sender);
+        }
+
+        private void _010800_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            if (MdiChildren.Length > 0)
+            {
+                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
+                    Application.Restart();
+            }
+            else { Application.Restart(); }
+        } 
+        #endregion
+
+        private void barButtonTasks_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void Bei_viewatabpage_EditValueChanged(object sender, EventArgs e)
+        {
+            this.SuspendLayout();
+            tabbedMdiManager.MdiParent = (bool)((BarEditItem)sender).EditValue ? null : this;
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
+
+        private void BarButtonHowTo_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            var form = new Form1();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void ExitApplications()
+        {
+            if (MdiChildren.Length > 0)
+            {
+                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
+                    Application.Exit();
+            }
+            else { Application.Exit(); }
+        }
+
         public void ShowFormChildren(bool show)
         {
             foreach (Form form in MdiChildren)
@@ -224,22 +289,6 @@ namespace DeveloverWarehouse
                 IDeveloverFormChild f = (IDeveloverFormChild)form;
                 if (show) f.Show(); else f.Hide();
             }
-        }
-
-        private void _010502_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Setting setting = new Setting();
-            setting.ShowDialog();
-        }
-
-        private void barButtonTasks_ItemClick(object sender, ItemClickEventArgs e)
-        {
-
-        }
-
-        private void _010507_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            LoadForm(sender);
         }
 
         private async void LoadForm(object sender)
@@ -273,40 +322,6 @@ namespace DeveloverWarehouse
             SplashScreenManager.CloseForm(false);
         }
 
-        private void _010506_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        }
-
-        private void _010505_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            LoadForm(sender);
-
-        }
-
-        private void _010503_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            LoadForm(sender);
-        }
-
-        private void _010504_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            LoadForm(sender);
-        }
-
-        private void _010800_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            if (MdiChildren.Length > 0)
-            {
-                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
-                    Application.Restart();
-            }
-            else { Application.Restart(); }
-        }
-
-        private void _010501_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            LoadForm(sender);
-        }
 
         protected override void OnClosing(CancelEventArgs e)
         {
