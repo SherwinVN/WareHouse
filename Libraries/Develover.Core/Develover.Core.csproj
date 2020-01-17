@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,6 +28,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,10 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -69,8 +72,96 @@
   <ItemGroup>
     <Compile Include="DeveloverConstants.cs" />
     <Compile Include="DeveloverDbContext.cs" />
+    <Compile Include="Entities\Account.cs" />
+    <Compile Include="Entities\AccountHistory.cs" />
+    <Compile Include="Entities\AccountObject.cs" />
+    <Compile Include="Entities\AccountObjectBankAccount.cs" />
+    <Compile Include="Entities\AccountObjectBankAccountHistory.cs" />
+    <Compile Include="Entities\AccountObjectGroup.cs" />
+    <Compile Include="Entities\AccountObjectGroupHistory.cs" />
+    <Compile Include="Entities\AccountObjectHistory.cs" />
+    <Compile Include="Entities\AccountTransfer.cs" />
+    <Compile Include="Entities\AccountTransferHistory.cs" />
+    <Compile Include="Entities\BADeposit.cs" />
+    <Compile Include="Entities\BADepositDetail.cs" />
+    <Compile Include="Entities\BankAccount.cs" />
+    <Compile Include="Entities\BankAccountHistory.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="CommonHelper.cs" />
+    <Compile Include="Entities\BAWithDraw.cs" />
+    <Compile Include="Entities\BAWithDrawDetail.cs" />
+    <Compile Include="Entities\Branch.cs" />
+    <Compile Include="Entities\BranchHistory.cs" />
+    <Compile Include="Entities\BranchType.cs" />
+    <Compile Include="Entities\BranchTypeHistory.cs" />
+    <Compile Include="Entities\buttonInTag.cs" />
+    <Compile Include="Entities\buttonInTag.Designer.cs">
+      <DependentUpon>buttonInTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\CAPayment.cs" />
+    <Compile Include="Entities\CAPaymentDetail.cs" />
+    <Compile Include="Entities\CAReceipt.cs" />
+    <Compile Include="Entities\CAReceiptDetail.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Currency.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Delivery.cs" />
+    <Compile Include="Entities\DeliveryDetail.cs" />
+    <Compile Include="Entities\Form1.cs" />
+    <Compile Include="Entities\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\grid.cs" />
+    <Compile Include="Entities\HEADERDELIVERY21C77654CD904F4685515946D5E3ACFC.cs" />
+    <Compile Include="Entities\HEADERDELIVERY39668C965069455DAC584186C942B8F1.cs" />
+    <Compile Include="Entities\HEADERDELIVERY52E31404701A47A0A9514573C7BBB3FF.cs" />
+    <Compile Include="Entities\INInward.cs" />
+    <Compile Include="Entities\INInwardDetail.cs" />
+    <Compile Include="Entities\INOutward.cs" />
+    <Compile Include="Entities\INOutwardDetail.cs" />
+    <Compile Include="Entities\INTransfer.cs" />
+    <Compile Include="Entities\INTransferDetail.cs" />
+    <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\LocationHistory.cs" />
+    <Compile Include="Entities\Menu.cs" />
+    <Compile Include="Entities\Model1.Context.cs" />
+    <Compile Include="Entities\Model1.cs" />
+    <Compile Include="Entities\Model1.Designer.cs">
+      <DependentUpon>Model1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Module.cs" />
+    <Compile Include="Entities\Option.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Product1.cs" />
+    <Compile Include="Entities\ProductHistory.cs" />
+    <Compile Include="Entities\ProductType.cs" />
+    <Compile Include="Entities\ProductTypeHistory.cs" />
+    <Compile Include="Entities\Program.cs" />
+    <Compile Include="Entities\PUReturn.cs" />
+    <Compile Include="Entities\PUReturnDetail.cs" />
+    <Compile Include="Entities\PUVoucher.cs" />
+    <Compile Include="Entities\PUVoucherDetail.cs" />
+    <Compile Include="Entities\SAReturn.cs" />
+    <Compile Include="Entities\SAReturnDetail.cs" />
+    <Compile Include="Entities\SAVoucher.cs" />
+    <Compile Include="Entities\SAVoucherDetail.cs" />
+    <Compile Include="Entities\SchedulerAppointment.cs" />
+    <Compile Include="Entities\SchedulerResource.cs" />
+    <Compile Include="Entities\SchedulerTaskDependency.cs" />
+    <Compile Include="Entities\sysDELGridColumn.cs" />
+    <Compile Include="Entities\sysDELGroupUser.cs" />
+    <Compile Include="Entities\SysDELHistoryLogin.cs" />
+    <Compile Include="Entities\SysDELListVoucher.cs" />
+    <Compile Include="Entities\sysDELOption.cs" />
+    <Compile Include="Entities\sysDELUser.cs" />
+    <Compile Include="Entities\UOM.cs" />
+    <Compile Include="Entities\UOMHistory.cs" />
+    <Compile Include="Entities\VDelivery.cs" />
+    <Compile Include="Entities\VDeliverySearch.cs" />
+    <Compile Include="Entities\Vender.cs" />
+    <Compile Include="Entities\Vendor.cs" />
+    <Compile Include="Entities\VProduct.cs" />
+    <Compile Include="Entities\VSysDELHistoryLogin.cs" />
     <Compile Include="Extensions\DataReaderExtensions.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Extensions\EntityExtensions.cs" />
@@ -110,6 +201,17 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
 </Project>
