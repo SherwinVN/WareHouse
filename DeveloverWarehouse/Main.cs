@@ -10,6 +10,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraSplashScreen;
 using System;
+using System.ComponentModel;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Develover.GUI.OverideClass.Localization;
@@ -180,6 +181,8 @@ namespace DeveloverWarehouse
                     }
                 }
                 DeveloverOptions.StatusLogins.StatusLogin = false;
+
+                new WriteHistory().EndSession();
                 login.ShowDialog();
             }
         }
@@ -231,6 +234,7 @@ namespace DeveloverWarehouse
         }
 
         private void _010507_ItemClick(object sender, ItemClickEventArgs e)
+
         {
             LoadForm(sender);
         }
@@ -318,6 +322,23 @@ namespace DeveloverWarehouse
             SplashScreenManager.CloseForm(false);
         }
 
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (MdiChildren.Length > 0)
+            {
+                if (DelMessageBox.DelMessageBoxYN(StringMessage.QuestionResetApplication) == DialogResult.Yes)
+                {
+                    new WriteHistory().EndSession();
+                }
+                else
+                    e.Cancel = true;
+            }
+            else
+            {
+                new WriteHistory().EndSession(); Application.Exit();
+            }
+        }
 
     }
 }

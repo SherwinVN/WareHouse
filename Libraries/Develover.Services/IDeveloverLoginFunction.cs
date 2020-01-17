@@ -53,10 +53,12 @@ namespace Develover.Services
             DeveloverOptions.StatusLogins.Username = userName;
             DeveloverOptions.StatusLogins.Password = passWord;
             DeveloverOptions.InfoUser.Username = userName;
-            using (DataTable data = sqlDataProvider.GetDataTable("SELECT Name,Address FROM sysDELUser WHERE UserName = '" + userName + "'"))
+            using (DataTable data = sqlDataProvider.GetDataTable("SELECT ID,Name,Address FROM sysDELUser WHERE UserName = '" + userName + "'"))
             {
                 if (data.Rows.Count > 0)
                 {
+
+                    DeveloverOptions.StatusLogins.UserID = data.Rows[0]["ID"]?.ToString();
                     DeveloverOptions.InfoUser.Name = data.Rows[0]["Name"]?.ToString();
                     DeveloverOptions.InfoUser.Permission = "Administator";
                     DeveloverOptions.InfoUser.Address = data.Rows[0]["Address"]?.ToString();
