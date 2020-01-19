@@ -50,12 +50,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-
       <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -96,10 +94,6 @@
     <Compile Include="Entities\BranchHistory.cs" />
     <Compile Include="Entities\BranchType.cs" />
     <Compile Include="Entities\BranchTypeHistory.cs" />
-    <Compile Include="Entities\buttonInTag.cs" />
-    <Compile Include="Entities\buttonInTag.Designer.cs">
-      <DependentUpon>buttonInTag.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entities\CAPayment.cs" />
     <Compile Include="Entities\CAPaymentDetail.cs" />
     <Compile Include="Entities\CAReceipt.cs" />
@@ -109,10 +103,6 @@
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Delivery.cs" />
     <Compile Include="Entities\DeliveryDetail.cs" />
-    <Compile Include="Entities\Form1.cs" />
-    <Compile Include="Entities\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Entities\grid.cs" />
     <Compile Include="Entities\HEADERDELIVERY21C77654CD904F4685515946D5E3ACFC.cs" />
     <Compile Include="Entities\HEADERDELIVERY39668C965069455DAC584186C942B8F1.cs" />
@@ -138,7 +128,6 @@
     <Compile Include="Entities\ProductHistory.cs" />
     <Compile Include="Entities\ProductType.cs" />
     <Compile Include="Entities\ProductTypeHistory.cs" />
-    <Compile Include="Entities\Program.cs" />
     <Compile Include="Entities\PUReturn.cs" />
     <Compile Include="Entities\PUReturnDetail.cs" />
     <Compile Include="Entities\PUVoucher.cs" />

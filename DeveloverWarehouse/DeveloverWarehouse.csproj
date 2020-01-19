@@ -113,12 +113,6 @@
     <Compile Include="Modules\File\UOM.Designer.cs">
       <DependentUpon>UOM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\General\CustomAppointmentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\General\CustomAppointmentForm.Designer.cs">
-      <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Modules\Inventory\Delivery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,10 +285,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\File\UOM.resx">
       <DependentUpon>UOM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\General\CustomAppointmentForm.resx">
-      <DependentUpon>CustomAppointmentForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Inventory\Delivery.resx">
       <DependentUpon>Delivery.cs</DependentUpon>

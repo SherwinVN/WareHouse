@@ -266,9 +266,7 @@ namespace DeveloverWarehouse
         private void BarButtonHowTo_ItemClick(object sender, ItemClickEventArgs e)
         {
 
-            var form = new Form1();
-            form.MdiParent = this;
-            form.Show();
+           
         }
 
         private void ExitApplications()

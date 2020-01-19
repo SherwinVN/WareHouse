@@ -20,10 +20,7 @@ namespace DeveloverWarehouse.Modules.General
         public DashBoard()
         {
             InitializeComponent();
-            grcUser.BuildGridControlsView("SELECT * FROM sysDELUser", "User");
-            grcUser.LoadData();
-
-            schDataHistory.Appointments.DataSource = new DataTable();
+           
 
         }
 
@@ -106,7 +103,7 @@ namespace DeveloverWarehouse.Modules.General
         //    //    form.Dispose();
         //    //}
 
-        //
-        }
+        //}
+        
     }
 }
