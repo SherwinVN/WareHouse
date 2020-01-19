@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Develover.Utilities.DelTypeData;
@@ -114,6 +115,11 @@ namespace Develover.GUI.Services
             return dataBase.ExecuteNonQuery(result) != -1;
 
         }
+
+
+
+
+
         public bool InsertIntoTable(Dictionary<string, string> ListFilesValues, string Table, string NameFieldKey, string value)
         {
             StringBuilder stringBuilderField = new StringBuilder();
@@ -177,6 +183,43 @@ namespace Develover.GUI.Services
             return dataBase.GetDataTable("SELECT top 1 id FROM sysobjects WHERE [xtype] = '" + TypeObject + "'  and  [name] = N'" + ObjectName + "' ").Rows.Count > 0;
         }
 
+        public List<TypeColumns> GetSysDelGridcolumns(string Model)
+        {
+            List<TypeColumns> typeColumns = new List<TypeColumns>();
+
+            var listColumns = _unitOfWork.GetRepository<sysDELGridColumn>()
+                .TableNoTracking //Dùng TableNoTracking khi chỉ cần đọc dữ liệu, EF không cần theo dõi thay đổi.
+                .Where(x => x.Model == Model)
+                .OrderBy(x => x.OrderNo);
+
+            foreach (var c in listColumns)
+            {
+                typeColumns.Add(new TypeColumns
+                {
+                    Caption = c.Caption,
+                    Name = c.Name,
+                    FieldName = c.Name,
+                    Visible = c.Visible,
+                    AllowFocus = c.AllowFocus,
+                    AllowEdit = c.AllowEdit,
+                    Width = c.Width,
+                    Index = c.OrderNo,
+                    SumaryType = GetSumaryType(c.SumaryType),
+                    StringFormat = c.StringFormat,
+                    TypeColumn = GetTypeColumn(c.Type),
+                    ChildModel = c.ChildModel,
+                    SQLData = c.DataSource,
+                    KeyMember = c.KeyMember,
+                    DisplayMember = c.DisplayMember,
+                    ValueMember = c.ValueMember,
+                    NullText = c.NullText,
+                    Model = c.ChildModel
+                });
+            }
+
+            return typeColumns;
+        }
+
         public class GetObjects
         {
 
@@ -234,6 +277,7 @@ namespace Develover.GUI.Services
             {
                 List<TypeColumns> typeColumns = new List<TypeColumns>();
                 TypeColumns typeColumns_;
+
                 using (DataTable data = dataBase.GetDataTable("SELECT * FROM sysDELGridColumns WHERE Model = '" + Model + "' ORDER BY OrderNo"))
                 {
                     foreach (DataRow dr in data.Rows)

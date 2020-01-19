@@ -9,7 +9,7 @@ namespace Develover.Core
 {/// <summary>
  /// Entity Framework repository
  /// </summary>
-    public partial class Repository<T> : IRepository<T> where T : BaseEntity
+    public partial class Repository<T> : IRepository<T> where T : class
     {
         #region Fields
 

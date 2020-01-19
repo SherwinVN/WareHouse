@@ -9,7 +9,7 @@ namespace Develover.Core
         private readonly DbContext _dbContext;
         private bool _disposed;
 
-        public IRepository<T> GetRepository<T>() where T : Entities.BaseEntity
+        public IRepository<T> GetRepository<T>() where T : class
         {
             return new Repository<T>(_dbContext);
         }
