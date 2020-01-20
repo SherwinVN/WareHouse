@@ -126,7 +126,6 @@
     <Compile Include="Forms\DeveloverForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IDeveloverComponent.cs" />
     <Compile Include="Controls\DeveloverSeparatorControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -250,20 +249,11 @@
     <Compile Include="Controls\DeveloverZoomTrackBarControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="IDeveloverControl.cs" />
-    <Compile Include="IDeveloverFormChild.cs" />
-    <Compile Include="IDeveloverFormParent.cs" />
-    <Compile Include="IDeveloverForm.cs" />
-    <Compile Include="OverideClass\DelMessageBox.cs" />
-    <Compile Include="OverideClass\Localization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="PropertyControlsMore.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="RepositoryItems\DeveloverRepositoryItemCalcEdit.cs">
       <SubType>Component</SubType>

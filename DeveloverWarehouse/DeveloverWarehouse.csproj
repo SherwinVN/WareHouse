@@ -56,7 +56,7 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Dashboard.v19.2.Core, Version=19.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -83,66 +83,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\Accounting\Currency.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Accounting\Currency.Designer.cs">
-      <DependentUpon>Currency.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\File\Location.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\File\Location.Designer.cs">
-      <DependentUpon>Location.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\File\GroupUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\File\GroupUser.Designer.cs">
-      <DependentUpon>GroupUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\File\User.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\File\User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\File\UOM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\File\UOM.Designer.cs">
-      <DependentUpon>UOM.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Inventory\Delivery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Inventory\Delivery.Designer.cs">
-      <DependentUpon>Delivery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Inventory\Product.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Inventory\Product.Designer.cs">
-      <DependentUpon>Product.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Purchasing\Vendor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Purchasing\Vendor.Designer.cs">
-      <DependentUpon>Vendor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Sales\Customer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Sales\Customer.Designer.cs">
-      <DependentUpon>Customer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\File\Setting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\File\Setting.Designer.cs">
-      <DependentUpon>Setting.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,140 +107,8 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Accounting\TaxRate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Accounting\TaxRate.Designer.cs">
-      <DependentUpon>TaxRate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Accounting\ReceiptVoucher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Accounting\ReceiptVoucher.Designer.cs">
-      <DependentUpon>ReceiptVoucher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Accounting\PaymentVoucher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Accounting\PaymentVoucher.Designer.cs">
-      <DependentUpon>PaymentVoucher.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\General\Calendar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\General\Calendar.Designer.cs">
-      <DependentUpon>Calendar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\General\Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\General\Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\General\DashBoard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\General\DashBoard.Designer.cs">
-      <DependentUpon>DashBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Inventory\Tranfer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Inventory\Tranfer.Designer.cs">
-      <DependentUpon>Tranfer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Inventory\Receiving.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Inventory\Receiving.Designer.cs">
-      <DependentUpon>Receiving.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Sales\Picking.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Sales\Picking.Designer.cs">
-      <DependentUpon>Picking.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Sales\PricingRule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Sales\PricingRule.Designer.cs">
-      <DependentUpon>PricingRule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Purchasing\RMAPO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Purchasing\RMAPO.Designer.cs">
-      <DependentUpon>RMAPO.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Purchasing\PurchaseOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Purchasing\PurchaseOrder.Designer.cs">
-      <DependentUpon>PurchaseOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Sales\RMASO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Sales\RMASO.Designer.cs">
-      <DependentUpon>RMASO.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Sales\Discount.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Sales\Discount.Designer.cs">
-      <DependentUpon>Discount.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\Sales\SalesOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Sales\SalesOrder.Designer.cs">
-      <DependentUpon>SalesOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Modules\Purchasing\ReceivingPO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\Purchasing\ReceivingPO.Designer.cs">
-      <DependentUpon>ReceivingPO.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\File\Company.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\File\Company.Designer.cs">
-      <DependentUpon>Company.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Modules\Accounting\Currency.resx">
-      <DependentUpon>Currency.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\File\Location.resx">
-      <DependentUpon>Location.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\File\GroupUser.resx">
-      <DependentUpon>GroupUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\File\User.resx">
-      <DependentUpon>User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\File\UOM.resx">
-      <DependentUpon>UOM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Inventory\Delivery.resx">
-      <DependentUpon>Delivery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Inventory\Product.resx">
-      <DependentUpon>Product.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Purchasing\Vendor.resx">
-      <DependentUpon>Vendor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Sales\Customer.resx">
-      <DependentUpon>Customer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\File\Setting.resx">
-      <DependentUpon>Setting.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,61 +122,10 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Accounting\TaxRate.resx">
-      <DependentUpon>TaxRate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Accounting\ReceiptVoucher.resx">
-      <DependentUpon>ReceiptVoucher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Accounting\PaymentVoucher.resx">
-      <DependentUpon>PaymentVoucher.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\General\Calendar.resx">
-      <DependentUpon>Calendar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\General\DashBoard.resx">
-      <DependentUpon>DashBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\General\Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Inventory\Tranfer.resx">
-      <DependentUpon>Tranfer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Inventory\Receiving.resx">
-      <DependentUpon>Receiving.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Sales\Picking.resx">
-      <DependentUpon>Picking.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Sales\PricingRule.resx">
-      <DependentUpon>PricingRule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Purchasing\RMAPO.resx">
-      <DependentUpon>RMAPO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Purchasing\PurchaseOrder.resx">
-      <DependentUpon>PurchaseOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Sales\RMASO.resx">
-      <DependentUpon>RMASO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Sales\Discount.resx">
-      <DependentUpon>Discount.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Sales\SalesOrder.resx">
-      <DependentUpon>SalesOrder.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Purchasing\ReceivingPO.resx">
-      <DependentUpon>ReceivingPO.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modules\File\Company.resx">
-      <DependentUpon>Company.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Properties\Settings.settings">
@@ -421,10 +178,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="icon.png" />
+    <None Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo.ico" />
+    <Content Include="Resources\logo.ico" />
     <None Include="Resources\TAOLAO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

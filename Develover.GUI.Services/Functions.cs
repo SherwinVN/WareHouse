@@ -6,8 +6,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Develover.Utilities.DelTypeData;
-using static Develover.Utilities.Enum;
 
 namespace Develover.GUI.Services
 {
@@ -124,7 +122,7 @@ namespace Develover.GUI.Services
         {
             StringBuilder stringBuilderField = new StringBuilder();
             StringBuilder stringBuilderValue = new StringBuilder();
-            stringBuilderField.Append("INSERT INTO [" + Table.Replace("-", "") + "] ([" + NameFieldKey + "],");
+            stringBuilderField.Append("INSERT INTO [" + Table.Replace("-", string.Empty) + "] ([" + NameFieldKey + "],");
             stringBuilderValue.Append(" Values(N'" + value + "',");
             foreach (string key in ListFilesValues.Keys)
             {

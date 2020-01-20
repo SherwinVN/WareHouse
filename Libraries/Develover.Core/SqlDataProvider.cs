@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using Develover.Utilities;
 
 namespace Develover.Core
 {
     public sealed class SqlDataProvider
     {
-
-        public static string ConnectionString { get => connectionString; set => connectionString = value; }
-        SqlConnection sqlConnection = new SqlConnection();
         private static string connectionString;
+        SqlConnection sqlConnection = new SqlConnection();
 
         public SqlDataProvider()
         {
@@ -22,302 +17,428 @@ namespace Develover.Core
             // "Server=192.168.1.116,2828;Database=Develover;User Id=dev;Password=123;"
         }
 
-        public string GetSQLConnectionString()
+        public bool bulkcopy(DataTable dataWrite, string destinationTableName)
         {
-            return sqlConnection.ConnectionString = "Server=" + DeveloverOptions.InfoDatabase.ServerName + ";User Id=" + DeveloverOptions.InfoDatabase.UsernameSQL + ";Password=" + DeveloverOptions.InfoDatabase.PasswordSQL + ";";
-        }
-
-        public bool CheckLogin()
-        {
-            GetSQLConnectionString();
-            if (sqlConnection.State != ConnectionState.Open)
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
-                try { sqlConnection.Open(); }
-                catch (Exception ex)
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using(SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+
+                        bulkCopy.WriteToServer(dataWrite);
+                        return true;
+                    }
+                } catch(Exception ex)
                 {
                     DeveloverOptions.SysDel.MessageError = ex.Message;
                     return false;
-                };
-                sqlConnection.Close();
+                }
             }
-            return true;
         }
 
-        public bool OpenConection()
+        public bool bulkcopy(DataTable dataWrite, string destinationTableName, string[] columnMapping)
         {
-            GetSQLConnectionString();
-            if (sqlConnection.State != ConnectionState.Open)
-                try { sqlConnection.Open(); }
-                catch (Exception ex)
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using(SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach(string str in columnMapping)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, str));
+                        }
+                        bulkCopy.WriteToServer(dataWrite);
+                        return true;
+                    }
+                } catch(Exception ex)
                 {
                     DeveloverOptions.SysDel.MessageError = ex.Message;
                     return false;
-                };
-            return true;
-
+                }
+            }
         }
 
-        public bool CloseConection()
+        public bool bulkcopy(DataTable dataWrite, string destinationTableName, Dictionary<string, string> columnMapping)
         {
-            if (sqlConnection.State == ConnectionState.Open)
-                try { sqlConnection.Close(); }
-                catch (Exception ex)
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using(SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach(string str in columnMapping.Keys)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, columnMapping[str]));
+                        }
+                        bulkCopy.WriteToServer(dataWrite);
+                        return true;
+                    }
+                } catch(Exception ex)
                 {
                     DeveloverOptions.SysDel.MessageError = ex.Message;
                     return false;
-                };
-            return true;
+                }
+            }
+        }
 
+        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using(SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        await bulkCopy.WriteToServerAsync(dataWrite);
+                        return true;
+                    }
+                } catch(Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName, string[] columnMapping)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using(SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach(string str in columnMapping)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, str));
+                        }
+                        await bulkCopy.WriteToServerAsync(dataWrite);
+                        return true;
+                    }
+                } catch(Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
+        }
+
+        public async Task<bool> bulkcopyAsync(DataTable dataWrite,
+                                              string destinationTableName,
+                                              Dictionary<string, string> columnMapping)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    DataTable resultTable = new DataTable();
+                    using(SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    {
+                        bulkCopy.DestinationTableName = destinationTableName;
+                        foreach(string str in columnMapping.Keys)
+                        {
+                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, columnMapping[str]));
+                        }
+                        await bulkCopy.WriteToServerAsync(dataWrite);
+                        return true;
+                    }
+                } catch(Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            }
         }
 
         public bool ChangeDataBase()
         {
             GetSQLConnectionString();
-            if (sqlConnection.State != ConnectionState.Open)
+            if(sqlConnection.State != ConnectionState.Open)
             {
-                try { sqlConnection.Open(); }
-                catch (Exception ex)
+                try
+                {
+                    sqlConnection.Open();
+                } catch(Exception ex)
                 {
                     DeveloverOptions.SysDel.MessageError = ex.Message;
                     return false;
-                };
+                }
+                ;
             }
             try
             {
                 sqlConnection.ChangeDatabase(DeveloverOptions.InfoDatabase.DatabaseName);
-                connectionString = "Server=" + DeveloverOptions.InfoDatabase.ServerName + ";Database=" + DeveloverOptions.InfoDatabase.DatabaseName + ";User Id=" + DeveloverOptions.InfoDatabase.UsernameSQL + ";Password=" + DeveloverOptions.InfoDatabase.PasswordSQL + ";";
-            }
-            catch (Exception ex)
+                connectionString = "Server=" +
+                    DeveloverOptions.InfoDatabase.ServerName +
+                    ";Database=" +
+                    DeveloverOptions.InfoDatabase.DatabaseName +
+                    ";User Id=" +
+                    DeveloverOptions.InfoDatabase.UsernameSQL +
+                    ";Password=" +
+                    DeveloverOptions.InfoDatabase.PasswordSQL +
+                    ";";
+            } catch(Exception ex)
             {
                 DeveloverOptions.SysDel.MessageError = ex.Message;
                 return false;
-            };
+            }
+            ;
             return true;
-
         }
 
-        public DataTable GetDataTable(string query)
+        public bool CheckLogin()
         {
+            GetSQLConnectionString();
+            if(sqlConnection.State != ConnectionState.Open)
+            {
+                try
+                {
+                    sqlConnection.Open();
+                } catch(Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+                ;
+                sqlConnection.Close();
+            }
+            return true;
+        }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+        public bool CloseConection()
+        {
+            if(sqlConnection.State == ConnectionState.Open)
+                try
+                {
+                    sqlConnection.Close();
+                } catch(Exception ex)
+                {
+                    DeveloverOptions.SysDel.MessageError = ex.Message;
+                    return false;
+                }
+            ;
+            return true;
+        }
+
+        public int ExecuteNonQuery(string query)
+        {
+            int value;
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                DataTable resultTable = new DataTable();
-
-                using (SqlDataReader reader = ExecuteReader(query, connection))
+                using(SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    if (reader is null) return resultTable;
-
-                    using (DataTable schemaTable = reader.GetSchemaTable())
+                    using(SqlCommand command = new SqlCommand(query, connection, transaction)
+                    { CommandType = CommandType.Text })
                     {
-                        foreach (DataRow dataRow in schemaTable.Rows)
+                        try
                         {
-                            DataColumn dataColumn = new DataColumn
-                            {
-                                ColumnName = dataRow["ColumnName"].ToString(),
-                                DataType = Type.GetType(dataRow["DataType"].ToString()),
-                                ReadOnly = (bool)dataRow["IsReadOnly"],
-                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
-                                Unique = (bool)dataRow["IsUnique"]
-                            };
-
-                            resultTable.Columns.Add(dataColumn);
+                            value = command.ExecuteNonQuery();
+                            transaction.Commit();
+                        } catch(Exception ex)
+                        {
+                            DeveloverOptions.SysDel.MessageError = ex.Message;
+                            value = -1;
+                            transaction.Rollback();
                         }
                     }
-                    while (reader.Read())
+                }
+            }
+            return value;
+        }
+
+        public async Task<int> ExecuteNonQueryAsync(string query)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using(SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
+                {
+                    return await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public void ExecuteProcedure(string procedureName, SqlParameter[] paramsIn)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using(SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    using(SqlCommand command = new SqlCommand(procedureName, connection, transaction)
+                    { CommandType = CommandType.StoredProcedure })
                     {
-                        DataRow dataRow = resultTable.NewRow();
-                        for (int i = 0; i < resultTable.Columns.Count; i++)
+                        try
                         {
-                            dataRow[i] = reader[i];
+                            command.Parameters.AddRange(paramsIn);
+
+                            command.ExecuteNonQuery();
+                            transaction.Commit();
+                        } catch
+                        {
+                            transaction.Rollback();
                         }
-                        resultTable.Rows.Add(dataRow);
                     }
                 }
-                return resultTable;
             }
         }
 
-        public async Task<DataTable> GetDataTableAsync(string query)
+        public void ExecuteProcedure(string procedureName, string[] parameterName, string[] parameterValue)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                DataTable resultTable = new DataTable();
-
-                using (SqlDataReader reader = await ExecuteReaderAsync(query, connection))
+                using(SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    using (DataTable schemaTable = reader.GetSchemaTable())
+                    using(SqlCommand command = new SqlCommand(procedureName, connection, transaction)
+                    { CommandType = CommandType.StoredProcedure })
                     {
-                        foreach (DataRow dataRow in schemaTable.Rows)
+                        try
                         {
-                            DataColumn dataColumn = new DataColumn
+                            foreach(string str in parameterName)
                             {
-                                ColumnName = dataRow["ColumnName"].ToString(),
-                                DataType = Type.GetType(dataRow["DataType"].ToString()),
-                                ReadOnly = (bool)dataRow["IsReadOnly"],
-                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
-                                Unique = (bool)dataRow["IsUnique"]
-                            };
+                                command.Parameters
+                                    .Add(new SqlParameter(str, parameterValue[Array.IndexOf(parameterName, str)]));
+                            }
 
-                            resultTable.Columns.Add(dataColumn);
+                            command.ExecuteNonQuery();
+                            transaction.Commit();
+                        } catch
+                        {
+                            transaction.Rollback();
                         }
                     }
+                }
+            }
+        }
 
-                    while (reader.Read())
+        public async Task ExecuteProcedureAsync(string procedureName, SqlParameter[] paramsIn)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using(SqlCommand command = new SqlCommand(procedureName, connection)
+                { CommandType = CommandType.StoredProcedure })
+                {
+                    command.Parameters.AddRange(paramsIn);
+
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public async Task ExecuteProcedureAsync(string procedureName, string[] parameterName, string[] parameterValue)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using(SqlCommand command = new SqlCommand(procedureName, connection)
+                { CommandType = CommandType.StoredProcedure })
+                {
+                    foreach(string str in parameterName)
                     {
-                        DataRow dataRow = resultTable.NewRow();
-                        for (int i = 0; i < resultTable.Columns.Count; i++)
+                        command.Parameters.Add(new SqlParameter(str, parameterValue[Array.IndexOf(parameterName, str)]));
+                    }
+
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public object ExecuteProcedureOut(string procedureName, SqlParameter[] paramsIn, SqlParameter paramOut)
+        {
+            object value;
+
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using(SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    using(SqlCommand command = new SqlCommand(procedureName, connection, transaction)
+                    { CommandType = CommandType.StoredProcedure })
+                    {
+                        try
                         {
-                            dataRow[i] = reader[i];
+                            command.Parameters.AddRange(paramsIn);
+                            command.Parameters.Add(paramOut);
+
+                            command.ExecuteNonQuery();
+
+                            value = paramOut.Value;
+                            transaction.Commit();
+                        } catch
+                        {
+                            value = null;
+                            transaction.Rollback();
                         }
-                        resultTable.Rows.Add(dataRow);
                     }
                 }
-                return resultTable;
             }
+
+            return value;
         }
 
-        public DataTable GetDataTableParallel(string query)
+        public async Task<object> ExecuteProcedureOutAsync(string procedureName,
+                                                           SqlParameter[] paramsIn,
+                                                           SqlParameter paramOut)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                DataTable resultTable = new DataTable();
-
-                using (SqlDataReader reader = ExecuteReader(query, connection))
+                using(SqlCommand command = new SqlCommand(procedureName, connection)
+                { CommandType = CommandType.StoredProcedure })
                 {
-                    using (DataTable schemaTable = reader.GetSchemaTable())
-                    {
-                        Parallel.For(0, schemaTable.Rows.Count, (i) =>
-                        {
-                            DataRow dataRow = schemaTable.Rows[i];
-                            DataColumn dataColumn = new DataColumn
-                            {
-                                ColumnName = dataRow["ColumnName"].ToString(),
-                                DataType = Type.GetType(dataRow["DataType"].ToString()),
-                                ReadOnly = (bool)dataRow["IsReadOnly"],
-                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
-                                Unique = (bool)dataRow["IsUnique"]
-                            };
+                    command.Parameters.AddRange(paramsIn);
+                    command.Parameters.Add(paramOut);
 
-                            resultTable.Columns.Add(dataColumn);
-                        });
-                    }
-                    while (reader.Read())
-                    {
-                        DataRow dataRow = resultTable.NewRow();
-                        Parallel.For(0, resultTable.Columns.Count - 1, (i) =>
-                        {
-                            string name = resultTable.Columns[i].ColumnName;
-                            dataRow[name] = reader[name];
-                        });
-                        resultTable.Rows.Add(dataRow);
-                    }
-                }
-                return resultTable;
-            }
-        }
+                    await command.ExecuteNonQueryAsync();
 
-        public async Task<DataTable> GetDataTableParallelAsync(string query)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                DataTable resultTable = new DataTable();
-
-                using (SqlDataReader reader = await ExecuteReaderAsync(query, connection))
-                {
-                    using (DataTable schemaTable = reader.GetSchemaTable())
-                    {
-                        Parallel.For(0, schemaTable.Rows.Count, (i) =>
-                        {
-                            DataRow dataRow = schemaTable.Rows[i];
-                            DataColumn dataColumn = new DataColumn
-                            {
-                                ColumnName = dataRow["ColumnName"].ToString(),
-                                DataType = Type.GetType(dataRow["DataType"].ToString()),
-                                ReadOnly = (bool)dataRow["IsReadOnly"],
-                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
-                                Unique = (bool)dataRow["IsUnique"]
-                            };
-
-                            resultTable.Columns.Add(dataColumn);
-                        });
-                    }
-                    while (reader.Read())
-                    {
-                        DataRow dataRow = resultTable.NewRow();
-                        Parallel.For(0, resultTable.Columns.Count - 1, (i) =>
-                        {
-                            string name = resultTable.Columns[i].ColumnName;
-                            dataRow[name] = reader[name];
-                        });
-                        resultTable.Rows.Add(dataRow);
-                    }
-                }
-                return resultTable;
-            }
-        }
-
-        public DataSet GetDataSet(string query)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                DataSet dataSet = new DataSet();
-                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection))
-                {
-                    dataAdapter.Fill(dataSet);
-
-                    return dataSet;
-                }
-            }
-        }
-
-        public DataSet GetDataSet(string query, string tableName)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                DataSet dataSet = new DataSet();
-                using (SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection))
-                {
-                    dataAdapter.Fill(dataSet, tableName);
-
-                    return dataSet;
+                    return paramOut.Value;
                 }
             }
         }
 
         public SqlDataReader ExecuteReader(string query)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
+                using(SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
                 {
                     return command.ExecuteReader();
-                }
-            }
-        }
-
-        public async Task<SqlDataReader> ExecuteReaderAsync(string query)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
-                {
-                    return await command.ExecuteReaderAsync();
                 }
             }
         }
@@ -326,16 +447,15 @@ namespace Develover.Core
         {
             SqlDataReader dataReader;
 
-            if (connection.State != ConnectionState.Open)
+            if(connection.State != ConnectionState.Open)
                 connection.Open();
 
-            using (SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
+            using(SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
             {
                 try
                 {
                     dataReader = command.ExecuteReader();
-                }
-                catch (Exception ex)
+                } catch(Exception ex)
                 {
                     dataReader = null;
                     DeveloverOptions.SysDel.MessageError = ex.Message;
@@ -345,55 +465,28 @@ namespace Develover.Core
             return dataReader;
         }
 
+        public async Task<SqlDataReader> ExecuteReaderAsync(string query)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using(SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
+                {
+                    return await command.ExecuteReaderAsync();
+                }
+            }
+        }
+
         public async Task<SqlDataReader> ExecuteReaderAsync(string query, IDbConnection connection)
         {
-            if (connection.State != ConnectionState.Open)
+            if(connection.State != ConnectionState.Open)
                 connection.Open();
 
-            using (SqlCommand command = new SqlCommand(query, (SqlConnection)connection) { CommandType = CommandType.Text })
+            using(SqlCommand command = new SqlCommand(query, (SqlConnection)connection)
+            { CommandType = CommandType.Text })
             {
                 return await command.ExecuteReaderAsync();
-            }
-        }
-
-        public int ExecuteNonQuery(string query)
-        {
-            int value;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                using (SqlTransaction transaction = connection.BeginTransaction())
-                {
-                    using (SqlCommand command = new SqlCommand(query, connection, transaction) { CommandType = CommandType.Text })
-                    {
-                        try
-                        {
-                            value = command.ExecuteNonQuery();
-                            transaction.Commit();
-                        }
-                        catch (Exception ex)
-                        {
-                            DeveloverOptions.SysDel.MessageError = ex.Message;
-                            value = -1;
-                            transaction.Rollback();
-                        }
-
-                    }
-                }
-            }
-            return value;
-        }
-
-        public async Task<int> ExecuteNonQueryAsync(string query)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
-                {
-                    return await command.ExecuteNonQueryAsync();
-                }
             }
         }
 
@@ -401,22 +494,21 @@ namespace Develover.Core
         {
             object value;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlTransaction transaction = connection.BeginTransaction())
+                using(SqlTransaction transaction = connection.BeginTransaction())
                 {
-                    using (SqlCommand command = new SqlCommand(query, connection, transaction) { CommandType = CommandType.Text })
+                    using(SqlCommand command = new SqlCommand(query, connection, transaction)
+                    { CommandType = CommandType.Text })
                     {
                         try
                         {
                             value = command.ExecuteScalar();
                             transaction.Commit();
-                        }
-                        catch (Exception ex)
+                        } catch(Exception ex)
                         {
-
                             DeveloverOptions.SysDel.MessageError = ex.Message;
                             value = null;
                             transaction.Rollback();
@@ -430,316 +522,253 @@ namespace Develover.Core
 
         public async Task<object> ExecuteScalarAsync(string query)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
+                using(SqlCommand command = new SqlCommand(query, connection) { CommandType = CommandType.Text })
                 {
                     return await command.ExecuteScalarAsync();
                 }
             }
         }
 
-        public void ExecuteProcedure(string procedureName, SqlParameter[] paramsIn)
+        public DataSet GetDataSet(string query)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlTransaction transaction = connection.BeginTransaction())
+                DataSet dataSet = new DataSet();
+                using(SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection))
                 {
-                    using (SqlCommand command = new SqlCommand(procedureName, connection, transaction) { CommandType = CommandType.StoredProcedure })
-                    {
-                        try
-                        {
-                            command.Parameters.AddRange(paramsIn);
+                    dataAdapter.Fill(dataSet);
 
-                            command.ExecuteNonQuery();
-                            transaction.Commit();
-                        }
-                        catch { transaction.Rollback(); }
-                    }
+                    return dataSet;
                 }
             }
         }
-               
-        public async Task ExecuteProcedureAsync(string procedureName, SqlParameter[] paramsIn)
+
+        public DataSet GetDataSet(string query, string tableName)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand(procedureName, connection) { CommandType = CommandType.StoredProcedure })
+                DataSet dataSet = new DataSet();
+                using(SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection))
                 {
-                    command.Parameters.AddRange(paramsIn);
+                    dataAdapter.Fill(dataSet, tableName);
 
-                    await command.ExecuteNonQueryAsync();
+                    return dataSet;
                 }
             }
-        }        
+        }
 
-        public void ExecuteProcedure(string procedureName, string[] parameterName, string[] parameterValue)
+        public DataTable GetDataTable(string query)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlTransaction transaction = connection.BeginTransaction())
+                DataTable resultTable = new DataTable();
+
+                using(SqlDataReader reader = ExecuteReader(query, connection))
                 {
-                    using (SqlCommand command = new SqlCommand(procedureName, connection, transaction) { CommandType = CommandType.StoredProcedure })
+                    if(reader is null)
+                        return resultTable;
+
+                    using(DataTable schemaTable = reader.GetSchemaTable())
                     {
-                        try
+                        foreach(DataRow dataRow in schemaTable.Rows)
                         {
-                            foreach (string str in parameterName)
+                            DataColumn dataColumn = new DataColumn
                             {
-                                command.Parameters.Add(new SqlParameter(str, parameterValue[Array.IndexOf(parameterName, str)]));
-                            }
+                                ColumnName = dataRow["ColumnName"].ToString(),
+                                DataType = Type.GetType(dataRow["DataType"].ToString()),
+                                ReadOnly = (bool)dataRow["IsReadOnly"],
+                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
+                                Unique = (bool)dataRow["IsUnique"]
+                            };
 
-                            command.ExecuteNonQuery();
-                            transaction.Commit();
+                            resultTable.Columns.Add(dataColumn);
                         }
-                        catch { transaction.Rollback(); }
+                    }
+                    while(reader.Read())
+                    {
+                        DataRow dataRow = resultTable.NewRow();
+                        for(int i = 0; i < resultTable.Columns.Count; i++)
+                        {
+                            dataRow[i] = reader[i];
+                        }
+                        resultTable.Rows.Add(dataRow);
                     }
                 }
+                return resultTable;
             }
         }
 
-        public async Task ExecuteProcedureAsync(string procedureName, string[] parameterName, string[] parameterValue)
+        public async Task<DataTable> GetDataTableAsync(string query)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand(procedureName, connection) { CommandType = CommandType.StoredProcedure })
+                DataTable resultTable = new DataTable();
+
+                using(SqlDataReader reader = await ExecuteReaderAsync(query, connection))
                 {
-                    foreach (string str in parameterName)
+                    using(DataTable schemaTable = reader.GetSchemaTable())
                     {
-                        command.Parameters.Add(new SqlParameter(str, parameterValue[Array.IndexOf(parameterName, str)]));
+                        foreach(DataRow dataRow in schemaTable.Rows)
+                        {
+                            DataColumn dataColumn = new DataColumn
+                            {
+                                ColumnName = dataRow["ColumnName"].ToString(),
+                                DataType = Type.GetType(dataRow["DataType"].ToString()),
+                                ReadOnly = (bool)dataRow["IsReadOnly"],
+                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
+                                Unique = (bool)dataRow["IsUnique"]
+                            };
+
+                            resultTable.Columns.Add(dataColumn);
+                        }
                     }
 
-                    await command.ExecuteNonQueryAsync();
+                    while(reader.Read())
+                    {
+                        DataRow dataRow = resultTable.NewRow();
+                        for(int i = 0; i < resultTable.Columns.Count; i++)
+                        {
+                            dataRow[i] = reader[i];
+                        }
+                        resultTable.Rows.Add(dataRow);
+                    }
                 }
+                return resultTable;
             }
-            
         }
-        public object ExecuteProcedureOut(string procedureName, SqlParameter[] paramsIn, SqlParameter paramOut)
-        {
-            object value;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+        public DataTable GetDataTableParallel(string query)
+        {
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlTransaction transaction = connection.BeginTransaction())
+                DataTable resultTable = new DataTable();
+
+                using(SqlDataReader reader = ExecuteReader(query, connection))
                 {
-                    using (SqlCommand command = new SqlCommand(procedureName, connection, transaction) { CommandType = CommandType.StoredProcedure })
+                    using(DataTable schemaTable = reader.GetSchemaTable())
                     {
-                        try
+                        Parallel.For(0,
+                                     schemaTable.Rows.Count,
+                                     (i) =>
                         {
-                            command.Parameters.AddRange(paramsIn);
-                            command.Parameters.Add(paramOut);
+                            DataRow dataRow = schemaTable.Rows[i];
+                            DataColumn dataColumn = new DataColumn
+                            {
+                                ColumnName = dataRow["ColumnName"].ToString(),
+                                DataType = Type.GetType(dataRow["DataType"].ToString()),
+                                ReadOnly = (bool)dataRow["IsReadOnly"],
+                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
+                                Unique = (bool)dataRow["IsUnique"]
+                            };
 
-                            command.ExecuteNonQuery();
-
-                            value = paramOut.Value;
-                            transaction.Commit();
-                        }
-                        catch
+                            resultTable.Columns.Add(dataColumn);
+                        });
+                    }
+                    while(reader.Read())
+                    {
+                        DataRow dataRow = resultTable.NewRow();
+                        Parallel.For(0,
+                                     resultTable.Columns.Count - 1,
+                                     (i) =>
                         {
-                            value = null;
-                            transaction.Rollback();
-                        }
+                            string name = resultTable.Columns[i].ColumnName;
+                            dataRow[name] = reader[name];
+                        });
+                        resultTable.Rows.Add(dataRow);
                     }
                 }
+                return resultTable;
             }
-
-            return value;
         }
 
-        public async Task<object> ExecuteProcedureOutAsync(string procedureName, SqlParameter[] paramsIn, SqlParameter paramOut)
+        public async Task<DataTable> GetDataTableParallelAsync(string query)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using(SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand command = new SqlCommand(procedureName, connection) { CommandType = CommandType.StoredProcedure })
+                DataTable resultTable = new DataTable();
+
+                using(SqlDataReader reader = await ExecuteReaderAsync(query, connection))
                 {
-                    command.Parameters.AddRange(paramsIn);
-                    command.Parameters.Add(paramOut);
-
-                    await command.ExecuteNonQueryAsync();
-
-                    return paramOut.Value;
-                }
-            }
-        }
-
-        public bool bulkcopy(DataTable dataWrite, string destinationTableName)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    DataTable resultTable = new DataTable();
-                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    using(DataTable schemaTable = reader.GetSchemaTable())
                     {
-                        bulkCopy.DestinationTableName = destinationTableName;
-
-                        bulkCopy.WriteToServer(dataWrite);
-                        return true;
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    DeveloverOptions.SysDel.MessageError = ex.Message;
-                    return false;
-                }
-            }
-        }
-
-        public bool bulkcopy(DataTable dataWrite, string destinationTableName, string[] columnMapping)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    DataTable resultTable = new DataTable();
-                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-                    {
-                        bulkCopy.DestinationTableName = destinationTableName;
-                        foreach (string str in columnMapping)
+                        Parallel.For(0,
+                                     schemaTable.Rows.Count,
+                                     (i) =>
                         {
-                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, str));
-                        }
-                        bulkCopy.WriteToServer(dataWrite);
-                        return true;
+                            DataRow dataRow = schemaTable.Rows[i];
+                            DataColumn dataColumn = new DataColumn
+                            {
+                                ColumnName = dataRow["ColumnName"].ToString(),
+                                DataType = Type.GetType(dataRow["DataType"].ToString()),
+                                ReadOnly = (bool)dataRow["IsReadOnly"],
+                                AutoIncrement = (bool)dataRow["IsAutoIncrement"],
+                                Unique = (bool)dataRow["IsUnique"]
+                            };
 
+                            resultTable.Columns.Add(dataColumn);
+                        });
                     }
-                }
-                catch (Exception ex)
-                {
-                    DeveloverOptions.SysDel.MessageError = ex.Message;
-                    return false;
-                }
-            }
-        }
-
-        public bool bulkcopy(DataTable dataWrite, string destinationTableName, Dictionary<string, string> columnMapping)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    DataTable resultTable = new DataTable();
-                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
+                    while(reader.Read())
                     {
-                        bulkCopy.DestinationTableName = destinationTableName;
-                        foreach (string str in columnMapping.Keys)
+                        DataRow dataRow = resultTable.NewRow();
+                        Parallel.For(0,
+                                     resultTable.Columns.Count - 1,
+                                     (i) =>
                         {
-                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, columnMapping[str]));
-                        }
-                        bulkCopy.WriteToServer(dataWrite);
-                        return true;
-
+                            string name = resultTable.Columns[i].ColumnName;
+                            dataRow[name] = reader[name];
+                        });
+                        resultTable.Rows.Add(dataRow);
                     }
                 }
-                catch (Exception ex)
-                {
-                    DeveloverOptions.SysDel.MessageError = ex.Message;
-                    return false;
-                }
+                return resultTable;
             }
         }
 
-        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName)
+        public string GetSQLConnectionString()
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
+            return sqlConnection.ConnectionString =
+                "Server=" +
+                    DeveloverOptions.InfoDatabase.ServerName +
+                    ";User Id=" +
+                    DeveloverOptions.InfoDatabase.UsernameSQL +
+                    ";Password=" +
+                    DeveloverOptions.InfoDatabase.PasswordSQL +
+                    ";";
+        }
+
+        public bool OpenConection()
+        {
+            GetSQLConnectionString();
+            if(sqlConnection.State != ConnectionState.Open)
                 try
                 {
-                    connection.Open();
-
-                    DataTable resultTable = new DataTable();
-                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-                    {
-                        bulkCopy.DestinationTableName = destinationTableName;
-                        await bulkCopy.WriteToServerAsync(dataWrite);
-                        return true;
-
-                    }
-                }
-                catch (Exception ex)
+                    sqlConnection.Open();
+                } catch(Exception ex)
                 {
                     DeveloverOptions.SysDel.MessageError = ex.Message;
                     return false;
                 }
-            }
+            ;
+            return true;
         }
 
-        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName, string[] columnMapping)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    DataTable resultTable = new DataTable();
-                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-                    {
-                        bulkCopy.DestinationTableName = destinationTableName;
-                        foreach (string str in columnMapping)
-                        {
-                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, str));
-                        }
-                        await bulkCopy.WriteToServerAsync(dataWrite);
-                        return true;
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    DeveloverOptions.SysDel.MessageError = ex.Message;
-                    return false;
-                }
-            }
-        }
-
-        public async Task<bool> bulkcopyAsync(DataTable dataWrite, string destinationTableName, Dictionary<string, string> columnMapping)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    DataTable resultTable = new DataTable();
-                    using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection))
-                    {
-                        bulkCopy.DestinationTableName = destinationTableName;
-                        foreach (string str in columnMapping.Keys)
-                        {
-                            bulkCopy.ColumnMappings.Add(new SqlBulkCopyColumnMapping(str, columnMapping[str]));
-                        }
-                        await bulkCopy.WriteToServerAsync(dataWrite);
-                        return true;
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    DeveloverOptions.SysDel.MessageError = ex.Message;
-                    return false;
-                }
-            }
-        }
+        public static string ConnectionString { get => connectionString; set => connectionString = value; }
     }
 }

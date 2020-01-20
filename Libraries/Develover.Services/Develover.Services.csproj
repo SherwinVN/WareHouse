@@ -55,9 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions.cs" />
-    <Compile Include="IDeveloverFunctions.cs" />
-    <Compile Include="IDeveloverLogger.cs" />
-    <Compile Include="IDeveloverLoginFunction.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WriteHistory.cs" />

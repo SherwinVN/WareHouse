@@ -1,5 +1,4 @@
 ﻿using Develover.Core.Entities;
-using Develover.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,9 +6,7 @@ using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Develover.Core
 {
@@ -25,6 +22,7 @@ namespace Develover.Core
         }
 
         #endregion
+
         #region DataSetModel
         public virtual DbSet<Account> SysDELListVoucher { get; set; }
         public virtual DbSet<AccountObject> AccountObjects { get; set; }

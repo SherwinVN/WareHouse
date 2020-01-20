@@ -65,6 +65,10 @@
       <Project>{6DC6DE96-E1B3-433D-8358-88EE3835DEF8}</Project>
       <Name>Develover.Utilities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Libraries\Develover\Develover.csproj">
+      <Project>{D37491EB-9A4A-4873-90AD-FEB893256D97}</Project>
+      <Name>Develover</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
